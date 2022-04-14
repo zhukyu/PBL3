@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
+using System.Drawing;
 
 namespace GUI
 {
@@ -19,6 +21,17 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Restart ();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("Nunito-Bold.ttf");
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

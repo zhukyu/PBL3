@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace Gym
 {
     partial class Login
     {

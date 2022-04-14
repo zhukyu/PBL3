@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
-namespace GUI
+namespace Gym
 {
     partial class Home
     {
@@ -68,7 +68,15 @@ namespace GUI
             this.employeeButton = new System.Windows.Forms.Button();
             this.memberButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pContainer = new System.Windows.Forms.Panel();
+            this.formName = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pContainer.SuspendLayout();
+            this.formName.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -85,8 +93,9 @@ namespace GUI
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(267, 833);
+            this.panelMenu.Size = new System.Drawing.Size(267, 783);
             this.panelMenu.TabIndex = 1;
             // 
             // logOutButton
@@ -98,7 +107,7 @@ namespace GUI
             this.logOutButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.logOutButton.Image = ((System.Drawing.Image)(resources.GetObject("logOutButton.Image")));
             this.logOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logOutButton.Location = new System.Drawing.Point(0, 744);
+            this.logOutButton.Location = new System.Drawing.Point(0, 685);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Padding = new System.Windows.Forms.Padding(12, 0, 25, 0);
             this.logOutButton.Size = new System.Drawing.Size(267, 80);
@@ -117,7 +126,7 @@ namespace GUI
             this.revenueButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.revenueButton.Image = ((System.Drawing.Image)(resources.GetObject("revenueButton.Image")));
             this.revenueButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.revenueButton.Location = new System.Drawing.Point(0, 664);
+            this.revenueButton.Location = new System.Drawing.Point(0, 605);
             this.revenueButton.Name = "revenueButton";
             this.revenueButton.Padding = new System.Windows.Forms.Padding(12, 0, 25, 0);
             this.revenueButton.Size = new System.Drawing.Size(267, 80);
@@ -135,7 +144,7 @@ namespace GUI
             this.deviceButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.deviceButton.Image = ((System.Drawing.Image)(resources.GetObject("deviceButton.Image")));
             this.deviceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deviceButton.Location = new System.Drawing.Point(0, 584);
+            this.deviceButton.Location = new System.Drawing.Point(0, 525);
             this.deviceButton.Name = "deviceButton";
             this.deviceButton.Padding = new System.Windows.Forms.Padding(12, 0, 60, 0);
             this.deviceButton.Size = new System.Drawing.Size(267, 80);
@@ -153,7 +162,7 @@ namespace GUI
             this.courseButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.courseButton.Image = ((System.Drawing.Image)(resources.GetObject("courseButton.Image")));
             this.courseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.courseButton.Location = new System.Drawing.Point(0, 504);
+            this.courseButton.Location = new System.Drawing.Point(0, 445);
             this.courseButton.Name = "courseButton";
             this.courseButton.Padding = new System.Windows.Forms.Padding(12, 0, 40, 0);
             this.courseButton.Size = new System.Drawing.Size(267, 80);
@@ -171,7 +180,7 @@ namespace GUI
             this.productButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.productButton.Image = ((System.Drawing.Image)(resources.GetObject("productButton.Image")));
             this.productButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productButton.Location = new System.Drawing.Point(0, 424);
+            this.productButton.Location = new System.Drawing.Point(0, 365);
             this.productButton.Name = "productButton";
             this.productButton.Padding = new System.Windows.Forms.Padding(12, 0, 30, 0);
             this.productButton.Size = new System.Drawing.Size(267, 80);
@@ -189,7 +198,7 @@ namespace GUI
             this.customerButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.customerButton.Image = ((System.Drawing.Image)(resources.GetObject("customerButton.Image")));
             this.customerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerButton.Location = new System.Drawing.Point(0, 344);
+            this.customerButton.Location = new System.Drawing.Point(0, 285);
             this.customerButton.Name = "customerButton";
             this.customerButton.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
             this.customerButton.Size = new System.Drawing.Size(267, 80);
@@ -207,7 +216,7 @@ namespace GUI
             this.employeeButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.employeeButton.Image = ((System.Drawing.Image)(resources.GetObject("employeeButton.Image")));
             this.employeeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.employeeButton.Location = new System.Drawing.Point(0, 264);
+            this.employeeButton.Location = new System.Drawing.Point(0, 205);
             this.employeeButton.Name = "employeeButton";
             this.employeeButton.Padding = new System.Windows.Forms.Padding(12, 0, 30, 0);
             this.employeeButton.Size = new System.Drawing.Size(267, 80);
@@ -225,7 +234,7 @@ namespace GUI
             this.memberButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.memberButton.Image = ((System.Drawing.Image)(resources.GetObject("memberButton.Image")));
             this.memberButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.memberButton.Location = new System.Drawing.Point(0, 184);
+            this.memberButton.Location = new System.Drawing.Point(0, 125);
             this.memberButton.Name = "memberButton";
             this.memberButton.Padding = new System.Windows.Forms.Padding(12, 0, 55, 0);
             this.memberButton.Size = new System.Drawing.Size(267, 80);
@@ -233,27 +242,75 @@ namespace GUI
             this.memberButton.Text = "Hội viên";
             this.memberButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.memberButton.UseVisualStyleBackColor = true;
+            this.memberButton.Click += new System.EventHandler(this.memberButton_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 184);
+            this.panel1.Size = new System.Drawing.Size(267, 125);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(25, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 62);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pContainer
+            // 
+            this.pContainer.Controls.Add(this.formName);
+            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pContainer.Location = new System.Drawing.Point(267, 0);
+            this.pContainer.Name = "pContainer";
+            this.pContainer.Size = new System.Drawing.Size(1335, 783);
+            this.pContainer.TabIndex = 2;
+            // 
+            // formName
+            // 
+            this.formName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.formName.Controls.Add(this.label1);
+            this.formName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formName.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formName.ForeColor = System.Drawing.Color.White;
+            this.formName.Location = new System.Drawing.Point(0, 0);
+            this.formName.Name = "formName";
+            this.formName.Size = new System.Drawing.Size(1335, 125);
+            this.formName.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(573, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(279, 60);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nhân viên";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1702, 833);
+            this.ClientSize = new System.Drawing.Size(1602, 783);
+            this.Controls.Add(this.pContainer);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quan ly phong gym";
             this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pContainer.ResumeLayout(false);
+            this.formName.ResumeLayout(false);
+            this.formName.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +326,9 @@ namespace GUI
         private System.Windows.Forms.Button productButton;
         private System.Windows.Forms.Button customerButton;
         private System.Windows.Forms.Button employeeButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pContainer;
+        private System.Windows.Forms.Panel formName;
+        private System.Windows.Forms.Label label1;
     }
 }

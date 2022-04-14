@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Drawing;
 
-namespace GUI
+namespace Gym
 {
     public partial class Home : Form
     {
@@ -32,6 +32,11 @@ namespace GUI
         private void logOutButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void memberButton_Click(object sender, EventArgs e)
+        {
+            var member = new Member();
         }
     }
 }

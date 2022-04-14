@@ -70,13 +70,12 @@ namespace Gym
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContainer = new System.Windows.Forms.Panel();
-            this.formName = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.formNameLable = new System.Windows.Forms.Panel();
+            this.formName = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pContainer.SuspendLayout();
-            this.formName.SuspendLayout();
+            this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -134,6 +133,7 @@ namespace Gym
             this.revenueButton.Text = "Doanh thu";
             this.revenueButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.revenueButton.UseVisualStyleBackColor = true;
+            this.revenueButton.Click += new System.EventHandler(this.revenueButton_Click);
             // 
             // deviceButton
             // 
@@ -152,6 +152,7 @@ namespace Gym
             this.deviceButton.Text = "Thiết bị";
             this.deviceButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deviceButton.UseVisualStyleBackColor = true;
+            this.deviceButton.Click += new System.EventHandler(this.deviceButton_Click);
             // 
             // courseButton
             // 
@@ -170,6 +171,7 @@ namespace Gym
             this.courseButton.Text = "Khóa học";
             this.courseButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.courseButton.UseVisualStyleBackColor = true;
+            this.courseButton.Click += new System.EventHandler(this.courseButton_Click);
             // 
             // productButton
             // 
@@ -188,6 +190,7 @@ namespace Gym
             this.productButton.Text = "Sản phẩm";
             this.productButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.productButton.UseVisualStyleBackColor = true;
+            this.productButton.Click += new System.EventHandler(this.productButton_Click);
             // 
             // customerButton
             // 
@@ -206,6 +209,7 @@ namespace Gym
             this.customerButton.Text = "Khách hàng";
             this.customerButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.customerButton.UseVisualStyleBackColor = true;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
             // employeeButton
             // 
@@ -224,6 +228,7 @@ namespace Gym
             this.employeeButton.Text = "Nhân viên";
             this.employeeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.employeeButton.UseVisualStyleBackColor = true;
+            this.employeeButton.Click += new System.EventHandler(this.employeeButton_Click);
             // 
             // memberButton
             // 
@@ -265,40 +270,40 @@ namespace Gym
             // 
             // pContainer
             // 
-            this.pContainer.Controls.Add(this.formName);
-            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContainer.Location = new System.Drawing.Point(267, 0);
+            this.pContainer.Location = new System.Drawing.Point(267, 125);
             this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1335, 783);
+            this.pContainer.Size = new System.Drawing.Size(1377, 694);
             this.pContainer.TabIndex = 2;
+            // 
+            // formNameLable
+            // 
+            this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.formNameLable.Controls.Add(this.formName);
+            this.formNameLable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formNameLable.ForeColor = System.Drawing.Color.White;
+            this.formNameLable.Location = new System.Drawing.Point(267, 0);
+            this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
+            this.formNameLable.Name = "formNameLable";
+            this.formNameLable.Size = new System.Drawing.Size(1335, 125);
+            this.formNameLable.TabIndex = 0;
             // 
             // formName
             // 
-            this.formName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.formName.Controls.Add(this.label1);
-            this.formName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formName.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.formName.ForeColor = System.Drawing.Color.White;
-            this.formName.Location = new System.Drawing.Point(0, 0);
+            this.formName.AutoSize = true;
+            this.formName.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.formName.Location = new System.Drawing.Point(579, 36);
             this.formName.Name = "formName";
-            this.formName.Size = new System.Drawing.Size(1335, 125);
-            this.formName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(573, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 60);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nhân viên";
+            this.formName.Size = new System.Drawing.Size(230, 60);
+            this.formName.TabIndex = 1;
+            this.formName.Text = "Hội viên";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1602, 783);
+            this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.pContainer);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -308,9 +313,8 @@ namespace Gym
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pContainer.ResumeLayout(false);
-            this.formName.ResumeLayout(false);
-            this.formName.PerformLayout();
+            this.formNameLable.ResumeLayout(false);
+            this.formNameLable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,7 +332,7 @@ namespace Gym
         private System.Windows.Forms.Button employeeButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pContainer;
-        private System.Windows.Forms.Panel formName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel formNameLable;
+        private System.Windows.Forms.Label formName;
     }
 }

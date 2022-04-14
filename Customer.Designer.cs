@@ -1,6 +1,6 @@
 ﻿namespace Gym
 {
-    partial class Member
+    partial class Customer
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Member
+            // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1335, 658);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.Name = "Member";
-            this.Text = "Member";
+            this.Name = "Customer";
+            this.Text = "Customer";
             this.ResumeLayout(false);
 
         }

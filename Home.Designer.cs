@@ -302,6 +302,7 @@ namespace Gym
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1602, 783);
             this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.pContainer);

@@ -16,6 +16,21 @@ namespace Gym
         public Home()
         {
             InitializeComponent();
+            
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
+            // change form name
+            this.formName.Text = "Hội viên";
+
+            // add form to panel
+            var member = new Member();
+            member.TopLevel = false;
+            member.AutoScroll = true;
+            member.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.pContainer.Controls.Add(member);
+            member.Dock = DockStyle.Fill;
+            member.Show();
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -40,8 +55,20 @@ namespace Gym
 
         }
 
+        private void clearForm()
+        {
+            foreach (var c in this.pContainer.Controls)
+            {
+                this.pContainer.Controls.Remove((Control)c);
+            }
+        }
+
         private void memberButton_Click(object sender, EventArgs e)
         {
+
+            // clear container
+            clearForm();
+
             //// change color
             //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
 
@@ -60,6 +87,12 @@ namespace Gym
 
         private void employeeButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Nhân viên";
 
@@ -75,6 +108,12 @@ namespace Gym
 
         private void customerButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Khách hàng";
 
@@ -90,6 +129,12 @@ namespace Gym
 
         private void productButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Sản phẩm";
 
@@ -105,6 +150,12 @@ namespace Gym
 
         private void courseButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Khóa học";
 
@@ -120,6 +171,12 @@ namespace Gym
 
         private void deviceButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Thiết bị";
 
@@ -135,6 +192,12 @@ namespace Gym
 
         private void revenueButton_Click(object sender, EventArgs e)
         {
+            // clear container
+            clearForm();
+
+            //// change color
+            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
             // change form name
             this.formName.Text = "Doanh thu";
 

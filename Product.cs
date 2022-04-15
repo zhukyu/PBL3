@@ -16,5 +16,25 @@ namespace Gym
         {
             InitializeComponent();
         }
+
+        private void saleButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

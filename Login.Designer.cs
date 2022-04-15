@@ -84,9 +84,9 @@
             // 
             // loginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.Transparent;
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.loginButton.Font = new System.Drawing.Font("Unispace", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.loginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Location = new System.Drawing.Point(541, 453);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(309, 55);

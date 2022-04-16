@@ -16,9 +16,9 @@ namespace Gym
         public Home()
         {
             InitializeComponent();
-            
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+
+            // change color
+            this.memberButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Hội viên";
@@ -57,10 +57,21 @@ namespace Gym
 
         private void clearForm()
         {
-            foreach (var c in this.pContainer.Controls)
+            //string log = "";
+            foreach (Control c in this.pContainer.Controls)
             {
-                this.pContainer.Controls.Remove((Control)c);
+                //Console.WriteLine(c.GetType().Name);
+                //log += c.GetType().Name;
+                this.pContainer.Controls.Remove(c);
             }
+            foreach (Control c in this.panelMenu.Controls)
+            {
+                if(c.GetType().Name == "Button")
+                {
+                    c.BackColor = Color.FromArgb(51, 51, 76);
+                }
+            }
+            //MessageBox.Show(log, "asd");
         }
 
         private void memberButton_Click(object sender, EventArgs e)
@@ -69,8 +80,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.memberButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Hội viên";
@@ -90,8 +101,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.employeeButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Nhân viên";
@@ -111,8 +122,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.customerButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Khách hàng";
@@ -132,8 +143,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.productButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Sản phẩm";
@@ -153,8 +164,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.courseButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Khóa học";
@@ -174,8 +185,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.deviceButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Thiết bị";
@@ -195,8 +206,8 @@ namespace Gym
             // clear container
             clearForm();
 
-            //// change color
-            //this.memberButton.BackColor = Color.FromArgb(56, 56, 128);
+            // change color
+            this.revenueButton.BackColor = Color.FromArgb(142, 124, 195);
 
             // change form name
             this.formName.Text = "Doanh thu";

@@ -30,11 +30,15 @@ namespace Gym
         private void add_Click(object sender, EventArgs e)
         {
 
+            Form frm = new addEmployee();
+            frm.Show();
+            //this.Hide();
         }
 
         private void edit_Click(object sender, EventArgs e)
         {
-
+            Form frm = new fixEmployee();
+            frm.Show();
         }
 
         private void delete_Click(object sender, EventArgs e)

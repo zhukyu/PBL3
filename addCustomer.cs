@@ -10,39 +10,14 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class Member : Form
+    public partial class addCustomer : Form
     {
-        public Member()
+        public addCustomer()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void search_TextChanged(object sender, EventArgs e)
+        private void addCustomer_Load(object sender, EventArgs e)
         {
 
         }
@@ -53,21 +28,6 @@ namespace Gym
         }
 
         private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -112,11 +72,6 @@ namespace Gym
 
         }
 
-        private void _gender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -127,7 +82,7 @@ namespace Gym
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -142,12 +97,12 @@ namespace Gym
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void gioitinh_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void addButton_Click(object sender, EventArgs e)
         {
 
         }

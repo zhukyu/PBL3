@@ -36,5 +36,17 @@ namespace Gym
         {
 
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Form frm = new addProduct();
+            frm.Show();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            Form frm = new fixProduct();
+            frm.Show();
+        }
     }
 }

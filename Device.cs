@@ -19,12 +19,14 @@ namespace Gym
 
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            Form frm = new addDevice();
+            frm.Show();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-
+            Form frm = new updateDevice();
+            frm.Show();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

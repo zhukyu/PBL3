@@ -37,7 +37,7 @@ namespace Gym
 
         private void edit_Click(object sender, EventArgs e)
         {
-            Form frm = new fixEmployee();
+            Form frm = new updateEmployee();
             frm.Show();
         }
 

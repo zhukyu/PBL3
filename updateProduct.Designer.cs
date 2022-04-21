@@ -1,6 +1,6 @@
 ﻿namespace Gym
 {
-    partial class fixProduct
+    partial class updateProduct
     {
         /// <summary>
         /// Required designer variable.

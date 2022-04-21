@@ -45,7 +45,7 @@ namespace Gym
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            Form frm = new fixProduct();
+            Form frm = new updateProduct();
             frm.Show();
         }
     }

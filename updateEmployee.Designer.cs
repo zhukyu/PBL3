@@ -1,6 +1,6 @@
 ﻿namespace Gym
 {
-    partial class fixEmployee
+    partial class updateEmployee
     {
         /// <summary>
         /// Required designer variable.

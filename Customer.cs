@@ -30,7 +30,7 @@ namespace Gym
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            Form frm = new fixCustomer();
+            Form frm = new updateCustomer();
             frm.Show();
         }
 

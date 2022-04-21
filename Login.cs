@@ -35,13 +35,14 @@ namespace Gym
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=Gymmer;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=zhukyu;Initial Catalog=GymDatabase;Integrated Security=True");
             try
             {
                 conn.Open();
-                string tk = username.Text;
-                string mk = password.Text;
-                string sql = "select *from NguoiDung where taikhoan='" + tk + "'and matkhau='" + mk + "'";
+                string _username = username.Text;
+                string _password = password.Text;
+                //string sql = "select *from userID where taikhoan='" + tk + "'and matkhau='" + mk + "'";
+                string sql = "select * from Account where userID =" + _username + "and password =" + _password;
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader data = (SqlDataReader)cmd.ExecuteReader();
 
@@ -59,9 +60,9 @@ namespace Gym
                     if (data.Read() == true)
                     {
                         MessageBox.Show("dang nhap thanh cong");
-                        var homeform = new Home();
+                        var homeForm = new Home();
                         this.Hide();
-                        homeform.Show();
+                        homeForm.Show();
                         // this.Close();
 
                     }
@@ -73,6 +74,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 MessageBox.Show("loi ket noi");
             }
             finally
@@ -84,9 +86,5 @@ namespace Gym
         
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
-    }
 }

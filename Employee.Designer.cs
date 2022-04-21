@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
-            this.employeeTable = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.detail = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,40 +54,12 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // employeeTable
-            // 
-            this.employeeTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeID,
-            this.fullname,
-            this.gender,
-            this.birthday,
-            this.phoneNumber,
-            this.idNumber,
-            this.role,
-            this.address});
-            this.employeeTable.Location = new System.Drawing.Point(12, 417);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowHeadersWidth = 51;
-            this.employeeTable.RowTemplate.Height = 29;
-            this.employeeTable.Size = new System.Drawing.Size(1311, 229);
-            this.employeeTable.TabIndex = 1;
-            this.employeeTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeTable_CellContentClick);
             // 
             // textBox2
             // 
@@ -362,82 +333,22 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Danh sách nhân viên";
             // 
-            // employeeID
+            // dataGridView1
             // 
-            this.employeeID.HeaderText = "Mã NV";
-            this.employeeID.MinimumWidth = 6;
-            this.employeeID.Name = "employeeID";
-            this.employeeID.ReadOnly = true;
-            this.employeeID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.employeeID.Width = 125;
-            // 
-            // fullname
-            // 
-            this.fullname.HeaderText = "Họ tên";
-            this.fullname.MinimumWidth = 6;
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
-            this.fullname.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fullname.Width = 250;
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "Giới tính";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.gender.Width = 125;
-            // 
-            // birthday
-            // 
-            this.birthday.HeaderText = "Ngày sinh";
-            this.birthday.MinimumWidth = 6;
-            this.birthday.Name = "birthday";
-            this.birthday.ReadOnly = true;
-            this.birthday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.birthday.Width = 125;
-            // 
-            // phoneNumber
-            // 
-            this.phoneNumber.HeaderText = "Số điện thoại";
-            this.phoneNumber.MinimumWidth = 6;
-            this.phoneNumber.Name = "phoneNumber";
-            this.phoneNumber.ReadOnly = true;
-            this.phoneNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.phoneNumber.Width = 125;
-            // 
-            // idNumber
-            // 
-            this.idNumber.HeaderText = "Số CMND";
-            this.idNumber.MinimumWidth = 6;
-            this.idNumber.Name = "idNumber";
-            this.idNumber.ReadOnly = true;
-            this.idNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.idNumber.Width = 125;
-            // 
-            // role
-            // 
-            this.role.HeaderText = "Chức vụ";
-            this.role.MinimumWidth = 6;
-            this.role.Name = "role";
-            this.role.ReadOnly = true;
-            this.role.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.role.Width = 125;
-            // 
-            // address
-            // 
-            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.address.HeaderText = "Địa chỉ";
-            this.address.MinimumWidth = 6;
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(189, 441);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(993, 112);
+            this.dataGridView1.TabIndex = 42;
             // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 658);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -445,23 +356,20 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.employeeTable);
             this.Name = "Employee";
             this.Text = "Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView employeeTable;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel detail;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -487,13 +395,6 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn role;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

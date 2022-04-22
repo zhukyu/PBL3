@@ -85,5 +85,15 @@ namespace Gym
             _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

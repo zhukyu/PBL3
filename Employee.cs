@@ -70,5 +70,20 @@ namespace Gym
         {
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dataGridView1.CurrentRow.Index;
+            _employeeID.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            _fullName.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            _gender.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            textBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            _phoneNumber.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            _idNumber.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+            _role.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+
+        }
     }
 }

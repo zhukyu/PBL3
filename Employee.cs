@@ -47,23 +47,17 @@ namespace Gym
 
         }
 
-        private void add_Click(object sender, EventArgs e)
-        {
+        
+        //    //Form frm = new addEmployee();
+        //    //frm.Show();
+        //    //this.Hide();
+        //}
 
-            Form frm = new addEmployee();
-            frm.Show();
-            //this.Hide();
-        }
-
-        private void edit_Click(object sender, EventArgs e)
-        {
-            Form frm = new updateEmployee();
-            frm.Show();
-        }
+       
 
         private void delete_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -73,6 +67,7 @@ namespace Gym
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            _employeeID.ReadOnly = true;
             int i;
             i = dataGridView1.CurrentRow.Index;
             _employeeID.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
@@ -84,6 +79,31 @@ namespace Gym
             _role.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
             _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
 
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            cm = conn.CreateCommand();
+            cm.CommandText = "delete from Employee where employeeID = '" + _employeeID.Text + "'";
+            cm.ExecuteNonQuery();
+            loaddata();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            cm = conn.CreateCommand();
+            cm.CommandText = "insert into Employee values('" + _employeeID.Text + "','" + _fullName.Text + "','" + _gender.Text + "','" + textBox1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "','" + _role.Text + "','" + _address.Text + "')";
+            cm.ExecuteNonQuery();
+            loaddata();
+        }
+        private void edit_Click(object sender, EventArgs e)
+        {
+            //Form frm = new updateEmployee();
+            //frm.Show();
+            cm = conn.CreateCommand();
+            cm.CommandText = "update Employee set  fullName ='"+ _fullName.Text + "',gender='" + _gender.Text + "',birthday='" + textBox1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role='" + _role.Text + "',address='"+_address+ "' where employeeID = '" + _employeeID.Text + "'";
+            cm.ExecuteNonQuery();
+            loaddata();
         }
     }
 }

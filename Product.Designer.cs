@@ -223,6 +223,7 @@
             this.editButton.TabIndex = 52;
             this.editButton.Text = "Sửa thông tin";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -235,6 +236,7 @@
             this.addButton.TabIndex = 51;
             this.addButton.Text = "Thêm sản phẩm";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // search
             // 
@@ -332,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 658);
+            this.ClientSize = new System.Drawing.Size(1335, 648);
             this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);

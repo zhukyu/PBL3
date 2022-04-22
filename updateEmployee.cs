@@ -10,28 +10,11 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class Customer : Form
+    public partial class updateEmployee : Form
     {
-        public Customer()
+        public updateEmployee()
         {
             InitializeComponent();
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            Form frm = new addCustomer();
-            frm.Show();
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            Form frm = new updateCustomer();
-            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,7 +22,22 @@ namespace Gym
 
         }
 
-        private void detail_Paint(object sender, PaintEventArgs e)
+        private void formNameLable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void formName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gioitinh_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -50,6 +48,11 @@ namespace Gym
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
@@ -84,11 +87,6 @@ namespace Gym
 
         }
 
-        private void _gender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -109,27 +107,22 @@ namespace Gym
 
         }
 
-        private void _customerID_TextChanged(object sender, EventArgs e)
+        private void _employeeID_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void deletePictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
+        private void fixButton_Click(object sender, EventArgs e)
         {
 
         }

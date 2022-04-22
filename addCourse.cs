@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Gym
 {
+    //hhhhh
     public partial class addCourse : Form
     {
         public addCourse()

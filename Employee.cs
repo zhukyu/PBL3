@@ -15,7 +15,7 @@ namespace Gym
     {
         SqlConnection conn;
         SqlCommand cm;
-        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
+        string str = @"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
 

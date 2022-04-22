@@ -35,7 +35,7 @@ namespace Gym
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True");
             try
             {
                 conn.Open();

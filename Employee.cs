@@ -76,8 +76,8 @@ namespace Gym
             textBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
             _phoneNumber.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
             _idNumber.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            _role.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
-            _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+            _address.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            _role.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
 
         }
 

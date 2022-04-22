@@ -56,10 +56,9 @@
             this.password.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.password.Location = new System.Drawing.Point(490, 360);
             this.password.Name = "password";
-            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(405, 36);
             this.password.TabIndex = 1;
-            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
+            this.password.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -87,7 +86,7 @@
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.loginButton.Font = new System.Drawing.Font("Unispace", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Location = new System.Drawing.Point(541, 453);
             this.loginButton.Name = "loginButton";

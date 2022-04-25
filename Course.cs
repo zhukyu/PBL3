@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class Course : Form
+    public partial class Course : UserControl
     {
         public Course()
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class Revenue : Form
+    public partial class Revenue : UserControl
     {
         public Revenue()
         {

@@ -25,9 +25,7 @@ namespace Gym
 
             // add form to panel
             var member = new Member();
-            member.TopLevel = false;
             member.AutoScroll = true;
-            member.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(member);
             member.Dock = DockStyle.Fill;
             member.Show();
@@ -88,9 +86,7 @@ namespace Gym
 
             // add form to panel
             var member = new Member();
-            member.TopLevel = false;
             member.AutoScroll = true;
-            member.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(member);
             member.Dock = DockStyle.Fill;
             member.Show();
@@ -109,9 +105,7 @@ namespace Gym
 
             // add form to panel
             var employee = new Employee();
-            employee.TopLevel = false;
             employee.AutoScroll = true;
-            employee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(employee);
             employee.Dock = DockStyle.Fill;
             employee.Show();
@@ -130,9 +124,7 @@ namespace Gym
 
             // add form to panel
             var customer = new Customer();
-            customer.TopLevel = false;
             customer.AutoScroll = true;
-            customer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(customer);
             customer.Dock = DockStyle.Fill;
             customer.Show();
@@ -151,9 +143,7 @@ namespace Gym
 
             // add form to panel
             var product = new Product();
-            product.TopLevel = false;
             product.AutoScroll = true;
-            product.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(product);
             product.Dock = DockStyle.Fill;
             product.Show();
@@ -172,9 +162,7 @@ namespace Gym
 
             // add form to panel
             var course = new Course();
-            course.TopLevel = false;
             course.AutoScroll = true;
-            course.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(course);
             course.Dock = DockStyle.Fill;
             course.Show();
@@ -193,9 +181,7 @@ namespace Gym
 
             // add form to panel
             var device = new Device();
-            device.TopLevel = false;
             device.AutoScroll = true;
-            device.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(device);
             device.Dock = DockStyle.Fill;
             device.Show();
@@ -214,9 +200,7 @@ namespace Gym
 
             // add form to panel
             var revenue = new Revenue();
-            revenue.TopLevel = false;
             revenue.AutoScroll = true;
-            revenue.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.pContainer.Controls.Add(revenue);
             revenue.Dock = DockStyle.Fill;
             revenue.Show();

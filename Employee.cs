@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Gym
 {
-    public partial class Employee : Form
+    public partial class Employee : UserControl
     {
         SqlConnection conn;
         SqlCommand cm;

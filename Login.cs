@@ -86,9 +86,12 @@ namespace Gym
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void password_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(this, new EventArgs());
+            }
         }
     }
 

@@ -39,7 +39,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this._phoneNumber = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fixPictureBox1 = new System.Windows.Forms.Button();
             this.fixButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +65,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(791, 72);
             this.formNameLable.TabIndex = 36;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -76,31 +75,30 @@
             this.formName.Size = new System.Drawing.Size(402, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thay đổi thông tin nhân viên";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Lễ Tân",
             "Huấn luyện viên"});
             this.comboBox1.Location = new System.Drawing.Point(168, 454);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 28);
+            this.comboBox1.Size = new System.Drawing.Size(215, 39);
             this.comboBox1.TabIndex = 74;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // gioitinh
             // 
+            this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gioitinh.FormattingEnabled = true;
             this.gioitinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
             this.gioitinh.Location = new System.Drawing.Point(168, 236);
             this.gioitinh.Name = "gioitinh";
-            this.gioitinh.Size = new System.Drawing.Size(215, 28);
+            this.gioitinh.Size = new System.Drawing.Size(215, 39);
             this.gioitinh.TabIndex = 73;
-            this.gioitinh.SelectedIndexChanged += new System.EventHandler(this.gioitinh_SelectedIndexChanged);
             // 
             // _address
             // 
@@ -110,7 +108,6 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(215, 36);
             this._address.TabIndex = 72;
-            this._address.TextChanged += new System.EventHandler(this._address_TextChanged);
             // 
             // label5
             // 
@@ -122,7 +119,6 @@
             this.label5.Size = new System.Drawing.Size(78, 27);
             this.label5.TabIndex = 71;
             this.label5.Text = "Địa chỉ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -134,7 +130,6 @@
             this.label6.Size = new System.Drawing.Size(90, 27);
             this.label6.TabIndex = 70;
             this.label6.Text = "Chức vụ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -146,7 +141,6 @@
             this.label7.Size = new System.Drawing.Size(103, 27);
             this.label7.TabIndex = 69;
             this.label7.Text = "Số CMND";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -158,7 +152,6 @@
             this.label8.Size = new System.Drawing.Size(52, 27);
             this.label8.TabIndex = 68;
             this.label8.Text = "SĐT";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _idNumber
             // 
@@ -168,7 +161,6 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(215, 36);
             this._idNumber.TabIndex = 67;
-            this._idNumber.TextChanged += new System.EventHandler(this._idNumber_TextChanged);
             // 
             // _phoneNumber
             // 
@@ -178,17 +170,6 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(215, 36);
             this._phoneNumber.TabIndex = 66;
-            this._phoneNumber.TextChanged += new System.EventHandler(this._phoneNumber_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(168, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 36);
-            this.textBox1.TabIndex = 65;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -200,7 +181,6 @@
             this.label4.Size = new System.Drawing.Size(108, 27);
             this.label4.TabIndex = 64;
             this.label4.Text = "Ngày sinh";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -212,7 +192,6 @@
             this.label3.Size = new System.Drawing.Size(92, 27);
             this.label3.TabIndex = 63;
             this.label3.Text = "Giới tính";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -224,7 +203,6 @@
             this.label2.Size = new System.Drawing.Size(77, 27);
             this.label2.TabIndex = 62;
             this.label2.Text = "Họ tên";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -236,7 +214,6 @@
             this.label1.Size = new System.Drawing.Size(76, 27);
             this.label1.TabIndex = 61;
             this.label1.Text = "Mã NV";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // _fullName
             // 
@@ -246,7 +223,6 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(215, 36);
             this._fullName.TabIndex = 60;
-            this._fullName.TextChanged += new System.EventHandler(this._fullName_TextChanged);
             // 
             // _employeeID
             // 
@@ -256,7 +232,6 @@
             this._employeeID.Name = "_employeeID";
             this._employeeID.Size = new System.Drawing.Size(215, 36);
             this._employeeID.TabIndex = 59;
-            this._employeeID.TextChanged += new System.EventHandler(this._employeeID_TextChanged);
             // 
             // deletePictureBox1
             // 
@@ -266,7 +241,6 @@
             this.deletePictureBox1.TabIndex = 76;
             this.deletePictureBox1.Text = "Xoá ảnh";
             this.deletePictureBox1.UseVisualStyleBackColor = true;
-            this.deletePictureBox1.Click += new System.EventHandler(this.deletePictureBox1_Click);
             // 
             // pictureBox1
             // 
@@ -275,7 +249,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
             this.pictureBox1.TabIndex = 75;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // fixPictureBox1
             // 
@@ -285,7 +258,6 @@
             this.fixPictureBox1.TabIndex = 77;
             this.fixPictureBox1.Text = "Thêm ảnh mới";
             this.fixPictureBox1.UseVisualStyleBackColor = true;
-            this.fixPictureBox1.Click += new System.EventHandler(this.button1_Click);
             // 
             // fixButton
             // 
@@ -300,11 +272,22 @@
             this.fixButton.UseVisualStyleBackColor = false;
             this.fixButton.Click += new System.EventHandler(this.fixButton_Click);
             // 
-            // fixEmployee
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(168, 293);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(215, 38);
+            this.dateTimePicker1.TabIndex = 79;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            // 
+            // updateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 622);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.fixButton);
             this.Controls.Add(this.fixPictureBox1);
             this.Controls.Add(this.deletePictureBox1);
@@ -318,7 +301,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this._idNumber);
             this.Controls.Add(this._phoneNumber);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -326,7 +308,7 @@
             this.Controls.Add(this._fullName);
             this.Controls.Add(this._employeeID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "fixEmployee";
+            this.Name = "updateEmployee";
             this.Text = "fixEmployee";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
@@ -340,25 +322,25 @@
 
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox gioitinh;
-        private System.Windows.Forms.TextBox _address;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox _idNumber;
-        private System.Windows.Forms.TextBox _phoneNumber;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox _fullName;
-        private System.Windows.Forms.TextBox _employeeID;
         private System.Windows.Forms.Button deletePictureBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button fixPictureBox1;
         private System.Windows.Forms.Button fixButton;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox gioitinh;
+        public System.Windows.Forms.TextBox _address;
+        public System.Windows.Forms.TextBox _idNumber;
+        public System.Windows.Forms.TextBox _phoneNumber;
+        public System.Windows.Forms.TextBox _fullName;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.TextBox _employeeID;
     }
 }

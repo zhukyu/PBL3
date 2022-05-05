@@ -47,18 +47,17 @@
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.employeeTable = new System.Windows.Forms.DataGridView();
-            this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.search = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
             this.SuspendLayout();
             // 
             // saleButton
@@ -72,7 +71,6 @@
             this.saleButton.TabIndex = 64;
             this.saleButton.Text = "Tạo hóa đơn";
             this.saleButton.UseVisualStyleBackColor = false;
-            this.saleButton.Click += new System.EventHandler(this.saleButton_Click);
             // 
             // panel2
             // 
@@ -90,7 +88,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1314, 240);
             this.panel2.TabIndex = 56;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -99,7 +96,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(319, 206);
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -111,7 +107,6 @@
             this.label3.Size = new System.Drawing.Size(105, 29);
             this.label3.TabIndex = 45;
             this.label3.Text = "Đơn giá";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // _price
             // 
@@ -121,7 +116,6 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(245, 29);
             this._price.TabIndex = 44;
-            this._price.TextChanged += new System.EventHandler(this._price_TextChanged);
             // 
             // label4
             // 
@@ -133,7 +127,6 @@
             this.label4.Size = new System.Drawing.Size(123, 29);
             this.label4.TabIndex = 43;
             this.label4.Text = "Thời gian";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // _duration
             // 
@@ -143,7 +136,6 @@
             this._duration.Name = "_duration";
             this._duration.Size = new System.Drawing.Size(245, 29);
             this._duration.TabIndex = 42;
-            this._duration.TextChanged += new System.EventHandler(this._duration_TextChanged);
             // 
             // label2
             // 
@@ -155,7 +147,6 @@
             this.label2.Size = new System.Drawing.Size(172, 29);
             this.label2.TabIndex = 41;
             this.label2.Text = "Tên khóa học";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // _courseName
             // 
@@ -165,7 +156,6 @@
             this._courseName.Name = "_courseName";
             this._courseName.Size = new System.Drawing.Size(245, 29);
             this._courseName.TabIndex = 40;
-            this._courseName.TextChanged += new System.EventHandler(this._courseName_TextChanged);
             // 
             // label6
             // 
@@ -177,7 +167,6 @@
             this.label6.Size = new System.Drawing.Size(163, 29);
             this.label6.TabIndex = 39;
             this.label6.Text = "Mã khóa học";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // _courseID
             // 
@@ -187,7 +176,6 @@
             this._courseID.Name = "_courseID";
             this._courseID.Size = new System.Drawing.Size(245, 29);
             this._courseID.TabIndex = 37;
-            this._courseID.TextChanged += new System.EventHandler(this._courseID_TextChanged);
             // 
             // deleteButton
             // 
@@ -213,7 +201,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1314, 59);
             this.panel1.TabIndex = 55;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -224,7 +211,6 @@
             this.label1.Size = new System.Drawing.Size(251, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chi tiết sản phẩm";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // editButton
             // 
@@ -250,7 +236,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(903, 59);
             this.formNameLable.TabIndex = 60;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -261,7 +246,6 @@
             this.formName.Size = new System.Drawing.Size(293, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Danh sách sản phẩm";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // addButton
             // 
@@ -276,59 +260,6 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // employeeTable
-            // 
-            this.employeeTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.courseID,
-            this.courseName,
-            this.duration,
-            this.price});
-            this.employeeTable.Location = new System.Drawing.Point(10, 73);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowHeadersWidth = 51;
-            this.employeeTable.RowTemplate.Height = 29;
-            this.employeeTable.Size = new System.Drawing.Size(903, 270);
-            this.employeeTable.TabIndex = 59;
-            this.employeeTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeTable_CellContentClick);
-            // 
-            // courseID
-            // 
-            this.courseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.courseID.HeaderText = "Mã khóa học";
-            this.courseID.MinimumWidth = 6;
-            this.courseID.Name = "courseID";
-            this.courseID.ReadOnly = true;
-            this.courseID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.courseID.Width = 150;
-            // 
-            // courseName
-            // 
-            this.courseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.courseName.HeaderText = "Tên khóa học";
-            this.courseName.MinimumWidth = 6;
-            this.courseName.Name = "courseName";
-            this.courseName.ReadOnly = true;
-            this.courseName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // duration
-            // 
-            this.duration.HeaderText = "Thời gian";
-            this.duration.MinimumWidth = 6;
-            this.duration.Name = "duration";
-            this.duration.ReadOnly = true;
-            this.duration.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.duration.Width = 125;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Đơn giá";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 250;
-            // 
             // search
             // 
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -337,7 +268,6 @@
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(272, 32);
             this.search.TabIndex = 57;
-            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // searchButton
             // 
@@ -349,11 +279,54 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(91, 91);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(763, 232);
+            this.listView1.TabIndex = 65;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Name = "columnHeader1";
+            this.columnHeader1.Text = "mã khóa học";
+            this.columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Name = "columnHeader2";
+            this.columnHeader2.Text = "Tên Khóa học";
+            this.columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Name = "columnHeader3";
+            this.columnHeader3.Text = "thời gian";
+            this.columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Name = "columnHeader4";
+            this.columnHeader4.Text = "đơn giá";
+            this.columnHeader4.Width = 200;
+            // 
             // Course
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 658);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);
@@ -361,11 +334,11 @@
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.employeeTable);
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Course";
             this.Text = "Course";
+            this.Load += new System.EventHandler(this.Course_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -373,7 +346,6 @@
             this.panel1.PerformLayout();
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,13 +370,13 @@
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.DataGridView employeeTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

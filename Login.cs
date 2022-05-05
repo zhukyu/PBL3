@@ -63,8 +63,8 @@ namespace Gym
                         MessageBox.Show("dang nhap thanh cong");
                         var homeForm = new Home();
                         this.Hide();
-                        homeForm.Show();
-                        // this.Close();
+                        homeForm.ShowDialog();
+                         this.Close();
 
                     }
 

@@ -55,7 +55,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(590, 73);
             this.formNameLable.TabIndex = 38;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -66,7 +65,6 @@
             this.formName.Size = new System.Drawing.Size(392, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thay đổi thông tin khoá học";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // label1
             // 
@@ -77,10 +75,10 @@
             this.label1.Size = new System.Drawing.Size(127, 21);
             this.label1.TabIndex = 67;
             this.label1.Text = "Tập cùng HLV";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox2
             // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "1 Tháng",
@@ -89,12 +87,12 @@
             "12 Tháng"});
             this.comboBox2.Location = new System.Drawing.Point(252, 206);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(245, 28);
+            this.comboBox2.Size = new System.Drawing.Size(245, 39);
             this.comboBox2.TabIndex = 66;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Tập tự do",
@@ -103,9 +101,8 @@
             "Gym"});
             this.comboBox1.Location = new System.Drawing.Point(252, 284);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 28);
+            this.comboBox1.Size = new System.Drawing.Size(245, 39);
             this.comboBox1.TabIndex = 65;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // checkBox1
             // 
@@ -115,7 +112,6 @@
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
             this.checkBox1.TabIndex = 64;
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label3
             // 
@@ -127,17 +123,15 @@
             this.label3.Size = new System.Drawing.Size(105, 29);
             this.label3.TabIndex = 63;
             this.label3.Text = "Đơn giá";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // _price
             // 
             this._price.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._price.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._price.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._price.Location = new System.Drawing.Point(252, 359);
             this._price.Name = "_price";
-            this._price.Size = new System.Drawing.Size(245, 29);
+            this._price.Size = new System.Drawing.Size(245, 33);
             this._price.TabIndex = 62;
-            this._price.TextChanged += new System.EventHandler(this._price_TextChanged);
             // 
             // label4
             // 
@@ -149,7 +143,6 @@
             this.label4.Size = new System.Drawing.Size(123, 29);
             this.label4.TabIndex = 61;
             this.label4.Text = "Thời gian";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -161,7 +154,6 @@
             this.label2.Size = new System.Drawing.Size(172, 29);
             this.label2.TabIndex = 60;
             this.label2.Text = "Tên khóa học";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label6
             // 
@@ -173,17 +165,15 @@
             this.label6.Size = new System.Drawing.Size(163, 29);
             this.label6.TabIndex = 59;
             this.label6.Text = "Mã khóa học";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // _courseID
             // 
             this._courseID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._courseID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._courseID.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._courseID.Location = new System.Drawing.Point(252, 135);
             this._courseID.Name = "_courseID";
-            this._courseID.Size = new System.Drawing.Size(245, 29);
+            this._courseID.Size = new System.Drawing.Size(245, 33);
             this._courseID.TabIndex = 58;
-            this._courseID.TextChanged += new System.EventHandler(this._courseID_TextChanged);
             // 
             // editButton
             // 
@@ -198,7 +188,7 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // fixCourse
+            // updateCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +205,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._courseID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "fixCourse";
+            this.Name = "updateCourse";
             this.Text = "fixCourse";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
@@ -229,15 +219,15 @@
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _price;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox _courseID;
         private System.Windows.Forms.Button editButton;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.TextBox _price;
+        public System.Windows.Forms.TextBox _courseID;
     }
 }

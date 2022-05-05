@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Gym
 {
@@ -16,80 +17,52 @@ namespace Gym
         {
             InitializeComponent();
         }
-
-        private void fixProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void formName_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        SqlConnection conn = null;
+        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
         private void addButton_Click(object sender, EventArgs e)
         {
 
-        }
+            try
+            {
 
-        private void addPictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
+                string maSp = _productID.Text;
+                {
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(str);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "' " + "where productID=@maSp";
+                    comm.CommandText = st;
+                    comm.CommandText = st;
+                    comm.Connection = conn;
 
-        }
+                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                    para.Value = maSp;
+                    comm.Parameters.Add(para);
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Sửa thành công");
 
-        private void _price_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _amount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _productName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _productID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deletePictureBox1_Click(object sender, EventArgs e)
-        {
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("lỗi");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi:" + ex.Message);
+            }
         }
     }
 }

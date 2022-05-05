@@ -36,10 +36,9 @@
             this.addButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.employeeTable = new System.Windows.Forms.DataGridView();
             this.detail = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this._importDate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,14 +50,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this._deviceName = new System.Windows.Forms.TextBox();
             this._deviceID = new System.Windows.Forms.TextBox();
-            this.deviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -132,6 +130,7 @@
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 45;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -142,29 +141,11 @@
             this.textBox2.Size = new System.Drawing.Size(218, 36);
             this.textBox2.TabIndex = 43;
             // 
-            // employeeTable
-            // 
-            this.employeeTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.deviceID,
-            this.deviceName,
-            this.amount,
-            this.status,
-            this.employeeID,
-            this.importDate});
-            this.employeeTable.Location = new System.Drawing.Point(9, 72);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowHeadersWidth = 51;
-            this.employeeTable.RowTemplate.Height = 29;
-            this.employeeTable.Size = new System.Drawing.Size(997, 308);
-            this.employeeTable.TabIndex = 42;
-            // 
             // detail
             // 
             this.detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.detail.Controls.Add(this.dateTimePicker1);
             this.detail.Controls.Add(this.pictureBox1);
-            this.detail.Controls.Add(this._importDate);
             this.detail.Controls.Add(this.label6);
             this.detail.Controls.Add(this.label7);
             this.detail.Controls.Add(this.label8);
@@ -181,6 +162,16 @@
             this.detail.Size = new System.Drawing.Size(1314, 260);
             this.detail.TabIndex = 50;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(919, 199);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(256, 38);
+            this.dateTimePicker1.TabIndex = 38;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(17, 14);
@@ -188,15 +179,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(274, 223);
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
-            // 
-            // _importDate
-            // 
-            this._importDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._importDate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._importDate.Location = new System.Drawing.Point(919, 201);
-            this._importDate.Name = "_importDate";
-            this._importDate.Size = new System.Drawing.Size(255, 36);
-            this._importDate.TabIndex = 34;
             // 
             // label6
             // 
@@ -309,65 +291,61 @@
             this._deviceID.Size = new System.Drawing.Size(255, 36);
             this._deviceID.TabIndex = 21;
             // 
-            // deviceID
+            // listView1
             // 
-            this.deviceID.HeaderText = "Mã TB";
-            this.deviceID.MinimumWidth = 6;
-            this.deviceID.Name = "deviceID";
-            this.deviceID.ReadOnly = true;
-            this.deviceID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deviceID.Width = 125;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader6});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(61, 116);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(896, 209);
+            this.listView1.TabIndex = 51;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // deviceName
+            // columnHeader1
             // 
-            this.deviceName.HeaderText = "Tên TB";
-            this.deviceName.MinimumWidth = 6;
-            this.deviceName.Name = "deviceName";
-            this.deviceName.ReadOnly = true;
-            this.deviceName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deviceName.Width = 250;
+            this.columnHeader1.Name = "columnHeader1";
+            this.columnHeader1.Text = "mã TB";
+            this.columnHeader1.Width = 150;
             // 
-            // amount
+            // columnHeader2
             // 
-            this.amount.HeaderText = "Số lượng";
-            this.amount.MinimumWidth = 6;
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.amount.Width = 125;
+            this.columnHeader2.Name = "columnHeader2";
+            this.columnHeader2.Text = "tenn tb";
+            this.columnHeader2.Width = 200;
             // 
-            // status
+            // columnHeader3
             // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.status.HeaderText = "Tình trạng";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnHeader3.Name = "columnHeader3";
+            this.columnHeader3.Text = "số lượng";
+            this.columnHeader3.Width = 150;
             // 
-            // employeeID
+            // columnHeader4
             // 
-            this.employeeID.HeaderText = "NV quản lý";
-            this.employeeID.MinimumWidth = 6;
-            this.employeeID.Name = "employeeID";
-            this.employeeID.ReadOnly = true;
-            this.employeeID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.employeeID.Width = 150;
+            this.columnHeader4.Name = "columnHeader4";
+            this.columnHeader4.Text = "tình trạng";
+            this.columnHeader4.Width = 200;
             // 
-            // importDate
+            // columnHeader6
             // 
-            this.importDate.HeaderText = "Ngày nhập";
-            this.importDate.MinimumWidth = 6;
-            this.importDate.Name = "importDate";
-            this.importDate.ReadOnly = true;
-            this.importDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.importDate.Width = 150;
+            this.columnHeader6.Name = "columnHeader6";
+            this.columnHeader6.Text = "ngày nhập";
+            this.columnHeader6.Width = 200;
             // 
             // Device
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 658);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
@@ -375,12 +353,11 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.employeeTable);
             this.Name = "Device";
             this.Text = "Device";
+            this.Load += new System.EventHandler(this.Device_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -398,16 +375,8 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView employeeTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deviceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deviceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn importDate;
         private System.Windows.Forms.Panel detail;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox _importDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -419,5 +388,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _deviceName;
         private System.Windows.Forms.TextBox _deviceID;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

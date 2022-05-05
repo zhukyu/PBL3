@@ -36,7 +36,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this._phoneNumber = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this._customerID = new System.Windows.Forms.TextBox();
             this.formName = new System.Windows.Forms.Label();
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,16 +59,18 @@
             this.fixButton.TabIndex = 75;
             this.fixButton.Text = "Lưu thay đổi";
             this.fixButton.UseVisualStyleBackColor = false;
+            this.fixButton.Click += new System.EventHandler(this.fixButton_Click);
             // 
             // gioitinh
             // 
+            this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gioitinh.FormattingEnabled = true;
             this.gioitinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
             this.gioitinh.Location = new System.Drawing.Point(243, 238);
             this.gioitinh.Name = "gioitinh";
-            this.gioitinh.Size = new System.Drawing.Size(289, 28);
+            this.gioitinh.Size = new System.Drawing.Size(289, 39);
             this.gioitinh.TabIndex = 74;
             // 
             // _address
@@ -130,15 +132,6 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(289, 36);
             this._phoneNumber.TabIndex = 68;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(243, 286);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 36);
-            this.textBox1.TabIndex = 67;
             // 
             // label4
             // 
@@ -224,11 +217,22 @@
             this.formNameLable.Size = new System.Drawing.Size(654, 74);
             this.formNameLable.TabIndex = 60;
             // 
-            // fixCustomer
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(243, 294);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(289, 38);
+            this.dateTimePicker1.TabIndex = 76;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            // 
+            // updateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 684);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.fixButton);
             this.Controls.Add(this.gioitinh);
             this.Controls.Add(this._address);
@@ -237,7 +241,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this._idNumber);
             this.Controls.Add(this._phoneNumber);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -245,7 +248,7 @@
             this.Controls.Add(this._fullName);
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "fixCustomer";
+            this.Name = "updateCustomer";
             this.Text = "fixCustomer";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
@@ -257,21 +260,21 @@
         #endregion
 
         private System.Windows.Forms.Button fixButton;
-        private System.Windows.Forms.ComboBox gioitinh;
-        private System.Windows.Forms.TextBox _address;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox _idNumber;
-        private System.Windows.Forms.TextBox _phoneNumber;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox _fullName;
-        private System.Windows.Forms.TextBox _customerID;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Panel formNameLable;
+        public System.Windows.Forms.TextBox _customerID;
+        public System.Windows.Forms.ComboBox gioitinh;
+        public System.Windows.Forms.TextBox _address;
+        public System.Windows.Forms.TextBox _idNumber;
+        public System.Windows.Forms.TextBox _phoneNumber;
+        public System.Windows.Forms.TextBox _fullName;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

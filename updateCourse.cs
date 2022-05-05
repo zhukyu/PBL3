@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Gym
 {
@@ -17,69 +18,57 @@ namespace Gym
             InitializeComponent();
         }
 
-        private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void formName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _price_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _courseID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = null;
+            string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
 
+            try
+            {
+
+
+
+
+                string maSp = _courseID.Text;
+                {
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(str);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "update Course set  courseName=N'" + comboBox1.Text + "',duration=N'" + comboBox2.Text + "',price='" + _price.Text + "' " + "where courseID=@maSp";
+                    comm.CommandText = st;
+                    comm.CommandText = st;
+                    comm.Connection = conn;
+
+                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                    para.Value = maSp;
+                    comm.Parameters.Add(para);
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Sửa thành công");
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi:" + ex.Message);
+            }
         }
     }
 }

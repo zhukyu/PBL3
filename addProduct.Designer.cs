@@ -56,7 +56,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(655, 69);
             this.formNameLable.TabIndex = 36;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -67,7 +66,6 @@
             this.formName.Size = new System.Drawing.Size(238, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thêm sản phẩm ";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // pictureBox1
             // 
@@ -76,7 +74,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(221, 141);
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -88,7 +85,6 @@
             this.label3.Size = new System.Drawing.Size(105, 29);
             this.label3.TabIndex = 55;
             this.label3.Text = "Đơn giá";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // _price
             // 
@@ -98,7 +94,6 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(155, 29);
             this._price.TabIndex = 54;
-            this._price.TextChanged += new System.EventHandler(this._price_TextChanged);
             // 
             // label4
             // 
@@ -110,7 +105,6 @@
             this.label4.Size = new System.Drawing.Size(119, 29);
             this.label4.TabIndex = 53;
             this.label4.Text = "Số lượng";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // _amount
             // 
@@ -120,7 +114,6 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(155, 29);
             this._amount.TabIndex = 52;
-            this._amount.TextChanged += new System.EventHandler(this._amount_TextChanged);
             // 
             // label2
             // 
@@ -132,7 +125,6 @@
             this.label2.Size = new System.Drawing.Size(95, 29);
             this.label2.TabIndex = 51;
             this.label2.Text = "Tên SP";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // _productName
             // 
@@ -142,7 +134,6 @@
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(155, 29);
             this._productName.TabIndex = 50;
-            this._productName.TextChanged += new System.EventHandler(this._productName_TextChanged);
             // 
             // label6
             // 
@@ -154,7 +145,6 @@
             this.label6.Size = new System.Drawing.Size(86, 29);
             this.label6.TabIndex = 49;
             this.label6.Text = "Mã SP";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // _productID
             // 
@@ -164,7 +154,6 @@
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(155, 29);
             this._productID.TabIndex = 48;
-            this._productID.TextChanged += new System.EventHandler(this._productID_TextChanged);
             // 
             // addPictureBox1
             // 
@@ -174,7 +163,6 @@
             this.addPictureBox1.TabIndex = 57;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
-            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // addButton
             // 
@@ -222,14 +210,14 @@
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _price;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox _amount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _productName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox _productID;
         private System.Windows.Forms.Button addPictureBox1;
         private System.Windows.Forms.Button addButton;
+        public System.Windows.Forms.TextBox _price;
+        public System.Windows.Forms.TextBox _amount;
+        public System.Windows.Forms.TextBox _productName;
+        public System.Windows.Forms.TextBox _productID;
     }
 }

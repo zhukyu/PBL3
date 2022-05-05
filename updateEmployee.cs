@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Gym
 {
@@ -17,114 +18,65 @@ namespace Gym
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void formName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gioitinh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _address_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _idNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _phoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _fullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _employeeID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deletePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        SqlConnection conn = null;
+        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
         private void fixButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                Employee em = new Employee();
+
+
+                string maSp = _employeeID.Text;
+                {
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(str);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "' " + "where employeeID=@maSp";
+                    comm.CommandText = st;
+                    comm.CommandText = st;
+                    comm.Connection = conn;
+
+                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                    para.Value = maSp;
+                    comm.Parameters.Add(para);
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("lỗi");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi:" + ex.Message);
+            }
         }
+
+
     }
+
 }
+
+
+
+
+
+
+
+
+
+

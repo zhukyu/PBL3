@@ -15,7 +15,7 @@ namespace Gym
     public partial class Employee : UserControl
     {
         SqlConnection conn = null;
-        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
+        string str = @"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True";
 
         public Employee()
         {

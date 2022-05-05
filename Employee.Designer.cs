@@ -72,7 +72,7 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(35, 23);
+            this.textBox2.Location = new System.Drawing.Point(1058, 32);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(218, 36);
             this.textBox2.TabIndex = 21;
@@ -118,7 +118,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(11, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
             this.pictureBox1.TabIndex = 37;
@@ -436,11 +436,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.detail);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
             this.Name = "Employee";

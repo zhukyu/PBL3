@@ -48,5 +48,10 @@ namespace Gym
             Form frm = new updateProduct();
             frm.Show();
         }
+
+        private void saleButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

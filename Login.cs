@@ -35,14 +35,14 @@ namespace Gym
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True");
             try
             {
                 conn.Open();
                 string _username = username.Text;
                 string _password = password.Text;
                 //string sql = "select *from userID where taikhoan='" + tk + "'and matkhau='" + mk + "'";
-                string sql = "select * from Account where userID ='" + _username + "'and password ='" + _password+"'";
+                string sql = "select * from Account where userID ='" + _username + "'and password ='" + _password + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader data = (SqlDataReader)cmd.ExecuteReader();
 
@@ -82,14 +82,13 @@ namespace Gym
             {
                 conn.Close();
             }
+
+
         }
 
-        private void password_KeyDown(object sender, KeyEventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                loginButton_Click(this, new EventArgs());
-            }
+
         }
     }
 

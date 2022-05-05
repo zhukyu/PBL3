@@ -199,6 +199,7 @@
             this.saleButton.TabIndex = 54;
             this.saleButton.Text = "Tạo hóa đơn";
             this.saleButton.UseVisualStyleBackColor = false;
+            this.saleButton.Click += new System.EventHandler(this.saleButton_Click_1);
             // 
             // deleteButton
             // 

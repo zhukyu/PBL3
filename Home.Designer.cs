@@ -72,10 +72,12 @@ namespace Gym
             this.pContainer = new System.Windows.Forms.Panel();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.formNameLable.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -270,9 +272,10 @@ namespace Gym
             // 
             // pContainer
             // 
-            this.pContainer.Location = new System.Drawing.Point(267, 125);
+            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pContainer.Location = new System.Drawing.Point(0, 125);
             this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1377, 694);
+            this.pContainer.Size = new System.Drawing.Size(1335, 658);
             this.pContainer.TabIndex = 2;
             // 
             // formNameLable
@@ -282,7 +285,7 @@ namespace Gym
             this.formNameLable.Dock = System.Windows.Forms.DockStyle.Top;
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(267, 0);
+            this.formNameLable.Location = new System.Drawing.Point(0, 0);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(1335, 125);
@@ -290,13 +293,24 @@ namespace Gym
             // 
             // formName
             // 
-            this.formName.AutoSize = true;
+            this.formName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formName.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.formName.Location = new System.Drawing.Point(579, 36);
+            this.formName.Location = new System.Drawing.Point(0, 0);
             this.formName.Name = "formName";
-            this.formName.Size = new System.Drawing.Size(230, 60);
+            this.formName.Size = new System.Drawing.Size(1335, 125);
             this.formName.TabIndex = 1;
             this.formName.Text = "Hội viên";
+            this.formName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pContainer);
+            this.panel2.Controls.Add(this.formNameLable);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(267, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1335, 783);
+            this.panel2.TabIndex = 0;
             // 
             // Home
             // 
@@ -304,8 +318,7 @@ namespace Gym
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1602, 783);
-            this.Controls.Add(this.formNameLable);
-            this.Controls.Add(this.pContainer);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
@@ -315,7 +328,7 @@ namespace Gym
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.formNameLable.ResumeLayout(false);
-            this.formNameLable.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -335,5 +348,6 @@ namespace Gym
         private System.Windows.Forms.Panel pContainer;
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
+        private System.Windows.Forms.Panel panel2;
     }
 }

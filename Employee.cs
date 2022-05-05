@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Gym
 {
-    public partial class Employee : Form
+    public partial class Employee : UserControl
     {
         SqlConnection conn;
         SqlCommand cm;
@@ -104,6 +104,16 @@ namespace Gym
             cm.CommandText = "update Employee set  fullName ='"+ _fullName.Text + "',gender='" + _gender.Text + "',birthday='" + textBox1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role='" + _role.Text + "',address='"+_address+ "' where employeeID = '" + _employeeID.Text + "'";
             cm.ExecuteNonQuery();
             loaddata();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

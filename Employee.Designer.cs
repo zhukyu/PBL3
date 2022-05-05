@@ -48,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this._fullName = new System.Windows.Forms.TextBox();
             this._employeeID = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -63,6 +62,7 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.button1 = new System.Windows.Forms.Button();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -289,15 +289,6 @@
             this._employeeID.Size = new System.Drawing.Size(255, 36);
             this._employeeID.TabIndex = 21;
             // 
-            // searchButton
-            // 
-            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(259, 24);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(35, 35);
-            this.searchButton.TabIndex = 23;
-            this.searchButton.UseVisualStyleBackColor = true;
-            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -377,6 +368,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 472);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1335, 186);
             this.listView1.TabIndex = 42;
@@ -432,10 +424,20 @@
             this.columnHeader8.Text = "Địa Chỉ";
             this.columnHeader8.Width = 100;
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1282, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 46;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -468,7 +470,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _employeeID;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
@@ -493,5 +494,6 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -34,13 +34,13 @@
             this.addButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.detail = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this._address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this._phoneNumber = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this._gender = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,18 +49,17 @@
             this._fullName = new System.Windows.Forms.TextBox();
             this._customerID = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.employeeTable = new System.Windows.Forms.DataGridView();
-            this.customerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.detail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,13 +115,13 @@
             // detail
             // 
             this.detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.detail.Controls.Add(this.dateTimePicker1);
             this.detail.Controls.Add(this._address);
             this.detail.Controls.Add(this.label5);
             this.detail.Controls.Add(this.label7);
             this.detail.Controls.Add(this.label8);
             this.detail.Controls.Add(this._idNumber);
             this.detail.Controls.Add(this._phoneNumber);
-            this.detail.Controls.Add(this.textBox1);
             this.detail.Controls.Add(this.label4);
             this.detail.Controls.Add(this._gender);
             this.detail.Controls.Add(this.label3);
@@ -134,95 +133,87 @@
             this.detail.Name = "detail";
             this.detail.Size = new System.Drawing.Size(988, 335);
             this.detail.TabIndex = 29;
-            this.detail.Paint += new System.Windows.Forms.PaintEventHandler(this.detail_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(222, 262);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(249, 38);
+            this.dateTimePicker1.TabIndex = 37;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
             // _address
             // 
             this._address.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._address.Location = new System.Drawing.Point(217, 273);
+            this._address.Location = new System.Drawing.Point(596, 199);
             this._address.Name = "_address";
-            this._address.Size = new System.Drawing.Size(644, 36);
+            this._address.Size = new System.Drawing.Size(255, 36);
             this._address.TabIndex = 36;
-            this._address.TextChanged += new System.EventHandler(this._address_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(103, 281);
+            this.label5.Location = new System.Drawing.Point(492, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 27);
             this.label5.TabIndex = 35;
             this.label5.Text = "Địa chỉ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(492, 199);
+            this.label7.Location = new System.Drawing.Point(492, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 27);
             this.label7.TabIndex = 32;
             this.label7.Text = "Số CMND";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(492, 112);
+            this.label8.Location = new System.Drawing.Point(509, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 27);
             this.label8.TabIndex = 31;
             this.label8.Text = "SĐT";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _idNumber
             // 
             this._idNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._idNumber.Location = new System.Drawing.Point(606, 191);
+            this._idNumber.Location = new System.Drawing.Point(596, 104);
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(255, 36);
             this._idNumber.TabIndex = 30;
-            this._idNumber.TextChanged += new System.EventHandler(this._idNumber_TextChanged);
             // 
             // _phoneNumber
             // 
             this._phoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._phoneNumber.Location = new System.Drawing.Point(606, 104);
+            this._phoneNumber.Location = new System.Drawing.Point(596, 20);
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(255, 36);
             this._phoneNumber.TabIndex = 29;
-            this._phoneNumber.TextChanged += new System.EventHandler(this._phoneNumber_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(606, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 36);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(492, 25);
+            this.label4.Location = new System.Drawing.Point(103, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 27);
             this.label4.TabIndex = 27;
             this.label4.Text = "Ngày sinh";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // _gender
             // 
@@ -232,7 +223,6 @@
             this._gender.Name = "_gender";
             this._gender.Size = new System.Drawing.Size(255, 36);
             this._gender.TabIndex = 26;
-            this._gender.TextChanged += new System.EventHandler(this._gender_TextChanged);
             // 
             // label3
             // 
@@ -244,7 +234,6 @@
             this.label3.Size = new System.Drawing.Size(92, 27);
             this.label3.TabIndex = 25;
             this.label3.Text = "Giới tính";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -256,7 +245,6 @@
             this.label2.Size = new System.Drawing.Size(77, 27);
             this.label2.TabIndex = 24;
             this.label2.Text = "Họ tên";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -268,7 +256,6 @@
             this.label1.Size = new System.Drawing.Size(76, 27);
             this.label1.TabIndex = 23;
             this.label1.Text = "Mã KH";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // _fullName
             // 
@@ -278,7 +265,6 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(255, 36);
             this._fullName.TabIndex = 22;
-            this._fullName.TextChanged += new System.EventHandler(this._fullName_TextChanged);
             // 
             // _customerID
             // 
@@ -288,7 +274,6 @@
             this._customerID.Name = "_customerID";
             this._customerID.Size = new System.Drawing.Size(255, 36);
             this._customerID.TabIndex = 21;
-            this._customerID.TextChanged += new System.EventHandler(this._customerID_TextChanged);
             // 
             // textBox2
             // 
@@ -298,90 +283,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(218, 36);
             this.textBox2.TabIndex = 28;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // employeeTable
-            // 
-            this.employeeTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerID,
-            this.fullname,
-            this.gender,
-            this.birthday,
-            this.phoneNumber,
-            this.idNumber,
-            this.address});
-            this.employeeTable.Location = new System.Drawing.Point(12, 412);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowHeadersWidth = 51;
-            this.employeeTable.RowTemplate.Height = 29;
-            this.employeeTable.Size = new System.Drawing.Size(1311, 234);
-            this.employeeTable.TabIndex = 27;
-            this.employeeTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeTable_CellContentClick);
-            // 
-            // customerID
-            // 
-            this.customerID.HeaderText = "Mã KH";
-            this.customerID.MinimumWidth = 6;
-            this.customerID.Name = "customerID";
-            this.customerID.ReadOnly = true;
-            this.customerID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.customerID.Width = 125;
-            // 
-            // fullname
-            // 
-            this.fullname.HeaderText = "Họ tên";
-            this.fullname.MinimumWidth = 6;
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
-            this.fullname.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fullname.Width = 250;
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "Giới tính";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.gender.Width = 125;
-            // 
-            // birthday
-            // 
-            this.birthday.HeaderText = "Ngày sinh";
-            this.birthday.MinimumWidth = 6;
-            this.birthday.Name = "birthday";
-            this.birthday.ReadOnly = true;
-            this.birthday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.birthday.Width = 125;
-            // 
-            // phoneNumber
-            // 
-            this.phoneNumber.HeaderText = "Số điện thoại";
-            this.phoneNumber.MinimumWidth = 6;
-            this.phoneNumber.Name = "phoneNumber";
-            this.phoneNumber.ReadOnly = true;
-            this.phoneNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.phoneNumber.Width = 125;
-            // 
-            // idNumber
-            // 
-            this.idNumber.HeaderText = "Số CMND";
-            this.idNumber.MinimumWidth = 6;
-            this.idNumber.Name = "idNumber";
-            this.idNumber.ReadOnly = true;
-            this.idNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.idNumber.Width = 125;
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Địa chỉ";
-            this.address.MinimumWidth = 6;
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
-            this.address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.address.Width = 432;
             // 
             // panel1
             // 
@@ -394,7 +295,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1311, 59);
             this.panel1.TabIndex = 41;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label6
             // 
@@ -405,13 +305,78 @@
             this.label6.Size = new System.Drawing.Size(317, 33);
             this.label6.TabIndex = 1;
             this.label6.Text = "Danh sách khách hàng";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader8,
+            this.columnHeader6});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(142, 429);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(767, 186);
+            this.listView1.TabIndex = 43;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Name = "columnHeader1";
+            this.columnHeader1.Text = "ID Khách Hàng";
+            this.columnHeader1.Width = 120;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Name = "columnHeader2";
+            this.columnHeader2.Text = "           Họ Tên";
+            this.columnHeader2.Width = 150;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Name = "columnHeader3";
+            this.columnHeader3.Text = "Giới Tính";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Name = "columnHeader4";
+            this.columnHeader4.Text = "Ngày Sinh";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Name = "columnHeader5";
+            this.columnHeader5.Text = "Số Điện Thoại";
+            this.columnHeader5.Width = 110;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.DisplayIndex = 6;
+            this.columnHeader8.Name = "columnHeader8";
+            this.columnHeader8.Text = "Số CMND";
+            this.columnHeader8.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.DisplayIndex = 5;
+            this.columnHeader6.Name = "columnHeader6";
+            this.columnHeader6.Text = "Địa chỉ";
+            this.columnHeader6.Width = 100;
             // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 658);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -419,12 +384,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.employeeTable);
             this.Name = "Customer";
             this.Text = "Customer";
+            this.Load += new System.EventHandler(this.Customer_Load);
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -445,7 +409,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox _idNumber;
         private System.Windows.Forms.TextBox _phoneNumber;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox _gender;
         private System.Windows.Forms.Label label3;
@@ -454,15 +417,16 @@
         private System.Windows.Forms.TextBox _fullName;
         private System.Windows.Forms.TextBox _customerID;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView employeeTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

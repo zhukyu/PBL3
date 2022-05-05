@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Gym
 {
@@ -17,94 +18,44 @@ namespace Gym
             InitializeComponent();
         }
 
-        private void addCustomer_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void formName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void _address_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _idNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _phoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _fullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _customerID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gioitinh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        SqlConnection conn = null;
+        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            try
 
+            {
+                if (conn == null)
+                {
+                    conn = new SqlConnection(str);
+                }
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                SqlCommand comm = new SqlCommand();
+                comm.CommandType = CommandType.Text;
+                string st = "Insert into Customer(customerID,fullName,gender,birthday,phoneNumber,address,idNumber)" + "values (N'" + _customerID.Text + "',N'" + _fullName.Text + "','" + gioitinh.Text + "','" + dateTimePicker1.Text + "','" + _phoneNumber.Text + "',N'" + _address.Text + "','" + _idNumber.Text + "')";
+                comm.CommandText = st;
+                comm.Connection = conn;
+
+                int ret = comm.ExecuteNonQuery();
+                if (ret > 0)
+                {
+                    MessageBox.Show("Thêm thành công");
+                }
+                else
+                {
+                    MessageBox.Show("loi");
+                }
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi:" + ex.Message);
+            }
+}
     }
 }

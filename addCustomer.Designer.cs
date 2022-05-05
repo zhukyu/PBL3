@@ -36,7 +36,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this._phoneNumber = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this._customerID = new System.Windows.Forms.TextBox();
             this.gioitinh = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(656, 69);
             this.formNameLable.TabIndex = 36;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -70,7 +69,6 @@
             this.formName.Size = new System.Drawing.Size(385, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thêm thông tin khách hàng";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // _address
             // 
@@ -80,7 +78,6 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(289, 36);
             this._address.TabIndex = 50;
-            this._address.TextChanged += new System.EventHandler(this._address_TextChanged);
             // 
             // label5
             // 
@@ -92,7 +89,6 @@
             this.label5.Size = new System.Drawing.Size(78, 27);
             this.label5.TabIndex = 49;
             this.label5.Text = "Địa chỉ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label7
             // 
@@ -104,7 +100,6 @@
             this.label7.Size = new System.Drawing.Size(103, 27);
             this.label7.TabIndex = 48;
             this.label7.Text = "Số CMND";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -116,7 +111,6 @@
             this.label8.Size = new System.Drawing.Size(52, 27);
             this.label8.TabIndex = 47;
             this.label8.Text = "SĐT";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _idNumber
             // 
@@ -126,7 +120,6 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(289, 36);
             this._idNumber.TabIndex = 46;
-            this._idNumber.TextChanged += new System.EventHandler(this._idNumber_TextChanged);
             // 
             // _phoneNumber
             // 
@@ -136,17 +129,6 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(289, 36);
             this._phoneNumber.TabIndex = 45;
-            this._phoneNumber.TextChanged += new System.EventHandler(this._phoneNumber_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(231, 278);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 36);
-            this.textBox1.TabIndex = 44;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -158,7 +140,6 @@
             this.label4.Size = new System.Drawing.Size(108, 27);
             this.label4.TabIndex = 43;
             this.label4.Text = "Ngày sinh";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -170,7 +151,6 @@
             this.label3.Size = new System.Drawing.Size(92, 27);
             this.label3.TabIndex = 41;
             this.label3.Text = "Giới tính";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -182,7 +162,6 @@
             this.label2.Size = new System.Drawing.Size(77, 27);
             this.label2.TabIndex = 40;
             this.label2.Text = "Họ tên";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -194,7 +173,6 @@
             this.label1.Size = new System.Drawing.Size(76, 27);
             this.label1.TabIndex = 39;
             this.label1.Text = "Mã KH";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // _fullName
             // 
@@ -204,7 +182,6 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(289, 36);
             this._fullName.TabIndex = 38;
-            this._fullName.TextChanged += new System.EventHandler(this._fullName_TextChanged);
             // 
             // _customerID
             // 
@@ -214,19 +191,18 @@
             this._customerID.Name = "_customerID";
             this._customerID.Size = new System.Drawing.Size(289, 36);
             this._customerID.TabIndex = 37;
-            this._customerID.TextChanged += new System.EventHandler(this._customerID_TextChanged);
             // 
             // gioitinh
             // 
+            this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gioitinh.FormattingEnabled = true;
             this.gioitinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
             this.gioitinh.Location = new System.Drawing.Point(231, 230);
             this.gioitinh.Name = "gioitinh";
-            this.gioitinh.Size = new System.Drawing.Size(289, 28);
+            this.gioitinh.Size = new System.Drawing.Size(289, 39);
             this.gioitinh.TabIndex = 58;
-            this.gioitinh.SelectedIndexChanged += new System.EventHandler(this.gioitinh_SelectedIndexChanged);
             // 
             // addButton
             // 
@@ -241,11 +217,21 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(237, 291);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(282, 38);
+            this.dateTimePicker1.TabIndex = 60;
+            // 
             // addCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 678);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.gioitinh);
             this.Controls.Add(this._address);
@@ -254,7 +240,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this._idNumber);
             this.Controls.Add(this._phoneNumber);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -264,7 +249,6 @@
             this.Controls.Add(this.formNameLable);
             this.Name = "addCustomer";
             this.Text = "addCustomer";
-            this.Load += new System.EventHandler(this.addCustomer_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             this.ResumeLayout(false);
@@ -282,7 +266,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox _idNumber;
         private System.Windows.Forms.TextBox _phoneNumber;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -291,5 +274,6 @@
         private System.Windows.Forms.TextBox _customerID;
         private System.Windows.Forms.ComboBox gioitinh;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

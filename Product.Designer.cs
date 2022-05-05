@@ -49,16 +49,15 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
-            this.employeeTable = new System.Windows.Forms.DataGridView();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -212,6 +211,7 @@
             this.deleteButton.TabIndex = 53;
             this.deleteButton.Text = "Xóa sản phẩm";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -243,9 +243,9 @@
             // 
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.search.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search.Location = new System.Drawing.Point(969, 22);
+            this.search.Location = new System.Drawing.Point(1010, 23);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(272, 32);
+            this.search.Size = new System.Drawing.Size(215, 32);
             this.search.TabIndex = 47;
             // 
             // searchButton
@@ -256,6 +256,7 @@
             this.searchButton.Size = new System.Drawing.Size(36, 32);
             this.searchButton.TabIndex = 48;
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // formNameLable
             // 
@@ -279,63 +280,57 @@
             this.formName.TabIndex = 1;
             this.formName.Text = "Danh sách sản phẩm";
             // 
-            // employeeTable
+            // listView1
             // 
-            this.employeeTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
-            this.productName,
-            this.amount,
-            this.price});
-            this.employeeTable.Location = new System.Drawing.Point(9, 71);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowHeadersWidth = 51;
-            this.employeeTable.RowTemplate.Height = 29;
-            this.employeeTable.Size = new System.Drawing.Size(903, 270);
-            this.employeeTable.TabIndex = 49;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(100, 93);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(751, 204);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // productID
+            // columnHeader1
             // 
-            this.productID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.productID.HeaderText = "Mã SP";
-            this.productID.MinimumWidth = 6;
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.productID.Width = 150;
+            this.columnHeader1.Name = "columnHeader1";
+            this.columnHeader1.Text = "Mã Sản Phẩm";
+            this.columnHeader1.Width = 150;
             // 
-            // productName
+            // columnHeader2
             // 
-            this.productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productName.HeaderText = "Tên SP";
-            this.productName.MinimumWidth = 6;
-            this.productName.Name = "productName";
-            this.productName.ReadOnly = true;
-            this.productName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnHeader2.Name = "columnHeader2";
+            this.columnHeader2.Text = "Tên Sản Phẩm";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 300;
             // 
-            // amount
+            // columnHeader3
             // 
-            this.amount.HeaderText = "Số lượng";
-            this.amount.MinimumWidth = 6;
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.amount.Width = 125;
+            this.columnHeader3.Name = "columnHeader3";
+            this.columnHeader3.Text = "Số Lượng";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 150;
             // 
-            // price
+            // columnHeader4
             // 
-            this.price.HeaderText = "Đơn giá";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 250;
+            this.columnHeader4.Name = "columnHeader4";
+            this.columnHeader4.Text = "Đơn Giá";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 150;
             // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 648);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);
@@ -343,11 +338,11 @@
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.employeeTable);
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Product";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.Product_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -355,7 +350,6 @@
             this.panel1.PerformLayout();
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,10 +376,10 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.DataGridView employeeTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

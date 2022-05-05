@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._importDate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,19 +44,10 @@
             this.addButton = new System.Windows.Forms.Button();
             this.addPictureBox1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // _importDate
-            // 
-            this._importDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._importDate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._importDate.Location = new System.Drawing.Point(483, 245);
-            this._importDate.Name = "_importDate";
-            this._importDate.Size = new System.Drawing.Size(203, 36);
-            this._importDate.TabIndex = 46;
-            this._importDate.TextChanged += new System.EventHandler(this._importDate_TextChanged);
             // 
             // label6
             // 
@@ -69,7 +59,6 @@
             this.label6.Size = new System.Drawing.Size(117, 27);
             this.label6.TabIndex = 45;
             this.label6.Text = "Ngày nhập";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -81,7 +70,6 @@
             this.label7.Size = new System.Drawing.Size(118, 27);
             this.label7.TabIndex = 44;
             this.label7.Text = "NV quản lý";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -93,7 +81,6 @@
             this.label8.Size = new System.Drawing.Size(112, 27);
             this.label8.TabIndex = 43;
             this.label8.Text = "Tình trạng";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _employeeID
             // 
@@ -103,7 +90,6 @@
             this._employeeID.Name = "_employeeID";
             this._employeeID.Size = new System.Drawing.Size(203, 36);
             this._employeeID.TabIndex = 42;
-            this._employeeID.TextChanged += new System.EventHandler(this._employeeID_TextChanged);
             // 
             // _amount
             // 
@@ -113,7 +99,6 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(203, 36);
             this._amount.TabIndex = 40;
-            this._amount.TextChanged += new System.EventHandler(this._amount_TextChanged);
             // 
             // label3
             // 
@@ -125,7 +110,6 @@
             this.label3.Size = new System.Drawing.Size(97, 27);
             this.label3.TabIndex = 39;
             this.label3.Text = "Số lượng";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -137,7 +121,6 @@
             this.label2.Size = new System.Drawing.Size(82, 27);
             this.label2.TabIndex = 38;
             this.label2.Text = "Tên TB";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -149,7 +132,6 @@
             this.label1.Size = new System.Drawing.Size(74, 27);
             this.label1.TabIndex = 37;
             this.label1.Text = "Mã TB";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // _deviceName
             // 
@@ -159,7 +141,6 @@
             this._deviceName.Name = "_deviceName";
             this._deviceName.Size = new System.Drawing.Size(203, 36);
             this._deviceName.TabIndex = 36;
-            this._deviceName.TextChanged += new System.EventHandler(this._deviceName_TextChanged);
             // 
             // _deviceID
             // 
@@ -169,7 +150,6 @@
             this._deviceID.Name = "_deviceID";
             this._deviceID.Size = new System.Drawing.Size(203, 36);
             this._deviceID.TabIndex = 35;
-            this._deviceID.TextChanged += new System.EventHandler(this._deviceID_TextChanged);
             // 
             // formNameLable
             // 
@@ -182,7 +162,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(731, 73);
             this.formNameLable.TabIndex = 47;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -193,20 +172,19 @@
             this.formName.Size = new System.Drawing.Size(195, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thêm thiết bị";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.Items.AddRange(new object[] {
             "Tốt",
             "Bình thường",
             "Hỏng"});
             this.comboBox1.Location = new System.Drawing.Point(483, 109);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 28);
+            this.comboBox1.Size = new System.Drawing.Size(203, 39);
             this.comboBox1.TabIndex = 48;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // addButton
             // 
@@ -229,7 +207,6 @@
             this.addPictureBox1.TabIndex = 58;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
-            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // pictureBox1
             // 
@@ -238,19 +215,27 @@
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
             this.pictureBox1.TabIndex = 57;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(483, 250);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(202, 38);
+            this.dateTimePicker1.TabIndex = 59;
             // 
             // addDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addPictureBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.formNameLable);
-            this.Controls.Add(this._importDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -263,7 +248,6 @@
             this.Controls.Add(this._deviceID);
             this.Name = "addDevice";
             this.Text = "addDevice";
-            this.Load += new System.EventHandler(this.addDevice_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -273,8 +257,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox _importDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -287,9 +269,10 @@
         private System.Windows.Forms.TextBox _deviceID;
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addPictureBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }

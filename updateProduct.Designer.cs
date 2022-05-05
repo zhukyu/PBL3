@@ -57,7 +57,6 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(645, 66);
             this.formNameLable.TabIndex = 59;
-            this.formNameLable.Paint += new System.Windows.Forms.PaintEventHandler(this.formNameLable_Paint);
             // 
             // formName
             // 
@@ -68,7 +67,6 @@
             this.formName.Size = new System.Drawing.Size(401, 33);
             this.formName.TabIndex = 1;
             this.formName.Text = "Thay đổi thông tin sản phẩm";
-            this.formName.Click += new System.EventHandler(this.formName_Click);
             // 
             // addButton
             // 
@@ -91,7 +89,6 @@
             this.addPictureBox1.TabIndex = 69;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
-            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // label3
             // 
@@ -103,7 +100,6 @@
             this.label3.Size = new System.Drawing.Size(105, 29);
             this.label3.TabIndex = 68;
             this.label3.Text = "Đơn giá";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // _price
             // 
@@ -113,7 +109,6 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(140, 29);
             this._price.TabIndex = 67;
-            this._price.TextChanged += new System.EventHandler(this._price_TextChanged);
             // 
             // label4
             // 
@@ -125,7 +120,6 @@
             this.label4.Size = new System.Drawing.Size(119, 29);
             this.label4.TabIndex = 66;
             this.label4.Text = "Số lượng";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // _amount
             // 
@@ -135,7 +129,6 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(140, 29);
             this._amount.TabIndex = 65;
-            this._amount.TextChanged += new System.EventHandler(this._amount_TextChanged);
             // 
             // label2
             // 
@@ -147,7 +140,6 @@
             this.label2.Size = new System.Drawing.Size(95, 29);
             this.label2.TabIndex = 64;
             this.label2.Text = "Tên SP";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // _productName
             // 
@@ -157,7 +149,6 @@
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(140, 29);
             this._productName.TabIndex = 63;
-            this._productName.TextChanged += new System.EventHandler(this._productName_TextChanged);
             // 
             // label6
             // 
@@ -169,7 +160,6 @@
             this.label6.Size = new System.Drawing.Size(86, 29);
             this.label6.TabIndex = 62;
             this.label6.Text = "Mã SP";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // _productID
             // 
@@ -179,7 +169,6 @@
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(140, 29);
             this._productID.TabIndex = 61;
-            this._productID.TextChanged += new System.EventHandler(this._productID_TextChanged);
             // 
             // pictureBox1
             // 
@@ -188,7 +177,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(206, 138);
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // deletePictureBox1
             // 
@@ -198,9 +186,8 @@
             this.deletePictureBox1.TabIndex = 77;
             this.deletePictureBox1.Text = "Xoá ảnh";
             this.deletePictureBox1.UseVisualStyleBackColor = true;
-            this.deletePictureBox1.Click += new System.EventHandler(this.deletePictureBox1_Click);
             // 
-            // fixProduct
+            // updateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -218,9 +205,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._productID);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "fixProduct";
+            this.Name = "updateProduct";
             this.Text = "fixProduct";
-            this.Load += new System.EventHandler(this.fixProduct_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -236,14 +222,14 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addPictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _price;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox _amount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _productName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox _productID;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button deletePictureBox1;
+        public System.Windows.Forms.TextBox _price;
+        public System.Windows.Forms.TextBox _amount;
+        public System.Windows.Forms.TextBox _productName;
+        public System.Windows.Forms.TextBox _productID;
     }
 }

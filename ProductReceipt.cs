@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class Revenue : UserControl
+    public partial class ProductReceipt : Form
     {
-        public Revenue()
+        public ProductReceipt()
         {
             InitializeComponent();
         }
 
+        private void ProductReceipt_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

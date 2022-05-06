@@ -19,13 +19,12 @@ namespace Gym
         }
 
         SqlConnection conn = null;
-        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
 
         public void hienthitoanbosanpham()
         {
             if (conn == null)
             {
-                conn = new SqlConnection(str);
+                conn = new SqlConnection(Program.cnstr);
             }
             if (conn.State == ConnectionState.Closed)
             {
@@ -78,7 +77,7 @@ namespace Gym
                 string maSp = lvi.SubItems[0].Text;
                 if (conn == null)
                 {
-                    conn = new SqlConnection(str);
+                    conn = new SqlConnection(Program.cnstr);
                 }
                 if (conn.State == ConnectionState.Closed)
                 {
@@ -137,7 +136,7 @@ namespace Gym
                     string maSp = lvi.SubItems[0].Text;
                     if (conn == null)
                     {
-                        conn = new SqlConnection(str);
+                        conn = new SqlConnection(Program.cnstr);
                     }
                     if (conn.State == ConnectionState.Closed)
                     {
@@ -185,7 +184,7 @@ namespace Gym
                 string maSp = lvi.SubItems[0].Text;
                 if (conn == null)
                 {
-                    conn = new SqlConnection(str);
+                    conn = new SqlConnection(Program.cnstr);
                 }
                 if (conn.State == ConnectionState.Closed)
                 {
@@ -227,7 +226,7 @@ namespace Gym
             {
                 if (conn == null)
                 {
-                    conn = new SqlConnection(str);
+                    conn = new SqlConnection(Program.cnstr);
                 }
                 if (conn.State == ConnectionState.Closed)
                 {

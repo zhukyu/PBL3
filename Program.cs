@@ -8,6 +8,7 @@ namespace Gym
 {
     internal static class Program
     {
+        internal static string cnstr = @"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

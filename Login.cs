@@ -35,32 +35,29 @@ namespace Gym
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
                 conn.Open();
                 string _username = username.Text;
                 string _password = password.Text;
-                //string sql = "select *from userID where taikhoan='" + tk + "'and matkhau='" + mk + "'";
                 string sql = "select * from Account where userID ='" + _username + "'and password ='" + _password + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader data = (SqlDataReader)cmd.ExecuteReader();
 
-                //comment
-
                 if (username.Text == "")
                 {
-                    MessageBox.Show("ban chua nhap uername");
+                    MessageBox.Show("Bạn chưa nhập tên tài khoản");
                 }
                 if (password.Text == "")
                 {
-                    MessageBox.Show("ban chua nhap password");
+                    MessageBox.Show("Bạn chưa nhập mật khẩu");
                 }
 
                 if (username.Text != "" && password.Text != "")
                     if (data.Read() == true)
                     {
-                        MessageBox.Show("dang nhap thanh cong");
+                        //MessageBox.Show("dang nhap thanh cong");
                         var homeForm = new Home();
                         this.Hide();
                         homeForm.ShowDialog();
@@ -70,13 +67,13 @@ namespace Gym
 
                     else
                     {
-                        MessageBox.Show("dang nhap that bai");
+                        MessageBox.Show("Sai tài khoản hoặc mật khẩu");
                     }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                MessageBox.Show("loi ket noi");
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu");
             }
             finally
             {

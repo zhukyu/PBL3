@@ -20,7 +20,6 @@ namespace Gym
 
 
         SqlConnection conn = null;
-        string str = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
         private void editButton_Click(object sender, EventArgs e)
         {
 
@@ -33,7 +32,7 @@ namespace Gym
                 {
                     if (conn == null)
                     {
-                        conn = new SqlConnection(str);
+                        conn = new SqlConnection(Program.cnstr);
                     }
                     if (conn.State == ConnectionState.Closed)
                     {

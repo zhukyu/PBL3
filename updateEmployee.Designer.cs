@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this._fullName = new System.Windows.Forms.TextBox();
             this._employeeID = new System.Windows.Forms.TextBox();
-            this.deletePictureBox1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fixPictureBox1 = new System.Windows.Forms.Button();
             this.fixButton = new System.Windows.Forms.Button();
@@ -233,31 +232,24 @@
             this._employeeID.Size = new System.Drawing.Size(215, 36);
             this._employeeID.TabIndex = 59;
             // 
-            // deletePictureBox1
-            // 
-            this.deletePictureBox1.Location = new System.Drawing.Point(617, 433);
-            this.deletePictureBox1.Name = "deletePictureBox1";
-            this.deletePictureBox1.Size = new System.Drawing.Size(94, 29);
-            this.deletePictureBox1.TabIndex = 76;
-            this.deletePictureBox1.Text = "Xoá ảnh";
-            this.deletePictureBox1.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(483, 121);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 75;
             this.pictureBox1.TabStop = false;
             // 
             // fixPictureBox1
             // 
-            this.fixPictureBox1.Location = new System.Drawing.Point(483, 433);
+            this.fixPictureBox1.Location = new System.Drawing.Point(538, 428);
             this.fixPictureBox1.Name = "fixPictureBox1";
             this.fixPictureBox1.Size = new System.Drawing.Size(128, 29);
             this.fixPictureBox1.TabIndex = 77;
-            this.fixPictureBox1.Text = "Thêm ảnh mới";
+            this.fixPictureBox1.Text = "Thay đổi ảnh";
             this.fixPictureBox1.UseVisualStyleBackColor = true;
+            this.fixPictureBox1.Click += new System.EventHandler(this.fixPictureBox1_Click);
             // 
             // fixButton
             // 
@@ -290,7 +282,6 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.fixButton);
             this.Controls.Add(this.fixPictureBox1);
-            this.Controls.Add(this.deletePictureBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gioitinh);
@@ -329,8 +320,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button deletePictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button fixPictureBox1;
         private System.Windows.Forms.Button fixButton;
         public System.Windows.Forms.ComboBox comboBox1;
@@ -342,5 +331,6 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox _employeeID;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -207,12 +207,14 @@
             this.addPictureBox1.TabIndex = 58;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(97, 309);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 57;
             this.pictureBox1.TabStop = false;
             // 
@@ -271,8 +273,8 @@
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addPictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

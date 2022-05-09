@@ -72,6 +72,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(215, 91);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(221, 141);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
@@ -163,6 +164,7 @@
             this.addPictureBox1.TabIndex = 57;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // addButton
             // 
@@ -208,7 +210,6 @@
 
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -219,5 +220,6 @@
         public System.Windows.Forms.TextBox _amount;
         public System.Windows.Forms.TextBox _productName;
         public System.Windows.Forms.TextBox _productID;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

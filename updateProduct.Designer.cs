@@ -41,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this._productID = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.deletePictureBox1 = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -83,12 +82,13 @@
             // 
             // addPictureBox1
             // 
-            this.addPictureBox1.Location = new System.Drawing.Point(210, 244);
+            this.addPictureBox1.Location = new System.Drawing.Point(259, 234);
             this.addPictureBox1.Name = "addPictureBox1";
-            this.addPictureBox1.Size = new System.Drawing.Size(92, 26);
+            this.addPictureBox1.Size = new System.Drawing.Size(117, 26);
             this.addPictureBox1.TabIndex = 69;
-            this.addPictureBox1.Text = "Thêm ảnh";
+            this.addPictureBox1.Text = "Thay đổi ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // label3
             // 
@@ -175,24 +175,15 @@
             this.pictureBox1.Location = new System.Drawing.Point(212, 90);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(206, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
-            // 
-            // deletePictureBox1
-            // 
-            this.deletePictureBox1.Location = new System.Drawing.Point(322, 244);
-            this.deletePictureBox1.Name = "deletePictureBox1";
-            this.deletePictureBox1.Size = new System.Drawing.Size(94, 29);
-            this.deletePictureBox1.TabIndex = 77;
-            this.deletePictureBox1.Text = "Xoá ảnh";
-            this.deletePictureBox1.UseVisualStyleBackColor = true;
             // 
             // updateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 648);
-            this.Controls.Add(this.deletePictureBox1);
             this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.addPictureBox1);
@@ -225,11 +216,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button deletePictureBox1;
         public System.Windows.Forms.TextBox _price;
         public System.Windows.Forms.TextBox _amount;
         public System.Windows.Forms.TextBox _productName;
         public System.Windows.Forms.TextBox _productID;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

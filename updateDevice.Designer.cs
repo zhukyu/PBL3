@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this._deviceName = new System.Windows.Forms.TextBox();
             this._deviceID = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
@@ -74,18 +73,20 @@
             // 
             // addPictureBox1
             // 
-            this.addPictureBox1.Location = new System.Drawing.Point(111, 614);
+            this.addPictureBox1.Location = new System.Drawing.Point(153, 614);
             this.addPictureBox1.Name = "addPictureBox1";
-            this.addPictureBox1.Size = new System.Drawing.Size(94, 29);
+            this.addPictureBox1.Size = new System.Drawing.Size(136, 29);
             this.addPictureBox1.TabIndex = 73;
-            this.addPictureBox1.Text = "Thêm ảnh";
+            this.addPictureBox1.Text = "Thay đổi ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(111, 317);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 72;
             this.pictureBox1.TabStop = false;
             // 
@@ -204,15 +205,6 @@
             this._deviceID.Size = new System.Drawing.Size(203, 36);
             this._deviceID.TabIndex = 59;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(245, 614);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 74;
-            this.button1.Text = "Xoá ảnh";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // editButton
             // 
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -242,7 +234,6 @@
             this.ClientSize = new System.Drawing.Size(730, 681);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.editButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.addPictureBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
@@ -272,14 +263,12 @@
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Button addPictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button editButton;
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.TextBox _employeeID;
@@ -287,5 +276,6 @@
         public System.Windows.Forms.TextBox _deviceName;
         public System.Windows.Forms.TextBox _deviceID;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

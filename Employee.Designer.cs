@@ -51,6 +51,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -62,7 +63,6 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.button1 = new System.Windows.Forms.Button();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -70,6 +70,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(1058, 32);
@@ -121,6 +122,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(11, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
@@ -307,7 +309,7 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1058, 193);
+            this.editButton.Location = new System.Drawing.Point(1058, 175);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(231, 49);
             this.editButton.TabIndex = 25;
@@ -320,7 +322,7 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1058, 269);
+            this.deleteButton.Location = new System.Drawing.Point(1058, 253);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(231, 49);
             this.deleteButton.TabIndex = 26;
@@ -328,29 +330,37 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1282, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(42, 40);
+            this.button1.TabIndex = 46;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 413);
+            this.panel1.Location = new System.Drawing.Point(155, 376);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1335, 59);
-            this.panel1.TabIndex = 41;
+            this.panel1.Size = new System.Drawing.Size(997, 59);
+            this.panel1.TabIndex = 50;
             // 
             // label9
             // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(3);
+            this.label9.Location = new System.Drawing.Point(381, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(1335, 59);
+            this.label9.Size = new System.Drawing.Size(294, 33);
             this.label9.TabIndex = 1;
             this.label9.Text = "Danh sách nhân viên";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listView1
             // 
@@ -363,88 +373,77 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 472);
-            this.listView1.MultiSelect = false;
+            this.listView1.Location = new System.Drawing.Point(249, 463);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1335, 186);
-            this.listView1.TabIndex = 42;
+            this.listView1.Size = new System.Drawing.Size(845, 167);
+            this.listView1.TabIndex = 51;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Name = "columnHeader1";
-            this.columnHeader1.Text = "ID Nhân Viên";
+            this.columnHeader1.Text = "ID nhân viên";
             this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "           Họ Tên";
+            this.columnHeader2.Text = "Tên nhân viên";
             this.columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Name = "columnHeader3";
-            this.columnHeader3.Text = "Giới Tính";
-            this.columnHeader3.Width = 80;
+            this.columnHeader3.Text = "Giới tính";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
-            this.columnHeader4.Text = "Ngày Sinh";
-            this.columnHeader4.Width = 80;
+            this.columnHeader4.Text = "Ngày sinh";
+            this.columnHeader4.Width = 100;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Name = "columnHeader5";
-            this.columnHeader5.Text = "Số Điện Thoại";
-            this.columnHeader5.Width = 110;
+            this.columnHeader5.Text = "Số ĐT";
+            this.columnHeader5.Width = 100;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Name = "columnHeader6";
             this.columnHeader6.Text = "Số CMND";
-            this.columnHeader6.Width = 80;
+            this.columnHeader6.Width = 100;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Name = "columnHeader7";
             this.columnHeader7.Text = "Chức Vụ";
-            this.columnHeader7.Width = 80;
+            this.columnHeader7.Width = 100;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Name = "columnHeader8";
-            this.columnHeader8.Text = "Địa Chỉ";
+            this.columnHeader8.Text = "Địa chỉ";
             this.columnHeader8.Width = 100;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1282, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 46;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.detail);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listView1);
             this.Name = "Employee";
             this.Size = new System.Drawing.Size(1335, 658);
             this.Load += new System.EventHandler(this.Employee_Load);
@@ -452,6 +451,7 @@
             this.detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,7 +460,6 @@
         #endregion
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel detail;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -474,17 +473,6 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        public System.Windows.Forms.ListView listView1;
         public System.Windows.Forms.TextBox _address;
         public System.Windows.Forms.TextBox _role;
         public System.Windows.Forms.TextBox _idNumber;
@@ -495,5 +483,17 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

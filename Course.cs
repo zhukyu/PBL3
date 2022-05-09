@@ -256,6 +256,11 @@ namespace Gym
                 MessageBox.Show("khong co du lieu");
             }
         }
+
+        private void saleButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

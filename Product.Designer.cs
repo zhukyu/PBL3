@@ -82,6 +82,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(31, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(319, 206);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
@@ -90,19 +91,20 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(813, 159);
+            this.label3.Location = new System.Drawing.Point(796, 161);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 29);
+            this.label3.Size = new System.Drawing.Size(121, 29);
             this.label3.TabIndex = 45;
-            this.label3.Text = "Đơn giá";
+            this.label3.Text = "Đơn giá :";
             // 
             // _price
             // 
+            this._price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._price.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._price.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(924, 159);
+            this._price.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._price.Location = new System.Drawing.Point(924, 153);
             this._price.Name = "_price";
-            this._price.Size = new System.Drawing.Size(245, 29);
+            this._price.Size = new System.Drawing.Size(245, 37);
             this._price.TabIndex = 44;
             // 
             // label4
@@ -110,19 +112,20 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(410, 159);
+            this.label4.Location = new System.Drawing.Point(377, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 29);
+            this.label4.Size = new System.Drawing.Size(135, 29);
             this.label4.TabIndex = 43;
-            this.label4.Text = "Số lượng";
+            this.label4.Text = "Số lượng :";
             // 
             // _amount
             // 
+            this._amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._amount.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._amount.Location = new System.Drawing.Point(534, 159);
+            this._amount.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._amount.Location = new System.Drawing.Point(534, 151);
             this._amount.Name = "_amount";
-            this._amount.Size = new System.Drawing.Size(245, 29);
+            this._amount.Size = new System.Drawing.Size(245, 37);
             this._amount.TabIndex = 42;
             // 
             // label2
@@ -132,17 +135,18 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(813, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 29);
+            this.label2.Size = new System.Drawing.Size(104, 29);
             this.label2.TabIndex = 41;
-            this.label2.Text = "Tên SP";
+            this.label2.Text = "Tên SP:";
             // 
             // _productName
             // 
+            this._productName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._productName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._productName.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productName.Location = new System.Drawing.Point(924, 75);
+            this._productName.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._productName.Location = new System.Drawing.Point(924, 67);
             this._productName.Name = "_productName";
-            this._productName.Size = new System.Drawing.Size(245, 29);
+            this._productName.Size = new System.Drawing.Size(245, 37);
             this._productName.TabIndex = 40;
             // 
             // label6
@@ -152,17 +156,18 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(410, 75);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 29);
+            this.label6.Size = new System.Drawing.Size(102, 29);
             this.label6.TabIndex = 39;
-            this.label6.Text = "Mã SP";
+            this.label6.Text = "Mã SP :";
             // 
             // _productID
             // 
+            this._productID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._productID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._productID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productID.Location = new System.Drawing.Point(534, 75);
+            this._productID.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._productID.Location = new System.Drawing.Point(534, 68);
             this._productID.Name = "_productID";
-            this._productID.Size = new System.Drawing.Size(245, 29);
+            this._productID.Size = new System.Drawing.Size(245, 37);
             this._productID.TabIndex = 37;
             // 
             // panel1
@@ -241,19 +246,20 @@
             // 
             // search
             // 
+            this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.search.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.search.Location = new System.Drawing.Point(1010, 23);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(215, 32);
+            this.search.Size = new System.Drawing.Size(231, 36);
             this.search.TabIndex = 47;
             // 
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1247, 22);
+            this.searchButton.Location = new System.Drawing.Point(1258, 24);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(36, 32);
+            this.searchButton.Size = new System.Drawing.Size(48, 36);
             this.searchButton.TabIndex = 48;
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -329,7 +335,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 648);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
@@ -341,7 +346,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Product";
-            this.Text = "Product";
+            this.Size = new System.Drawing.Size(1335, 648);
             this.Load += new System.EventHandler(this.Product_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

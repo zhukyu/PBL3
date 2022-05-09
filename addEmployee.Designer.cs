@@ -223,9 +223,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(467, 121);
+            this.pictureBox1.Location = new System.Drawing.Point(470, 112);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
@@ -237,6 +238,7 @@
             this.addPictureBox1.TabIndex = 56;
             this.addPictureBox1.Text = "Thêm ảnh";
             this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // gioitinh
             // 

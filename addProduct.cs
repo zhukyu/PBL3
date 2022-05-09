@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+
 namespace Gym
 {
     public partial class addProduct : Form
@@ -36,7 +38,7 @@ namespace Gym
 
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "Insert into product(productID,productName,amount,price)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "')";
+                string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','" + Convert.ToBase64String(ConverImgToByte()) + "')";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -55,6 +57,39 @@ namespace Gym
                 MessageBox.Show("lỗi:" + ex.Message);
             }
         }
+        OpenFileDialog _openFileDialog = new OpenFileDialog();
+        private void addPictureBox1_Click(object sender, EventArgs e)
+        {
+
+
+
+            _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
+
+            _openFileDialog.FilterIndex = 1;
+
+            _openFileDialog.RestoreDirectory = true;
+            if (_openFileDialog.ShowDialog() == DialogResult.OK)
+
+            {
+
+                pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
+
+            }
+        }
+
+
+
+        private byte[] ConverImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
     }
+
+
 }
 

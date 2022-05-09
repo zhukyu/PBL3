@@ -103,6 +103,7 @@ namespace Gym
                     anh._productName.Text = lvi.SubItems[1].Text;
                     anh._amount.Text = lvi.SubItems[2].Text;
                     anh._price.Text = lvi.SubItems[3].Text;
+                    anh.pictureBox1.Image = pictureBox1.Image;
                 }
 
                 rar.Close();
@@ -162,6 +163,7 @@ namespace Gym
                         _productName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
                         _price.Text = lvi.SubItems[3].Text;
+                        pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(4)));
 
                     }
 
@@ -206,6 +208,7 @@ namespace Gym
                     _productName.Text = null;
                     _amount.Text = null;
                     _price.Text = null;
+                    pictureBox1.Image = null;
 
                     MessageBox.Show("đã xóa thành công");
                 }
@@ -244,6 +247,7 @@ namespace Gym
                     _productName.Text = rar.GetString(1);
                     _amount.Text = rar.GetInt32(2) + "";
                     _price.Text = rar.GetInt32(3) + "";
+                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(4)));
 
                 }
                 else

@@ -276,5 +276,7 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Drawing.Bitmap bmp = null;
+        private string filePath = null;
     }
 }

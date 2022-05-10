@@ -331,5 +331,7 @@
         private System.Windows.Forms.ComboBox gioitinh;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Drawing.Bitmap bmp = null;
+        private string filePath = null;
     }
 }

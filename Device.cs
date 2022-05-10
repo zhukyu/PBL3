@@ -93,7 +93,7 @@ namespace Gym
                         _amount.Text = lvi.SubItems[2].Text;
                          _status.Text = lvi.SubItems[3].Text;
                         dateTimePicker1.Text = lvi.SubItems[4].Text;
-                        pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(5)));
+                        pictureBox1.Image = new Bitmap(rar.GetString(5));
                     }
 
                     rar.Close();
@@ -248,7 +248,7 @@ namespace Gym
                     _amount.Text = rar.GetInt32(2)+"";                   
                     _status.Text = rar.GetString(3);
                     dateTimePicker1.Value = rar.GetDateTime(4);
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(5)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(5));
                 }
 
                 else

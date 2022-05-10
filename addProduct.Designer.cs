@@ -221,5 +221,7 @@
         public System.Windows.Forms.TextBox _productName;
         public System.Windows.Forms.TextBox _productID;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Drawing.Bitmap bmp = null;
+        private string filePath = null;
     }
 }

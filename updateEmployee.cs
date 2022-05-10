@@ -39,7 +39,7 @@ namespace Gym
                     }
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "',anh=N'"+ Convert.ToBase64String(ConverImgToByte()) + "' " + "where employeeID=@maSp";
+                    string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "',anh=N'"+ filePath + "' " + "where employeeID=@maSp";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -66,6 +66,7 @@ namespace Gym
 
 private void fixPictureBox1_Click(object sender, EventArgs e)
         {
+            
             _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
 
             _openFileDialog.FilterIndex = 1;
@@ -74,10 +75,18 @@ private void fixPictureBox1_Click(object sender, EventArgs e)
             if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
             {
-                
-                pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
 
+                string fileName = _openFileDialog.FileName;
+                this.bmp = new Bitmap(fileName);
+
+                this.pictureBox1.Image = this.bmp;
             }
+
+            string id = _employeeID.Text;
+            string file = id + ".jpg";
+
+            this.filePath = "Img\\" + file;
+            this.bmp.Save(filePath);
 
         }
 

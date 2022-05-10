@@ -42,7 +42,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',anh='"+ Convert.ToBase64String(ConverImgToByte()) + "' " + "where deviceID=@maSp";
+                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',anh='"+ filePath + "' " + "where deviceID=@maSp";
                     comm.CommandText = st;
                     comm.CommandText = st;
                     comm.Connection = conn;
@@ -78,14 +78,21 @@ namespace Gym
                 _openFileDialog.FilterIndex = 1;
 
                 _openFileDialog.RestoreDirectory = true;
-                if (_openFileDialog.ShowDialog() == DialogResult.OK)
+            if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
-                {
+            {
+                string fileName = _openFileDialog.FileName;
+                this.bmp = new Bitmap(fileName);
 
-                    pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
-
-                }
+                this.pictureBox1.Image = this.bmp;
             }
+
+            string id = _deviceID.Text;
+            string file = id + ".jpg";
+
+            this.filePath = "Img\\" + file;
+            this.bmp.Save(filePath);
+        }
 
 
 

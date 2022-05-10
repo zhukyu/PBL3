@@ -36,7 +36,7 @@ namespace Gym
 
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + Convert.ToBase64String(ConverImgToByte()) + "')";
+                string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "')";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -65,25 +65,34 @@ namespace Gym
             _openFileDialog.FilterIndex = 1;
 
             _openFileDialog.RestoreDirectory = true;
-            if (_openFileDialog.ShowDialog() == DialogResult.OK)
+            
 
-            {
+                if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
-                pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
+                {
+                    string fileName = _openFileDialog.FileName;
+                    this.bmp = new Bitmap(fileName);
 
+                    this.pictureBox1.Image = this.bmp;
+                }
+
+                string id = _deviceID.Text;
+                string file = id + ".jpg";
+
+                this.filePath = "Img\\" + file;
+                this.bmp.Save(filePath);
             }
-        }
 
 
 
-        private byte[] ConverImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
-        }
+        //private byte[] ConverImgToByte()
+        //{
+        //    FileStream fs;
+        //    fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+        //    byte[] picbyte = new byte[fs.Length];
+        //    fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+        //    fs.Close();
+        //    return picbyte;
+        //}
     }
 }

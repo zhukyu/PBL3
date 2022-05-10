@@ -332,5 +332,7 @@
         public System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox _employeeID;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Drawing.Bitmap bmp = null;
+        private string filePath = null;
     }
 }

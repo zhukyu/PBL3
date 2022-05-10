@@ -38,7 +38,7 @@ namespace Gym
 
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','" + Convert.ToBase64String(ConverImgToByte()) + "')";
+                string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','" + filePath + "')";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -71,10 +71,17 @@ namespace Gym
             if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
             {
+                string fileName = _openFileDialog.FileName;
+                this.bmp = new Bitmap(fileName);
 
-                pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
-
+                this.pictureBox1.Image = this.bmp;
             }
+
+            string id = _productID.Text;
+            string file = id + ".jpg";
+
+            this.filePath = "Img\\" + file;
+            this.bmp.Save(filePath);
         }
 
 

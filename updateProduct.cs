@@ -39,7 +39,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh='" + Convert.ToBase64String(ConverImgToByte()) + "' " + "where productID=@maSp";
+                    string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh='" + filePath + "' " + "where productID=@maSp";
                     comm.CommandText = st;
                     comm.CommandText = st;
                     comm.Connection = conn;
@@ -75,14 +75,21 @@ OpenFileDialog _openFileDialog = new OpenFileDialog();
                 _openFileDialog.FilterIndex = 1;
 
                 _openFileDialog.RestoreDirectory = true;
-                if (_openFileDialog.ShowDialog() == DialogResult.OK)
+            if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
-                {
+            {
+                string fileName = _openFileDialog.FileName;
+                this.bmp = new Bitmap(fileName);
 
-                    pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
-
-                }
+                this.pictureBox1.Image = this.bmp;
             }
+
+            string id = _productID.Text;
+            string file = id + ".jpg";
+
+            this.filePath = "Img\\" + file;
+            this.bmp.Save(filePath);
+        }
 
 
 

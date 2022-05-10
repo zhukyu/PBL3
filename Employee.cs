@@ -216,7 +216,7 @@ namespace Gym
                     _idNumber.Text = rar.GetString(5);
                     _role.Text = rar.GetString(6);
                     _address.Text = rar.GetString(7);
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(8)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(8));
 
                 }
                 else
@@ -271,18 +271,18 @@ namespace Gym
                         _idNumber.Text = lvi.SubItems[5].Text;
                         _role.Text = lvi.SubItems[6].Text;
                         _address.Text = lvi.SubItems[7].Text;
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(8)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(8));
                 }
 
                 rar.Close();
                 }
 
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show("bạn chưa chọn dữa liệu");
             }
-        }
+}
         
 
     }

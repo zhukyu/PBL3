@@ -101,7 +101,7 @@ namespace Gym
         }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("bạn chưa chọn dữa liệu");
+                    MessageBox.Show("Bạn chưa chọn dữa liệu");
                 }
 }
 
@@ -168,7 +168,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show("Bạn chưa chọn dữ liệu!");
             }
         }
 
@@ -201,16 +201,19 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _deviceID.Text = null;
+                        _deviceName.Text = null;
+                        _amount.Text = null;
+                        dateTimePicker1.Text = null;
+                        _status.Text = null;
+                        pictureBox1.Image = null;
 
-                    hienthitoanbosanpham();
-                    _deviceID.Text = null;
-                    _deviceName.Text = null;
-                    _amount.Text = null;
-                    dateTimePicker1.Text = null;
-                    _status.Text = null;
-                    pictureBox1.Image = null;
-                    
-                    MessageBox.Show("đã xóa thành công");
+                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                    }
                 }
                 else
                 {
@@ -219,7 +222,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show("Bạn chưa chọn dữ liệu!");
             }
         }
 
@@ -253,13 +256,31 @@ namespace Gym
 
                 else
                 {
-                    MessageBox.Show("khong co du lieu");
+                    MessageBox.Show("Không có dữ liệu");
                 }
                 rar.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show("Không có dữ liệu");
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Tìm kiếm")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Tìm kiếm";
+                textBox2.ForeColor = Color.Silver;
             }
         }
     }

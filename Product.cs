@@ -202,15 +202,18 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _productID.Text = null;
+                        _productName.Text = null;
+                        _amount.Text = null;
+                        _price.Text = null;
+                        pictureBox1.Image = null;
 
-                    hienthitoanbosanpham();
-                    _productID.Text = null;
-                    _productName.Text = null;
-                    _amount.Text = null;
-                    _price.Text = null;
-                    pictureBox1.Image = null;
-
-                    MessageBox.Show("đã xóa thành công");
+                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                    }
                 }
                 else
                 {

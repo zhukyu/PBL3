@@ -69,9 +69,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(215, 91);
+            this.pictureBox1.Location = new System.Drawing.Point(213, 83);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(221, 141);
+            this.pictureBox1.Size = new System.Drawing.Size(221, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
@@ -81,19 +81,18 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(174, 464);
+            this.label3.Location = new System.Drawing.Point(148, 487);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 29);
+            this.label3.Size = new System.Drawing.Size(121, 29);
             this.label3.TabIndex = 55;
-            this.label3.Text = "Đơn giá";
+            this.label3.Text = "Đơn giá :";
             // 
             // _price
             // 
-            this._price.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._price.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(298, 464);
+            this._price.Location = new System.Drawing.Point(298, 487);
             this._price.Name = "_price";
-            this._price.Size = new System.Drawing.Size(155, 29);
+            this._price.Size = new System.Drawing.Size(155, 36);
             this._price.TabIndex = 54;
             // 
             // label4
@@ -101,19 +100,18 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(174, 416);
+            this.label4.Location = new System.Drawing.Point(148, 437);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 29);
+            this.label4.Size = new System.Drawing.Size(135, 29);
             this.label4.TabIndex = 53;
-            this.label4.Text = "Số lượng";
+            this.label4.Text = "Số lượng :";
             // 
             // _amount
             // 
-            this._amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._amount.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._amount.Location = new System.Drawing.Point(298, 416);
+            this._amount.Location = new System.Drawing.Point(298, 434);
             this._amount.Name = "_amount";
-            this._amount.Size = new System.Drawing.Size(155, 29);
+            this._amount.Size = new System.Drawing.Size(155, 36);
             this._amount.TabIndex = 52;
             // 
             // label2
@@ -121,19 +119,18 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(174, 364);
+            this.label2.Location = new System.Drawing.Point(148, 383);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 29);
+            this.label2.Size = new System.Drawing.Size(111, 29);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Tên SP";
+            this.label2.Text = "Tên SP :";
             // 
             // _productName
             // 
-            this._productName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._productName.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productName.Location = new System.Drawing.Point(298, 364);
+            this._productName.Location = new System.Drawing.Point(298, 383);
             this._productName.Name = "_productName";
-            this._productName.Size = new System.Drawing.Size(155, 29);
+            this._productName.Size = new System.Drawing.Size(155, 36);
             this._productName.TabIndex = 50;
             // 
             // label6
@@ -141,24 +138,23 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(174, 317);
+            this.label6.Location = new System.Drawing.Point(148, 331);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 29);
+            this.label6.Size = new System.Drawing.Size(102, 29);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Mã SP";
+            this.label6.Text = "Mã SP :";
             // 
             // _productID
             // 
-            this._productID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._productID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productID.Location = new System.Drawing.Point(298, 317);
+            this._productID.Location = new System.Drawing.Point(298, 328);
             this._productID.Name = "_productID";
-            this._productID.Size = new System.Drawing.Size(155, 29);
+            this._productID.Size = new System.Drawing.Size(155, 36);
             this._productID.TabIndex = 48;
             // 
             // addPictureBox1
             // 
-            this.addPictureBox1.Location = new System.Drawing.Point(279, 257);
+            this.addPictureBox1.Location = new System.Drawing.Point(275, 273);
             this.addPictureBox1.Name = "addPictureBox1";
             this.addPictureBox1.Size = new System.Drawing.Size(94, 29);
             this.addPictureBox1.TabIndex = 57;

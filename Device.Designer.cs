@@ -70,7 +70,7 @@
             this.panel1.Location = new System.Drawing.Point(9, 9);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(997, 59);
+            this.panel1.Size = new System.Drawing.Size(1005, 59);
             this.panel1.TabIndex = 49;
             // 
             // label9
@@ -88,7 +88,7 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1061, 255);
+            this.deleteButton.Location = new System.Drawing.Point(1046, 292);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(231, 49);
             this.deleteButton.TabIndex = 48;
@@ -101,7 +101,7 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1061, 184);
+            this.editButton.Location = new System.Drawing.Point(1046, 224);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(231, 49);
             this.editButton.TabIndex = 47;
@@ -114,7 +114,7 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(1061, 116);
+            this.addButton.Location = new System.Drawing.Point(1046, 155);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(231, 49);
             this.addButton.TabIndex = 46;
@@ -125,9 +125,9 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1270, 43);
+            this.button1.Location = new System.Drawing.Point(1283, 85);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.Size = new System.Drawing.Size(40, 43);
             this.button1.TabIndex = 45;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -135,12 +135,16 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(1046, 43);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBox2.Location = new System.Drawing.Point(1046, 85);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 36);
+            this.textBox2.Size = new System.Drawing.Size(231, 43);
             this.textBox2.TabIndex = 43;
+            this.textBox2.Text = "Tìm kiếm";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // detail
             // 
@@ -175,9 +179,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(50, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(274, 223);
+            this.pictureBox1.Size = new System.Drawing.Size(237, 260);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
@@ -186,10 +190,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(790, 114);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 27);
+            this.label6.Size = new System.Drawing.Size(132, 24);
             this.label6.TabIndex = 33;
             this.label6.Text = "Ngày nhập :";
             // 
@@ -197,10 +201,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(790, 201);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 27);
+            this.label7.Size = new System.Drawing.Size(133, 24);
             this.label7.TabIndex = 32;
             this.label7.Text = "NV quản lý :";
             // 
@@ -208,51 +212,48 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(790, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 27);
+            this.label8.Size = new System.Drawing.Size(128, 24);
             this.label8.TabIndex = 31;
             this.label8.Text = "Tình trạng :";
             // 
             // _employeeID
             // 
             this._employeeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._employeeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._employeeID.Location = new System.Drawing.Point(939, 193);
             this._employeeID.Name = "_employeeID";
-            this._employeeID.Size = new System.Drawing.Size(255, 36);
+            this._employeeID.Size = new System.Drawing.Size(255, 43);
             this._employeeID.TabIndex = 30;
             // 
             // _status
             // 
             this._status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._status.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._status.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._status.Location = new System.Drawing.Point(939, 27);
             this._status.Name = "_status";
-            this._status.Size = new System.Drawing.Size(255, 36);
+            this._status.Size = new System.Drawing.Size(255, 43);
             this._status.TabIndex = 29;
             // 
             // _amount
             // 
             this._amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._amount.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._amount.Location = new System.Drawing.Point(457, 201);
             this._amount.Name = "_amount";
-            this._amount.Size = new System.Drawing.Size(255, 36);
+            this._amount.Size = new System.Drawing.Size(255, 43);
             this._amount.TabIndex = 26;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(343, 201);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 27);
+            this.label3.Size = new System.Drawing.Size(112, 24);
             this.label3.TabIndex = 25;
             this.label3.Text = "Số lượng :";
             // 
@@ -260,10 +261,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(343, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 27);
+            this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 24;
             this.label2.Text = "Tên TB :";
             // 
@@ -271,31 +272,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(343, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 27);
+            this.label1.Size = new System.Drawing.Size(85, 24);
             this.label1.TabIndex = 23;
             this.label1.Text = "Mã TB :";
             // 
             // _deviceName
             // 
             this._deviceName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._deviceName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._deviceName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._deviceName.Location = new System.Drawing.Point(457, 114);
             this._deviceName.Name = "_deviceName";
-            this._deviceName.Size = new System.Drawing.Size(255, 36);
+            this._deviceName.Size = new System.Drawing.Size(255, 43);
             this._deviceName.TabIndex = 22;
             // 
             // _deviceID
             // 
             this._deviceID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._deviceID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._deviceID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._deviceID.Location = new System.Drawing.Point(457, 28);
+            this._deviceID.Location = new System.Drawing.Point(457, 24);
             this._deviceID.Name = "_deviceID";
-            this._deviceID.Size = new System.Drawing.Size(255, 36);
+            this._deviceID.Size = new System.Drawing.Size(255, 43);
             this._deviceID.TabIndex = 21;
             // 
             // listView1
@@ -306,10 +305,11 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader6});
+            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(60, 116);
+            this.listView1.Location = new System.Drawing.Point(60, 109);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(896, 209);
             this.listView1.TabIndex = 51;
@@ -320,31 +320,31 @@
             // columnHeader1
             // 
             this.columnHeader1.Name = "columnHeader1";
-            this.columnHeader1.Text = "mã TB";
+            this.columnHeader1.Text = "Mã thiết bị";
             this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "tenn tb";
+            this.columnHeader2.Text = "Tên thiết bị";
             this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Name = "columnHeader3";
-            this.columnHeader3.Text = "số lượng";
+            this.columnHeader3.Text = "Số lượng";
             this.columnHeader3.Width = 150;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
-            this.columnHeader4.Text = "tình trạng";
+            this.columnHeader4.Text = "Tình trạng";
             this.columnHeader4.Width = 200;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Name = "columnHeader6";
-            this.columnHeader6.Text = "ngày nhập";
+            this.columnHeader6.Text = "Ngày nhập";
             this.columnHeader6.Width = 200;
             // 
             // Device

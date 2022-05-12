@@ -90,6 +90,42 @@ namespace Gym
                 loginButton_Click(this, new EventArgs());
             }
         }
+
+        private void username_Enter(object sender, EventArgs e)
+        {
+            if (username.Text == "User Name")
+            {
+                username.Text = "";
+                username.ForeColor = Color.Black;
+            }
+        }
+
+        private void username_Leave(object sender, EventArgs e)
+        {
+            if (username.Text == "")
+            {
+                username.Text = "User Name";
+                username.ForeColor = Color.Silver;
+            }
+        }
+
+        private void password_Enter(object sender, EventArgs e)
+        {
+            if (password.Text == "Password")
+            {
+                password.Text = "";
+                password.ForeColor = Color.Black;
+            }
+        }
+
+        private void password_Leave(object sender, EventArgs e)
+        {
+            if (password.Text == "")
+            {
+                password.Text = "Password";
+                password.ForeColor = Color.Silver;
+            }
+        }
     }
 
 

@@ -42,24 +42,30 @@
             // 
             // username
             // 
-            this.username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.username.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.username.ForeColor = System.Drawing.Color.Gray;
             this.username.Location = new System.Drawing.Point(490, 247);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(405, 36);
+            this.username.Size = new System.Drawing.Size(405, 43);
             this.username.TabIndex = 0;
+            this.username.Text = "User Name";
             this.username.TextChanged += new System.EventHandler(this.username_TextChanged);
+            this.username.Enter += new System.EventHandler(this.username_Enter);
+            this.username.Leave += new System.EventHandler(this.username_Leave);
             // 
             // password
             // 
-            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.password.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.password.ForeColor = System.Drawing.Color.Gray;
             this.password.Location = new System.Drawing.Point(490, 360);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(405, 36);
+            this.password.Size = new System.Drawing.Size(405, 43);
             this.password.TabIndex = 1;
+            this.password.Text = "Password";
             this.password.UseSystemPasswordChar = true;
+            this.password.Enter += new System.EventHandler(this.password_Enter);
             this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
+            this.password.Leave += new System.EventHandler(this.password_Leave);
             // 
             // label1
             // 

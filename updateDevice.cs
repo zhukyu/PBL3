@@ -42,7 +42,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "' " + "where deviceID=@maSp";
+                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'"+comboBox2.Text+"' " + "where deviceID=@maSp";
                     comm.CommandText = st;
                     comm.CommandText = st;
                     comm.Connection = conn;
@@ -61,50 +61,41 @@ namespace Gym
                         MessageBox.Show("lỗi");
                     }
                 }
-            }
-            catch (Exception ex)
+        }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("lỗi:" + ex.Message);
+                }
+}
+
+        private void updateDevice_Load(object sender, EventArgs e)
+        {
+            if (conn == null)
             {
-                MessageBox.Show("lỗi:" + ex.Message);
+                conn = new SqlConnection(Program.cnstr);
             }
-        }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select fullName from Employee";
+            comm.Connection = conn;
 
-        //    OpenFileDialog _openFileDialog = new OpenFileDialog();
-        //private void addPictureBox1_Click(object sender, EventArgs e)
-        //{
+
+            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            comboBox2.DataSource = dt;
+            comboBox2.DisplayMember="fullname";
            
-        //        _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
-
-        //        _openFileDialog.FilterIndex = 1;
-
-        //        _openFileDialog.RestoreDirectory = true;
-        //    if (_openFileDialog.ShowDialog() == DialogResult.OK)
-
-        //    {
-        //        string fileName = _openFileDialog.FileName;
-        //        this.bmp = new Bitmap(fileName);
-
-        //        this.pictureBox1.Image = this.bmp;
-        //    }
-
-        //    string id = _deviceID.Text;
-        //    string file = id + ".jpg";
-
-        //    this.filePath = "Img\\" + file;
-        //    this.bmp.Save(filePath);
-        //}
-
-
-
-        //    private byte[] ConverImgToByte()
-        //    {
-        //        FileStream fs;
-        //        fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-        //        byte[] picbyte = new byte[fs.Length];
-        //        fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-        //        fs.Close();
-        //        return picbyte;
-        //    }
         }
+
+
+
+
     }
+}
 
 

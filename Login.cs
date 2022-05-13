@@ -18,21 +18,7 @@ namespace Gym
             InitializeComponent();
         }
 
-        private void username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void loginButton_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(Program.cnstr);
@@ -91,12 +77,55 @@ namespace Gym
             }
         }
 
+        
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                password.PasswordChar= (char)0;
+
+            }
+            else
+            {
+                password.PasswordChar = '*';
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dg = MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dg == DialogResult.Yes)
+                Application.Exit();
+            
+        }
+
+        private void password_Enter(object sender, EventArgs e)
+        {
+            if(password.Text== "*******")
+            {
+                password.Text = "";
+                password.ForeColor = Color.Black;
+
+            }
+        }
+
+        private void password_Leave(object sender, EventArgs e)
+        {
+            if (password.Text == "")
+            {
+                password.Text = "*******";
+                password.ForeColor = Color.Silver;
+            }
+        }
+
         private void username_Enter(object sender, EventArgs e)
         {
             if (username.Text == "User Name")
             {
                 username.Text = "";
                 username.ForeColor = Color.Black;
+
             }
         }
 
@@ -106,24 +135,6 @@ namespace Gym
             {
                 username.Text = "User Name";
                 username.ForeColor = Color.Silver;
-            }
-        }
-
-        private void password_Enter(object sender, EventArgs e)
-        {
-            if (password.Text == "Password")
-            {
-                password.Text = "";
-                password.ForeColor = Color.Black;
-            }
-        }
-
-        private void password_Leave(object sender, EventArgs e)
-        {
-            if (password.Text == "")
-            {
-                password.Text = "Password";
-                password.ForeColor = Color.Silver;
             }
         }
     }

@@ -56,6 +56,7 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -304,14 +305,15 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader6});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.columnHeader6,
+            this.columnHeader5});
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(60, 109);
+            this.listView1.Location = new System.Drawing.Point(71, 98);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(896, 209);
+            this.listView1.Size = new System.Drawing.Size(875, 243);
             this.listView1.TabIndex = 51;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -321,31 +323,40 @@
             // 
             this.columnHeader1.Name = "columnHeader1";
             this.columnHeader1.Text = "Mã thiết bị";
-            this.columnHeader1.Width = 150;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Name = "columnHeader2";
             this.columnHeader2.Text = "Tên thiết bị";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Name = "columnHeader3";
             this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 150;
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
             this.columnHeader4.Text = "Tình trạng";
-            this.columnHeader4.Width = 200;
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 150;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Name = "columnHeader6";
             this.columnHeader6.Text = "Ngày nhập";
-            this.columnHeader6.Width = 200;
+            this.columnHeader6.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Name = "columnHeader5";
+            this.columnHeader5.Text = "Nhân viên QL";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 200;
             // 
             // Device
             // 
@@ -401,5 +412,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

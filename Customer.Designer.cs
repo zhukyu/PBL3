@@ -316,13 +316,13 @@
             this.columnHeader5,
             this.columnHeader8,
             this.columnHeader6});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(283, 442);
+            this.listView1.Location = new System.Drawing.Point(234, 437);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(767, 186);
+            this.listView1.Size = new System.Drawing.Size(906, 186);
             this.listView1.TabIndex = 43;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -337,8 +337,9 @@
             // columnHeader2
             // 
             this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "           Họ Tên";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Text = "Họ Tên";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
@@ -350,27 +351,27 @@
             // 
             this.columnHeader4.Name = "columnHeader4";
             this.columnHeader4.Text = "Ngày Sinh";
-            this.columnHeader4.Width = 100;
+            this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Name = "columnHeader5";
             this.columnHeader5.Text = "Số Điện Thoại";
-            this.columnHeader5.Width = 110;
+            this.columnHeader5.Width = 120;
             // 
             // columnHeader8
             // 
             this.columnHeader8.DisplayIndex = 6;
             this.columnHeader8.Name = "columnHeader8";
             this.columnHeader8.Text = "Số CMND";
-            this.columnHeader8.Width = 100;
+            this.columnHeader8.Width = 120;
             // 
             // columnHeader6
             // 
             this.columnHeader6.DisplayIndex = 5;
             this.columnHeader6.Name = "columnHeader6";
             this.columnHeader6.Text = "Địa chỉ";
-            this.columnHeader6.Width = 100;
+            this.columnHeader6.Width = 120;
             // 
             // Customer
             // 

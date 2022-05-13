@@ -44,6 +44,7 @@ namespace Gym
                 lvi.SubItems.Add(rar.GetInt32(2)+"");
                 lvi.SubItems.Add(rar.GetString(3)); 
                 lvi.SubItems.Add(rar.GetDateTime(4).ToString("dd-MM-yyyy"));
+                lvi.SubItems.Add(rar.GetString(6));
                 listView1.Items.Add(lvi);
 
 
@@ -94,6 +95,7 @@ namespace Gym
                          _status.Text = lvi.SubItems[3].Text;
                         dateTimePicker1.Text = lvi.SubItems[4].Text;
                         pictureBox1.Image = new Bitmap(rar.GetString(5));
+                        _employeeID.Text = lvi.SubItems[5].Text;
                     }
 
                     rar.Close();
@@ -156,7 +158,7 @@ namespace Gym
                     anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
                     anh.comboBox1.Text = lvi.SubItems[4].Text;
                     anh.pictureBox1.Image = pictureBox1.Image;
-                    
+                    anh.comboBox2.Text = lvi.SubItems[5].Text;
 
 
                 }

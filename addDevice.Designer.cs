@@ -31,7 +31,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this._employeeID = new System.Windows.Forms.TextBox();
             this._amount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.addPictureBox1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,14 +81,6 @@
             this.label8.Size = new System.Drawing.Size(128, 24);
             this.label8.TabIndex = 43;
             this.label8.Text = "Tình trạng :";
-            // 
-            // _employeeID
-            // 
-            this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._employeeID.Location = new System.Drawing.Point(481, 173);
-            this._employeeID.Name = "_employeeID";
-            this._employeeID.Size = new System.Drawing.Size(203, 43);
-            this._employeeID.TabIndex = 42;
             // 
             // _amount
             // 
@@ -223,11 +215,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(202, 43);
             this.dateTimePicker1.TabIndex = 59;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(482, 173);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(200, 45);
+            this.comboBox2.TabIndex = 60;
+            // 
             // addDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addPictureBox1);
             this.Controls.Add(this.pictureBox1);
@@ -237,7 +239,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this._employeeID);
             this.Controls.Add(this._amount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -246,6 +247,7 @@
             this.Controls.Add(this._deviceID);
             this.Name = "addDevice";
             this.Text = "addDevice";
+            this.Load += new System.EventHandler(this.addDevice_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -258,7 +260,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox _employeeID;
         private System.Windows.Forms.TextBox _amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -274,5 +275,6 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

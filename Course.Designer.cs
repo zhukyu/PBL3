@@ -278,13 +278,13 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(89, 91);
+            this.listView1.Location = new System.Drawing.Point(83, 91);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(763, 232);
+            this.listView1.Size = new System.Drawing.Size(755, 232);
             this.listView1.TabIndex = 65;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -294,24 +294,27 @@
             // 
             this.columnHeader1.Name = "columnHeader1";
             this.columnHeader1.Text = "Mã khóa học";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Name = "columnHeader2";
             this.columnHeader2.Text = "Tên Khóa học";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Name = "columnHeader3";
             this.columnHeader3.Text = "Thời gian";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 200;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
             this.columnHeader4.Text = "Đơn giá";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 200;
             // 
             // Course

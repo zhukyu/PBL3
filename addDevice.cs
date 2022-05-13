@@ -36,7 +36,7 @@ namespace Gym
 
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "')";
+                string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "',N'"+comboBox2+"')";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -83,6 +83,29 @@ namespace Gym
                 this.filePath = "Img\\" + file;
                 this.bmp.Save(filePath);
             }
+
+        private void addDevice_Load(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select fullName from Employee";
+            comm.Connection = conn;
+
+
+            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            comboBox2.DataSource = dt;
+            comboBox2.DisplayMember = "fullname";
+        }
 
 
 

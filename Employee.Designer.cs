@@ -345,17 +345,17 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(155, 376);
+            this.panel1.Location = new System.Drawing.Point(140, 376);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(997, 59);
+            this.panel1.Size = new System.Drawing.Size(1077, 59);
             this.panel1.TabIndex = 50;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(366, 14);
+            this.label9.Location = new System.Drawing.Point(371, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(294, 33);
             this.label9.TabIndex = 1;
@@ -372,12 +372,13 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(249, 463);
+            this.listView1.Location = new System.Drawing.Point(180, 450);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(845, 167);
+            this.listView1.Size = new System.Drawing.Size(993, 195);
             this.listView1.TabIndex = 51;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -393,7 +394,8 @@
             // 
             this.columnHeader2.Name = "columnHeader2";
             this.columnHeader2.Text = "Tên nhân viên";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 170;
             // 
             // columnHeader3
             // 
@@ -423,13 +425,15 @@
             // 
             this.columnHeader7.Name = "columnHeader7";
             this.columnHeader7.Text = "Chức Vụ";
-            this.columnHeader7.Width = 100;
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 170;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Name = "columnHeader8";
             this.columnHeader8.Text = "Địa chỉ";
-            this.columnHeader8.Width = 100;
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader8.Width = 150;
             // 
             // Employee
             // 

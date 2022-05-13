@@ -35,7 +35,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this._employeeID = new System.Windows.Forms.TextBox();
             this._amount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this._deviceID = new System.Windows.Forms.TextBox();
             this.editButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -126,14 +126,6 @@
             this.label8.TabIndex = 66;
             this.label8.Text = "Tình trạng :";
             // 
-            // _employeeID
-            // 
-            this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._employeeID.Location = new System.Drawing.Point(501, 181);
-            this._employeeID.Name = "_employeeID";
-            this._employeeID.Size = new System.Drawing.Size(203, 43);
-            this._employeeID.TabIndex = 65;
-            // 
             // _amount
             // 
             this._amount.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -213,11 +205,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(203, 43);
             this.dateTimePicker1.TabIndex = 76;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(501, 181);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(203, 45);
+            this.comboBox2.TabIndex = 77;
+            // 
             // updateDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 681);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.pictureBox1);
@@ -225,7 +227,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this._employeeID);
             this.Controls.Add(this._amount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -235,6 +236,7 @@
             this.Controls.Add(this.formNameLable);
             this.Name = "updateDevice";
             this.Text = "fixDevice ";
+            this.Load += new System.EventHandler(this.updateDevice_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -255,7 +257,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button editButton;
         public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.TextBox _employeeID;
         public System.Windows.Forms.TextBox _amount;
         public System.Windows.Forms.TextBox _deviceName;
         public System.Windows.Forms.TextBox _deviceID;
@@ -263,5 +264,6 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
+        public System.Windows.Forms.ComboBox comboBox2;
     }
 }

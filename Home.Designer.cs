@@ -103,7 +103,7 @@ namespace Gym
             // 
             this.logOutButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.logOutButton.FlatAppearance.BorderSize = 0;
-            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logOutButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.logOutButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.logOutButton.Image = ((System.Drawing.Image)(resources.GetObject("logOutButton.Image")));
@@ -111,7 +111,7 @@ namespace Gym
             this.logOutButton.Location = new System.Drawing.Point(0, 685);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Padding = new System.Windows.Forms.Padding(12, 0, 25, 0);
-            this.logOutButton.Size = new System.Drawing.Size(267, 80);
+            this.logOutButton.Size = new System.Drawing.Size(267, 98);
             this.logOutButton.TabIndex = 8;
             this.logOutButton.Text = "Đăng xuất";
             this.logOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,7 +122,7 @@ namespace Gym
             // 
             this.revenueButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.revenueButton.FlatAppearance.BorderSize = 0;
-            this.revenueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.revenueButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.revenueButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.revenueButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.revenueButton.Image = ((System.Drawing.Image)(resources.GetObject("revenueButton.Image")));
@@ -141,7 +141,7 @@ namespace Gym
             // 
             this.deviceButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.deviceButton.FlatAppearance.BorderSize = 0;
-            this.deviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deviceButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deviceButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.deviceButton.Image = ((System.Drawing.Image)(resources.GetObject("deviceButton.Image")));
@@ -160,7 +160,7 @@ namespace Gym
             // 
             this.courseButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseButton.FlatAppearance.BorderSize = 0;
-            this.courseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.courseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.courseButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.courseButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.courseButton.Image = ((System.Drawing.Image)(resources.GetObject("courseButton.Image")));
@@ -179,7 +179,7 @@ namespace Gym
             // 
             this.productButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.productButton.FlatAppearance.BorderSize = 0;
-            this.productButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.productButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.productButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.productButton.Image = ((System.Drawing.Image)(resources.GetObject("productButton.Image")));
@@ -198,7 +198,7 @@ namespace Gym
             // 
             this.customerButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.customerButton.FlatAppearance.BorderSize = 0;
-            this.customerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.customerButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.customerButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.customerButton.Image = ((System.Drawing.Image)(resources.GetObject("customerButton.Image")));
@@ -217,7 +217,7 @@ namespace Gym
             // 
             this.employeeButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.employeeButton.FlatAppearance.BorderSize = 0;
-            this.employeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.employeeButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.employeeButton.Image = ((System.Drawing.Image)(resources.GetObject("employeeButton.Image")));
@@ -234,9 +234,10 @@ namespace Gym
             // 
             // memberButton
             // 
+            this.memberButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.memberButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.memberButton.FlatAppearance.BorderSize = 0;
-            this.memberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.memberButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.memberButton.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.memberButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.memberButton.Image = ((System.Drawing.Image)(resources.GetObject("memberButton.Image")));

@@ -105,8 +105,8 @@ namespace Gym
                     _gender.Text = lvi.SubItems[2].Text;
                     dateTimePicker1.Text = lvi.SubItems[3].Text;
                     _phoneNumber.Text = lvi.SubItems[4].Text;
-                    _idNumber.Text = lvi.SubItems[6].Text;
-                    _address.Text = lvi.SubItems[5].Text;
+                    _idNumber.Text = lvi.SubItems[5].Text;
+                    _address.Text = lvi.SubItems[6].Text;
                 }
 
                 rar.Close();
@@ -263,6 +263,11 @@ namespace Gym
             {
                 MessageBox.Show("khong co du lieu");
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

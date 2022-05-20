@@ -73,7 +73,7 @@
             // _address
             // 
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._address.Location = new System.Drawing.Point(234, 444);
+            this._address.Location = new System.Drawing.Point(234, 393);
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(292, 43);
             this._address.TabIndex = 50;
@@ -83,7 +83,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(105, 444);
+            this.label5.Location = new System.Drawing.Point(101, 406);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 24);
             this.label5.TabIndex = 49;
@@ -94,7 +94,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(105, 403);
+            this.label7.Location = new System.Drawing.Point(98, 472);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 24);
             this.label7.TabIndex = 48;
@@ -114,7 +114,7 @@
             // _idNumber
             // 
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._idNumber.Location = new System.Drawing.Point(234, 393);
+            this._idNumber.Location = new System.Drawing.Point(234, 459);
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(292, 43);
             this._idNumber.TabIndex = 46;

@@ -202,7 +202,7 @@
             this.panel1.Location = new System.Drawing.Point(5, 324);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1331, 59);
+            this.panel1.Size = new System.Drawing.Size(1318, 59);
             this.panel1.TabIndex = 40;
             // 
             // label1
@@ -277,17 +277,20 @@
             // 
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.search.Location = new System.Drawing.Point(993, 14);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(259, 36);
             this.search.TabIndex = 47;
+            this.search.Text = "Tìm kiếm";
+            this.search.Enter += new System.EventHandler(this.search_Enter);
+            this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1275, 14);
+            this.searchButton.Location = new System.Drawing.Point(1258, 14);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(48, 41);
             this.searchButton.TabIndex = 48;
@@ -376,7 +379,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Product";
-            this.Size = new System.Drawing.Size(1342, 658);
+            this.Size = new System.Drawing.Size(1326, 653);
             this.Load += new System.EventHandler(this.Product_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -65,7 +65,7 @@
             this.saleButton.ForeColor = System.Drawing.Color.White;
             this.saleButton.Image = ((System.Drawing.Image)(resources.GetObject("saleButton.Image")));
             this.saleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saleButton.Location = new System.Drawing.Point(1011, 79);
+            this.saleButton.Location = new System.Drawing.Point(969, 75);
             this.saleButton.Name = "saleButton";
             this.saleButton.Size = new System.Drawing.Size(251, 49);
             this.saleButton.TabIndex = 64;
@@ -178,7 +178,7 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(1011, 274);
+            this.deleteButton.Location = new System.Drawing.Point(969, 274);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(251, 49);
             this.deleteButton.TabIndex = 63;
@@ -215,7 +215,7 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(1011, 207);
+            this.editButton.Location = new System.Drawing.Point(969, 210);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(251, 49);
             this.editButton.TabIndex = 62;
@@ -252,7 +252,7 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(1011, 143);
+            this.addButton.Location = new System.Drawing.Point(969, 144);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(251, 49);
             this.addButton.TabIndex = 61;
@@ -264,10 +264,12 @@
             // 
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search.Location = new System.Drawing.Point(1011, 23);
+            this.search.Location = new System.Drawing.Point(969, 22);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(251, 47);
             this.search.TabIndex = 57;
+            this.search.Text = "Tìm kiếm";
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             this.search.Enter += new System.EventHandler(this.search_Enter);
             this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
@@ -276,7 +278,7 @@
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1268, 23);
+            this.searchButton.Location = new System.Drawing.Point(1237, 23);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(62, 47);
             this.searchButton.TabIndex = 58;
@@ -344,7 +346,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Course";
-            this.Size = new System.Drawing.Size(1335, 658);
+            this.Size = new System.Drawing.Size(1327, 651);
             this.Load += new System.EventHandler(this.Course_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

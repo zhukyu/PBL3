@@ -279,6 +279,11 @@ namespace Gym
                 search.ForeColor = Color.Silver;
             }
         }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

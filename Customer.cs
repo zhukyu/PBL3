@@ -199,16 +199,19 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
-
-                    hienthitoanbosanpham();
-                    _customerID.Text = null;
-                    _fullName.Text = null;
-                    _gender.Text = null;
-                    dateTimePicker1.Text = null;
-                    _phoneNumber.Text = null;
-                    _idNumber.Text = null;
-                    _address.Text = null;
-                    MessageBox.Show("đã xóa thành công");
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _customerID.Text = null;
+                        _fullName.Text = null;
+                        _gender.Text = null;
+                        dateTimePicker1.Text = null;
+                        _phoneNumber.Text = null;
+                        _idNumber.Text = null;
+                        _address.Text = null;
+                        MessageBox.Show("đã xóa thành công");
+                    }
                 }
                 else
                 {

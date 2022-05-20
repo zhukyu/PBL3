@@ -59,7 +59,7 @@ namespace Gym
             hienthitoanbosanpham();
         }
 
-       
+
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -110,15 +110,15 @@ namespace Gym
                 //while (rar.Read())
                 //{
 
-                    anh._employeeID.Text = lvi.SubItems[0].Text;
-                    anh._fullName.Text = lvi.SubItems[1].Text;
-                    anh.gioitinh.Text = lvi.SubItems[2].Text;
-                    anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
-                    anh._phoneNumber.Text = lvi.SubItems[4].Text;
-                    anh._idNumber.Text = lvi.SubItems[5].Text;
-                    anh.comboBox1.Text = lvi.SubItems[6].Text;
-                    anh._address.Text = lvi.SubItems[7].Text;
-                    anh.pictureBox1.Image = pictureBox1.Image;
+                anh._employeeID.Text = lvi.SubItems[0].Text;
+                anh._fullName.Text = lvi.SubItems[1].Text;
+                anh.gioitinh.Text = lvi.SubItems[2].Text;
+                anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
+                anh._phoneNumber.Text = lvi.SubItems[4].Text;
+                anh._idNumber.Text = lvi.SubItems[5].Text;
+                anh.comboBox1.Text = lvi.SubItems[6].Text;
+                anh._address.Text = lvi.SubItems[7].Text;
+                anh.pictureBox1.Image = pictureBox1.Image;
 
 
                 //}
@@ -142,49 +142,57 @@ namespace Gym
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ListViewItem lvi = listView1.SelectedItems[0];
-                string maSp = lvi.SubItems[0].Text;
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "delete from Employee where employeeID=@maSp";
-                comm.Connection = conn;
-                SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                para.Value = maSp;
-                comm.Parameters.Add(para);
-                int ret = comm.ExecuteNonQuery();
-                if (ret > 0)
-                {
 
-                    hienthitoanbosanpham();
-                    _employeeID.Text = null;
-                    _fullName.Text = null;
-                    _gender.Text = null;
-                    dateTimePicker1.Text = null;
-                    _phoneNumber.Text = null;
-                    _idNumber.Text = null;
-                    _role.Text = null;
-                    _address.Text = null;
-                    pictureBox1.Image = null;
-                    MessageBox.Show("đã xóa thành công");
-                }
-                else
-                {
-                    MessageBox.Show("đã xóa thất bại");
-                }
-            }
-            catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+
+                try
+                {
+                    ListViewItem lvi = listView1.SelectedItems[0];
+                    string maSp = lvi.SubItems[0].Text;
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(Program.cnstr);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = "delete from Employee where employeeID=@maSp";
+                    comm.Connection = conn;
+                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                    para.Value = maSp;
+                    comm.Parameters.Add(para);
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlr == DialogResult.Yes)
+                        {
+                            hienthitoanbosanpham();
+                            _employeeID.Text = null;
+                            _fullName.Text = null;
+                            _gender.Text = null;
+                            dateTimePicker1.Text = null;
+                            _phoneNumber.Text = null;
+                            _idNumber.Text = null;
+                            _role.Text = null;
+                            _address.Text = null;
+                            pictureBox1.Image = null;
+                            MessageBox.Show("Đã xóa thành công");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã xóa thất bại");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bạn chưa chọn dũ liệu");
+                }
             }
         }
 
@@ -216,18 +224,18 @@ namespace Gym
                     _idNumber.Text = rar.GetString(5);
                     _role.Text = rar.GetString(6);
                     _address.Text = rar.GetString(7);
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(8)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(8));
 
                 }
                 else
                 {
-                    MessageBox.Show("khong co du lieu");
+                    MessageBox.Show("Không có dữ liệu");
                 }
                 rar.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show("Không có dữ liệu");
             }
         }
 
@@ -271,27 +279,43 @@ namespace Gym
                         _idNumber.Text = lvi.SubItems[5].Text;
                         _role.Text = lvi.SubItems[6].Text;
                         _address.Text = lvi.SubItems[7].Text;
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(8)));
+                        pictureBox1.Image = new Bitmap(rar.GetString(8));
+                    }
+
+                    rar.Close();
                 }
 
-                rar.Close();
+        }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bạn chưa chọn dữa liệu");
                 }
+}
 
-            }
-            catch (Exception ex)
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if(textBox2.Text=="Tìm kiếm")
             {
-                MessageBox.Show("bạn chưa chọn dữa liệu");
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Tìm kiếm";
+                textBox2.ForeColor = Color.Silver;
             }
         }
-        
 
+       
     }
 
 }
 
-            
-    
-    
 
 
 
@@ -299,46 +323,48 @@ namespace Gym
 
 
 
-        /*private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _employeeID.ReadOnly = true;
-            int i;
-            i = dataGridView1.CurrentRow.Index;
-            _employeeID.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            _fullName.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-            _gender.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
-            textBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-            _phoneNumber.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-            _idNumber.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            _role.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
-            _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
 
-        }*/
 
-        /*private void deleteButton_Click(object sender, EventArgs e)
-        {
-            cm = conn.CreateCommand();
-            cm.CommandText = "delete from Employee where employeeID = '" + _employeeID.Text + "'";
-            cm.ExecuteNonQuery();
-            loaddata();
-        }
 
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            cm = conn.CreateCommand();
-            cm.CommandText = "insert into Employee values('" + _employeeID.Text + "','" + _fullName.Text + "','" + _gender.Text + "','" + textBox1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "','" + _role.Text + "','" + _address.Text + "')";
-            cm.ExecuteNonQuery();
-            loaddata();
-        }
-        private void edit_Click(object sender, EventArgs e)
-        {
-            //Form frm = new updateEmployee();
-            //frm.Show();
-            cm = conn.CreateCommand();
-            cm.CommandText = "update Employee set  fullName ='"+ _fullName.Text + "',gender='" + _gender.Text + "',birthday='" + textBox1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role='" + _role.Text + "',address='"+_address+ "' where employeeID = '" + _employeeID.Text + "'";
-            cm.ExecuteNonQuery();
-            loaddata();
-        }
-    */
+/*private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+{
+    _employeeID.ReadOnly = true;
+    int i;
+    i = dataGridView1.CurrentRow.Index;
+    _employeeID.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+    _fullName.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+    _gender.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+    textBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+    _phoneNumber.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+    _idNumber.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+    _role.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+    _address.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
 
-    
+}*/
+
+/*private void deleteButton_Click(object sender, EventArgs e)
+{
+    cm = conn.CreateCommand();
+    cm.CommandText = "delete from Employee where employeeID = '" + _employeeID.Text + "'";
+    cm.ExecuteNonQuery();
+    loaddata();
+}
+
+private void addButton_Click(object sender, EventArgs e)
+{
+    cm = conn.CreateCommand();
+    cm.CommandText = "insert into Employee values('" + _employeeID.Text + "','" + _fullName.Text + "','" + _gender.Text + "','" + textBox1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "','" + _role.Text + "','" + _address.Text + "')";
+    cm.ExecuteNonQuery();
+    loaddata();
+}
+private void edit_Click(object sender, EventArgs e)
+{
+    //Form frm = new updateEmployee();
+    //frm.Show();
+    cm = conn.CreateCommand();
+    cm.CommandText = "update Employee set  fullName ='"+ _fullName.Text + "',gender='" + _gender.Text + "',birthday='" + textBox1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role='" + _role.Text + "',address='"+_address+ "' where employeeID = '" + _employeeID.Text + "'";
+    cm.ExecuteNonQuery();
+    loaddata();
+}
+*/
+

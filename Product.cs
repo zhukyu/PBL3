@@ -163,7 +163,7 @@ namespace Gym
                         _productName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
                         _price.Text = lvi.SubItems[3].Text;
-                        pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(4)));
+                        pictureBox1.Image = new Bitmap(rar.GetString(4));
 
                     }
 
@@ -202,15 +202,18 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _productID.Text = null;
+                        _productName.Text = null;
+                        _amount.Text = null;
+                        _price.Text = null;
+                        pictureBox1.Image = null;
 
-                    hienthitoanbosanpham();
-                    _productID.Text = null;
-                    _productName.Text = null;
-                    _amount.Text = null;
-                    _price.Text = null;
-                    pictureBox1.Image = null;
-
-                    MessageBox.Show("đã xóa thành công");
+                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                    }
                 }
                 else
                 {
@@ -247,7 +250,7 @@ namespace Gym
                     _productName.Text = rar.GetString(1);
                     _amount.Text = rar.GetInt32(2) + "";
                     _price.Text = rar.GetInt32(3) + "";
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(4)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(4));
 
                 }
                 else

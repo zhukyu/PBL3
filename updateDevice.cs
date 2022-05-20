@@ -42,7 +42,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',anh='"+ Convert.ToBase64String(ConverImgToByte()) + "' " + "where deviceID=@maSp";
+                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'"+comboBox2.Text+"' " + "where deviceID=@maSp";
                     comm.CommandText = st;
                     comm.CommandText = st;
                     comm.Connection = conn;
@@ -53,8 +53,7 @@ namespace Gym
                     int ret = comm.ExecuteNonQuery();
                     if (ret > 0)
                     {
-                        MessageBox.Show("Sửa thành công");
-
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                     else
@@ -62,43 +61,41 @@ namespace Gym
                         MessageBox.Show("lỗi");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi:" + ex.Message);
-            }
         }
-
-            OpenFileDialog _openFileDialog = new OpenFileDialog();
-        private void addPictureBox1_Click(object sender, EventArgs e)
-        {
-           
-                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
-
-                _openFileDialog.FilterIndex = 1;
-
-                _openFileDialog.RestoreDirectory = true;
-                if (_openFileDialog.ShowDialog() == DialogResult.OK)
-
+                catch (Exception ex)
                 {
-
-                    pictureBox1.Image = new Bitmap(_openFileDialog.FileName);
-
+                    MessageBox.Show("lỗi:" + ex.Message);
                 }
-            }
+}
 
-
-
-            private byte[] ConverImgToByte()
+        private void updateDevice_Load(object sender, EventArgs e)
+        {
+            if (conn == null)
             {
-                FileStream fs;
-                fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-                byte[] picbyte = new byte[fs.Length];
-                fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-                fs.Close();
-                return picbyte;
+                conn = new SqlConnection(Program.cnstr);
             }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select fullName from Employee";
+            comm.Connection = conn;
+
+
+            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            comboBox2.DataSource = dt;
+            comboBox2.DisplayMember="fullname";
+           
         }
+
+
+
+
     }
+}
 
 

@@ -44,6 +44,7 @@ namespace Gym
                 lvi.SubItems.Add(rar.GetInt32(2)+"");
                 lvi.SubItems.Add(rar.GetString(3)); 
                 lvi.SubItems.Add(rar.GetDateTime(4).ToString("dd-MM-yyyy"));
+                lvi.SubItems.Add(rar.GetString(6));
                 listView1.Items.Add(lvi);
 
 
@@ -93,7 +94,8 @@ namespace Gym
                         _amount.Text = lvi.SubItems[2].Text;
                          _status.Text = lvi.SubItems[3].Text;
                         dateTimePicker1.Text = lvi.SubItems[4].Text;
-                        pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(5)));
+                        pictureBox1.Image = new Bitmap(rar.GetString(5));
+                        _employeeID.Text = lvi.SubItems[5].Text;
                     }
 
                     rar.Close();
@@ -101,7 +103,7 @@ namespace Gym
         }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("bạn chưa chọn dữa liệu");
+                    MessageBox.Show("Bạn chưa chọn dữa liệu");
                 }
 }
 
@@ -156,7 +158,7 @@ namespace Gym
                     anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
                     anh.comboBox1.Text = lvi.SubItems[4].Text;
                     anh.pictureBox1.Image = pictureBox1.Image;
-                    
+                    anh.comboBox2.Text = lvi.SubItems[5].Text;
 
 
                 }
@@ -168,7 +170,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show("Bạn chưa chọn dữ liệu!");
             }
         }
 
@@ -201,16 +203,19 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _deviceID.Text = null;
+                        _deviceName.Text = null;
+                        _amount.Text = null;
+                        dateTimePicker1.Text = null;
+                        _status.Text = null;
+                        pictureBox1.Image = null;
 
-                    hienthitoanbosanpham();
-                    _deviceID.Text = null;
-                    _deviceName.Text = null;
-                    _amount.Text = null;
-                    dateTimePicker1.Text = null;
-                    _status.Text = null;
-                    pictureBox1.Image = null;
-                    
-                    MessageBox.Show("đã xóa thành công");
+                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                    }
                 }
                 else
                 {
@@ -219,7 +224,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show("Bạn chưa chọn dữ liệu!");
             }
         }
 
@@ -248,18 +253,36 @@ namespace Gym
                     _amount.Text = rar.GetInt32(2)+"";                   
                     _status.Text = rar.GetString(3);
                     dateTimePicker1.Value = rar.GetDateTime(4);
-                    pictureBox1.Image = new Bitmap(Program.ByteToImg(rar.GetString(5)));
+                    pictureBox1.Image = new Bitmap(rar.GetString(5));
                 }
 
                 else
                 {
-                    MessageBox.Show("khong co du lieu");
+                    MessageBox.Show("Không có dữ liệu");
                 }
                 rar.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show("Không có dữ liệu");
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Tìm kiếm")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Tìm kiếm";
+                textBox2.ForeColor = Color.Silver;
             }
         }
     }

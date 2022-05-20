@@ -304,8 +304,8 @@ namespace Gym
 
                 anh._customerID.Text = lvi.SubItems[0].Text;
                 anh._fullName.Text = lvi.SubItems[1].Text;
-                anh._idNumber.Text = lvi.SubItems[5].Text;
-                anh.textBox1.Text = lvi.SubItems[6].Text;
+                anh._idNumber.Text = lvi.SubItems[6].Text;
+                anh.textBox1.Text = lvi.SubItems[4].Text;
 
 
 

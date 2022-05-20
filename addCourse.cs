@@ -46,11 +46,11 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("loi");
+                    MessageBox.Show("Thêm thất bại");
                 }
             }
             catch (Exception ex)

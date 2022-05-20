@@ -112,24 +112,27 @@ namespace Gym
                 int ret = comm.ExecuteNonQuery();
                 if (ret > 0)
                 {
+                    DialogResult dlr = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        hienthitoanbosanpham();
+                        _courseID.Text = null;
+                        _courseName.Text = null;
+                        _duration.Text = null;
 
-                    hienthitoanbosanpham();
-                    _courseID.Text = null;
-                    _courseName.Text = null;
-                    _duration.Text = null;
+                        _price.Text = null;
 
-                    _price.Text = null;
-
-                    MessageBox.Show("đã xóa thành công");
+                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("đã xóa thất bại");
+                    MessageBox.Show("Đã xóa thất bại");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show("Bạn chưa chọn dữ liệu");
             }
         }
 
@@ -254,6 +257,26 @@ namespace Gym
             catch (Exception ex)
             {
                 MessageBox.Show("khong co du lieu");
+            }
+        }
+
+        
+
+        private void search_Enter(object sender, EventArgs e)
+        {
+            if (search.Text == "Tìm kiếm")
+            {
+                search.Text = "";
+                search.ForeColor = Color.Black;
+            }
+        }
+
+        private void search_Leave(object sender, EventArgs e)
+        {
+            if (search.Text == "")
+            {
+                search.Text = "Tìm kiếm";
+                search.ForeColor = Color.Silver;
             }
         }
     }

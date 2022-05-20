@@ -54,7 +54,7 @@ namespace Gym
                     int ret = comm.ExecuteNonQuery();
                     if (ret > 0)
                     {
-                        MessageBox.Show("Sửa thành công");
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                     }

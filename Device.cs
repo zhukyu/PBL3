@@ -127,43 +127,26 @@ namespace Gym
             {
                 updateDevice anh = new updateDevice();
                 ListViewItem lvi = listView1.SelectedItems[0];
-                string maSp = lvi.SubItems[0].Text;
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-
-
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Device where deviceID=@maSp";
-                comm.Connection = conn;
-
-                SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                para.Value = maSp;
-                comm.Parameters.Add(para);
-
-                _employeeID.ReadOnly = true;
-                SqlDataReader rar = comm.ExecuteReader();
-                while (rar.Read())
-                {
 
                     anh._deviceID.Text = lvi.SubItems[0].Text;
                     anh._deviceName.Text = lvi.SubItems[1].Text;
                     anh._amount.Text = lvi.SubItems[2].Text;
-                    anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
-                    anh.comboBox1.Text = lvi.SubItems[4].Text;
+                    anh.dateTimePicker1.Text = lvi.SubItems[4].Text;
+                    anh.comboBox1.Text = lvi.SubItems[3].Text;
                     anh.pictureBox1.Image = pictureBox1.Image;
                     anh.comboBox2.Text = lvi.SubItems[5].Text;
 
 
-                }
+                    //_deviceID.Text = lvi.SubItems[0].Text;
+                    //_deviceName.Text = lvi.SubItems[1].Text;
+                    //_amount.Text = lvi.SubItems[2].Text;
+                    //_status.Text = lvi.SubItems[3].Text;
+                    //dateTimePicker1.Text = lvi.SubItems[4].Text;
+                    //pictureBox1.Image = new Bitmap(rar.GetString(5));
+                    //_employeeID.Text = lvi.SubItems[6].Text;
+                
 
-                rar.Close();
+                
                 anh.StartPosition = FormStartPosition.CenterScreen;
                 anh.FormClosing += new FormClosingEventHandler(this.editDevice_FormClosing);
                 anh.ShowDialog();

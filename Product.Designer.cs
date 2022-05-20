@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
@@ -63,6 +64,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this._price);
@@ -72,16 +74,33 @@
             this.panel2.Controls.Add(this._productName);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this._productID);
-            this.panel2.Location = new System.Drawing.Point(9, 406);
+            this.panel2.Location = new System.Drawing.Point(9, 384);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1314, 240);
+            this.panel2.Size = new System.Drawing.Size(1314, 264);
             this.panel2.TabIndex = 42;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(74, 222);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(228, 40);
+            this.button2.TabIndex = 47;
+            this.button2.Text = "      Ảnh sản phẩm";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(90, -3);
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(74, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 242);
+            this.pictureBox1.Size = new System.Drawing.Size(228, 217);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
@@ -91,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(796, 161);
+            this.label3.Location = new System.Drawing.Point(813, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 29);
             this.label3.TabIndex = 45;
@@ -101,8 +120,9 @@
             // 
             this._price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._price.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._price.Enabled = false;
             this._price.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(924, 153);
+            this._price.Location = new System.Drawing.Point(963, 153);
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(245, 37);
             this._price.TabIndex = 44;
@@ -122,6 +142,7 @@
             // 
             this._amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._amount.Enabled = false;
             this._amount.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._amount.Location = new System.Drawing.Point(534, 151);
             this._amount.Name = "_amount";
@@ -143,8 +164,9 @@
             // 
             this._productName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._productName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._productName.Enabled = false;
             this._productName.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productName.Location = new System.Drawing.Point(924, 67);
+            this._productName.Location = new System.Drawing.Point(963, 67);
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(245, 37);
             this._productName.TabIndex = 40;
@@ -154,7 +176,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(410, 75);
+            this.label6.Location = new System.Drawing.Point(377, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 29);
             this.label6.TabIndex = 39;
@@ -164,6 +186,7 @@
             // 
             this._productID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._productID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._productID.Enabled = false;
             this._productID.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._productID.Location = new System.Drawing.Point(534, 68);
             this._productID.Name = "_productID";
@@ -176,17 +199,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(9, 344);
+            this.panel1.Location = new System.Drawing.Point(5, 324);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1314, 59);
+            this.panel1.Size = new System.Drawing.Size(1318, 59);
             this.panel1.TabIndex = 40;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(535, 13);
+            this.label1.Location = new System.Drawing.Point(538, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(251, 33);
             this.label1.TabIndex = 1;
@@ -197,9 +220,9 @@
             this.saleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.saleButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.saleButton.ForeColor = System.Drawing.Color.White;
-            this.saleButton.Location = new System.Drawing.Point(1010, 77);
+            this.saleButton.Location = new System.Drawing.Point(993, 67);
             this.saleButton.Name = "saleButton";
-            this.saleButton.Size = new System.Drawing.Size(231, 49);
+            this.saleButton.Size = new System.Drawing.Size(259, 49);
             this.saleButton.TabIndex = 54;
             this.saleButton.Text = "Tạo hóa đơn";
             this.saleButton.UseVisualStyleBackColor = false;
@@ -210,9 +233,11 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1010, 272);
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(993, 262);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(231, 49);
+            this.deleteButton.Size = new System.Drawing.Size(259, 49);
             this.deleteButton.TabIndex = 53;
             this.deleteButton.Text = "Xóa sản phẩm";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -223,9 +248,11 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1010, 205);
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editButton.Location = new System.Drawing.Point(993, 195);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(231, 49);
+            this.editButton.Size = new System.Drawing.Size(259, 49);
             this.editButton.TabIndex = 52;
             this.editButton.Text = "Sửa thông tin";
             this.editButton.UseVisualStyleBackColor = false;
@@ -236,9 +263,11 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(1010, 141);
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(993, 131);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(231, 49);
+            this.addButton.Size = new System.Drawing.Size(259, 49);
             this.addButton.TabIndex = 51;
             this.addButton.Text = "Thêm sản phẩm";
             this.addButton.UseVisualStyleBackColor = false;
@@ -248,20 +277,24 @@
             // 
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search.Location = new System.Drawing.Point(1010, 23);
+            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.search.Location = new System.Drawing.Point(993, 14);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(231, 36);
+            this.search.Size = new System.Drawing.Size(259, 36);
             this.search.TabIndex = 47;
+            this.search.Text = "Tìm kiếm";
+            this.search.Enter += new System.EventHandler(this.search_Enter);
+            this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
             // searchButton
             // 
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1258, 24);
+            this.searchButton.Location = new System.Drawing.Point(1258, 14);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(48, 36);
+            this.searchButton.Size = new System.Drawing.Size(48, 41);
             this.searchButton.TabIndex = 48;
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // formNameLable
@@ -270,7 +303,7 @@
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(9, 9);
+            this.formNameLable.Location = new System.Drawing.Point(3, 2);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(903, 59);
@@ -280,7 +313,7 @@
             // 
             this.formName.AutoSize = true;
             this.formName.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.formName.Location = new System.Drawing.Point(287, 13);
+            this.formName.Location = new System.Drawing.Point(293, 13);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(293, 33);
             this.formName.TabIndex = 1;
@@ -296,9 +329,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(100, 93);
+            this.listView1.Location = new System.Drawing.Point(54, 77);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(751, 204);
+            this.listView1.Size = new System.Drawing.Size(815, 204);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -308,7 +341,7 @@
             // 
             this.columnHeader1.Name = "columnHeader1";
             this.columnHeader1.Text = "Mã Sản Phẩm";
-            this.columnHeader1.Width = 150;
+            this.columnHeader1.Width = 110;
             // 
             // columnHeader2
             // 
@@ -322,14 +355,14 @@
             this.columnHeader3.Name = "columnHeader3";
             this.columnHeader3.Text = "Số Lượng";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 150;
+            this.columnHeader3.Width = 200;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
             this.columnHeader4.Text = "Đơn Giá";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 150;
+            this.columnHeader4.Width = 200;
             // 
             // Product
             // 
@@ -346,7 +379,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Product";
-            this.Size = new System.Drawing.Size(1335, 648);
+            this.Size = new System.Drawing.Size(1326, 653);
             this.Load += new System.EventHandler(this.Product_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -386,5 +419,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button2;
     }
 }

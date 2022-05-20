@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer));
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.detail = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -59,9 +58,14 @@
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.registerButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.addButton = new System.Windows.Forms.Button();
             this.detail.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -69,11 +73,13 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1040, 280);
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(1040, 304);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(231, 49);
+            this.deleteButton.Size = new System.Drawing.Size(263, 51);
             this.deleteButton.TabIndex = 33;
-            this.deleteButton.Text = "Xóa";
+            this.deleteButton.Text = "Xóa khách hàng";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -82,35 +88,25 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1040, 213);
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editButton.Location = new System.Drawing.Point(1040, 239);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(231, 49);
+            this.editButton.Size = new System.Drawing.Size(263, 49);
             this.editButton.TabIndex = 32;
-            this.editButton.Text = "Sửa";
+            this.editButton.Text = "Sửa thông tin";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(1040, 141);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(231, 49);
-            this.addButton.TabIndex = 31;
-            this.addButton.Text = "Thêm";
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1277, 12);
+            this.button1.Location = new System.Drawing.Point(1251, 107);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 43);
+            this.button1.Size = new System.Drawing.Size(52, 43);
             this.button1.TabIndex = 30;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // detail
@@ -130,9 +126,9 @@
             this.detail.Controls.Add(this.label1);
             this.detail.Controls.Add(this._fullName);
             this.detail.Controls.Add(this._customerID);
-            this.detail.Location = new System.Drawing.Point(12, 12);
+            this.detail.Location = new System.Drawing.Point(0, 62);
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(988, 335);
+            this.detail.Size = new System.Drawing.Size(1018, 319);
             this.detail.TabIndex = 29;
             // 
             // dateTimePicker1
@@ -148,8 +144,9 @@
             // _address
             // 
             this._address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._address.Enabled = false;
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._address.Location = new System.Drawing.Point(641, 203);
+            this._address.Location = new System.Drawing.Point(641, 191);
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(255, 43);
             this._address.TabIndex = 36;
@@ -159,7 +156,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(492, 203);
+            this.label5.Location = new System.Drawing.Point(511, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 24);
             this.label5.TabIndex = 35;
@@ -170,7 +167,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(492, 118);
+            this.label7.Location = new System.Drawing.Point(511, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 24);
             this.label7.TabIndex = 32;
@@ -181,15 +178,17 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(492, 34);
+            this.label8.Location = new System.Drawing.Point(511, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 24);
             this.label8.TabIndex = 31;
             this.label8.Text = "SĐT :";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _idNumber
             // 
             this._idNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._idNumber.Enabled = false;
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._idNumber.Location = new System.Drawing.Point(641, 108);
             this._idNumber.Name = "_idNumber";
@@ -199,6 +198,7 @@
             // _phoneNumber
             // 
             this._phoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._phoneNumber.Enabled = false;
             this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._phoneNumber.Location = new System.Drawing.Point(641, 28);
             this._phoneNumber.Name = "_phoneNumber";
@@ -219,6 +219,7 @@
             // _gender
             // 
             this._gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._gender.Enabled = false;
             this._gender.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._gender.Location = new System.Drawing.Point(205, 191);
             this._gender.Name = "_gender";
@@ -261,6 +262,7 @@
             // _fullName
             // 
             this._fullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._fullName.Enabled = false;
             this._fullName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._fullName.Location = new System.Drawing.Point(205, 108);
             this._fullName.Name = "_fullName";
@@ -270,6 +272,7 @@
             // _customerID
             // 
             this._customerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._customerID.Enabled = false;
             this._customerID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._customerID.Location = new System.Drawing.Point(205, 28);
             this._customerID.Name = "_customerID";
@@ -279,11 +282,15 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(1040, 12);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(1040, 107);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 43);
+            this.textBox2.Size = new System.Drawing.Size(205, 43);
             this.textBox2.TabIndex = 28;
+            this.textBox2.Text = "Tìm kiếm";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // panel1
             // 
@@ -291,10 +298,10 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(12, 350);
+            this.panel1.Location = new System.Drawing.Point(0, 390);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1311, 59);
+            this.panel1.Size = new System.Drawing.Size(1335, 59);
             this.panel1.TabIndex = 41;
             // 
             // label6
@@ -321,7 +328,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(234, 437);
+            this.listView1.Location = new System.Drawing.Point(218, 460);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(906, 186);
             this.listView1.TabIndex = 43;
@@ -346,18 +353,21 @@
             // 
             this.columnHeader3.Name = "columnHeader3";
             this.columnHeader3.Text = "Giới Tính";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Name = "columnHeader4";
             this.columnHeader4.Text = "Ngày Sinh";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Name = "columnHeader5";
             this.columnHeader5.Text = "Số Điện Thoại";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 120;
             // 
             // columnHeader8
@@ -365,6 +375,7 @@
             this.columnHeader8.DisplayIndex = 6;
             this.columnHeader8.Name = "columnHeader8";
             this.columnHeader8.Text = "Số CMND";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 120;
             // 
             // columnHeader6
@@ -372,26 +383,63 @@
             this.columnHeader6.DisplayIndex = 5;
             this.columnHeader6.Name = "columnHeader6";
             this.columnHeader6.Text = "Địa chỉ";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 120;
             // 
-            // registerButton
+            // panel2
             // 
-            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.registerButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(1040, 74);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(231, 49);
-            this.registerButton.TabIndex = 44;
-            this.registerButton.Text = "Đăng ký";
-            this.registerButton.UseVisualStyleBackColor = false;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1018, 59);
+            this.panel2.TabIndex = 41;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(364, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(307, 33);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Thông tin khách hàng";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1041, 25);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(262, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addButton.ForeColor = System.Drawing.Color.White;
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(1040, 168);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(263, 49);
+            this.addButton.TabIndex = 31;
+            this.addButton.Text = "  Thêm khách hàng";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.registerButton);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -406,6 +454,9 @@
             this.detail.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,7 +466,6 @@
 
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel detail;
         private System.Windows.Forms.TextBox _address;
@@ -443,6 +493,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button addButton;
     }
 }

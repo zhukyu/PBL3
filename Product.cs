@@ -271,6 +271,24 @@ namespace Gym
         {
 
         }
+
+        private void search_Enter(object sender, EventArgs e)
+        {
+            if (search.Text == "Tìm kiếm")
+            {
+                search.Text = "";
+                search.ForeColor = Color.Black;
+            }
+        }
+
+        private void search_Leave(object sender, EventArgs e)
+        {
+            if (search.Text == "")
+            {
+                search.Text = "Tìm kiếm";
+                search.ForeColor = Color.Silver;
+            }
+        }
     }
 }
     

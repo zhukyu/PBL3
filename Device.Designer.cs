@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.detail = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,9 +58,12 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +75,7 @@
             this.panel1.Location = new System.Drawing.Point(9, 9);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 59);
+            this.panel1.Size = new System.Drawing.Size(991, 59);
             this.panel1.TabIndex = 49;
             // 
             // label9
@@ -89,7 +93,9 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1046, 292);
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(1027, 239);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(231, 49);
             this.deleteButton.TabIndex = 48;
@@ -102,7 +108,9 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1046, 224);
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editButton.Location = new System.Drawing.Point(1027, 172);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(231, 49);
             this.editButton.TabIndex = 47;
@@ -115,7 +123,9 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(1046, 155);
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(1027, 101);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(231, 49);
             this.addButton.TabIndex = 46;
@@ -125,12 +135,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1283, 85);
+            this.button1.Location = new System.Drawing.Point(1264, 35);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 43);
+            this.button1.Size = new System.Drawing.Size(59, 43);
             this.button1.TabIndex = 45;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
@@ -138,7 +149,7 @@
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox2.Location = new System.Drawing.Point(1046, 85);
+            this.textBox2.Location = new System.Drawing.Point(1027, 35);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(231, 43);
             this.textBox2.TabIndex = 43;
@@ -150,6 +161,7 @@
             // detail
             // 
             this.detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.detail.Controls.Add(this.button3);
             this.detail.Controls.Add(this.dateTimePicker1);
             this.detail.Controls.Add(this.pictureBox1);
             this.detail.Controls.Add(this.label6);
@@ -163,16 +175,31 @@
             this.detail.Controls.Add(this.label1);
             this.detail.Controls.Add(this._deviceName);
             this.detail.Controls.Add(this._deviceID);
-            this.detail.Location = new System.Drawing.Point(9, 386);
+            this.detail.Location = new System.Drawing.Point(9, 362);
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(1314, 260);
+            this.detail.Size = new System.Drawing.Size(1314, 296);
             this.detail.TabIndex = 50;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(50, 255);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(228, 40);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "      Ảnh thiết bị";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(939, 114);
+            this.dateTimePicker1.Location = new System.Drawing.Point(940, 128);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(256, 38);
             this.dateTimePicker1.TabIndex = 38;
@@ -180,9 +207,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(50, -1);
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(50, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 260);
+            this.pictureBox1.Size = new System.Drawing.Size(230, 239);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
@@ -192,7 +221,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(790, 114);
+            this.label6.Location = new System.Drawing.Point(790, 128);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 24);
             this.label6.TabIndex = 33;
@@ -203,7 +232,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(790, 201);
+            this.label7.Location = new System.Drawing.Point(790, 212);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 24);
             this.label7.TabIndex = 32;
@@ -214,7 +243,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(790, 37);
+            this.label8.Location = new System.Drawing.Point(790, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 24);
             this.label8.TabIndex = 31;
@@ -223,8 +252,9 @@
             // _employeeID
             // 
             this._employeeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._employeeID.Enabled = false;
             this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._employeeID.Location = new System.Drawing.Point(939, 193);
+            this._employeeID.Location = new System.Drawing.Point(940, 199);
             this._employeeID.Name = "_employeeID";
             this._employeeID.Size = new System.Drawing.Size(255, 43);
             this._employeeID.TabIndex = 30;
@@ -232,8 +262,9 @@
             // _status
             // 
             this._status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._status.Enabled = false;
             this._status.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._status.Location = new System.Drawing.Point(939, 27);
+            this._status.Location = new System.Drawing.Point(939, 37);
             this._status.Name = "_status";
             this._status.Size = new System.Drawing.Size(255, 43);
             this._status.TabIndex = 29;
@@ -241,8 +272,9 @@
             // _amount
             // 
             this._amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._amount.Enabled = false;
             this._amount.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._amount.Location = new System.Drawing.Point(457, 201);
+            this._amount.Location = new System.Drawing.Point(447, 201);
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(255, 43);
             this._amount.TabIndex = 26;
@@ -252,7 +284,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(343, 201);
+            this.label3.Location = new System.Drawing.Point(323, 212);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 24);
             this.label3.TabIndex = 25;
@@ -263,7 +295,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(343, 122);
+            this.label2.Location = new System.Drawing.Point(323, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 24;
@@ -274,7 +306,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(343, 37);
+            this.label1.Location = new System.Drawing.Point(330, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 24);
             this.label1.TabIndex = 23;
@@ -283,8 +315,9 @@
             // _deviceName
             // 
             this._deviceName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._deviceName.Enabled = false;
             this._deviceName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._deviceName.Location = new System.Drawing.Point(457, 114);
+            this._deviceName.Location = new System.Drawing.Point(447, 128);
             this._deviceName.Name = "_deviceName";
             this._deviceName.Size = new System.Drawing.Size(255, 43);
             this._deviceName.TabIndex = 22;
@@ -292,8 +325,9 @@
             // _deviceID
             // 
             this._deviceID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._deviceID.Enabled = false;
             this._deviceID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._deviceID.Location = new System.Drawing.Point(457, 24);
+            this._deviceID.Location = new System.Drawing.Point(447, 37);
             this._deviceID.Name = "_deviceID";
             this._deviceID.Size = new System.Drawing.Size(255, 43);
             this._deviceID.TabIndex = 21;
@@ -311,9 +345,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(71, 98);
+            this.listView1.Location = new System.Drawing.Point(74, 71);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(875, 243);
+            this.listView1.Size = new System.Drawing.Size(875, 226);
             this.listView1.TabIndex = 51;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -358,12 +392,35 @@
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 200;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(0, 301);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1335, 59);
+            this.panel2.TabIndex = 49;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(539, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(248, 33);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Thông tin thiết bị";
+            // 
             // Device
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.detail);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -378,6 +435,8 @@
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +472,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
     }
 }

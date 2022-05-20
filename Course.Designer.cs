@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Course));
+            this.saleButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
@@ -56,6 +57,20 @@
             this.panel1.SuspendLayout();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // saleButton
+            // 
+            this.saleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.saleButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.saleButton.ForeColor = System.Drawing.Color.White;
+            this.saleButton.Image = ((System.Drawing.Image)(resources.GetObject("saleButton.Image")));
+            this.saleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saleButton.Location = new System.Drawing.Point(969, 75);
+            this.saleButton.Name = "saleButton";
+            this.saleButton.Size = new System.Drawing.Size(251, 49);
+            this.saleButton.TabIndex = 64;
+            this.saleButton.Text = "Tạo hóa đơn";
+            this.saleButton.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -107,6 +122,7 @@
             // _duration
             // 
             this._duration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._duration.Enabled = false;
             this._duration.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._duration.Location = new System.Drawing.Point(364, 151);
             this._duration.Name = "_duration";
@@ -127,6 +143,7 @@
             // _courseName
             // 
             this._courseName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._courseName.Enabled = false;
             this._courseName.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._courseName.Location = new System.Drawing.Point(926, 71);
             this._courseName.Name = "_courseName";
@@ -147,6 +164,7 @@
             // _courseID
             // 
             this._courseID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this._courseID.Enabled = false;
             this._courseID.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._courseID.Location = new System.Drawing.Point(364, 71);
             this._courseID.Name = "_courseID";
@@ -158,9 +176,11 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.deleteButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1011, 246);
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(969, 274);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(231, 49);
+            this.deleteButton.Size = new System.Drawing.Size(251, 49);
             this.deleteButton.TabIndex = 63;
             this.deleteButton.Text = "Xóa khóa học";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -193,9 +213,11 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1011, 179);
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editButton.Location = new System.Drawing.Point(969, 210);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(231, 49);
+            this.editButton.Size = new System.Drawing.Size(251, 49);
             this.editButton.TabIndex = 62;
             this.editButton.Text = "Sửa thông tin";
             this.editButton.UseVisualStyleBackColor = false;
@@ -228,9 +250,11 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(1011, 115);
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(969, 144);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(231, 49);
+            this.addButton.Size = new System.Drawing.Size(251, 49);
             this.addButton.TabIndex = 61;
             this.addButton.Text = "Thêm khóa học";
             this.addButton.UseVisualStyleBackColor = false;
@@ -240,22 +264,25 @@
             // 
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.search.Location = new System.Drawing.Point(1011, 24);
+            this.search.Location = new System.Drawing.Point(969, 22);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(231, 47);
+            this.search.Size = new System.Drawing.Size(251, 47);
             this.search.TabIndex = 57;
+            this.search.Text = "Tìm kiếm";
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             this.search.Enter += new System.EventHandler(this.search_Enter);
             this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
             // searchButton
             // 
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1261, 24);
+            this.searchButton.Location = new System.Drawing.Point(1237, 23);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(49, 47);
+            this.searchButton.Size = new System.Drawing.Size(62, 47);
             this.searchButton.TabIndex = 58;
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // listView1
@@ -309,6 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.panel1);
@@ -318,7 +346,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchButton);
             this.Name = "Course";
-            this.Size = new System.Drawing.Size(1335, 658);
+            this.Size = new System.Drawing.Size(1327, 651);
             this.Load += new System.EventHandler(this.Course_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -332,6 +360,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button saleButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox _price;

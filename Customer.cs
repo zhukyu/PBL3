@@ -105,8 +105,8 @@ namespace Gym
                     _gender.Text = lvi.SubItems[2].Text;
                     dateTimePicker1.Text = lvi.SubItems[3].Text;
                     _phoneNumber.Text = lvi.SubItems[4].Text;
-                    _idNumber.Text = lvi.SubItems[6].Text;
-                    _address.Text = lvi.SubItems[5].Text;
+                    _idNumber.Text = lvi.SubItems[5].Text;
+                    _address.Text = lvi.SubItems[6].Text;
                 }
 
                 rar.Close();
@@ -238,7 +238,7 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Customer where customerID=" + textBox2.Text;
+                comm.CommandText = "select *from Customer where idNumber=" + textBox2.Text;
                 comm.Connection = conn;
 
                 SqlDataReader rar = comm.ExecuteReader();
@@ -263,6 +263,34 @@ namespace Gym
             {
                 MessageBox.Show("khong co du lieu");
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Tìm kiếm")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Tìm kiếm";
+                textBox2.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

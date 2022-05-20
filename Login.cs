@@ -102,7 +102,7 @@ namespace Gym
 
         private void password_Enter(object sender, EventArgs e)
         {
-            if(password.Text== "*******")
+            if(password.Text== "************")
             {
                 password.Text = "";
                 password.ForeColor = Color.Black;
@@ -114,8 +114,8 @@ namespace Gym
         {
             if (password.Text == "")
             {
-                password.Text = "*******";
-                password.ForeColor = Color.Silver;
+                password.Text = "************";
+                password.ForeColor = Color.DimGray;
             }
         }
 
@@ -134,9 +134,11 @@ namespace Gym
             if (username.Text == "")
             {
                 username.Text = "User Name";
-                username.ForeColor = Color.Silver;
+                username.ForeColor = Color.DimGray;
             }
         }
+
+        
     }
 
 

@@ -225,7 +225,6 @@ namespace Gym
                     _role.Text = rar.GetString(6);
                     _address.Text = rar.GetString(7);
                     pictureBox1.Image = new Bitmap(rar.GetString(8));
-
                 }
                 else
                 {

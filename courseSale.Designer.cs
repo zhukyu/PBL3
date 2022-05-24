@@ -304,16 +304,12 @@
         private System.Windows.Forms.ComboBox courseCb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _customerID;
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _fullName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox _idNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label9;
@@ -322,5 +318,9 @@
         private System.Windows.Forms.TextBox _price;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox _customerID;
+        public System.Windows.Forms.TextBox _fullName;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox _idNumber;
     }
 }

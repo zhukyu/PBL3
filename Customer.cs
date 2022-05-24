@@ -104,9 +104,9 @@ namespace Gym
                     _fullName.Text = lvi.SubItems[1].Text;
                     _gender.Text = lvi.SubItems[2].Text;
                     dateTimePicker1.Text = lvi.SubItems[3].Text;
-                    _phoneNumber.Text = lvi.SubItems[4].Text;
-                    _idNumber.Text = lvi.SubItems[5].Text;
-                    _address.Text = lvi.SubItems[6].Text;
+                    _phoneNumber.Text = lvi.SubItems[4].Text;                
+                    _address.Text = lvi.SubItems[5].Text;
+                    _idNumber.Text = lvi.SubItems[6].Text;
                 }
 
                 rar.Close();
@@ -151,9 +151,9 @@ namespace Gym
                     anh.gioitinh.Text = lvi.SubItems[2].Text;
                     anh.dateTimePicker1.Text = lvi.SubItems[3].Text;
                     anh._phoneNumber.Text = lvi.SubItems[4].Text;
-                    anh._idNumber.Text = lvi.SubItems[6].Text;
-
+                    
                     anh._address.Text = lvi.SubItems[5].Text;
+                    anh._idNumber.Text = lvi.SubItems[6].Text;
 
 
 
@@ -290,6 +290,33 @@ namespace Gym
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                courseSale anh = new courseSale();
+
+                ListViewItem lvi = listView1.SelectedItems[0];
+                
+
+                anh._customerID.Text = lvi.SubItems[0].Text;
+                anh._fullName.Text = lvi.SubItems[1].Text;
+                anh._idNumber.Text = lvi.SubItems[6].Text;
+                anh.textBox1.Text = lvi.SubItems[4].Text;
+
+
+
+                anh.StartPosition = FormStartPosition.CenterScreen;
+                anh.ShowDialog();
+              
+            }
+            catch (Exception ex)
+            {
+               
+            }
 
         }
     }

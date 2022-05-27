@@ -551,7 +551,6 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.TextBox _address;
         public System.Windows.Forms.TextBox _role;
         public System.Windows.Forms.TextBox _idNumber;
@@ -559,8 +558,6 @@
         public System.Windows.Forms.TextBox _gender;
         public System.Windows.Forms.TextBox _fullName;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;

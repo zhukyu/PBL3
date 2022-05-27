@@ -103,7 +103,7 @@ namespace Gym
         }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Bạn chưa chọn dữa liệu");
+                    MessageBox.Show(ex.Message);
                 }
 }
 

@@ -42,12 +42,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this._duration = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.teacherCb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
@@ -56,13 +56,11 @@
             // 
             this.courseCb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.courseCb.FormattingEnabled = true;
-            this.courseCb.Items.AddRange(new object[] {
-            "Lễ Tân",
-            "Huấn luyện viên"});
             this.courseCb.Location = new System.Drawing.Point(135, 394);
             this.courseCb.Name = "courseCb";
             this.courseCb.Size = new System.Drawing.Size(491, 36);
             this.courseCb.TabIndex = 60;
+            this.courseCb.SelectedIndexChanged += new System.EventHandler(this.courseCb_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -193,17 +191,18 @@
             this.label7.TabIndex = 72;
             this.label7.Text = "Khóa học";
             // 
-            // addButton
+            // registerButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(465, 606);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(161, 49);
-            this.addButton.TabIndex = 73;
-            this.addButton.Text = "Đăng ký";
-            this.addButton.UseVisualStyleBackColor = false;
+            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.registerButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.registerButton.ForeColor = System.Drawing.Color.White;
+            this.registerButton.Location = new System.Drawing.Point(465, 606);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(161, 49);
+            this.registerButton.TabIndex = 73;
+            this.registerButton.Text = "Đăng ký";
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // label9
             // 
@@ -243,17 +242,14 @@
             this._price.Size = new System.Drawing.Size(203, 38);
             this._price.TabIndex = 76;
             // 
-            // comboBox1
+            // teacherCb
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Lễ Tân",
-            "Huấn luyện viên"});
-            this.comboBox1.Location = new System.Drawing.Point(135, 460);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(491, 36);
-            this.comboBox1.TabIndex = 81;
+            this.teacherCb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.teacherCb.FormattingEnabled = true;
+            this.teacherCb.Location = new System.Drawing.Point(135, 460);
+            this.teacherCb.Name = "teacherCb";
+            this.teacherCb.Size = new System.Drawing.Size(491, 36);
+            this.teacherCb.TabIndex = 81;
             // 
             // label11
             // 
@@ -271,13 +267,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 680);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.teacherCb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this._duration);
             this.Controls.Add(this.label10);
             this.Controls.Add(this._price);
-            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this._idNumber);
@@ -293,6 +289,7 @@
             this.Controls.Add(this.label6);
             this.Name = "courseSale";
             this.Text = "courseSale";
+            this.Load += new System.EventHandler(this.courseSale_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             this.ResumeLayout(false);
@@ -311,12 +308,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox _duration;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox _price;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox teacherCb;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox _customerID;
         public System.Windows.Forms.TextBox _fullName;

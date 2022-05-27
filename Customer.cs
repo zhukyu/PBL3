@@ -293,29 +293,29 @@ namespace Gym
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)
         {
             try
             {
-                courseSale anh = new courseSale();
+                courseSale register = new courseSale();
 
                 ListViewItem lvi = listView1.SelectedItems[0];
-                
-
-                anh._customerID.Text = lvi.SubItems[0].Text;
-                anh._fullName.Text = lvi.SubItems[1].Text;
-                anh._idNumber.Text = lvi.SubItems[6].Text;
-                anh.textBox1.Text = lvi.SubItems[4].Text;
 
 
+                register._customerID.Text = lvi.SubItems[0].Text;
+                register._fullName.Text = lvi.SubItems[1].Text;
+                register._idNumber.Text = lvi.SubItems[6].Text;
+                register.textBox1.Text = lvi.SubItems[4].Text;
 
-                anh.StartPosition = FormStartPosition.CenterScreen;
-                anh.ShowDialog();
+
+
+                register.StartPosition = FormStartPosition.CenterScreen;
+                register.ShowDialog();
               
             }
             catch (Exception ex)
             {
-               
+               MessageBox.Show(ex.Message);
             }
 
         }

@@ -34,12 +34,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.username = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,13 +57,11 @@
             this.password.ForeColor = System.Drawing.Color.DimGray;
             this.password.Location = new System.Drawing.Point(142, 183);
             this.password.Name = "password";
-            this.password.PasswordChar = '*';
+            this.password.PasswordChar = '●';
+            this.password.PlaceholderText = "Password";
             this.password.Size = new System.Drawing.Size(310, 43);
             this.password.TabIndex = 1;
-            this.password.Text = "************";
-            this.password.Enter += new System.EventHandler(this.password_Enter);
             this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
-            this.password.Leave += new System.EventHandler(this.password_Leave);
             // 
             // loginButton
             // 
@@ -75,7 +73,7 @@
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(214, 55);
             this.loginButton.TabIndex = 4;
-            this.loginButton.Text = "LOG IN";
+            this.loginButton.Text = "ĐĂNG NHẬP";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
@@ -116,19 +114,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(279, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 55);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "EXIT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // username
             // 
             this.username.BackColor = System.Drawing.Color.White;
@@ -136,22 +121,21 @@
             this.username.ForeColor = System.Drawing.Color.DimGray;
             this.username.Location = new System.Drawing.Point(142, 103);
             this.username.Name = "username";
+            this.username.PlaceholderText = "Username";
             this.username.Size = new System.Drawing.Size(310, 43);
             this.username.TabIndex = 0;
-            this.username.Text = "User Name";
-            this.username.Enter += new System.EventHandler(this.username_Enter);
-            this.username.Leave += new System.EventHandler(this.username_Leave);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(189, 7);
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 48);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "LOG-IN";
+            this.label3.Size = new System.Drawing.Size(541, 65);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "ĐĂNG NHẬP";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
@@ -161,7 +145,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(78, 103);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(58, 43);
+            this.pictureBox3.Size = new System.Drawing.Size(49, 43);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
@@ -172,7 +156,7 @@
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(78, 183);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(58, 43);
+            this.pictureBox4.Size = new System.Drawing.Size(49, 43);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
@@ -195,6 +179,19 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(279, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(211, 55);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "ĐẶT LẠI";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
@@ -211,11 +208,11 @@
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.label1.Location = new System.Drawing.Point(500, 561);
+            this.label1.Location = new System.Drawing.Point(448, 548);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 28);
+            this.label1.Size = new System.Drawing.Size(476, 28);
             this.label1.TabIndex = 12;
-            this.label1.Text = "47_Nguyễn Lương Bằng-Q.Liên Chiểu- Đà Nẳng";
+            this.label1.Text = "47 Nguyễn Lương Bằng - Q.Liên Chiểu - Đà Nẵng";
             // 
             // Login
             // 
@@ -242,7 +239,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +250,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -262,5 +257,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

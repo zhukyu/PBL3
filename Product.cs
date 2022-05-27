@@ -113,7 +113,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show(ex.Message);
             }
         }
 

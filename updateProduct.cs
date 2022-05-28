@@ -21,86 +21,90 @@ namespace Gym
         SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
-
-            try
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
-
-
-                string maSp = _productID.Text;
+                try
                 {
-                    if (conn == null)
-                    {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
 
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "' " + "where productID=@maSp";
-                    comm.CommandText = st;
-                    comm.CommandText = st;
-                    comm.Connection = conn;
 
-                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                    para.Value = maSp;
-                    comm.Parameters.Add(para);
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
+                    string maSp = _productID.Text;
                     {
-                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("lỗi");
+                        if (conn == null)
+                        {
+                            conn = new SqlConnection(Program.cnstr);
+                        }
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+
+                        SqlCommand comm = new SqlCommand();
+                        comm.CommandType = CommandType.Text;
+                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "' " + "where productID=@maSp";
+                        comm.CommandText = st;
+                        comm.CommandText = st;
+                        comm.Connection = conn;
+
+                        SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                        para.Value = maSp;
+                        comm.Parameters.Add(para);
+                        int ret = comm.ExecuteNonQuery();
+                        if (ret > 0)
+                        {
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("lỗi");
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi:" + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("lỗi:" + ex.Message);
+                }
             }
         }
-//OpenFileDialog _openFileDialog = new OpenFileDialog();
-//        private void addPictureBox1_Click(object sender, EventArgs e)
-//        {
-            
-            
-
-//                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
-
-//                _openFileDialog.FilterIndex = 1;
-
-//                _openFileDialog.RestoreDirectory = true;
-//            if (_openFileDialog.ShowDialog() == DialogResult.OK)
-
-//            {
-//                string fileName = _openFileDialog.FileName;
-//                this.bmp = new Bitmap(fileName);
-
-//                this.pictureBox1.Image = this.bmp;
-//            }
-
-//            string id = _productID.Text;
-//            string file = id + ".jpg";
-
-//            this.filePath = "Img\\" + file;
-//            this.bmp.Save(filePath);
-//        }
+        //OpenFileDialog _openFileDialog = new OpenFileDialog();
+        //        private void addPictureBox1_Click(object sender, EventArgs e)
+        //        {
 
 
 
-//            private byte[] ConverImgToByte()
-//            {
-//                FileStream fs;
-//                fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-//                byte[] picbyte = new byte[fs.Length];
-//                fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-//                fs.Close();
-//                return picbyte;
-//            }
-        }
+        //                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
+
+        //                _openFileDialog.FilterIndex = 1;
+
+        //                _openFileDialog.RestoreDirectory = true;
+        //            if (_openFileDialog.ShowDialog() == DialogResult.OK)
+
+        //            {
+        //                string fileName = _openFileDialog.FileName;
+        //                this.bmp = new Bitmap(fileName);
+
+        //                this.pictureBox1.Image = this.bmp;
+        //            }
+
+        //            string id = _productID.Text;
+        //            string file = id + ".jpg";
+
+        //            this.filePath = "Img\\" + file;
+        //            this.bmp.Save(filePath);
+        //        }
+
+
+
+        //            private byte[] ConverImgToByte()
+        //            {
+        //                FileStream fs;
+        //                fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+        //                byte[] picbyte = new byte[fs.Length];
+        //                fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+        //                fs.Close();
+        //                return picbyte;
+        //            }
     }
+}
 

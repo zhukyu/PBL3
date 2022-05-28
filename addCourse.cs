@@ -24,38 +24,42 @@ namespace Gym
         private void addButton_Click(object sender, EventArgs e)
         {
             SqlConnection conn = null;
-
-            try
-
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
+                try
 
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
-                string st = "Insert into Course(courseID,courseName,duration,price)" + "values (N'" + _courseID.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "','" + _price.Text + "')";
-                comm.CommandText = st;
-                comm.Connection = conn;
+                {
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(Program.cnstr);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
 
-                int ret = comm.ExecuteNonQuery();
-                if (ret > 0)
-                {
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "Insert into Course(courseID,courseName,duration,price)" + "values (N'" + _courseID.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "','" + _price.Text + "')";
+                    comm.CommandText = st;
+                    comm.Connection = conn;
+
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("lỗi:" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi:" + ex.Message);
             }
         }
     }

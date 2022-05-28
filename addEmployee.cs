@@ -22,42 +22,44 @@ namespace Gym
         SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
-
-
-            try
-
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
 
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
-                string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + filePath + "')";
-                comm.CommandText = st;
-                comm.Connection = conn;
+                try
 
-                int ret = comm.ExecuteNonQuery();
-                if (ret > 0)
                 {
-                    MessageBox.Show("Thêm thành công");
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(Program.cnstr);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
 
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + filePath + "')";
+                    comm.CommandText = st;
+                    comm.Connection = conn;
+
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("loi");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("loi");
+                    MessageBox.Show("lỗi:" + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi:" + ex.Message);
-            }
-
         }
 
         OpenFileDialog _openFileDialog = new OpenFileDialog();

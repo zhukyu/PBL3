@@ -21,39 +21,42 @@ namespace Gym
         SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
-
-            try
-
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
+                try
 
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
-                string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "',N'"+comboBox2+"')";
-                comm.CommandText = st;
-                comm.Connection = conn;
+                {
+                    if (conn == null)
+                    {
+                        conn = new SqlConnection(Program.cnstr);
+                    }
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
 
-                int ret = comm.ExecuteNonQuery();
-                if (ret > 0)
-                {
-                    MessageBox.Show("Thêm thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                   
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandType = CommandType.Text;
+                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "',N'" + comboBox2 + "')";
+                    comm.CommandText = st;
+                    comm.Connection = conn;
+
+                    int ret = comm.ExecuteNonQuery();
+                    if (ret > 0)
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("loi");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("loi");
+                    MessageBox.Show("lỗi:" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("lỗi:" + ex.Message);
             }
 
         }
@@ -66,23 +69,23 @@ namespace Gym
             _openFileDialog.FilterIndex = 1;
 
             _openFileDialog.RestoreDirectory = true;
-            
 
-                if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
-                {
-                    string fileName = _openFileDialog.FileName;
-                    this.bmp = new Bitmap(fileName);
+            if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
-                    this.pictureBox1.Image = this.bmp;
-                }
+            {
+                string fileName = _openFileDialog.FileName;
+                this.bmp = new Bitmap(fileName);
 
-                string id = _deviceID.Text;
-                string file = id + ".jpg";
-
-                this.filePath = "Img\\" + file;
-                this.bmp.Save(filePath);
+                this.pictureBox1.Image = this.bmp;
             }
+
+            string id = _deviceID.Text;
+            string file = id + ".jpg";
+
+            this.filePath = "Img\\" + file;
+            this.bmp.Save(filePath);
+        }
 
         private void addDevice_Load(object sender, EventArgs e)
         {

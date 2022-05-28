@@ -23,50 +23,53 @@ namespace Gym
         SqlConnection conn = null;
         private void editButton_Click(object sender, EventArgs e)
         {
-
-
-            try
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
 
-
-                string maSp = _deviceID.Text;
+                try
                 {
-                    if (conn == null)
-                    {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
 
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'"+comboBox2.Text+"' " + "where deviceID=@maSp";
-                    comm.CommandText = st;
-                    comm.CommandText = st;
-                    comm.Connection = conn;
 
-                    SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                    para.Value = maSp;
-                    comm.Parameters.Add(para);
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
+                    string maSp = _deviceID.Text;
                     {
-                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (conn == null)
+                        {
+                            conn = new SqlConnection(Program.cnstr);
+                        }
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("lỗi");
+                        SqlCommand comm = new SqlCommand();
+                        comm.CommandType = CommandType.Text;
+                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' " + "where deviceID=@maSp";
+                        comm.CommandText = st;
+                        comm.CommandText = st;
+                        comm.Connection = conn;
+
+                        SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                        para.Value = maSp;
+                        comm.Parameters.Add(para);
+                        int ret = comm.ExecuteNonQuery();
+                        if (ret > 0)
+                        {
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("lỗi");
+                        }
                     }
                 }
-        }
                 catch (Exception ex)
                 {
                     MessageBox.Show("lỗi:" + ex.Message);
                 }
-}
+            }
+        }
 
         private void updateDevice_Load(object sender, EventArgs e)
         {
@@ -88,8 +91,8 @@ namespace Gym
             DataTable dt = new DataTable();
             da.Fill(dt);
             comboBox2.DataSource = dt;
-            comboBox2.DisplayMember="fullname";
-           
+            comboBox2.DisplayMember = "fullname";
+
         }
 
 

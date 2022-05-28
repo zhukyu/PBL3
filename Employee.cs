@@ -128,9 +128,13 @@ namespace Gym
                 anh.FormClosing += new FormClosingEventHandler(this.editEmployee_FormClosing);
                 anh.ShowDialog();
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -189,9 +193,13 @@ namespace Gym
 
                     }
                 }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Bạn chưa chọn dũ liệu");
+                    MessageBox.Show(ex.ToString());
                 }
             }
         }
@@ -285,11 +293,15 @@ namespace Gym
                 }
 
         }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Bạn chưa chọn dữa liệu");
-                }
-}
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
         private void textBox2_Enter(object sender, EventArgs e)
         {

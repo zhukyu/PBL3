@@ -164,9 +164,13 @@ namespace Gym
                 anh.FormClosing += new FormClosingEventHandler(this.editCustomer_FormClosing);
                 anh.ShowDialog();
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -218,9 +222,13 @@ namespace Gym
                     MessageBox.Show("đã xóa thất bại");
                 }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -254,14 +262,14 @@ namespace Gym
                 }
                 else
                 {
-                    MessageBox.Show("khong co du lieu");
+                    MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 rar.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show("Không có dữ liệu!");
             }
         }
 
@@ -313,9 +321,13 @@ namespace Gym
                 register.ShowDialog();
               
             }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+               MessageBox.Show(ex.ToString());
             }
 
         }

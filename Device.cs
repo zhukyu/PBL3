@@ -151,9 +151,13 @@ namespace Gym
                 anh.FormClosing += new FormClosingEventHandler(this.editDevice_FormClosing);
                 anh.ShowDialog();
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn dữ liệu!");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -205,9 +209,13 @@ namespace Gym
                     MessageBox.Show("đã xóa thất bại");
                 }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn dữ liệu!");
+                MessageBox.Show(ex.ToString());
             }
         }
 

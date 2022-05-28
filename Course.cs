@@ -130,9 +130,13 @@ namespace Gym
                     MessageBox.Show("Đã xóa thất bại");
                 }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn dữ liệu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -215,9 +219,13 @@ namespace Gym
                     rar.Close();
                 }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("bạn chưa chọn dữa liệu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -249,14 +257,14 @@ namespace Gym
                 }
                 else
                 {
-                    MessageBox.Show("khong co du lieu");
+                    MessageBox.Show("Không có dữ liệu");
                 }
 
                 rar.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show("Không có dữ liệu");
             }
         }
 

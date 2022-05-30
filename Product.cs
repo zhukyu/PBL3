@@ -18,7 +18,7 @@ namespace Gym
             InitializeComponent();
         }
 
-        SqlConnection conn = null;
+        SqlConnection conn = null;  
 
         public void hienthitoanbosanpham()
         {
@@ -172,7 +172,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("bạn chưa chọn dữa liệu");
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -222,7 +222,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ban chua chon du lieu");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -262,7 +262,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("khong co du lieu");
+                MessageBox.Show(ex.ToString());
             }
 
         }

@@ -42,7 +42,7 @@ namespace Gym
             while (rar.Read())
             {
                 ListViewItem lvi = new ListViewItem(rar.GetString(0));
-                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetString(1)); 
                 lvi.SubItems.Add(rar.GetString(2));
                 lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
                 lvi.SubItems.Add(rar.GetString(4));

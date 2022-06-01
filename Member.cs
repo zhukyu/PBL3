@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,138 +18,62 @@ namespace Gym
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Member_Load(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(Program.cnstr);
 
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("GetMember", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlDataReader rd = cmd.ExecuteReader();
+                while(rd.Read())
+                {
+                    memberTable.Rows.Add(
+                        rd.GetString(0), 
+                        rd.GetString(1), 
+                        rd.GetString(2), 
+                        rd.GetString(3), 
+                        rd.GetString(4), 
+                        rd.GetDateTime(5).ToString("dd-MM-yyyy"),
+                        rd.GetDateTime(6).ToString("dd-MM-yyyy")
+                    );
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void MemberTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void search_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formNameLable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void _address_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _idNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _phoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _gender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _fullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _customerID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
+            string customerID = memberTable.CurrentRow.Cells[0].Value.ToString();
+            SqlConnection conn = new SqlConnection(Program.cnstr);
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand($"select * from Customer where customerID = '{customerID}'", conn);
+                SqlDataReader rd = cmd.ExecuteReader();
+                while(rd.Read())
+                {
+                    _customerID.Text = rd.GetString(0);
+                    _fullName.Text = rd.GetString(1);
+                    _gender.Text = rd.GetString(2);
+                    _birthday.Text = rd.GetDateTime(3).ToString("dd-MM-yyyy");
+                    _phoneNumber.Text = rd.GetString(4);
+                    _address.Text = rd.GetString(5);
+                    _idNumber.Text = rd.GetString(6);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
     }

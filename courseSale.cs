@@ -75,7 +75,7 @@ namespace Gym
                 string _courseID = courseCb.Text.Split(' ')[0];
                 string _teacherID = teacherCb.Text.Split(' ')[0];
                 SqlCommand cmd = new SqlCommand("insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, registerDate, expiredDate) " +
-                    $"values ('{"CR001"}', '{_customerID.Text}', '{_courseID}', '{_teacherID}', '{_registerDate}', '{_expiredDate}')" , conn);
+                    $"values ('{"CR002"}', '{_customerID.Text}', '{_courseID}', '{_teacherID}', '{_registerDate}', '{_expiredDate}')" , conn);
                 MessageBox.Show(_registerDate);
                 cmd.ExecuteNonQuery();
 

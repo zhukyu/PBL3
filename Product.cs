@@ -18,7 +18,7 @@ namespace Gym
             InitializeComponent();
         }
 
-        SqlConnection conn = null;
+        SqlConnection conn = null;  
 
         public void hienthitoanbosanpham()
         {

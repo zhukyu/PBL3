@@ -38,7 +38,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Text + "','" + filePath + "',N'" + comboBox2 + "')";
+                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + filePath + "',N'" + comboBox2.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 

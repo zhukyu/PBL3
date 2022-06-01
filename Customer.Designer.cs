@@ -62,6 +62,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.detail.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,11 +75,11 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(1040, 304);
+            this.deleteButton.Location = new System.Drawing.Point(1040, 262);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(263, 51);
             this.deleteButton.TabIndex = 33;
-            this.deleteButton.Text = "Xóa khách hàng";
+            this.deleteButton.Text = "Xóa ";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -89,11 +90,11 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(1040, 239);
+            this.editButton.Location = new System.Drawing.Point(1042, 205);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(263, 49);
             this.editButton.TabIndex = 32;
-            this.editButton.Text = "Sửa thông tin";
+            this.editButton.Text = "Sửa ";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -101,7 +102,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1250, 38);
+            this.button1.Location = new System.Drawing.Point(1252, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 43);
             this.button1.TabIndex = 30;
@@ -281,12 +282,14 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(1040, 38);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.ForeColor = System.Drawing.Color.Gray;
+            this.textBox2.Location = new System.Drawing.Point(1042, 26);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 43);
+            this.textBox2.Size = new System.Drawing.Size(204, 38);
             this.textBox2.TabIndex = 28;
-            this.textBox2.Text = "Tìm kiếm";
+            this.textBox2.Text = "ID,TÊN,CMND";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
@@ -412,11 +415,11 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(1040, 178);
+            this.addButton.Location = new System.Drawing.Point(1042, 148);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(263, 49);
             this.addButton.TabIndex = 31;
-            this.addButton.Text = "  Thêm khách hàng";
+            this.addButton.Text = "  Thêm ";
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -425,7 +428,9 @@
             this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.registerButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(1040, 102);
+            this.registerButton.Image = ((System.Drawing.Image)(resources.GetObject("registerButton.Image")));
+            this.registerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerButton.Location = new System.Drawing.Point(1042, 83);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(262, 51);
             this.registerButton.TabIndex = 44;
@@ -433,10 +438,26 @@
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(1042, 326);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(261, 55);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Đặt lại";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel2);
@@ -496,5 +517,6 @@
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button2;
     }
 }

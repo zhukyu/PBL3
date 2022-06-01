@@ -233,21 +233,25 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Device where deviceID=" + textBox2.Text;
+                comm.CommandText = "select *from Device where deviceID= '"+textBox2.Text+ "' or deviceName like '%" + textBox2.Text + "%' or nv ='%" + textBox2.Text + "%'" ;
                 comm.Connection = conn;
 
                 SqlDataReader rar = comm.ExecuteReader();
-                if (rar.Read())
+                listView1.Items.Clear();
+                while (rar.Read())
                 {
-                    _deviceID.Text = rar.GetString(0);
-                    _deviceName.Text = rar.GetString(1);
-                    _amount.Text = rar.GetInt32(2)+"";                   
-                    _status.Text = rar.GetString(3);
-                    dateTimePicker1.Value = rar.GetDateTime(4);
-                    pictureBox1.Image = new Bitmap(rar.GetString(5));
-                }
+                    ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                    lvi.SubItems.Add(rar.GetString(1));
+                    lvi.SubItems.Add(rar.GetInt32(2) + "");
+                    lvi.SubItems.Add(rar.GetString(3));
+                    lvi.SubItems.Add(rar.GetDateTime(4).ToString("dd-MM-yyyy"));
+                    lvi.SubItems.Add(rar.GetString(6));
+                    listView1.Items.Add(lvi);
 
-                else
+
+                }
+               
+               if(listView1.Items.Count<=0)
                 {
                     MessageBox.Show("Không có dữ liệu");
                 }
@@ -261,7 +265,7 @@ namespace Gym
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            if (textBox2.Text == "Tìm kiếm")
+            if (textBox2.Text == "ID,TÊN,NVQL")
             {
                 textBox2.Text = "";
                 textBox2.ForeColor = Color.Black;
@@ -272,9 +276,55 @@ namespace Gym
         {
             if (textBox2.Text == "")
             {
-                textBox2.Text = "Tìm kiếm";
+                textBox2.Text = "ID,TÊN,NVQL";
                 textBox2.ForeColor = Color.Silver;
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Device where deviceID= '" + textBox2.Text + "' or deviceName like '%" + textBox2.Text + "%' or nv like '%" + textBox2.Text + "%'";
+            comm.Connection = conn;
+
+            SqlDataReader rar = comm.ExecuteReader();
+            listView1.Items.Clear();
+            while (rar.Read())
+            {
+                ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetInt32(2) + "");
+                lvi.SubItems.Add(rar.GetString(3));
+                lvi.SubItems.Add(rar.GetDateTime(4).ToString("dd-MM-yyyy"));
+                lvi.SubItems.Add(rar.GetString(6));
+                listView1.Items.Add(lvi);
+
+
+            }
+            rar.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hienthitoanbosanpham();
+            textBox2.Text = "ID,TÊN,NVQL";
+            textBox2.ForeColor = Color.Gray;
+            _deviceID.Text = null;
+            _deviceName.Text = null;
+            _amount.Text = null;
+            dateTimePicker1.Text = null;
+            _status.Text = null;
+            pictureBox1.Image = null;
         }
     }
 }

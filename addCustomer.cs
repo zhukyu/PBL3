@@ -36,10 +36,9 @@ namespace Gym
                     {
                         conn.Open();
                     }
-
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Customer(customerID,fullName,gender,birthday,phoneNumber,address,idNumber)" + "values (N'" + _customerID.Text + "',N'" + _fullName.Text + "','" + gioitinh.Text + "','" + dateTimePicker1.Text + "','" + _phoneNumber.Text + "',N'" + _address.Text + "','" + _idNumber.Text + "')";
+                    string st = "Insert into Customer(customerID,fullName,gender,birthday,phoneNumber,address,idNumber)" + "values (N'" + _customerID.Text + "',N'" + _fullName.Text + "','" + gioitinh.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + _phoneNumber.Text + "',N'" + _address.Text + "','" + _idNumber.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 

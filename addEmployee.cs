@@ -40,7 +40,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Text + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + filePath + "')";
+                    string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + filePath + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 

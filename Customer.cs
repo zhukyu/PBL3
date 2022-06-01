@@ -246,26 +246,32 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Customer where idNumber=" + textBox2.Text;
+                comm.CommandText = "select *from Customer where customerID=  '" + textBox2.Text+ "' OR fullName =N'%" + textBox2.Text + "%' OR idNumber =N'%" + textBox2.Text + "%'";
                 comm.Connection = conn;
 
                 SqlDataReader rar = comm.ExecuteReader();
-                if (rar.Read())
+                listView1.Items.Clear();
+                while (rar.Read())
                 {
-                    _customerID.Text = rar.GetString(0);
-                    _fullName.Text = rar.GetString(1);
-                    _gender.Text = rar.GetString(2);
-                    dateTimePicker1.Value = rar.GetDateTime(3);
-                    _phoneNumber.Text = rar.GetString(4);
-                    _address.Text = rar.GetString(5);
-                    _idNumber.Text = rar.GetString(6);
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                    lvi.SubItems.Add(rar.GetString(1));
+                    lvi.SubItems.Add(rar.GetString(2));
+                    lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
+                    lvi.SubItems.Add(rar.GetString(4));
+                    lvi.SubItems.Add(rar.GetString(5));
+                    lvi.SubItems.Add(rar.GetString(6));
 
+                    listView1.Items.Add(lvi);
+
+                }
+                
+                if (listView1.Items.Count <= 0)
+                {
+                    MessageBox.Show("không có dữ liệu!");
+                }
                 rar.Close();
+
+               
             }
             catch (Exception ex)
             {
@@ -280,7 +286,7 @@ namespace Gym
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            if (textBox2.Text == "Tìm kiếm")
+            if (textBox2.Text == "ID,TÊN,CMND")
             {
                 textBox2.Text = "";
                 textBox2.ForeColor = Color.Black;
@@ -291,14 +297,42 @@ namespace Gym
         {
             if (textBox2.Text == "")
             {
-                textBox2.Text = "Tìm kiếm";
+                textBox2.Text = "ID,TÊN,CMND";
                 textBox2.ForeColor = Color.Silver;
             }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Customer where customerID=  '" + textBox2.Text + "' OR fullName like N'%" + textBox2.Text + "%' OR idNumber =N'" + textBox2.Text + "'";
+            comm.Connection = conn;
 
+            SqlDataReader rar = comm.ExecuteReader();
+            listView1.Items.Clear();
+            while (rar.Read())
+            {
+                ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetString(2));
+                lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
+                lvi.SubItems.Add(rar.GetString(4));
+                lvi.SubItems.Add(rar.GetString(5));
+                lvi.SubItems.Add(rar.GetString(6));
+
+                listView1.Items.Add(lvi);
+
+            }
+            rar.Close();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -330,6 +364,20 @@ namespace Gym
                MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hienthitoanbosanpham();
+            textBox2.Text = "ID,TÊN,CMND";
+            textBox2.ForeColor = Color.Gray;
+            _customerID.Text = null;
+            _fullName.Text = null;
+            _gender.Text = null;
+            dateTimePicker1.Text = null;
+            _phoneNumber.Text = null;
+            _idNumber.Text = null;
+            _address.Text = null;
         }
     }
 }

@@ -252,20 +252,23 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from product where productID=" + search.Text;
+                comm.CommandText = "select *from product where productID='"+ search.Text+ "' or productName like '%" + search.Text + "%'";
                 comm.Connection = conn;
 
                 SqlDataReader rar = comm.ExecuteReader();
-                if (rar.Read())
+                listView1.Items.Clear();
+                while (rar.Read())
                 {
-                    _productID.Text = rar.GetString(0);
-                    _productName.Text = rar.GetString(1);
-                    _amount.Text = rar.GetInt32(2) + "";
-                    _price.Text = rar.GetInt32(3) + "";
-                    pictureBox1.Image = new Bitmap(rar.GetString(4));
+                    ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                    lvi.SubItems.Add(rar.GetString(1));
+                    lvi.SubItems.Add(rar.GetInt32(2) + "");
+                    lvi.SubItems.Add(rar.GetInt32(3) + "");
+
+
+                    listView1.Items.Add(lvi);
 
                 }
-                else
+               if(listView1.Items.Count<=0)
                 {
                     MessageBox.Show("Không có dữ liệu");
                 }
@@ -300,6 +303,50 @@ namespace Gym
                 search.Text = "Tìm kiếm";
                 search.ForeColor = Color.Silver;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hienthitoanbosanpham();
+            hienthitoanbosanpham();
+            search.Text = "ID,TÊN";
+            search.ForeColor = Color.Gray;
+            _productID.Text = null;
+            _productName.Text = null;
+            _amount.Text = null;
+            _price.Text = null;
+            pictureBox1.Image = null;
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from product where productID='" + search.Text + "' or productName like '%" + search.Text + "%'";
+            comm.Connection = conn;
+
+            SqlDataReader rar = comm.ExecuteReader();
+            listView1.Items.Clear();
+            while (rar.Read())
+            {
+                ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetInt32(2) + "");
+                lvi.SubItems.Add(rar.GetInt32(3) + "");
+
+
+                listView1.Items.Add(lvi);
+
+            }
+            rar.Close();
         }
     }
 }

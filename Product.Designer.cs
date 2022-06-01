@@ -42,7 +42,6 @@
             this._productID = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.saleButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -215,19 +215,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Chi tiết sản phẩm";
             // 
-            // saleButton
-            // 
-            this.saleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.saleButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.saleButton.ForeColor = System.Drawing.Color.White;
-            this.saleButton.Location = new System.Drawing.Point(993, 67);
-            this.saleButton.Name = "saleButton";
-            this.saleButton.Size = new System.Drawing.Size(259, 49);
-            this.saleButton.TabIndex = 54;
-            this.saleButton.Text = "Tạo hóa đơn";
-            this.saleButton.UseVisualStyleBackColor = false;
-            this.saleButton.Click += new System.EventHandler(this.saleButton_Click_1);
-            // 
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -235,11 +222,11 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(993, 262);
+            this.deleteButton.Location = new System.Drawing.Point(993, 206);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(259, 49);
             this.deleteButton.TabIndex = 53;
-            this.deleteButton.Text = "Xóa sản phẩm";
+            this.deleteButton.Text = "Xóa ";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -250,11 +237,11 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(993, 195);
+            this.editButton.Location = new System.Drawing.Point(993, 143);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(259, 49);
             this.editButton.TabIndex = 52;
-            this.editButton.Text = "Sửa thông tin";
+            this.editButton.Text = "Sửa ";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -265,11 +252,11 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(993, 131);
+            this.addButton.Location = new System.Drawing.Point(993, 77);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(259, 49);
             this.addButton.TabIndex = 51;
-            this.addButton.Text = "Thêm sản phẩm";
+            this.addButton.Text = "Thêm";
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -278,11 +265,14 @@
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.search.Location = new System.Drawing.Point(993, 14);
+            this.search.ForeColor = System.Drawing.Color.Gray;
+            this.search.Location = new System.Drawing.Point(993, 19);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(259, 36);
+            this.search.Size = new System.Drawing.Size(202, 36);
             this.search.TabIndex = 47;
-            this.search.Text = "Tìm kiếm";
+            this.search.Text = "ID,TÊN";
+            this.search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             this.search.Enter += new System.EventHandler(this.search_Enter);
             this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
@@ -290,7 +280,7 @@
             // 
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1258, 14);
+            this.searchButton.Location = new System.Drawing.Point(1204, 15);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(48, 41);
             this.searchButton.TabIndex = 48;
@@ -364,12 +354,27 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 200;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(993, 266);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(259, 54);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "Đặt lại";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.panel1);
@@ -406,7 +411,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button saleButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
@@ -420,5 +424,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

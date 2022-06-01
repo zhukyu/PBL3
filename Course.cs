@@ -77,9 +77,13 @@ namespace Gym
                 anh.FormClosing += new FormClosingEventHandler(this.editCourse_FormClosing);
                 anh.ShowDialog();
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -122,7 +126,7 @@ namespace Gym
 
                         _price.Text = null;
 
-                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                        MessageBox.Show("Đã xóa thành công", "Thông báo");
                     }
                 }
                 else
@@ -243,36 +247,46 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Course where courseID=" + search.Text;
+                comm.CommandText = "select *from Course where courseName LIKE N'%" + search.Text + "%' OR courseID = '" + search.Text + "' ";
                 comm.Connection = conn;
 
+
                 SqlDataReader rar = comm.ExecuteReader();
-                if (rar.Read())
+                listView1.Items.Clear();
+                while (rar.Read())
                 {
-                    _courseID.Text = rar.GetString(0);
-                    _courseName.Text = rar.GetString(1);
-                    _duration.Text = rar.GetString(2);
+                    ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                    lvi.SubItems.Add(rar.GetString(1));
+                    lvi.SubItems.Add(rar.GetString(2) + "");
+                    lvi.SubItems.Add(rar.GetInt32(3) + "");
 
-                    _price.Text = rar.GetInt32(3) + "";
+                    listView1.Items.Add(lvi);
+
                 }
-                else
+
+
+                if (listView1.Items.Count <= 0)
                 {
-                    MessageBox.Show("Không có dữ liệu");
+                    MessageBox.Show("không có dữ liệu!");
                 }
-
                 rar.Close();
             }
+
+
+
             catch (Exception ex)
             {
-                MessageBox.Show("Không có dữ liệu");
+                MessageBox.Show("không có dữ liệu");
             }
         }
 
-        
+
+
+
 
         private void search_Enter(object sender, EventArgs e)
         {
-            if (search.Text == "Tìm kiếm")
+            if (search.Text == "ID,TÊN")
             {
                 search.Text = "";
                 search.ForeColor = Color.Black;
@@ -283,14 +297,52 @@ namespace Gym
         {
             if (search.Text == "")
             {
-                search.Text = "Tìm kiếm";
-                search.ForeColor = Color.Silver;
+                search.Text = "ID,TÊN";
+                search.ForeColor = Color.Gray;
             }
         }
 
         private void search_TextChanged(object sender, EventArgs e)
         {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Course where courseName LIKE N'%" + search.Text + "%' OR courseID = '" + search.Text + "' ";
+            comm.Connection = conn;
 
+
+            SqlDataReader rar = comm.ExecuteReader();
+            listView1.Items.Clear();
+            while (rar.Read())
+            {
+                ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetString(2) + "");
+                lvi.SubItems.Add(rar.GetInt32(3) + "");
+
+                listView1.Items.Add(lvi);
+
+            }
+            rar.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hienthitoanbosanpham();
+            search.Text = "ID,TÊN";
+            search.ForeColor = Color.Gray;
+            _courseID.Text = null;
+            _courseName.Text = null;
+            _duration.Text = null;
+
+            _price.Text = null;
         }
     }
 

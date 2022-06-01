@@ -70,8 +70,8 @@ namespace Gym
             try
             {
                 conn.Open();
-                string _registerDate = DateTime.Today.ToString();
-                string _expiredDate = DateTime.Today.AddMonths(durations[index]).ToString();
+                string _registerDate = DateTime.Today.ToString("yyyyMMdd");
+                string _expiredDate = DateTime.Today.AddMonths(durations[index]).ToString("yyyyMMdd");
                 string _courseID = courseCb.Text.Split(' ')[0];
                 string _teacherID = teacherCb.Text.Split(' ')[0];
                 SqlCommand cmd = new SqlCommand("insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, registerDate, expiredDate) " +

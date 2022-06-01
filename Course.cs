@@ -132,7 +132,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn dữ liệu");
+                MessageBox.Show(ex.ToString());
             }
         }
 

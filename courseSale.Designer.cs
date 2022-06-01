@@ -1,6 +1,6 @@
 ﻿namespace Gym
 {
-    partial class courseSale
+    partial class CourseSale
     {
         /// <summary>
         /// Required designer variable.

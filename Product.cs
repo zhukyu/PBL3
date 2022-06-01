@@ -269,7 +269,8 @@ namespace Gym
 
         private void saleButton_Click_1(object sender, EventArgs e)
         {
-
+            ProductSale productSale = new ProductSale();
+            productSale.ShowDialog();
         }
 
         private void search_Enter(object sender, EventArgs e)

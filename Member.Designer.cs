@@ -89,6 +89,7 @@
             // 
             // memberTable
             // 
+            this.memberTable.AllowUserToAddRows = false;
             this.memberTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.memberTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.memberTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -107,7 +108,7 @@
             this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.memberTable.Size = new System.Drawing.Size(938, 571);
             this.memberTable.TabIndex = 27;
-            this.memberTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberTable_CellContentClick);
+            this.memberTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberTable_CellClick);
             // 
             // customerID
             // 

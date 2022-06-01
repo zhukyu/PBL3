@@ -40,7 +40,7 @@ namespace Gym
                 cmd.Parameters.Add(param1);
                 cmd.Parameters.Add(param2);
 
-                SqlDataReader data = (SqlDataReader)cmd.ExecuteReader();
+                SqlDataReader data = cmd.ExecuteReader();
 
                 if (username.Text == "")
                 {
@@ -54,7 +54,14 @@ namespace Gym
                 if (username.Text != "" && password.Text != "")
                     if (data.Read() == true)
                     {
-                        //MessageBox.Show("dang nhap thanh cong");
+                        data.Close();
+                        Program.userID = username.Text;
+                        cmd = new SqlCommand($"Select fullname from Employee where employeeID = '{username.Text}'", conn);
+                        SqlDataReader rd = cmd.ExecuteReader();
+                        if(rd.Read() == true)
+                        {
+                            Program.userName = rd.GetString(0);
+                        }
                         var homeForm = new Home();
                         this.Hide();
                         homeForm.ShowDialog();
@@ -70,7 +77,6 @@ namespace Gym
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu");
             }
             finally
             {

@@ -224,7 +224,7 @@
             this.saleButton.Name = "saleButton";
             this.saleButton.Size = new System.Drawing.Size(259, 49);
             this.saleButton.TabIndex = 54;
-            this.saleButton.Text = "Tạo hóa đơn";
+            this.saleButton.Text = "Bán hàng";
             this.saleButton.UseVisualStyleBackColor = false;
             this.saleButton.Click += new System.EventHandler(this.saleButton_Click_1);
             // 

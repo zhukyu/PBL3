@@ -50,7 +50,7 @@ namespace Gym
             }
         }
 
-        private void MemberTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void memberTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string customerID = memberTable.CurrentRow.Cells[0].Value.ToString();
             SqlConnection conn = new SqlConnection(Program.cnstr);
@@ -59,7 +59,7 @@ namespace Gym
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"select * from Customer where customerID = '{customerID}'", conn);
                 SqlDataReader rd = cmd.ExecuteReader();
-                while(rd.Read())
+                while (rd.Read())
                 {
                     _customerID.Text = rd.GetString(0);
                     _fullName.Text = rd.GetString(1);
@@ -70,11 +70,10 @@ namespace Gym
                     _idNumber.Text = rd.GetString(6);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
     }
 }

@@ -55,6 +55,7 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
+            this.saleBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -222,9 +223,9 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(993, 206);
+            this.deleteButton.Location = new System.Drawing.Point(963, 151);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(259, 49);
+            this.deleteButton.Size = new System.Drawing.Size(154, 49);
             this.deleteButton.TabIndex = 53;
             this.deleteButton.Text = "Xóa ";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -237,9 +238,9 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(993, 143);
+            this.editButton.Location = new System.Drawing.Point(1123, 77);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(259, 49);
+            this.editButton.Size = new System.Drawing.Size(154, 49);
             this.editButton.TabIndex = 52;
             this.editButton.Text = "Sửa ";
             this.editButton.UseVisualStyleBackColor = false;
@@ -252,9 +253,9 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(993, 77);
+            this.addButton.Location = new System.Drawing.Point(963, 77);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(259, 49);
+            this.addButton.Size = new System.Drawing.Size(154, 49);
             this.addButton.TabIndex = 51;
             this.addButton.Text = "Thêm";
             this.addButton.UseVisualStyleBackColor = false;
@@ -361,18 +362,34 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(993, 266);
+            this.button1.Location = new System.Drawing.Point(1123, 151);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(259, 54);
+            this.button1.Size = new System.Drawing.Size(154, 49);
             this.button1.TabIndex = 55;
             this.button1.Text = "Đặt lại";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // saleBtn
+            // 
+            this.saleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.saleBtn.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.saleBtn.ForeColor = System.Drawing.Color.White;
+            this.saleBtn.Image = ((System.Drawing.Image)(resources.GetObject("saleBtn.Image")));
+            this.saleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saleBtn.Location = new System.Drawing.Point(963, 227);
+            this.saleBtn.Name = "saleBtn";
+            this.saleBtn.Size = new System.Drawing.Size(314, 54);
+            this.saleBtn.TabIndex = 56;
+            this.saleBtn.Text = "Bán hàng";
+            this.saleBtn.UseVisualStyleBackColor = false;
+            this.saleBtn.Click += new System.EventHandler(this.saleBtn_Click);
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.saleBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel2);
@@ -425,5 +442,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saleBtn;
     }
 }

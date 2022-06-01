@@ -339,7 +339,7 @@ namespace Gym
         {
             try
             {
-                courseSale register = new courseSale();
+                CourseSale register = new CourseSale();
 
                 ListViewItem lvi = listView1.SelectedItems[0];
 
@@ -363,6 +363,11 @@ namespace Gym
             {
                MessageBox.Show(ex.ToString());
             }
+
+        }
+
+        private void BuyBtn_Click(object sender, EventArgs e)
+        {
 
         }
 

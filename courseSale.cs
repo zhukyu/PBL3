@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Gym
 {
-    public partial class courseSale : Form
+    public partial class CourseSale : Form
     {
         int index = 0;
         List<int> durations = new List<int>();
         List<int> prices = new List<int>();
-        public courseSale()
+        public CourseSale()
         {
             InitializeComponent();
         }
@@ -64,27 +64,46 @@ namespace Gym
             this._price.Text = prices[index].ToString();
         }
 
+        private string GenerateID(SqlConnection conn)
+        {
+            int count = 1;
+            StringBuilder ID = new StringBuilder("CR0000");
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 receiptID FROM CourseReceipt ORDER BY receiptID DESC", conn);
+            SqlDataReader rd = cmd.ExecuteReader();
+            if(rd.Read())
+            {
+                MessageBox.Show("asd");
+                count = Convert.ToInt32(rd.GetString(0).Substring(2)); //lấy số thứ tự
+                count++;
+            }
+            string countStr = count.ToString();
+            ID.Remove(ID.Length - countStr.Length, countStr.Length); // CR000 - 12 = CR0
+            ID.Append(countStr);
+            rd.Close();
+            return ID.ToString();
+        }
+
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
                 conn.Open();
+                string _receiptID = GenerateID(conn);
                 string _registerDate = DateTime.Today.ToString("yyyyMMdd");
                 string _expiredDate = DateTime.Today.AddMonths(durations[index]).ToString("yyyyMMdd");
                 string _courseID = courseCb.Text.Split(' ')[0];
                 string _teacherID = teacherCb.Text.Split(' ')[0];
                 SqlCommand cmd = new SqlCommand("insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, registerDate, expiredDate) " +
-                    $"values ('{"CR002"}', '{_customerID.Text}', '{_courseID}', '{_teacherID}', '{_registerDate}', '{_expiredDate}')" , conn);
+                    $"values ('{_receiptID}', '{_customerID.Text}', '{_courseID}', '{_teacherID}', '{_registerDate}', '{_expiredDate}')" , conn);
                 MessageBox.Show(_registerDate);
                 cmd.ExecuteNonQuery();
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            conn.Close();
         }
     }
 }

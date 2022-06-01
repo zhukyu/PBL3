@@ -282,11 +282,6 @@ namespace Gym
 
         }
 
-        private void saleButton_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void search_Enter(object sender, EventArgs e)
         {
             if (search.Text == "Tìm kiếm")
@@ -347,6 +342,12 @@ namespace Gym
 
             }
             rar.Close();
+        }
+
+        private void saleBtn_Click(object sender, EventArgs e)
+        {
+            ProductSale productSale = new ProductSale();
+            productSale.ShowDialog();
         }
     }
 }

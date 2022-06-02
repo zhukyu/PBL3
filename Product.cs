@@ -125,6 +125,11 @@ namespace Gym
         private void editProduct_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
+            _productID.Text = null;
+            _productName.Text = null;
+            _amount.Text = null;
+            _price.Text = null;
+            pictureBox1.Image = null;
         }
 
         private void Product_Load(object sender, EventArgs e)

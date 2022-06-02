@@ -180,6 +180,12 @@ namespace Gym
         private void editDevice_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
+            _deviceID.Text = null;
+            _deviceName.Text = null;
+            _amount.Text = null;
+            dateTimePicker1.Text = null;
+            _status.Text = null;
+            pictureBox1.Image = null;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

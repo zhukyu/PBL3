@@ -150,6 +150,15 @@ namespace Gym
         {
             hienthitoanbosanpham();
             conn.Close();
+            _employeeID.Text = null;
+            _fullName.Text = null;
+            _gender.Text = null;
+            dateTimePicker1.Text = null;
+            _phoneNumber.Text = null;
+            _idNumber.Text = null;
+            _role.Text = null;
+            _address.Text = null;
+            pictureBox1.Image = null;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

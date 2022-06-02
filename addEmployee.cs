@@ -80,7 +80,7 @@ namespace Gym
                 {
                     string fileName = _openFileDialog.FileName;
                     this.bmp = new Bitmap(fileName);
-
+                    
                     this.pictureBox1.Image = this.bmp;
                 }
                
@@ -89,8 +89,9 @@ namespace Gym
 
                     this.filePath = "Img\\" + file;
                     this.bmp.Save(filePath);
+               
 
-                
+
             }
             catch (Exception ex)
             {

@@ -19,9 +19,9 @@ namespace Gym
             InitializeComponent();
         }
         OpenFileDialog _openFileDialog = new OpenFileDialog();
-
+        
         SqlConnection conn = null;
-
+       
         private void fixButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -29,8 +29,9 @@ namespace Gym
             {
                 try
                 {
-                    updateEmployee em = new updateEmployee();
+                    //updateEmployee em = new updateEmployee();
                     string maSp = _employeeID.Text;
+                    //string filePath = "Img/"+_employeeID.Text+ ".jpg";
                     {
                         if (conn == null)
                         {
@@ -68,32 +69,84 @@ namespace Gym
                 }
             }
         }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Employee Where EmployeeID= '" + _employeeID.Text + "'";
+            comm.Connection = conn;
 
-        //private void fixPictureBox1_Click(object sender, EventArgs e)
-        //        {
 
-        //            _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
+            SqlDataReader rar = comm.ExecuteReader();
+            
+            if (rar.Read())
+            {
 
-        //            _openFileDialog.FilterIndex = 1;
+                filePath += rar.GetString(8);
 
-        //            _openFileDialog.RestoreDirectory = true;
-        //            if (_openFileDialog.ShowDialog() == DialogResult.OK)
+            }
+            rar.Close();
+            conn.Close();
+            pictureBox1.Image = null;
+            if (File.Exists(filePath))
+            {
+                // xóa file
+                File.Delete(filePath);
 
-        //            {
+               
+                
+            }
+            
+            
+           
+        }
 
-        //                string fileName = _openFileDialog.FileName;
-        //                this.bmp = new Bitmap(fileName);
+     
 
-        //                this.pictureBox1.Image = this.bmp;
-        //            }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
 
-        //            string id = _employeeID.Text;
-        //            string file = id + ".jpg";
+                _openFileDialog.FilterIndex = 1;
 
-        //            this.filePath = "Img\\" + file;
-        //            this.bmp.Save(filePath);
+                _openFileDialog.RestoreDirectory = true;
 
-        //        }
+
+                if (_openFileDialog.ShowDialog() == DialogResult.OK)
+
+                {
+                    string fileName = _openFileDialog.FileName;
+                    this.bmp = new Bitmap(fileName);
+
+                    this.pictureBox1.Image = this.bmp;
+                }
+
+                string id = _employeeID.Text;
+                string file = id + ".jpg";
+
+                this.filePath = "Img\\" + file;
+                this.bmp.Save(filePath);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        
 
         //private byte[] ConverImgToByte()
         //{

@@ -38,7 +38,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + filePath + "',N'" + comboBox2.Text + "')";
+                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + filePath + "',N'" + textBox1.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -89,25 +89,26 @@ namespace Gym
 
         private void addDevice_Load(object sender, EventArgs e)
         {
-            if (conn == null)
-            {
-                conn = new SqlConnection(Program.cnstr);
-            }
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            SqlCommand comm = new SqlCommand();
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select fullName from Employee";
-            comm.Connection = conn;
+            //if (conn == null)
+            //{
+            //    conn = new SqlConnection(Program.cnstr);
+            //}
+            //if (conn.State == ConnectionState.Closed)
+            //{
+            //    conn.Open();
+            //}
+            //SqlCommand comm = new SqlCommand();
+            //comm.CommandType = CommandType.Text;
+            //comm.CommandText = "select fullName from Employee";
+            //comm.Connection = conn;
 
 
-            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            comboBox2.DataSource = dt;
-            comboBox2.DisplayMember = "fullname";
+            //SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //comboBox2.DataSource = dt;
+            //comboBox2.DisplayMember = "fullname";
+            textBox1.Text =Program.userName;
         }
 
 

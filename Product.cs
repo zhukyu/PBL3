@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Gym
 {
@@ -130,7 +131,16 @@ namespace Gym
         {
             hienthitoanbosanpham();
         }
-
+        OpenFileDialog _openFileDialog = new OpenFileDialog();
+        private byte[] ConverImgToByte(String x)
+        {
+            FileStream fs;
+            fs = new FileStream(x, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -167,7 +177,14 @@ namespace Gym
                         _productName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
                         _price.Text = lvi.SubItems[3].Text;
-                        pictureBox1.Image = new Bitmap(rar.GetString(4));
+                        //pictureBox1.Image = new Bitmap(rar.GetString(4));
+                        ConverImgToByte(rar.GetString(4));
+                        using (Stream stream = new MemoryStream(ConverImgToByte(rar.GetString(4))))
+                        {
+                            pictureBox1.Image = System.Drawing.Image.FromStream(stream);
+                            stream.Dispose();
+                        }
+
 
                     }
 
@@ -228,7 +245,7 @@ namespace Gym
                     MessageBox.Show("đã xóa thất bại");
                 }
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -302,7 +319,7 @@ namespace Gym
 
         private void button1_Click(object sender, EventArgs e)
         {
-            hienthitoanbosanpham();
+            
             hienthitoanbosanpham();
             search.Text = "ID,TÊN";
             search.ForeColor = Color.Gray;

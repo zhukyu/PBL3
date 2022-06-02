@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.IO;
 
 namespace Gym
 {
@@ -56,7 +56,16 @@ namespace Gym
         {
             hienthitoanbosanpham();
         }
-
+        OpenFileDialog _openFileDialog = new OpenFileDialog();
+        private byte[] ConverImgToByte(String x)
+        {
+            FileStream fs;
+            fs = new FileStream(x, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -94,8 +103,15 @@ namespace Gym
                         _amount.Text = lvi.SubItems[2].Text;
                          _status.Text = lvi.SubItems[3].Text;
                         dateTimePicker1.Text = lvi.SubItems[4].Text;
-                        pictureBox1.Image = new Bitmap(rar.GetString(5));
+                       // pictureBox1.Image = new Bitmap(rar.GetString(5));
                         _employeeID.Text = lvi.SubItems[5].Text;
+                        ConverImgToByte(rar.GetString(5));
+                        using (Stream stream = new MemoryStream(ConverImgToByte(rar.GetString(5))))
+                        {
+                            pictureBox1.Image = System.Drawing.Image.FromStream(stream);
+                            stream.Dispose();
+                        }
+
                     }
 
                     rar.Close();

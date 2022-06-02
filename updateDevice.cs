@@ -70,7 +70,7 @@ namespace Gym
                 }
             }
         }
-
+        OpenFileDialog _openFileDialog = new OpenFileDialog();
         private void updateDevice_Load(object sender, EventArgs e)
         {
             if (conn == null)
@@ -95,9 +95,78 @@ namespace Gym
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
+
+                _openFileDialog.FilterIndex = 1;
+
+                _openFileDialog.RestoreDirectory = true;
 
 
+                if (_openFileDialog.ShowDialog() == DialogResult.OK)
 
+                {
+                    string fileName = _openFileDialog.FileName;
+                    this.bmp = new Bitmap(fileName);
+
+                    this.pictureBox1.Image = this.bmp;
+                }
+
+                string id = _deviceID.Text;
+                string file = id + ".jpg";
+
+                this.filePath = "Img\\" + file;
+                this.bmp.Save(filePath);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Employee Where EmployeeID= '" + _deviceID.Text + "'";
+            comm.Connection = conn;
+
+
+            SqlDataReader rar = comm.ExecuteReader();
+            string filePath = null;
+            if (rar.Read())
+            {
+
+                filePath += rar.GetString(5);
+
+            }
+            rar.Close();
+            conn.Close();
+            pictureBox1.Image = null;
+            if (File.Exists(filePath))
+            {
+                // xóa file
+                File.Delete(filePath);
+
+                // kiểm tra lại xem file còn tồn tại không.
+               
+            }
+            
+
+        }
     }
 }
 

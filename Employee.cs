@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Gym
 {
-    public partial class Employee : UserControl
+    public partial class Employee : UserControl 
     {
         SqlConnection conn = null;
 
@@ -21,6 +21,7 @@ namespace Gym
             InitializeComponent();
 
         }
+
         public void hienthitoanbosanpham()
         {
             if (conn == null)
@@ -53,10 +54,12 @@ namespace Gym
 
             }
             rar.Close();
+            conn.Close();
         }
         private void Employee_Load(object sender, EventArgs e)
         {
             hienthitoanbosanpham();
+            conn.Close();
         }
 
 
@@ -124,9 +127,14 @@ namespace Gym
                 //}
 
                 //rar.Close();
+                Home home = new Home();
+               
                 anh.StartPosition = FormStartPosition.CenterScreen;
                 anh.FormClosing += new FormClosingEventHandler(this.editEmployee_FormClosing);
+                
                 anh.ShowDialog();
+                
+
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -141,7 +149,7 @@ namespace Gym
         private void editEmployee_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
-
+            conn.Close();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -251,7 +259,16 @@ namespace Gym
                 MessageBox.Show("Không có dữ liệu");
             }
         }
-
+        OpenFileDialog _openFileDialog = new OpenFileDialog();
+        private byte[] ConverImgToByte(String x)
+        {
+            FileStream fs;
+            fs = new FileStream(x, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
@@ -292,11 +309,18 @@ namespace Gym
                         _idNumber.Text = lvi.SubItems[5].Text;
                         _role.Text = lvi.SubItems[6].Text;
                         _address.Text = lvi.SubItems[7].Text;
-                        pictureBox1.Image = new Bitmap(rar.GetString(8));
+                         ConverImgToByte(rar.GetString(8));
+                        using (Stream stream = new MemoryStream(ConverImgToByte(rar.GetString(8))))
+                        {
+                            pictureBox1.Image = System.Drawing.Image.FromStream(stream);
+                            stream.Dispose();
+                        }
+                       
                     }
 
                     rar.Close();
                 }
+                conn.Close();
 
         }
             catch (ArgumentOutOfRangeException ex)
@@ -384,9 +408,27 @@ namespace Gym
                 rar.Close();
                 
             }
+
+        
+            
+
+             //filePath = @"C:\Users\DELL\Desktop\PBL3\pbl3\bin\Debug\net5.0-windows\Img\321.jpg";
+            //pictureBox1.ImageLocation = @"C:\Users\DELL\Desktop\PBL3\pbl3\bin\Debug\net5.0-windows\Img\1.jpg";
+            //pictureBox1.Load();
+            //pictureBox1.Image = Bitmap(null);
+            //pictureBox1.Refresh();
+            //pictureBox1.ImageLocation = null;
+            //pictureBox1.Image = null;
+            // pictureBox1.ImageLocation = new Bitmap(Null);
+            //pictureBox1.Load();
+           
+            
+        }
+
+       
     }
 
-}
+
 
 
 

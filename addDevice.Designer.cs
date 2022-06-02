@@ -44,7 +44,7 @@
             this.addPictureBox1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -215,21 +215,20 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(202, 43);
             this.dateTimePicker1.TabIndex = 59;
             // 
-            // comboBox2
+            // textBox1
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(482, 173);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 45);
-            this.comboBox2.TabIndex = 60;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(482, 173);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(202, 38);
+            this.textBox1.TabIndex = 61;
             // 
             // addDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addPictureBox1);
             this.Controls.Add(this.pictureBox1);
@@ -275,6 +274,6 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

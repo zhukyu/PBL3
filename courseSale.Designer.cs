@@ -49,6 +49,8 @@
             this._price = new System.Windows.Forms.TextBox();
             this.teacherCb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this._cashier = new System.Windows.Forms.TextBox();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,6 +252,7 @@
             this.teacherCb.Name = "teacherCb";
             this.teacherCb.Size = new System.Drawing.Size(491, 36);
             this.teacherCb.TabIndex = 81;
+            this.teacherCb.SelectedIndexChanged += new System.EventHandler(this.teacherCb_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -262,11 +265,33 @@
             this.label11.TabIndex = 80;
             this.label11.Text = "Giáo viên :";
             // 
-            // courseSale
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(12, 619);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 24);
+            this.label8.TabIndex = 83;
+            this.label8.Text = "NV thu ngân :";
+            // 
+            // _cashier
+            // 
+            this._cashier.Enabled = false;
+            this._cashier.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._cashier.Location = new System.Drawing.Point(167, 611);
+            this._cashier.Name = "_cashier";
+            this._cashier.Size = new System.Drawing.Size(214, 38);
+            this._cashier.TabIndex = 82;
+            // 
+            // CourseSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 680);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this._cashier);
             this.Controls.Add(this.teacherCb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
@@ -287,7 +312,7 @@
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.courseCb);
             this.Controls.Add(this.label6);
-            this.Name = "courseSale";
+            this.Name = "CourseSale";
             this.Text = "courseSale";
             this.Load += new System.EventHandler(this.courseSale_Load);
             this.formNameLable.ResumeLayout(false);
@@ -319,5 +344,7 @@
         public System.Windows.Forms.TextBox _fullName;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox _idNumber;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox _cashier;
     }
 }

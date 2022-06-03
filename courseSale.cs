@@ -14,6 +14,7 @@ namespace Gym
     public partial class CourseSale : Form
     {
         int index = 0;
+        // lưu giá trị của vị trí index trong combobox
         List<int> durations = new List<int>();
         List<int> prices = new List<int>();
         public CourseSale()
@@ -23,6 +24,7 @@ namespace Gym
 
         private void courseSale_Load(object sender, EventArgs e)
         {
+            _cashier.Text = Program.userName;
             SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
@@ -72,7 +74,6 @@ namespace Gym
             SqlDataReader rd = cmd.ExecuteReader();
             if(rd.Read())
             {
-                MessageBox.Show("asd");
                 count = Convert.ToInt32(rd.GetString(0).Substring(2)); //lấy số thứ tự
                 count++;
             }
@@ -85,25 +86,51 @@ namespace Gym
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(Program.cnstr);
-            try
+            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn đăng ký ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
             {
-                conn.Open();
-                string _receiptID = GenerateID(conn);
-                string _registerDate = DateTime.Today.ToString("yyyyMMdd");
-                string _expiredDate = DateTime.Today.AddMonths(durations[index]).ToString("yyyyMMdd");
-                string _courseID = courseCb.Text.Split(' ')[0];
-                string _teacherID = teacherCb.Text.Split(' ')[0];
-                SqlCommand cmd = new SqlCommand("insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, registerDate, expiredDate) " +
-                    $"values ('{_receiptID}', '{_customerID.Text}', '{_courseID}', '{_teacherID}', '{_registerDate}', '{_expiredDate}')" , conn);
-                MessageBox.Show(_registerDate);
-                cmd.ExecuteNonQuery();
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                try
+                {
+                    conn.Open();
+                    string _receiptID = GenerateID(conn);
+                    string customerID = _customerID.Text;
+                    string _registerDate = DateTime.Today.ToString("yyyyMMdd");
+                    string _expiredDate = DateTime.Today.AddMonths(durations[index]).ToString("yyyyMMdd");
+                    string _courseID = courseCb.Text.Split(' ')[0];
+                    string _teacherID = "";
+                    if (teacherCb.Text != "")
+                    {
+                        _teacherID = teacherCb.Text.Split(' ')[0];
+                    }
+                    string _employeeID = Program.userID;
+                    int price = Convert.ToInt32(_price.Text);
+                    SqlCommand cmd = new SqlCommand("insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, employeeID, registerDate, expiredDate, price) " +
+                        $"values ('{_receiptID}', '{customerID}', '{_courseID}', '{_teacherID}', '{_employeeID}', '{_registerDate}', '{_expiredDate}', {price})", conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                conn.Close();
             }
-            catch (Exception ex)
+        }
+
+        private void teacherCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = courseCb.SelectedIndex;
+            if (teacherCb.SelectedIndex != -1)
             {
-                MessageBox.Show(ex.ToString());
+                int price = prices[index] + 50000 * durations[index];
+                this._price.Text = price.ToString();
             }
-            conn.Close();
+            else
+            {
+                this._price.Text = prices[index].ToString();
+            }
         }
     }
 }

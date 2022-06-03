@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Member));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchButton = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.memberTable = new System.Windows.Forms.DataGridView();
@@ -92,6 +93,14 @@
             this.memberTable.AllowUserToAddRows = false;
             this.memberTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.memberTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.memberTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.memberTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.memberTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerID,
@@ -106,7 +115,7 @@
             this.memberTable.RowHeadersWidth = 51;
             this.memberTable.RowTemplate.Height = 29;
             this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberTable.Size = new System.Drawing.Size(938, 571);
+            this.memberTable.Size = new System.Drawing.Size(935, 571);
             this.memberTable.TabIndex = 27;
             this.memberTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberTable_CellClick);
             // 

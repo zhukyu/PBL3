@@ -69,9 +69,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(213, 83);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(221, 184);
+            this.pictureBox1.Size = new System.Drawing.Size(221, 224);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
@@ -81,7 +83,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(148, 487);
+            this.label3.Location = new System.Drawing.Point(148, 533);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 29);
             this.label3.TabIndex = 55;
@@ -90,7 +92,7 @@
             // _price
             // 
             this._price.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(298, 487);
+            this._price.Location = new System.Drawing.Point(298, 533);
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(155, 36);
             this._price.TabIndex = 54;
@@ -100,7 +102,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(148, 437);
+            this.label4.Location = new System.Drawing.Point(148, 475);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 29);
             this.label4.TabIndex = 53;
@@ -109,7 +111,7 @@
             // _amount
             // 
             this._amount.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._amount.Location = new System.Drawing.Point(298, 434);
+            this._amount.Location = new System.Drawing.Point(298, 474);
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(155, 36);
             this._amount.TabIndex = 52;
@@ -119,7 +121,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(148, 383);
+            this.label2.Location = new System.Drawing.Point(148, 411);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 29);
             this.label2.TabIndex = 51;
@@ -128,7 +130,7 @@
             // _productName
             // 
             this._productName.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productName.Location = new System.Drawing.Point(298, 383);
+            this._productName.Location = new System.Drawing.Point(298, 417);
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(155, 36);
             this._productName.TabIndex = 50;
@@ -138,7 +140,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(148, 331);
+            this.label6.Location = new System.Drawing.Point(148, 356);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 29);
             this.label6.TabIndex = 49;
@@ -147,19 +149,22 @@
             // _productID
             // 
             this._productID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productID.Location = new System.Drawing.Point(298, 328);
+            this._productID.Location = new System.Drawing.Point(298, 359);
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(155, 36);
             this._productID.TabIndex = 48;
             // 
             // addPictureBox1
             // 
-            this.addPictureBox1.Location = new System.Drawing.Point(275, 273);
+            this.addPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.addPictureBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addPictureBox1.ForeColor = System.Drawing.Color.White;
+            this.addPictureBox1.Location = new System.Drawing.Point(275, 313);
             this.addPictureBox1.Name = "addPictureBox1";
             this.addPictureBox1.Size = new System.Drawing.Size(94, 29);
             this.addPictureBox1.TabIndex = 57;
             this.addPictureBox1.Text = "Thêm ảnh";
-            this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.UseVisualStyleBackColor = false;
             this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // addButton
@@ -167,7 +172,7 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(203, 566);
+            this.addButton.Location = new System.Drawing.Point(203, 600);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(231, 49);
             this.addButton.TabIndex = 58;

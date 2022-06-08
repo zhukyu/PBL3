@@ -44,7 +44,7 @@ namespace Gym
 
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' " + "where deviceID=@maSp";
+                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' ,anh=N'" + Convert.ToBase64String(converImgToByte()) + "'" + "where deviceID=@maSp";
                         comm.CommandText = st;
                         comm.CommandText = st;
                         comm.Connection = conn;
@@ -94,10 +94,45 @@ namespace Gym
             comboBox2.DisplayMember = "fullname";
 
         }
+        string fileName = "null.png";
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.ImageLocation = fileName;
+            pictureBox1.Load();
+        }
+        private byte[] converImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+                openFile.FilterIndex = 1;
+                openFile.RestoreDirectory = true;
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = openFile.FileName;
+                    pictureBox1.ImageLocation = openFile.FileName;
+                    pictureBox1.Load();
+                }
 
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
-
+        
     }
 }
 

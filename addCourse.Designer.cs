@@ -36,8 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._courseID = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -72,7 +70,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(50, 330);
+            this.label3.Location = new System.Drawing.Point(50, 384);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 24);
             this.label3.TabIndex = 53;
@@ -81,7 +79,7 @@
             // _price
             // 
             this._price.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(231, 330);
+            this._price.Location = new System.Drawing.Point(231, 374);
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(245, 40);
             this._price.TabIndex = 52;
@@ -91,7 +89,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(50, 255);
+            this.label4.Location = new System.Drawing.Point(50, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 24);
             this.label4.TabIndex = 51;
@@ -102,7 +100,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(50, 179);
+            this.label2.Location = new System.Drawing.Point(43, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 24);
             this.label2.TabIndex = 49;
@@ -113,7 +111,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(50, 112);
+            this.label6.Location = new System.Drawing.Point(50, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 24);
             this.label6.TabIndex = 47;
@@ -122,29 +120,10 @@
             // _courseID
             // 
             this._courseID.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._courseID.Location = new System.Drawing.Point(231, 102);
+            this._courseID.Location = new System.Drawing.Point(231, 137);
             this._courseID.Name = "_courseID";
             this._courseID.Size = new System.Drawing.Size(245, 40);
             this._courseID.TabIndex = 46;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(221, 405);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
-            this.checkBox1.TabIndex = 54;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(46, 401);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 21);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Tập cùng HLV";
             // 
             // addButton
             // 
@@ -168,7 +147,7 @@
             "Cardio",
             "Yoga",
             "Gym"});
-            this.comboBox1.Location = new System.Drawing.Point(231, 171);
+            this.comboBox1.Location = new System.Drawing.Point(231, 212);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 39);
             this.comboBox1.TabIndex = 63;
@@ -182,7 +161,7 @@
             "3 Tháng",
             "6 Tháng",
             "12 Tháng"});
-            this.comboBox2.Location = new System.Drawing.Point(231, 255);
+            this.comboBox2.Location = new System.Drawing.Point(231, 296);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(245, 39);
             this.comboBox2.TabIndex = 64;
@@ -195,8 +174,6 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._price);
             this.Controls.Add(this.label4);
@@ -223,8 +200,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox _courseID;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;

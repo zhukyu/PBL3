@@ -42,7 +42,7 @@ namespace Gym
                         }
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "' " + "where employeeID=@maSp";
+                        string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "',anh=N'" + Convert.ToBase64String(converImgToByte()) + "' " + "where employeeID=@maSp";
                         comm.CommandText = st;
                         comm.Connection = conn;
 
@@ -66,6 +66,47 @@ namespace Gym
                 {
                     MessageBox.Show("lỗi:" + ex.Message);
                 }
+            }
+        }
+        string fileName = "null.png";
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            pictureBox1.ImageLocation = null;
+            
+            pictureBox1.ImageLocation = fileName;
+            pictureBox1.Load();
+        }
+       
+        private byte[] converImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+                openFile.FilterIndex = 1;
+                openFile.RestoreDirectory = true;
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = openFile.FileName;
+                    pictureBox1.ImageLocation = openFile.FileName;
+                    pictureBox1.Load();
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

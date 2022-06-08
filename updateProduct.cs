@@ -41,7 +41,7 @@ namespace Gym
 
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "' " + "where productID=@maSp";
+                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh=N'" + Convert.ToBase64String(converImgToByte()) + "' " + "where productID=@maSp";
                         comm.CommandText = st;
                         comm.CommandText = st;
                         comm.Connection = conn;
@@ -67,6 +67,50 @@ namespace Gym
                 }
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        string fileName = "null.png";
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.ImageLocation = fileName;
+            pictureBox1.Load();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+                openFile.FilterIndex = 1;
+                openFile.RestoreDirectory = true;
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = openFile.FileName;
+                    pictureBox1.ImageLocation = openFile.FileName;
+                    pictureBox1.Load();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private byte[] converImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
+
         //OpenFileDialog _openFileDialog = new OpenFileDialog();
         //        private void addPictureBox1_Click(object sender, EventArgs e)
         //        {

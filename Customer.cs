@@ -384,6 +384,8 @@ namespace Gym
             _idNumber.Text = null;
             _address.Text = null;
         }
+
+       
     }
 }
 

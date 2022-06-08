@@ -189,16 +189,21 @@
             // 
             // addPictureBox1
             // 
-            this.addPictureBox1.Location = new System.Drawing.Point(165, 606);
+            this.addPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.addPictureBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addPictureBox1.ForeColor = System.Drawing.Color.White;
+            this.addPictureBox1.Location = new System.Drawing.Point(161, 620);
             this.addPictureBox1.Name = "addPictureBox1";
             this.addPictureBox1.Size = new System.Drawing.Size(94, 29);
             this.addPictureBox1.TabIndex = 58;
             this.addPictureBox1.Text = "Thêm ảnh";
-            this.addPictureBox1.UseVisualStyleBackColor = true;
+            this.addPictureBox1.UseVisualStyleBackColor = false;
             this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(97, 309);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 291);

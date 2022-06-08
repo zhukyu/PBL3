@@ -75,7 +75,7 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(1039, 327);
+            this.deleteButton.Location = new System.Drawing.Point(1042, 264);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(263, 51);
             this.deleteButton.TabIndex = 33;
@@ -90,7 +90,7 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(1039, 258);
+            this.editButton.Location = new System.Drawing.Point(1042, 206);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(263, 49);
             this.editButton.TabIndex = 32;
@@ -271,7 +271,7 @@
             // 
             // _customerID
             // 
-            this._customerID.BackColor = System.Drawing.Color.White;
+            this._customerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this._customerID.Enabled = false;
             this._customerID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._customerID.Location = new System.Drawing.Point(205, 28);
@@ -285,7 +285,7 @@
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(1040, 31);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 38);
+            this.textBox2.Size = new System.Drawing.Size(204, 43);
             this.textBox2.TabIndex = 28;
             this.textBox2.Text = "ID,TÊN,CMND";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -414,7 +414,7 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(1039, 184);
+            this.addButton.Location = new System.Drawing.Point(1042, 146);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(263, 49);
             this.addButton.TabIndex = 31;
@@ -444,7 +444,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1042, 326);
+            this.button2.Location = new System.Drawing.Point(1044, 326);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(261, 55);
             this.button2.TabIndex = 45;

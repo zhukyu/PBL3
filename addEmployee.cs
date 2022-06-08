@@ -18,7 +18,10 @@ namespace Gym
         {
             InitializeComponent();
         }
-
+        OpenFileDialog openFile = new OpenFileDialog();
+        
+       
+        
         SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -28,7 +31,7 @@ namespace Gym
 
                 try
 
-                {
+               {
                     if (conn == null)
                     {
                         conn = new SqlConnection(Program.cnstr);
@@ -40,7 +43,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + filePath + "')";
+                    string st = "Insert into Employee(employeeID,fullName,gender,birthday,phoneNumber,idNumber,role,address,anh)" + "values (N'" + _employeeID.Text + "',N'" + _fullName.Text + "',N'" + gioitinh.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + _phoneNumber.Text + "','" + _idNumber.Text + "',N'" + comboBox1.Text + "',N'" + _address.Text + "',N'" + Convert.ToBase64String(converImgToByte()) + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -62,35 +65,45 @@ namespace Gym
             }
         }
 
-        OpenFileDialog _openFileDialog = new OpenFileDialog();
+        string fileName = "null.png";
 
         private void addPictureBox1_Click(object sender, EventArgs e)
         {
             try
             {
-                _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
-
-                _openFileDialog.FilterIndex = 1;
-
-                _openFileDialog.RestoreDirectory = true;
-
-
-                if (_openFileDialog.ShowDialog() == DialogResult.OK)
-
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+                openFile.FilterIndex = 1;
+                openFile.RestoreDirectory = true;
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    string fileName = _openFileDialog.FileName;
-                    this.bmp = new Bitmap(fileName);
-
-                    this.pictureBox1.Image = this.bmp;
+                    fileName = openFile.FileName;
+                    pictureBox1.ImageLocation = openFile.FileName;
+                    pictureBox1.Load();
                 }
-               
-                    string id = _employeeID.Text;
-                    string file = id + ".jpg";
+                //_openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
 
-                    this.filePath = "Img\\" + file;
-                    this.bmp.Save(filePath);
+                //_openFileDialog.FilterIndex = 1;
 
-                
+                //_openFileDialog.RestoreDirectory = true;
+
+
+                //if (_openFileDialog.ShowDialog() == DialogResult.OK)
+
+                //{
+                //    string fileName = _openFileDialog.FileName;
+                //    this.bmp = new Bitmap(fileName);
+
+                //    this.pictureBox1.Image = this.bmp;
+                //}
+
+                //string id = _employeeID.Text;
+                //string file = id + ".jpg";
+
+                //this.filePath = "Img\\" + file;
+                //this.bmp.Save(filePath);
+
+
             }
             catch (Exception ex)
             {
@@ -98,17 +111,17 @@ namespace Gym
             }
         }
 
-        //private byte[] ConverImgToByte()
-        //{
-        //    FileStream fs;
-        //    fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-        //    byte[] picbyte = new byte[fs.Length];
-        //    fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-        //    fs.Close();
-        //    return picbyte;
-        //}
+        
 
-
+        private byte[] converImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
 
     }
 

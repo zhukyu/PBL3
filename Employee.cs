@@ -85,31 +85,8 @@ namespace Gym
                 updateEmployee anh = new updateEmployee();
 
                 ListViewItem lvi = listView1.SelectedItems[0];
-                //string maSp = lvi.SubItems[0].Text;
-                //if (conn == null)
-                //{
-                //    conn = new SqlConnection(Program.cnstr);
-                //}
-                //if (conn.State == ConnectionState.Closed)
-                //{
-                //    conn.Open();
-                //}
-
-
-                //SqlCommand comm = new SqlCommand();
-                //comm.CommandType = CommandType.Text;
-                //comm.CommandText = "select *from Employee where employeeID=@maSp";
-                //comm.Connection = conn;
-
-                //SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                //para.Value = maSp;
-                //comm.Parameters.Add(para);
-
-                //_employeeID.ReadOnly = true;
-                //SqlDataReader rar = comm.ExecuteReader();
-                //while (rar.Read())
-                //{
-
+               
+                
                 anh._employeeID.Text = lvi.SubItems[0].Text;
                 anh._fullName.Text = lvi.SubItems[1].Text;
                 anh.gioitinh.Text = lvi.SubItems[2].Text;
@@ -121,9 +98,7 @@ namespace Gym
                 anh.pictureBox1.Image = pictureBox1.Image;
 
 
-                //}
-
-                //rar.Close();
+              
                 anh.StartPosition = FormStartPosition.CenterScreen;
                 anh.FormClosing += new FormClosingEventHandler(this.editEmployee_FormClosing);
                 anh.ShowDialog();
@@ -292,7 +267,7 @@ namespace Gym
                         _idNumber.Text = lvi.SubItems[5].Text;
                         _role.Text = lvi.SubItems[6].Text;
                         _address.Text = lvi.SubItems[7].Text;
-                        pictureBox1.Image = new Bitmap(rar.GetString(8));
+                        pictureBox1.Image = Program.ByteToImg(rar.GetString(8));
                     }
 
                     rar.Close();

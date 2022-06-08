@@ -475,7 +475,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox _employeeID;
-        private System.Windows.Forms.TextBox _status;
         private System.Windows.Forms.TextBox _amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -494,5 +493,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox _status;
     }
 }

@@ -41,8 +41,8 @@ namespace Gym
             {
                 ListViewItem lvi = new ListViewItem(rar.GetString(0));
                 lvi.SubItems.Add(rar.GetString(1));
-                lvi.SubItems.Add(rar.GetInt32(2)+"");
-                lvi.SubItems.Add(rar.GetString(3)); 
+                lvi.SubItems.Add(rar.GetInt32(2) + "");
+                lvi.SubItems.Add(rar.GetString(3));
                 lvi.SubItems.Add(rar.GetDateTime(4).ToString("dd-MM-yyyy"));
                 lvi.SubItems.Add(rar.GetString(6));
                 listView1.Items.Add(lvi);
@@ -62,7 +62,7 @@ namespace Gym
             try
             {
                 if (listView1.SelectedItems.Count > 0)
-            {
+                {
                     ListViewItem lvi = listView1.SelectedItems[0];
                     string maSp = lvi.SubItems[0].Text;
                     if (conn == null)
@@ -92,20 +92,20 @@ namespace Gym
                         _deviceID.Text = lvi.SubItems[0].Text;
                         _deviceName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
-                         _status.Text = lvi.SubItems[3].Text;
+                        _status.Text = lvi.SubItems[3].Text;
                         dateTimePicker1.Text = lvi.SubItems[4].Text;
-                        pictureBox1.Image = new Bitmap(rar.GetString(5));
+                        pictureBox1.Image = Program.ByteToImg(rar.GetString(5));
                         _employeeID.Text = lvi.SubItems[5].Text;
                     }
 
                     rar.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-}
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -127,26 +127,26 @@ namespace Gym
             {
                 updateDevice anh = new updateDevice();
                 ListViewItem lvi = listView1.SelectedItems[0];
+               
+                anh._deviceID.Text = lvi.SubItems[0].Text;
+                anh._deviceName.Text = lvi.SubItems[1].Text;
+                anh._amount.Text = lvi.SubItems[2].Text;
+                anh.dateTimePicker1.Text = lvi.SubItems[4].Text;
+                anh.comboBox1.Text = lvi.SubItems[3].Text;
+                anh.pictureBox1.Image = pictureBox1.Image;
+                anh.comboBox2.Text = lvi.SubItems[5].Text;
 
-                    anh._deviceID.Text = lvi.SubItems[0].Text;
-                    anh._deviceName.Text = lvi.SubItems[1].Text;
-                    anh._amount.Text = lvi.SubItems[2].Text;
-                    anh.dateTimePicker1.Text = lvi.SubItems[4].Text;
-                    anh.comboBox1.Text = lvi.SubItems[3].Text;
-                    anh.pictureBox1.Image = pictureBox1.Image;
-                    anh.comboBox2.Text = lvi.SubItems[5].Text;
+
+                //_deviceID.Text = lvi.SubItems[0].Text;
+                //_deviceName.Text = lvi.SubItems[1].Text;
+                //_amount.Text = lvi.SubItems[2].Text;
+                //_status.Text = lvi.SubItems[3].Text;
+                //dateTimePicker1.Text = lvi.SubItems[4].Text;
+                //pictureBox1.Image = new Bitmap(rar.GetString(5));
+                //_employeeID.Text = lvi.SubItems[6].Text;
 
 
-                    //_deviceID.Text = lvi.SubItems[0].Text;
-                    //_deviceName.Text = lvi.SubItems[1].Text;
-                    //_amount.Text = lvi.SubItems[2].Text;
-                    //_status.Text = lvi.SubItems[3].Text;
-                    //dateTimePicker1.Text = lvi.SubItems[4].Text;
-                    //pictureBox1.Image = new Bitmap(rar.GetString(5));
-                    //_employeeID.Text = lvi.SubItems[6].Text;
-                
 
-                
                 anh.StartPosition = FormStartPosition.CenterScreen;
                 anh.FormClosing += new FormClosingEventHandler(this.editDevice_FormClosing);
                 anh.ShowDialog();
@@ -201,7 +201,7 @@ namespace Gym
                         _status.Text = null;
                         pictureBox1.Image = null;
 
-                        MessageBox.Show("Đã xóa thành công","Thông báo");
+                        MessageBox.Show("Đã xóa thành công", "Thông báo");
                     }
                 }
                 else
@@ -233,7 +233,7 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Device where deviceID= '"+textBox2.Text+ "' or deviceName like '%" + textBox2.Text + "%' or nv ='%" + textBox2.Text + "%'" ;
+                comm.CommandText = "select *from Device where deviceID= '" + textBox2.Text + "' or deviceName like '%" + textBox2.Text + "%' or nv ='%" + textBox2.Text + "%'";
                 comm.Connection = conn;
 
                 SqlDataReader rar = comm.ExecuteReader();
@@ -250,8 +250,8 @@ namespace Gym
 
 
                 }
-               
-               if(listView1.Items.Count<=0)
+
+                if (listView1.Items.Count <= 0)
                 {
                     MessageBox.Show("Không có dữ liệu");
                 }

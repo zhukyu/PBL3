@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Course));
-            this.saleButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
@@ -58,20 +57,6 @@
             this.panel1.SuspendLayout();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // saleButton
-            // 
-            this.saleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.saleButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.saleButton.ForeColor = System.Drawing.Color.White;
-            this.saleButton.Image = ((System.Drawing.Image)(resources.GetObject("saleButton.Image")));
-            this.saleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saleButton.Location = new System.Drawing.Point(897, 261);
-            this.saleButton.Name = "saleButton";
-            this.saleButton.Size = new System.Drawing.Size(368, 49);
-            this.saleButton.TabIndex = 64;
-            this.saleButton.Text = "Tạo hóa đơn";
-            this.saleButton.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -179,7 +164,7 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(897, 188);
+            this.deleteButton.Location = new System.Drawing.Point(897, 238);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(167, 49);
             this.deleteButton.TabIndex = 63;
@@ -216,7 +201,7 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(1098, 109);
+            this.editButton.Location = new System.Drawing.Point(1098, 127);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(167, 49);
             this.editButton.TabIndex = 62;
@@ -253,7 +238,7 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(897, 109);
+            this.addButton.Location = new System.Drawing.Point(897, 127);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(167, 49);
             this.addButton.TabIndex = 61;
@@ -264,11 +249,11 @@
             // search
             // 
             this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.search.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.search.ForeColor = System.Drawing.Color.Gray;
-            this.search.Location = new System.Drawing.Point(897, 33);
+            this.search.Location = new System.Drawing.Point(897, 38);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(270, 38);
+            this.search.Size = new System.Drawing.Size(270, 43);
             this.search.TabIndex = 57;
             this.search.Text = "ID,TÊN";
             this.search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -283,7 +268,7 @@
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(1192, 33);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(73, 41);
+            this.searchButton.Size = new System.Drawing.Size(73, 52);
             this.searchButton.TabIndex = 58;
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -341,7 +326,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1098, 188);
+            this.button2.Location = new System.Drawing.Point(1098, 238);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 49);
             this.button2.TabIndex = 67;
@@ -355,7 +340,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.saleButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.panel1);
@@ -379,8 +363,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button saleButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox _price;

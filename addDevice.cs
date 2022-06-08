@@ -18,6 +18,7 @@ namespace Gym
         {
             InitializeComponent();
         }
+
         SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -38,7 +39,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + filePath + "',N'" + comboBox2.Text + "')";
+                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','"   + Convert.ToBase64String(converImgToByte())  + "',N'" + comboBox2.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -64,27 +65,25 @@ namespace Gym
         private void addPictureBox1_Click(object sender, EventArgs e)
         {
 
-            _openFileDialog.Filter = "All files (*.*)|*.*|exe files (*.exe)|*.exe";
-
-            _openFileDialog.FilterIndex = 1;
-
-            _openFileDialog.RestoreDirectory = true;
-
-
-            if (_openFileDialog.ShowDialog() == DialogResult.OK)
-
+            try
             {
-                string fileName = _openFileDialog.FileName;
-                this.bmp = new Bitmap(fileName);
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+                openFile.FilterIndex = 1;
+                openFile.RestoreDirectory = true;
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = openFile.FileName;
+                    pictureBox1.ImageLocation = openFile.FileName;
+                    pictureBox1.Load();
+                }
+               
 
-                this.pictureBox1.Image = this.bmp;
             }
-
-            string id = _deviceID.Text;
-            string file = id + ".jpg";
-
-            this.filePath = "Img\\" + file;
-            this.bmp.Save(filePath);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void addDevice_Load(object sender, EventArgs e)
@@ -110,16 +109,16 @@ namespace Gym
             comboBox2.DisplayMember = "fullname";
         }
 
+        string fileName = "null.png";
 
-
-        //private byte[] ConverImgToByte()
-        //{
-        //    FileStream fs;
-        //    fs = new FileStream(_openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-        //    byte[] picbyte = new byte[fs.Length];
-        //    fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-        //    fs.Close();
-        //    return picbyte;
-        //}
+        private byte[] converImgToByte()
+        {
+            FileStream fs;
+            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
     }
 }

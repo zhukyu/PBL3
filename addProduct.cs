@@ -21,6 +21,7 @@ namespace Gym
 
 
         SqlConnection conn = null;
+        string fileName = "";
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -40,7 +41,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','"  + Convert.ToBase64String(converImgToByte()) +  "')";
+                    string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','"  + fileName +  "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -61,7 +62,7 @@ namespace Gym
                 }
             }
         }
-        string fileName = "null.png";
+        
         
         private void addPictureBox1_Click(object sender, EventArgs e)
         {
@@ -77,6 +78,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
+                    fileName = Convert.ToBase64String(converImgToByte());
                     pictureBox1.ImageLocation = openFile.FileName;
                     pictureBox1.Load();
                 }

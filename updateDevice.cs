@@ -21,6 +21,7 @@ namespace Gym
 
 
         SqlConnection conn = null;
+        string fileName = "";
         private void editButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -44,7 +45,7 @@ namespace Gym
 
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' ,anh=N'" + Convert.ToBase64String(converImgToByte()) + "'" + "where deviceID=@maSp";
+                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' ,anh=N'" + fileName + "'" + "where deviceID=@maSp";
                         comm.CommandText = st;
                         comm.CommandText = st;
                         comm.Connection = conn;
@@ -83,22 +84,26 @@ namespace Gym
             }
             SqlCommand comm = new SqlCommand();
             comm.CommandType = CommandType.Text;
-            comm.CommandText = "select fullName from Employee";
+            comm.CommandText = "select *from  Device";
             comm.Connection = conn;
 
 
-            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            comboBox2.DataSource = dt;
-            comboBox2.DisplayMember = "fullname";
+            SqlDataReader rar = comm.ExecuteReader();
+
+            while (rar.Read())
+            {
+                fileName = rar.GetString(5);
+
+
+            }
+            rar.Close();
 
         }
-        string fileName = "null.png";
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.ImageLocation = fileName;
-            pictureBox1.Load();
+            pictureBox1.Image = null;
+            fileName = "";
         }
         private byte[] converImgToByte()
         {
@@ -120,6 +125,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
+                    fileName = Convert.ToBase64String(converImgToByte());
                     pictureBox1.ImageLocation = openFile.FileName;
                     pictureBox1.Load();
                 }

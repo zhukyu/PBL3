@@ -215,6 +215,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "updateProduct";
             this.Text = "fixProduct";
+            this.Load += new System.EventHandler(this.updateProduct_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

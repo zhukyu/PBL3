@@ -73,7 +73,7 @@
             "3 Tháng",
             "6 Tháng",
             "12 Tháng"});
-            this.comboBox2.Location = new System.Drawing.Point(252, 230);
+            this.comboBox2.Location = new System.Drawing.Point(252, 314);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(245, 39);
             this.comboBox2.TabIndex = 66;
@@ -87,7 +87,7 @@
             "Cardio",
             "Yoga",
             "Gym"});
-            this.comboBox1.Location = new System.Drawing.Point(252, 314);
+            this.comboBox1.Location = new System.Drawing.Point(252, 238);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 39);
             this.comboBox1.TabIndex = 65;
@@ -116,7 +116,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(77, 238);
+            this.label4.Location = new System.Drawing.Point(70, 329);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 24);
             this.label4.TabIndex = 61;
@@ -127,7 +127,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(70, 322);
+            this.label2.Location = new System.Drawing.Point(70, 253);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 24);
             this.label2.TabIndex = 60;

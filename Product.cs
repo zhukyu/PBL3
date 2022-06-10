@@ -18,8 +18,8 @@ namespace Gym
             InitializeComponent();
         }
 
-        SqlConnection conn = null;  
-
+        SqlConnection conn = null;
+        string maSp = null;
         public void hienthitoanbosanpham()
         {
             if (conn == null)
@@ -125,7 +125,48 @@ namespace Gym
         private void editProduct_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
+
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from product where productID=@maSp";
+            comm.Connection = conn;
+
+            SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+            para.Value = maSp;
+            comm.Parameters.Add(para);
+
+            _productID.ReadOnly = true;
+            SqlDataReader rar = comm.ExecuteReader();
+            while (rar.Read())
+            {
+
+                _productID.Text = rar.GetString(0);
+                _productName.Text = rar.GetString(1);
+                _amount.Text = rar.GetInt32(2)+"";
+                _price.Text = rar.GetInt32(3)+"";
+
+                if (rar.GetString(4) == "")
+                {
+                    pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                }
+                else
+                {
+                    pictureBox1.Image = Program.ByteToImg(rar.GetString(4));
+                }
+            }
+
+            rar.Close();
         }
+    
 
         private void Product_Load(object sender, EventArgs e)
         {
@@ -139,7 +180,7 @@ namespace Gym
                 if (listView1.SelectedItems.Count > 0)
                 {
                     ListViewItem lvi = listView1.SelectedItems[0];
-                    string maSp = lvi.SubItems[0].Text;
+                     maSp = lvi.SubItems[0].Text;
                     if (conn == null)
                     {
                         conn = new SqlConnection(Program.cnstr);
@@ -168,8 +209,15 @@ namespace Gym
                         _productName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
                         _price.Text = lvi.SubItems[3].Text;
-                        pictureBox1.Image = Program.ByteToImg(rar.GetString(4)); 
-
+                        
+                        if (rar.GetString(4) == "")
+                        {
+                            pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                        }
+                        else
+                        {
+                            pictureBox1.Image = Program.ByteToImg(rar.GetString(4));
+                        }
                     }
 
                     rar.Close();

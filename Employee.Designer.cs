@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.detail = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this._role = new System.Windows.Forms.TextBox();
@@ -69,8 +69,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.detail.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -94,10 +94,10 @@
             // detail
             // 
             this.detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.detail.Controls.Add(this.pictureBox1);
             this.detail.Controls.Add(this.button2);
             this.detail.Controls.Add(this.panel2);
             this.detail.Controls.Add(this.dateTimePicker1);
-            this.detail.Controls.Add(this.pictureBox1);
             this.detail.Controls.Add(this._address);
             this.detail.Controls.Add(this.label5);
             this.detail.Controls.Add(this._role);
@@ -117,6 +117,17 @@
             this.detail.Name = "detail";
             this.detail.Size = new System.Drawing.Size(1053, 373);
             this.detail.TabIndex = 22;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 65);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(228, 244);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 51;
+            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -169,18 +180,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(255, 38);
             this.dateTimePicker1.TabIndex = 38;
             this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 65);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 252);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "";
             // 
             // _address
             // 
@@ -500,6 +499,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1068, 4);
             this.pictureBox2.Name = "pictureBox2";
@@ -543,9 +543,9 @@
             this.Load += new System.EventHandler(this.Employee_Load);
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -588,11 +588,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

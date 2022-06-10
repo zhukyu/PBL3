@@ -18,6 +18,7 @@ namespace Gym
             InitializeComponent();
         }
         SqlConnection conn = null;
+        string maSp = null;
         private void addButton_Click(object sender, EventArgs e)
         {
             addCustomer frm = new addCustomer();
@@ -120,7 +121,7 @@ namespace Gym
                 updateCustomer anh = new updateCustomer();
 
                 ListViewItem lvi = listView1.SelectedItems[0];
-                string maSp = lvi.SubItems[0].Text;
+                 maSp = lvi.SubItems[0].Text;
                 if (conn == null)
                 {
                     conn = new SqlConnection(Program.cnstr);
@@ -177,6 +178,45 @@ namespace Gym
         private void editCustomer_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
+
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Customer where customerID=@maSp";
+
+            comm.Connection = conn;
+
+            SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+            para.Value = maSp;
+            comm.Parameters.Add(para);
+
+            _customerID.ReadOnly = true;
+            SqlDataReader rar = comm.ExecuteReader();
+            while (rar.Read())
+            {
+
+                _customerID.Text = rar.GetString(0);
+               _fullName.Text = rar.GetString(1);
+                _gender.Text = rar.GetString(2);
+                dateTimePicker1.Text = (rar.GetDateTime(3).ToString("dd-MM-yyyy"));
+                _phoneNumber.Text = rar.GetString(4);
+
+               _address.Text = rar.GetString(5);
+                _idNumber.Text = rar.GetString(6);
+
+
+
+            }
+
+            rar.Close();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

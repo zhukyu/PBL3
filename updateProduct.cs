@@ -41,7 +41,7 @@ namespace Gym
 
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh=N'" + Convert.ToBase64String(converImgToByte()) + "' " + "where productID=@maSp";
+                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh=N'" + fileName + "' " + "where productID=@maSp";
                         comm.CommandText = st;
                         comm.CommandText = st;
                         comm.Connection = conn;
@@ -75,8 +75,8 @@ namespace Gym
         string fileName = "null.png";
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.ImageLocation = fileName;
-            pictureBox1.Load();
+            pictureBox1.Image = null;
+            fileName = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,6 +90,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
+                    fileName = Convert.ToBase64String(converImgToByte());
                     pictureBox1.ImageLocation = openFile.FileName;
                     pictureBox1.Load();
                 }
@@ -109,6 +110,33 @@ namespace Gym
             fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
             fs.Close();
             return picbyte;
+        }
+
+        private void updateProduct_Load(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from product";
+            comm.Connection = conn;
+
+
+            SqlDataReader rar = comm.ExecuteReader();
+
+            while (rar.Read())
+            {
+                fileName = rar.GetString(4);
+
+
+            }
+            rar.Close();
         }
 
         //OpenFileDialog _openFileDialog = new OpenFileDialog();

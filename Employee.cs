@@ -16,11 +16,15 @@ namespace Gym
     {
         SqlConnection conn = null;
 
+        string maSp=null;
+        
         public Employee()
         {
             InitializeComponent();
 
         }
+      
+        
         public void hienthitoanbosanpham()
         {
             if (conn == null)
@@ -42,7 +46,7 @@ namespace Gym
             while (rar.Read())
             {
                 ListViewItem lvi = new ListViewItem(rar.GetString(0));
-                lvi.SubItems.Add(rar.GetString(1)); 
+                lvi.SubItems.Add(rar.GetString(1));
                 lvi.SubItems.Add(rar.GetString(2));
                 lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
                 lvi.SubItems.Add(rar.GetString(4));
@@ -56,7 +60,9 @@ namespace Gym
         }
         private void Employee_Load(object sender, EventArgs e)
         {
-            hienthitoanbosanpham();
+           hienthitoanbosanpham();
+           
+
         }
 
 
@@ -72,9 +78,12 @@ namespace Gym
 
         private void addEmployee_FormClosing(object? sender, FormClosingEventArgs e)
         {
+            
 
             hienthitoanbosanpham();
 
+
+           
         }
 
 
@@ -85,8 +94,8 @@ namespace Gym
                 updateEmployee anh = new updateEmployee();
 
                 ListViewItem lvi = listView1.SelectedItems[0];
-               
-                
+
+
                 anh._employeeID.Text = lvi.SubItems[0].Text;
                 anh._fullName.Text = lvi.SubItems[1].Text;
                 anh.gioitinh.Text = lvi.SubItems[2].Text;
@@ -98,7 +107,7 @@ namespace Gym
                 anh.pictureBox1.Image = pictureBox1.Image;
 
 
-              
+
                 anh.StartPosition = FormStartPosition.CenterScreen;
                 anh.FormClosing += new FormClosingEventHandler(this.editEmployee_FormClosing);
                 anh.ShowDialog();
@@ -115,8 +124,48 @@ namespace Gym
 
         private void editEmployee_FormClosing(object? sender, FormClosingEventArgs e)
         {
+           
             hienthitoanbosanpham();
+            
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Employee where employeeID=@maSp";
+            comm.Connection = conn;
+            SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+            para.Value = maSp;
+            comm.Parameters.Add(para);
 
+
+            SqlDataReader rar = comm.ExecuteReader();
+            while (rar.Read())
+            {
+                _employeeID.Text = rar.GetString(0);
+                _fullName.Text = rar.GetString(1);
+                _gender.Text = rar.GetString(2);
+                dateTimePicker1.Text = rar.GetDateTime(3).ToString("dd-MM-yyyy");
+                _phoneNumber.Text = rar.GetString(4);
+                _idNumber.Text = rar.GetString(5);
+                _role.Text = rar.GetString(6);
+                _address.Text = rar.GetString(7);
+                if (rar.GetString(8) == "")
+                {
+                    pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                }
+                else
+                {
+                    pictureBox1.Image = Program.ByteToImg(rar.GetString(8));
+                }
+
+            }
+            rar.Close();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -193,10 +242,10 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "select *from Employee where EmployeeID   = '" + textBox2.Text +"' OR fullname = N'" + textBox2.Text + "' OR idNumber = '" + textBox2.Text + "' OR fullName LIKE N'%" + textBox2.Text +  "%'";
+                comm.CommandText = "select *from Employee where EmployeeID   = '" + textBox2.Text + "' OR fullname = N'" + textBox2.Text + "' OR idNumber = '" + textBox2.Text + "' OR fullName LIKE N'%" + textBox2.Text + "%'";
                 comm.Connection = conn;
 
-               
+
 
 
                 SqlDataReader rar = comm.ExecuteReader();
@@ -234,7 +283,7 @@ namespace Gym
                 if (listView1.SelectedItems.Count > 0)
                 {
                     ListViewItem lvi = listView1.SelectedItems[0];
-                    string maSp = lvi.SubItems[0].Text;
+                     maSp = lvi.SubItems[0].Text;
                     if (conn == null)
                     {
                         conn = new SqlConnection(Program.cnstr);
@@ -267,14 +316,25 @@ namespace Gym
                         _idNumber.Text = lvi.SubItems[5].Text;
                         _role.Text = lvi.SubItems[6].Text;
                         _address.Text = lvi.SubItems[7].Text;
-                        pictureBox1.Image = Program.ByteToImg(rar.GetString(8));
+                        if (rar.GetString(8) == "")
+                        {
+                            pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                        }
+                        else
+                        {
+                            pictureBox1.Image = Program.ByteToImg(rar.GetString(8));
+                        }
+
+
                     }
+
 
                     rar.Close();
                 }
 
-        }
-            catch (ArgumentOutOfRangeException ex)
+            }
+
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -282,11 +342,12 @@ namespace Gym
             {
                 MessageBox.Show(ex.ToString());
             }
+
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            if(textBox2.Text== "ID,TÊN,CMND")
+            if (textBox2.Text == "ID,TÊN,CMND")
             {
                 textBox2.Text = "";
                 textBox2.ForeColor = Color.Black;
@@ -305,9 +366,9 @@ namespace Gym
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-            hienthitoanbosanpham(); 
-            textBox2.Text= "ID,TÊN,CMND";
+
+            hienthitoanbosanpham();
+            textBox2.Text = "ID,TÊN,CMND";
             textBox2.ForeColor = Color.Gray;
             _employeeID.Text = null;
             _fullName.Text = null;
@@ -322,17 +383,17 @@ namespace Gym
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            
-                if (conn == null)
-                {
-                    conn = new SqlConnection(Program.cnstr);
-                }
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlCommand comm = new SqlCommand();
-                comm.CommandType = CommandType.Text;
+
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
             comm.CommandText = "select *from Employee where EmployeeID   = '" + textBox2.Text + "' OR fullname = N'" + textBox2.Text + "' OR idNumber = '" + textBox2.Text + "' OR fullName LIKE N'%" + textBox2.Text + "%'";
 
             comm.Connection = conn;
@@ -340,25 +401,25 @@ namespace Gym
 
 
 
-                SqlDataReader rar = comm.ExecuteReader();
-                listView1.Items.Clear();
-                while (rar.Read())
-                {
-                    ListViewItem lvi = new ListViewItem(rar.GetString(0));
-                    lvi.SubItems.Add(rar.GetString(1));
-                    lvi.SubItems.Add(rar.GetString(2));
-                    lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
-                    lvi.SubItems.Add(rar.GetString(4));
-                    lvi.SubItems.Add(rar.GetString(5));
-                    lvi.SubItems.Add(rar.GetString(6));
-                    lvi.SubItems.Add(rar.GetString(7));
-                    listView1.Items.Add(lvi);
+            SqlDataReader rar = comm.ExecuteReader();
+            listView1.Items.Clear();
+            while (rar.Read())
+            {
+                ListViewItem lvi = new ListViewItem(rar.GetString(0));
+                lvi.SubItems.Add(rar.GetString(1));
+                lvi.SubItems.Add(rar.GetString(2));
+                lvi.SubItems.Add(rar.GetDateTime(3).ToString("dd-MM-yyyy"));
+                lvi.SubItems.Add(rar.GetString(4));
+                lvi.SubItems.Add(rar.GetString(5));
+                lvi.SubItems.Add(rar.GetString(6));
+                lvi.SubItems.Add(rar.GetString(7));
+                listView1.Items.Add(lvi);
 
-                }
-
-                rar.Close();
-                
             }
+
+            rar.Close();
+
+        }
     }
 
 }

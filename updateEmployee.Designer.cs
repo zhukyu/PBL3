@@ -316,6 +316,8 @@
             this.Controls.Add(this.formNameLable);
             this.Name = "updateEmployee";
             this.Text = "fixEmployee";
+            
+            this.Load += new System.EventHandler(this.updateEmployee_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

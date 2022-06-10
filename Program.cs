@@ -11,7 +11,7 @@ namespace Gym
     internal static class Program
     {
         
-        internal static string cnstr = @"Data Source=DESKTOP-S7H27N8\SQLEXPRESS;Initial Catalog=GymDatabase;Integrated Security=True";
+        internal static string cnstr = @"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True";
         internal static OpenFileDialog _openFileDialog = new OpenFileDialog();
         internal static string userID = "";
         internal static string userName = "";

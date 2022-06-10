@@ -21,6 +21,7 @@ namespace Gym
         OpenFileDialog _openFileDialog = new OpenFileDialog();
 
         SqlConnection conn = null;
+        string fileName = "";
 
         private void fixButton_Click(object sender, EventArgs e)
         {
@@ -42,7 +43,9 @@ namespace Gym
                         }
                         SqlCommand comm = new SqlCommand();
                         comm.CommandType = CommandType.Text;
-                        string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "',anh=N'" + Convert.ToBase64String(converImgToByte()) + "' " + "where employeeID=@maSp";
+                        string st = "update Employee set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "'," +
+                            "birthday='" + dateTimePicker1.Value.ToString("yyyyMMdd") + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "'," +
+                            "role=N'" + comboBox1.Text + "',address=N'" + _address.Text + "',anh=N'" + fileName + "' " + "where employeeID=@maSp";
                         comm.CommandText = st;
                         comm.Connection = conn;
 
@@ -54,6 +57,8 @@ namespace Gym
                         if (ret > 0)
                         {
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+
                             this.Close();
                         }
                         else
@@ -68,14 +73,12 @@ namespace Gym
                 }
             }
         }
-        string fileName = "null.png";
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = null;
-            pictureBox1.ImageLocation = null;
-            
-            pictureBox1.ImageLocation = fileName;
-            pictureBox1.Load();
+
+            pictureBox1.Image = null ;
+            fileName = "";
         }
        
         private byte[] converImgToByte()
@@ -98,6 +101,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
+                    fileName = Convert.ToBase64String(converImgToByte());
                     pictureBox1.ImageLocation = openFile.FileName;
                     pictureBox1.Load();
                 }
@@ -109,6 +113,37 @@ namespace Gym
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void updateEmployee_Load(object sender, EventArgs e)
+        {
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select *from Employee";
+            comm.Connection = conn;
+
+
+            SqlDataReader rar = comm.ExecuteReader();
+            
+            while (rar.Read())
+            {
+                fileName = rar.GetString(8);
+                
+
+            }
+            rar.Close();
+        }
+
+       
+
+      
 
         //private void fixPictureBox1_Click(object sender, EventArgs e)
         //        {

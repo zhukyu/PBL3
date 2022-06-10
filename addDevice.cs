@@ -20,6 +20,7 @@ namespace Gym
         }
 
         SqlConnection conn = null;
+        string fileName = "";
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -39,7 +40,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','"   + Convert.ToBase64String(converImgToByte())  + "',N'" + comboBox2.Text + "')";
+                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,anh,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','"   + fileName  + "',N'" + comboBox2.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -74,6 +75,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
+                    fileName = Convert.ToBase64String(converImgToByte());
                     pictureBox1.ImageLocation = openFile.FileName;
                     pictureBox1.Load();
                 }
@@ -109,7 +111,7 @@ namespace Gym
             comboBox2.DisplayMember = "fullname";
         }
 
-        string fileName = "null.png";
+        
 
         private byte[] converImgToByte()
         {

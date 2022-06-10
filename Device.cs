@@ -19,6 +19,7 @@ namespace Gym
             InitializeComponent();
         }
         SqlConnection conn = null;
+        string maSp = null;
         public void hienthitoanbosanpham()
         {
             if (conn == null)
@@ -64,7 +65,7 @@ namespace Gym
                 if (listView1.SelectedItems.Count > 0)
                 {
                     ListViewItem lvi = listView1.SelectedItems[0];
-                    string maSp = lvi.SubItems[0].Text;
+                    maSp = lvi.SubItems[0].Text;
                     if (conn == null)
                     {
                         conn = new SqlConnection(Program.cnstr);
@@ -93,9 +94,16 @@ namespace Gym
                         _deviceName.Text = lvi.SubItems[1].Text;
                         _amount.Text = lvi.SubItems[2].Text;
                         _status.Text = lvi.SubItems[3].Text;
-                        dateTimePicker1.Text = lvi.SubItems[4].Text;
-                        pictureBox1.Image = Program.ByteToImg(rar.GetString(5));
+                        dateTimePicker1.Text = lvi.SubItems[4].Text;                      
                         _employeeID.Text = lvi.SubItems[5].Text;
+                        if (rar.GetString(5) == "")
+                        {
+                            pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                        }
+                        else
+                        {
+                            pictureBox1.Image = Program.ByteToImg(rar.GetString(5));
+                        }
                     }
 
                     rar.Close();
@@ -164,7 +172,44 @@ namespace Gym
         private void editDevice_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
-        }
+            if (conn == null)
+            {
+                conn = new SqlConnection(Program.cnstr);
+            }
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand comm = new SqlCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select  *from Device where deviceID=@maSp";
+            comm.Connection = conn;
+            SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+            para.Value = maSp;
+            comm.Parameters.Add(para);
+            SqlDataReader rar = comm.ExecuteReader();
+            while (rar.Read())
+            {
+
+                _deviceID.Text = rar.GetString(0);
+                _deviceName.Text = rar.GetString(1);
+                _amount.Text = rar.GetInt32(2)+"";
+                _status.Text = rar.GetString(3);
+                dateTimePicker1.Text = rar.GetDateTime(4).ToString("dd-MM-yyyy");
+                _employeeID.Text = rar.GetString(6);
+                if (rar.GetString(5) == "")
+                {
+                    pictureBox1.Image = Properties.Resources.icons8_person_128px;
+                }
+                else
+                {
+                    pictureBox1.Image = Program.ByteToImg(rar.GetString(5));
+                }
+            }
+
+            rar.Close();
+        
+    }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

@@ -17,7 +17,7 @@ namespace Gym
             InitializeComponent();
         }
         SqlConnection conn = null;
-
+        string maSp = null;
         private void addButton_Click(object sender, EventArgs e)
         {
             addCourse frm = new addCourse();
@@ -40,7 +40,7 @@ namespace Gym
             {
 
                 ListViewItem lvi = listView1.SelectedItems[0];
-                string maSp = lvi.SubItems[0].Text;
+                 maSp = lvi.SubItems[0].Text;
                 if (conn == null)
                 {
                     conn = new SqlConnection(Program.cnstr);
@@ -66,8 +66,8 @@ namespace Gym
                 {
 
                     anh._courseID.Text = lvi.SubItems[0].Text;
-                    anh.comboBox2.Text = lvi.SubItems[1].Text;
-                    anh.comboBox1.Text = lvi.SubItems[2].Text;
+                    anh.comboBox1.Text = lvi.SubItems[1].Text;
+                    anh.comboBox2.Text = lvi.SubItems[2].Text;
                     anh._price.Text = lvi.SubItems[3].Text;
 
                 }
@@ -90,7 +90,44 @@ namespace Gym
         private void editCourse_FormClosing(object? sender, FormClosingEventArgs e)
         {
             hienthitoanbosanpham();
-        }
+            
+            {
+
+                
+                if (conn == null)
+                {
+                    conn = new SqlConnection(Program.cnstr);
+                }
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+
+                SqlCommand comm = new SqlCommand();
+                comm.CommandType = CommandType.Text;
+                comm.CommandText = "select *from Course where courseID=@maSp";
+                comm.Connection = conn;
+
+                SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
+                para.Value = maSp;
+                comm.Parameters.Add(para);
+
+               
+                SqlDataReader rar = comm.ExecuteReader();
+                while (rar.Read())
+                {
+
+                    _courseID.Text = rar.GetString(0);
+                    _courseName.Text = rar.GetString(1);
+                    _duration.Text = rar.GetString(2);
+                    _price.Text = rar.GetInt32(3)+"";
+
+                }
+
+                rar.Close();
+            }
+            }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -108,7 +145,7 @@ namespace Gym
                 }
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = "delete from Course where courseID=@maSp";
+                comm.CommandText = "select from Course where courseID=@maSp";
                 comm.Connection = conn;
                 SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
                 para.Value = maSp;

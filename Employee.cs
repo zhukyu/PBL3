@@ -361,7 +361,9 @@ namespace Gym
             {
                 textBox2.Text = "ID,TÊN,CMND";
                 textBox2.ForeColor = Color.Gray;
+                hienthitoanbosanpham();
             }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

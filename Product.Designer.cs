@@ -267,9 +267,9 @@
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.search.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.search.ForeColor = System.Drawing.Color.Gray;
-            this.search.Location = new System.Drawing.Point(993, 19);
+            this.search.Location = new System.Drawing.Point(963, 25);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(202, 36);
+            this.search.Size = new System.Drawing.Size(255, 36);
             this.search.TabIndex = 47;
             this.search.Text = "ID,TÊN";
             this.search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -281,7 +281,7 @@
             // 
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1204, 15);
+            this.searchButton.Location = new System.Drawing.Point(1229, 20);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(48, 41);
             this.searchButton.TabIndex = 48;

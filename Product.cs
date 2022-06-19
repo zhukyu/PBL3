@@ -333,7 +333,7 @@ namespace Gym
 
         private void search_Enter(object sender, EventArgs e)
         {
-            if (search.Text == "Tìm kiếm")
+            if (search.Text == "ID,TÊN")
             {
                 search.Text = "";
                 search.ForeColor = Color.Black;
@@ -344,8 +344,9 @@ namespace Gym
         {
             if (search.Text == "")
             {
-                search.Text = "Tìm kiếm";
-                search.ForeColor = Color.Silver;
+                search.Text = "ID,TÊN";
+                search.ForeColor = Color.Gray;
+                hienthitoanbosanpham();
             }
         }
 

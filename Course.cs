@@ -336,6 +336,7 @@ namespace Gym
             {
                 search.Text = "ID,TÊN";
                 search.ForeColor = Color.Gray;
+                hienthitoanbosanpham();
             }
         }
 

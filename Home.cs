@@ -205,5 +205,15 @@ namespace Gym
             revenue.Dock = DockStyle.Fill;
             revenue.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

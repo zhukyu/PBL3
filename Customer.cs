@@ -338,7 +338,8 @@ namespace Gym
             if (textBox2.Text == "")
             {
                 textBox2.Text = "ID,TÊN,CMND";
-                textBox2.ForeColor = Color.Silver;
+                textBox2.ForeColor = Color.Gray;
+                hienthitoanbosanpham();
             }
         }
 

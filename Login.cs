@@ -119,6 +119,11 @@ namespace Gym
 
         }
 
+        private void username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         //private void password_Enter(object sender, EventArgs e)
         //{

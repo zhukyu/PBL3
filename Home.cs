@@ -30,10 +30,10 @@ namespace Gym
             member.Dock = DockStyle.Fill;
             member.Show();
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Restart ();
+            Application.Restart();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace Gym
             }
             foreach (Control c in this.panelMenu.Controls)
             {
-                if(c.GetType().Name == "Button")
+                if (c.GetType().Name == "Button")
                 {
                     c.BackColor = Color.FromArgb(51, 51, 76);
                 }
@@ -215,5 +215,21 @@ namespace Gym
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                button3.Text = "><";
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                button3.Text = "<>";
+            }
+        }
+
+        
     }
 }

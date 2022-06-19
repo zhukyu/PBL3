@@ -124,6 +124,7 @@
             this.username.PlaceholderText = "Username";
             this.username.Size = new System.Drawing.Size(310, 43);
             this.username.TabIndex = 0;
+            this.username.TextChanged += new System.EventHandler(this.username_TextChanged);
             // 
             // label3
             // 

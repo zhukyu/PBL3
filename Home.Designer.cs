@@ -71,7 +71,7 @@ namespace Gym
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContainer = new System.Windows.Forms.Panel();
             this.formNameLable = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnminMax = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
@@ -285,7 +285,7 @@ namespace Gym
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.formNameLable.Controls.Add(this.button3);
+            this.formNameLable.Controls.Add(this.btnminMax);
             this.formNameLable.Controls.Add(this.button2);
             this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
@@ -298,24 +298,23 @@ namespace Gym
             this.formNameLable.Size = new System.Drawing.Size(1335, 125);
             this.formNameLable.TabIndex = 0;
             // 
-            // button3
+            // btnminMax
             // 
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(1165, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(57, 47);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "<>";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-           
+            this.btnminMax.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnminMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnminMax.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnminMax.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnminMax.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnminMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnminMax.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnminMax.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnminMax.Image = ((System.Drawing.Image)(resources.GetObject("btnminMax.Image")));
+            this.btnminMax.Location = new System.Drawing.Point(1216, 0);
+            this.btnminMax.Name = "btnminMax";
+            this.btnminMax.Size = new System.Drawing.Size(57, 47);
+            this.btnminMax.TabIndex = 0;
+            this.btnminMax.UseVisualStyleBackColor = false;
+            this.btnminMax.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -325,7 +324,7 @@ namespace Gym
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1228, -1);
+            this.button2.Location = new System.Drawing.Point(1156, -1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(54, 48);
             this.button2.TabIndex = 0;
@@ -336,6 +335,7 @@ namespace Gym
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -347,7 +347,7 @@ namespace Gym
             this.button1.Size = new System.Drawing.Size(57, 48);
             this.button1.TabIndex = 0;
             this.button1.Text = "x";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // formName
@@ -410,7 +410,7 @@ namespace Gym
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnminMax;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
     }

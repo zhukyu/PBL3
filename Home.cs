@@ -221,12 +221,13 @@ namespace Gym
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
-                button3.Text = "><";
+                btnminMax.Image = Properties.Resources.min;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                button3.Text = "<>";
+                btnminMax.Image = Properties.Resources.maximum1;
+
             }
         }
 

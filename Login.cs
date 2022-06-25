@@ -124,6 +124,31 @@ namespace Gym
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnminMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                btnminMax.Image = Properties.Resources.min;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                btnminMax.Image = Properties.Resources.maximum1;
+
+            }
+        }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
 
         //private void password_Enter(object sender, EventArgs e)
         //{

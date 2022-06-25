@@ -427,7 +427,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Gym.Properties.Resources.icons8_test_passed_100px;
             this.pictureBox3.Location = new System.Drawing.Point(32, 486);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 54);
@@ -460,7 +459,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Gym.Properties.Resources.icons8_product_100px;
             this.pictureBox2.Location = new System.Drawing.Point(32, 415);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(60, 54);
@@ -493,7 +491,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Gym.Properties.Resources.icons8_profit_100px_1;
             this.pictureBox1.Location = new System.Drawing.Point(32, 87);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 54);

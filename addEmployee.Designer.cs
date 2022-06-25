@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this._address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,14 +57,31 @@
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(-1, 0);
+            this.formNameLable.Location = new System.Drawing.Point(-1, -3);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(788, 67);
+            this.formNameLable.Size = new System.Drawing.Size(792, 70);
             this.formNameLable.TabIndex = 35;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(733, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 46);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "x";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -278,6 +296,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 686);
+            this.ControlBox = false;
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gioitinh);
@@ -298,6 +317,7 @@
             this.Controls.Add(this._fullName);
             this.Controls.Add(this._employeeID);
             this.Controls.Add(this.formNameLable);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addEmployee";
             this.Text = "addEmployee";
             this.formNameLable.ResumeLayout(false);
@@ -333,5 +353,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Drawing.Bitmap bmp = null;
         public string filePath = null;
+        private System.Windows.Forms.Button button1;
     }
 }

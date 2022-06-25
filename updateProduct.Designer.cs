@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,14 +50,31 @@
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button3);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
             this.formNameLable.Location = new System.Drawing.Point(-4, 0);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(645, 66);
+            this.formNameLable.Size = new System.Drawing.Size(648, 66);
             this.formNameLable.TabIndex = 59;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(589, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(59, 46);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "x";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // formName
             // 
@@ -200,6 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 648);
+            this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.formNameLable);
@@ -213,6 +232,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._productID);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "updateProduct";
             this.Text = "fixProduct";
             this.Load += new System.EventHandler(this.updateProduct_Load);
@@ -242,5 +262,6 @@
         private string filePath = null;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

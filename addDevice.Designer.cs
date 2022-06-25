@@ -38,6 +38,7 @@
             this._deviceName = new System.Windows.Forms.TextBox();
             this._deviceID = new System.Windows.Forms.TextBox();
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -142,14 +143,31 @@
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
             this.formNameLable.Location = new System.Drawing.Point(2, -1);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(731, 73);
+            this.formNameLable.Size = new System.Drawing.Size(734, 73);
             this.formNameLable.TabIndex = 47;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(675, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 46);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "x";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -234,6 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
+            this.ControlBox = false;
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addPictureBox1);
@@ -250,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this._deviceName);
             this.Controls.Add(this._deviceID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addDevice";
             this.Text = "addDevice";
             this.Load += new System.EventHandler(this.addDevice_Load);
@@ -281,5 +301,6 @@
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

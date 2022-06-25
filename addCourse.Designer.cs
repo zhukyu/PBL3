@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
@@ -46,14 +47,31 @@
             // 
             this.formNameLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
             this.formNameLable.Location = new System.Drawing.Point(1, -2);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(570, 70);
+            this.formNameLable.Size = new System.Drawing.Size(572, 70);
             this.formNameLable.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(513, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "x";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -171,6 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 633);
+            this.ControlBox = false;
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.addButton);
@@ -181,6 +200,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._courseID);
             this.Controls.Add(this.formNameLable);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addCourse";
             this.Text = "addCourse";
             this.formNameLable.ResumeLayout(false);
@@ -203,5 +223,6 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

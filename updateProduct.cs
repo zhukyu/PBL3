@@ -139,6 +139,11 @@ namespace Gym
             rar.Close();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //OpenFileDialog _openFileDialog = new OpenFileDialog();
         //        private void addPictureBox1_Click(object sender, EventArgs e)
         //        {

@@ -139,9 +139,14 @@ namespace Gym
             rar.Close();
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-      
+
+
+
 
         //private void fixPictureBox1_Click(object sender, EventArgs e)
         //        {

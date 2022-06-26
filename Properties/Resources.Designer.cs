@@ -19,7 +19,7 @@ namespace Gym.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -204,6 +204,16 @@ namespace Gym.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_maximize_button_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-maximize-button-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_person_128px {
             get {
                 object obj = ResourceManager.GetObject("icons8_person_128px", resourceCulture);
@@ -264,6 +274,16 @@ namespace Gym.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_down_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-down-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_test_passed_100px {
             get {
                 object obj = ResourceManager.GetObject("icons8_test_passed_100px", resourceCulture);
@@ -302,12 +322,22 @@ namespace Gym.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Nunito_Bold {
+        internal static System.Drawing.Bitmap person_128px {
             get {
-                object obj = ResourceManager.GetObject("Nunito-Bold", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("person_128px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap person_128px1 {
+            get {
+                object obj = ResourceManager.GetObject("person_128px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

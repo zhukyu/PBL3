@@ -6,34 +6,29 @@ using System.Threading.Tasks;
 
 namespace Gym.DTO
 {
-    public class Employee
+    public class Customer
     {
-        internal string _employeeID { get; set; }
+        internal string _customerID { get; set; }
         internal string _fullName { get; set; }
         internal string _gender { get; set; }
         internal DateTime _birthday { get; set; }
         internal string _phoneNumber { get; set; }
         internal string _idNumber { get; set; }
         internal string _address { get; set; }
-        internal string _role { get; set; }
-        internal string? _image { get; set; }
 
-        public Employee()
+        public Customer()
         {
 
         }
-        public Employee(string employeeID, string fullName, string gender, DateTime birthday, 
-            string phoneNumber, string idNumber, string address, string role, string image)
+        public Customer(string customerID, string fullName, string gender, DateTime birthday, string phoneNumber, string idNumber, string address)
         {
-            _employeeID = employeeID;
+            _customerID = customerID;
             _fullName = fullName;
             _gender = gender;
             _birthday = birthday;
             _phoneNumber = phoneNumber;
             _idNumber = idNumber;
             _address = address;
-            _role = role;
-            _image = image;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gym.BLL;
+using Gym.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,31 +15,11 @@ namespace Gym
 {
     public partial class FormProductSale : Form
     {
-        List<string> productIDs = new List<string>();
-        List<string> productNames = new List<string>();
-        List<int> remains = new List<int>();
-        List<int> prices = new List<int>();
+        List<Product> products = new List<Product>();
         List<int> addedIndexs = new List<int>(); // addedIndexs[2] = 3: sp thứ 2 trong list là sp thứ 3 trong combobox
         public FormProductSale()
         {
             InitializeComponent();
-        }
-        private string GenerateID(SqlConnection conn)
-        {
-            int count = 1;
-            StringBuilder ID = new StringBuilder("PR0000");
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 receiptID FROM ProductReceipt ORDER BY receiptID DESC", conn);
-            SqlDataReader rd = cmd.ExecuteReader();
-            if (rd.Read())
-            {
-                count = Convert.ToInt32(rd.GetString(0).Substring(2)); //lấy số thứ tự
-                count++;
-            }
-            string countStr = count.ToString();
-            ID.Remove(ID.Length - countStr.Length, countStr.Length); // PR0000 - 12 = CR00
-            ID.Append(countStr);
-            rd.Close();
-            return ID.ToString();
         }
         private void productSale_Load(object sender, EventArgs e)
         {
@@ -45,24 +27,9 @@ namespace Gym
             SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
-                conn.Open();
-                _saleID.Text = GenerateID(conn);
+                _saleID.Text = ProductReceiptBLL.GenerateID();
                 _cashier.Text = Program.userName;
-                SqlCommand cmd = new SqlCommand("select * from product", conn);
-                SqlDataReader data = (SqlDataReader)cmd.ExecuteReader();
-                while (data.Read())
-                {
-                    string productID = data.GetString(0);
-                    string productName = data.GetString(1);
-                    int remain = data.GetInt32(2);
-                    int price = data.GetInt32(3);
-                    productCb.Items.Add(productName);
-                    productIDs.Add(productID);
-                    productNames.Add(productName);
-                    remains.Add(remain);
-                    prices.Add(price);
-                }
-                data.Close();
+                products = ProductBLL.
             }
             catch (Exception ex)
             {
@@ -112,8 +79,8 @@ namespace Gym
                     if (dlr == DialogResult.Yes)
                     {
                         productList.Rows.Add(
-                            productIDs[CbIndex],
-                            productNames[CbIndex],
+                            //productIDs[CbIndex],
+                            //productNames[CbIndex],
                             amount.ToString(),
                             prices[CbIndex],
                             total
@@ -161,8 +128,8 @@ namespace Gym
                 if (dlr == DialogResult.Yes)
                 {
                     productList.Rows[index].SetValues(
-                            productIDs[CbIndex],
-                            productNames[CbIndex],
+                            //productIDs[CbIndex],
+                            //productNames[CbIndex],
                             amount.ToString(),
                             prices[CbIndex],
                             total
@@ -256,11 +223,10 @@ namespace Gym
                     {
                         int index = productList.Rows[i].Index; // số chỉ sản phẩm trong list
                         int CbIndex = addedIndexs[index];
-                        string productID = productIDs[CbIndex];
+                        //string productID = productIDs[CbIndex];
                         int unitPrice = prices[CbIndex];
                         int amount = Convert.ToInt32(productList.Rows[i].Cells[2].Value);
                         int unitTotal = Convert.ToInt32(productList.Rows[i].Cells[4].Value);
-                        values += $"('{receiptID}', '{productID}', '{amount}', '{unitPrice}', '{unitTotal}')";
                         if (i != productList.Rows.Count - 1)
                         {
                             values += ", ";

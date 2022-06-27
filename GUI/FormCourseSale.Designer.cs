@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this._fullName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._phoneNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this._idNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             // 
             // courseCb
             // 
+            this.courseCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.courseCb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.courseCb.FormattingEnabled = true;
             this.courseCb.Location = new System.Drawing.Point(135, 394);
@@ -156,13 +157,13 @@
             this.label4.TabIndex = 69;
             this.label4.Text = "SĐT :";
             // 
-            // textBox1
+            // _phoneNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(423, 273);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 38);
-            this.textBox1.TabIndex = 68;
+            this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._phoneNumber.Location = new System.Drawing.Point(423, 273);
+            this._phoneNumber.Name = "_phoneNumber";
+            this._phoneNumber.Size = new System.Drawing.Size(203, 38);
+            this._phoneNumber.TabIndex = 68;
             // 
             // label5
             // 
@@ -246,6 +247,7 @@
             // 
             // teacherCb
             // 
+            this.teacherCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teacherCb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.teacherCb.FormattingEnabled = true;
             this.teacherCb.Location = new System.Drawing.Point(135, 460);
@@ -285,7 +287,7 @@
             this._cashier.Size = new System.Drawing.Size(214, 38);
             this._cashier.TabIndex = 82;
             // 
-            // CourseSale
+            // FormCourseSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -303,7 +305,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this._idNumber);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._phoneNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._fullName);
             this.Controls.Add(this.label1);
@@ -312,7 +314,7 @@
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.courseCb);
             this.Controls.Add(this.label6);
-            this.Name = "CourseSale";
+            this.Name = "FormCourseSale";
             this.Text = "courseSale";
             this.Load += new System.EventHandler(this.courseSale_Load);
             this.formNameLable.ResumeLayout(false);
@@ -342,7 +344,7 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox _customerID;
         public System.Windows.Forms.TextBox _fullName;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox _phoneNumber;
         public System.Windows.Forms.TextBox _idNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox _cashier;

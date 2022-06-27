@@ -14,6 +14,10 @@ namespace Gym.BLL
         {
             return EmployeeDAL.GetAllEmployees();
         }
+        public static List<Employee> GetAllPTs()
+        {
+            return EmployeeDAL.GetAllPTs();
+        }
         public static bool AddEmployee(Employee employee)
         {
             employee._image = ImageHandle.SaveImage(employee._image, employee._employeeID);

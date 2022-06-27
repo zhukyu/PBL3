@@ -48,6 +48,43 @@ namespace Gym.DAL
             }
             return employees;
         }
+        public static List<Employee> GetAllPTs()
+        {
+            List<Employee> employees = new List<Employee>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Employee where role = N'Huấn luyện viên'";
+                cmd.Connection = conn;
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Employee employee = new Employee
+                    (
+                        rd.GetString(0),
+                        rd.GetString(1),
+                        rd.GetString(2),
+                        rd.GetDateTime(3),
+                        rd.GetString(4),
+                        rd.GetString(5),
+                        rd.GetString(6),
+                        rd.GetString(7),
+                        rd.GetString(8)
+                    );
+                    employees.Add(employee);
+                }
+                rd.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return employees;
+        }
         public static List<Employee> SearchEmployee(string str)
         {
             List<Employee> employees = new List<Employee>();

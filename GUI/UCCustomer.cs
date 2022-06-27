@@ -388,7 +388,7 @@ namespace Gym
                 register._customerID.Text = lvi.SubItems[0].Text;
                 register._fullName.Text = lvi.SubItems[1].Text;
                 register._idNumber.Text = lvi.SubItems[6].Text;
-                register.textBox1.Text = lvi.SubItems[4].Text;
+                register._phoneNumber.Text = lvi.SubItems[4].Text;
 
 
 

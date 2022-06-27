@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using Gym.DTO;
+using Gym.BLL;
 
 namespace Gym
 {
@@ -17,7 +20,20 @@ namespace Gym
         {
             InitializeComponent();
         }
-        SqlConnection conn = null;
+
+        public FormUpdateCustomer(Customer customer)
+        {
+            InitializeComponent();
+            _customerID.Text = customer._customerID;
+            _fullName.Text = customer._fullName;
+            gioitinh.Text = customer._gender;
+            _birtday.Value = customer._birthday;
+            _phoneNumber.Text = customer._phoneNumber;
+            _idNumber.Text = customer._idNumber;
+            _address.Text = customer._address;
+
+        }
+
         private void fixButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -25,49 +41,36 @@ namespace Gym
             {
                 try
                 {
-
-
-
-
-                    string maSp = _customerID.Text;
+                    Customer customer = new Customer(
+                            _customerID.Text,
+                            _fullName.Text,
+                            gioitinh.Text,
+                            _birtday.Value,
+                            _phoneNumber.Text,
+                            _idNumber.Text,
+                            _address.Text
+                           
+                        );
+                    bool result = CustomerBLL.UpdateCustomer(customer);
+                    if (result)
                     {
-                        if (conn == null)
-                        {
-                            conn = new SqlConnection(Program.cnstr);
-                        }
-                        if (conn.State == ConnectionState.Closed)
-                        {
-                            conn.Open();
-                        }
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        SqlCommand comm = new SqlCommand();
-                        comm.CommandType = CommandType.Text;
-                        string st = "update Customer set  fullName=N'" + _fullName.Text + "',gender=N'" + gioitinh.Text + "',birthday='" + dateTimePicker1.Text + "',phoneNumber='" + _phoneNumber.Text + "',idNumber='" + _idNumber.Text + "',address=N'" + _address.Text + "' " + "where customerID=@maSp";
-                        comm.CommandText = st;
-                        comm.CommandText = st;
-                        comm.Connection = conn;
 
-                        SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                        para.Value = maSp;
-                        comm.Parameters.Add(para);
-                        int ret = comm.ExecuteNonQuery();
-                        if (ret > 0)
-                        {
-                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("lỗi");
-                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("lỗi");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("lỗi:" + ex.ToString());
                 }
             }
+
+
         }
     }
-
 }

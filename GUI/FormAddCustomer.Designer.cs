@@ -42,9 +42,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this._fullName = new System.Windows.Forms.TextBox();
             this._customerID = new System.Windows.Forms.TextBox();
-            this.gioitinh = new System.Windows.Forms.ComboBox();
+            this._gender = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._birthday = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,17 +187,17 @@
             this._customerID.Size = new System.Drawing.Size(292, 43);
             this._customerID.TabIndex = 37;
             // 
-            // gioitinh
+            // _gender
             // 
-            this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gioitinh.FormattingEnabled = true;
-            this.gioitinh.Items.AddRange(new object[] {
+            this._gender.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._gender.FormattingEnabled = true;
+            this._gender.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.gioitinh.Location = new System.Drawing.Point(234, 230);
-            this.gioitinh.Name = "gioitinh";
-            this.gioitinh.Size = new System.Drawing.Size(292, 39);
-            this.gioitinh.TabIndex = 58;
+            this._gender.Location = new System.Drawing.Point(234, 230);
+            this._gender.Name = "_gender";
+            this._gender.Size = new System.Drawing.Size(292, 39);
+            this._gender.TabIndex = 58;
             // 
             // addButton
             // 
@@ -212,23 +212,23 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // dateTimePicker1
+            // _birthday
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(234, 280);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(292, 38);
-            this.dateTimePicker1.TabIndex = 60;
+            this._birthday.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._birthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._birthday.Location = new System.Drawing.Point(234, 280);
+            this._birthday.Name = "_birthday";
+            this._birthday.Size = new System.Drawing.Size(292, 38);
+            this._birthday.TabIndex = 60;
             // 
-            // addCustomer
+            // FormAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 678);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._birthday);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.gioitinh);
+            this.Controls.Add(this._gender);
             this.Controls.Add(this._address);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -242,7 +242,7 @@
             this.Controls.Add(this._fullName);
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "addCustomer";
+            this.Name = "FormAddCustomer";
             this.Text = "addCustomer";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
@@ -267,8 +267,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _fullName;
         private System.Windows.Forms.TextBox _customerID;
-        private System.Windows.Forms.ComboBox gioitinh;
+        private System.Windows.Forms.ComboBox _gender;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker _birtday;
+        private System.Windows.Forms.DateTimePicker _birthday;
     }
 }

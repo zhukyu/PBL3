@@ -10,7 +10,29 @@ namespace Gym.BLL
 {
     internal class CustomerBLL
     {
-        
-        
+
+        public static List<Customer> GetAllCustomers()
+        {
+            return CustomerDAL.GetAllCustomers();
+        }
+        public static bool AddCustomer(Customer customer)
+        {
+
+            return CustomerDAL.InsertCustomer(customer);
+        }
+        public static bool UpdateCustomer(Customer customer)
+        {
+
+            return CustomerDAL.UpdateCustomer(customer);
+        }
+        public static bool DeleteCustomer(string ID)
+        {
+
+            return CustomerDAL.DeleteCustomer(ID);
+        }
+        public static List<Customer> SearchCustomer(string str)
+        {
+            return CustomerDAL.SearchCustomer(str);
+        }
     }
 }

@@ -42,7 +42,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._birthday = new System.Windows.Forms.DateTimePicker();
             this._address = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -64,7 +64,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this._fullName = new System.Windows.Forms.TextBox();
             this._customerID = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.searchkh = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -77,7 +77,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.customerList = new System.Windows.Forms.Panel();
-            this.EmployeeDGV = new System.Windows.Forms.DataGridView();
+            this.CustomerDGV = new System.Windows.Forms.DataGridView();
             this.IDClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,7 +93,7 @@
             this.panel4.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.customerList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -109,7 +109,7 @@
             this.deleteButton.TabIndex = 33;
             this.deleteButton.Text = "Xóa ";
             this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click_1);
             // 
             // editButton
             // 
@@ -135,18 +135,18 @@
             this.searchButton.Size = new System.Drawing.Size(52, 43);
             this.searchButton.TabIndex = 30;
             this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.button1_Click);
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // dateTimePicker1
+            // _birthday
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(223, 262);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(255, 38);
-            this.dateTimePicker1.TabIndex = 37;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            this._birthday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._birthday.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._birthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._birthday.Location = new System.Drawing.Point(223, 262);
+            this._birthday.Name = "_birthday";
+            this._birthday.Size = new System.Drawing.Size(255, 38);
+            this._birthday.TabIndex = 37;
+            this._birthday.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
             // _address
             // 
@@ -154,7 +154,7 @@
             this._address.BackColor = System.Drawing.Color.White;
             this._address.Enabled = false;
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._address.Location = new System.Drawing.Point(215, 186);
+            this._address.Location = new System.Drawing.Point(215, 118);
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(255, 43);
             this._address.TabIndex = 36;
@@ -179,7 +179,6 @@
             this.listView1.TabIndex = 43;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -235,7 +234,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(32, 197);
+            this.label5.Location = new System.Drawing.Point(32, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 24);
             this.label5.TabIndex = 35;
@@ -247,7 +246,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(32, 118);
+            this.label7.Location = new System.Drawing.Point(32, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 24);
             this.label7.TabIndex = 32;
@@ -264,17 +263,16 @@
             this.label8.Size = new System.Drawing.Size(63, 24);
             this.label8.TabIndex = 31;
             this.label8.Text = "SĐT :";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // _idNumber
             // 
             this._idNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._idNumber.BackColor = System.Drawing.Color.White;
             this._idNumber.Enabled = false;
-            this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._idNumber.Location = new System.Drawing.Point(215, 105);
+            this._idNumber.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._idNumber.Location = new System.Drawing.Point(215, 190);
             this._idNumber.Name = "_idNumber";
-            this._idNumber.Size = new System.Drawing.Size(255, 43);
+            this._idNumber.Size = new System.Drawing.Size(255, 39);
             this._idNumber.TabIndex = 30;
             // 
             // _phoneNumber
@@ -369,20 +367,17 @@
             this._customerID.Size = new System.Drawing.Size(255, 43);
             this._customerID.TabIndex = 21;
             // 
-            // textBox2
+            // searchkh
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(18, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 43);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.Text = "ID,TÊN,CMND";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
-            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
+            this.searchkh.BackColor = System.Drawing.Color.White;
+            this.searchkh.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.searchkh.ForeColor = System.Drawing.Color.Gray;
+            this.searchkh.Location = new System.Drawing.Point(18, 22);
+            this.searchkh.Name = "searchkh";
+            this.searchkh.PlaceholderText = "ID,TÊN,CMND";
+            this.searchkh.Size = new System.Drawing.Size(204, 43);
+            this.searchkh.TabIndex = 28;
+            this.searchkh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
@@ -460,7 +455,6 @@
             this.registerButton.Text = "Đăng kí khóa học";
             this.registerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.registerButton.UseVisualStyleBackColor = false;
-            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // topPanel
             // 
@@ -504,7 +498,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this._birthday);
             this.panel4.Controls.Add(this._gender);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this._fullName);
@@ -524,7 +518,7 @@
             this.controlPanel.Controls.Add(this.addButton);
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Controls.Add(this.editButton);
-            this.controlPanel.Controls.Add(this.textBox2);
+            this.controlPanel.Controls.Add(this.searchkh);
             this.controlPanel.Controls.Add(this.registerButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Location = new System.Drawing.Point(1109, 0);
@@ -534,7 +528,7 @@
             // 
             // customerList
             // 
-            this.customerList.Controls.Add(this.EmployeeDGV);
+            this.customerList.Controls.Add(this.CustomerDGV);
             this.customerList.Controls.Add(this.panel1);
             this.customerList.Controls.Add(this.listView1);
             this.customerList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -543,15 +537,15 @@
             this.customerList.Size = new System.Drawing.Size(1402, 253);
             this.customerList.TabIndex = 3;
             // 
-            // EmployeeDGV
+            // CustomerDGV
             // 
-            this.EmployeeDGV.AllowUserToAddRows = false;
-            this.EmployeeDGV.AllowUserToDeleteRows = false;
-            this.EmployeeDGV.AllowUserToResizeColumns = false;
-            this.EmployeeDGV.AllowUserToResizeRows = false;
-            this.EmployeeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.EmployeeDGV.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.EmployeeDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CustomerDGV.AllowUserToAddRows = false;
+            this.CustomerDGV.AllowUserToDeleteRows = false;
+            this.CustomerDGV.AllowUserToResizeColumns = false;
+            this.CustomerDGV.AllowUserToResizeRows = false;
+            this.CustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.CustomerDGV.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.CustomerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -559,9 +553,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EmployeeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.EmployeeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EmployeeDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.CustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDClmn,
             this.fullNameClmn,
             this.genderClmn,
@@ -576,13 +570,13 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.EmployeeDGV.DefaultCellStyle = dataGridViewCellStyle9;
-            this.EmployeeDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmployeeDGV.EnableHeadersVisualStyles = false;
-            this.EmployeeDGV.Location = new System.Drawing.Point(0, 59);
-            this.EmployeeDGV.MultiSelect = false;
-            this.EmployeeDGV.Name = "EmployeeDGV";
-            this.EmployeeDGV.ReadOnly = true;
+            this.CustomerDGV.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CustomerDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerDGV.EnableHeadersVisualStyles = false;
+            this.CustomerDGV.Location = new System.Drawing.Point(0, 59);
+            this.CustomerDGV.MultiSelect = false;
+            this.CustomerDGV.Name = "CustomerDGV";
+            this.CustomerDGV.ReadOnly = true;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -590,12 +584,13 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EmployeeDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.EmployeeDGV.RowHeadersWidth = 51;
-            this.EmployeeDGV.RowTemplate.Height = 29;
-            this.EmployeeDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EmployeeDGV.Size = new System.Drawing.Size(1402, 194);
-            this.EmployeeDGV.TabIndex = 60;
+            this.CustomerDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.CustomerDGV.RowHeadersWidth = 51;
+            this.CustomerDGV.RowTemplate.Height = 29;
+            this.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CustomerDGV.Size = new System.Drawing.Size(1402, 194);
+            this.CustomerDGV.TabIndex = 60;
+            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellClick);
             // 
             // IDClmn
             // 
@@ -661,15 +656,15 @@
             this.addressClmn.Name = "addressClmn";
             this.addressClmn.ReadOnly = true;
             // 
-            // Customer
+            // UCCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.customerList);
             this.Controls.Add(this.topPanel);
-            this.Name = "Customer";
+            this.Name = "UCCustomer";
             this.Size = new System.Drawing.Size(1402, 658);
-            this.Load += new System.EventHandler(this.Customer_Load);
+            this.Load += new System.EventHandler(this.UCCustomer_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -682,7 +677,7 @@
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
             this.customerList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -705,7 +700,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _fullName;
         private System.Windows.Forms.TextBox _customerID;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox searchkh;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ListView listView1;
@@ -714,7 +709,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker birtday;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button addButton;
@@ -723,7 +718,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel customerList;
-        private System.Windows.Forms.DataGridView EmployeeDGV;
+        private System.Windows.Forms.DataGridView CustomerDGV;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.TableLayoutPanel detailPanel;
         private System.Windows.Forms.Panel panel3;
@@ -735,5 +730,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idNumberClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressClmn;
+        private System.Windows.Forms.DateTimePicker _birthday;
     }
 }

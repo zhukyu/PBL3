@@ -44,7 +44,7 @@
             this._customerID = new System.Windows.Forms.TextBox();
             this.formName = new System.Windows.Forms.Label();
             this.formNameLable = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._birtday = new System.Windows.Forms.DateTimePicker();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,22 +212,22 @@
             this.formNameLable.Size = new System.Drawing.Size(654, 74);
             this.formNameLable.TabIndex = 60;
             // 
-            // dateTimePicker1
+            // _birtday
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(243, 290);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(289, 43);
-            this.dateTimePicker1.TabIndex = 76;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            this._birtday.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._birtday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._birtday.Location = new System.Drawing.Point(243, 290);
+            this._birtday.Name = "_birtday";
+            this._birtday.Size = new System.Drawing.Size(289, 43);
+            this._birtday.TabIndex = 76;
+            this._birtday.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
-            // updateCustomer
+            // FormUpdateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 684);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._birtday);
             this.Controls.Add(this.fixButton);
             this.Controls.Add(this.gioitinh);
             this.Controls.Add(this._address);
@@ -243,7 +243,7 @@
             this.Controls.Add(this._fullName);
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "updateCustomer";
+            this.Name = "FormUpdateCustomer";
             this.Text = "fixCustomer";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
@@ -270,6 +270,6 @@
         public System.Windows.Forms.TextBox _idNumber;
         public System.Windows.Forms.TextBox _phoneNumber;
         public System.Windows.Forms.TextBox _fullName;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker _birtday;
     }
 }

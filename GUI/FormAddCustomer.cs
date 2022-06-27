@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
@@ -19,43 +22,39 @@ namespace Gym
         }
 
 
-        SqlConnection conn = null;
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
                 try
-
                 {
-                    if (conn == null)
-                    {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "Insert into Customer(customerID,fullName,gender,birthday,phoneNumber,address,idNumber)" + "values (N'" + _customerID.Text + "',N'" + _fullName.Text + "','" + gioitinh.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','" + _phoneNumber.Text + "',N'" + _address.Text + "','" + _idNumber.Text + "')";
-                    comm.CommandText = st;
-                    comm.Connection = conn;
+                    Customer customer = new Customer(
+                            _customerID.Text,
+                            _fullName.Text,
+                            _gender.Text,
+                            _birthday.Value,
+                            _phoneNumber.Text,
+                            
+                            _address.Text,
+                            _idNumber.Text
 
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
+
+                        );
+                    bool result = CustomerBLL.AddCustomer(customer);
+                    if (result)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm Thất bại");
+                        MessageBox.Show("Không thể thêm");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("Lỗi: " + ex.ToString());
                 }
             }
         }

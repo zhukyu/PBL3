@@ -29,6 +29,8 @@ namespace Gym
         private void DGV_Load()
         {
             EmployeeDGV.Rows.Clear();
+            if (employees.Count == 0)
+                return;
             foreach (Employee employee in employees)
             {
                 EmployeeDGV.Rows.Add(
@@ -60,6 +62,7 @@ namespace Gym
 
             frm.FormClosing += new FormClosingEventHandler(this.addEmployee_FormClosing);
             frm.ShowDialog();
+            UCEmployee_Load(sender, e);
         }
 
         private void addEmployee_FormClosing(object? sender, FormClosingEventArgs e)
@@ -79,6 +82,7 @@ namespace Gym
                 Employee employee = employees.Find(x => x._employeeID == employeeID);
                 FormUpdateEmployee updateEmployee = new FormUpdateEmployee(employee);
                 updateEmployee.ShowDialog();
+                UCEmployee_Load(sender, e);
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -110,6 +114,7 @@ namespace Gym
                         MessageBox.Show("Đã xóa thất bại");
 
                     }
+                    UCEmployee_Load(sender, e);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
@@ -133,11 +138,17 @@ namespace Gym
             _idNumber.Text = employee._idNumber;
             _role.Text = employee._role;
             _address.Text = employee._address;
-            Image img = ImageHandle.GetImage(employee._image);
-            if (img != null)
+            Image temp = ImageHandle.GetImage(employee._image);
+            
+            if (temp != null)
+            {
+                Image img = (Image)temp.Clone();
                 employeePicture.Image = img;
+                temp.Dispose();
+            }
             else
                 employeePicture.Image = Properties.Resources.person_128px1;
+            
         }
         private void EmployeeDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -153,7 +164,7 @@ namespace Gym
         {
             try
             {
-                EmployeeBLL.SearchEmployee(searchTB.Text);
+                employees = EmployeeBLL.SearchEmployee(searchTB.Text);
                 DGV_Load();
             }
             catch (Exception ex)

@@ -38,7 +38,10 @@ namespace Gym.BLL
         {
             try
             {
-                return new Bitmap(imgPath);
+                Bitmap temp = new Bitmap(imgPath);
+                Bitmap img = (Bitmap)temp.Clone();
+                temp.Dispose();
+                return img;
             }
             catch (System.ArgumentException ex)
             {

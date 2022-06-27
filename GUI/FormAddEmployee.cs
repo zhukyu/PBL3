@@ -71,9 +71,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-                    Bitmap img = new Bitmap(openFile.FileName);
-                    employeePicture.Image = (Bitmap)img.Clone();
-                    img.Dispose();
+                    employeePicture.Image = ImageHandle.GetImage(fileName);
                 }
             }
             catch (Exception ex)

@@ -15,12 +15,11 @@ namespace Gym.BLL
         {
             try
             {
-                Bitmap temp = new Bitmap(fullImgPath);
-                Bitmap img = (Bitmap)temp.Clone(); // tạo bản sao
-                temp.Dispose();
+                if (fullImgPath == null)
+                    return null;
+                Image temp = GetImage(fullImgPath);
                 string shortImgPath = "Images\\" + ID + ".jpg"; // lưu ảnh định dạng ID.jpg
-                if (System.IO.File.Exists(shortImgPath))
-                    File.Delete(shortImgPath);
+                Bitmap img = new Bitmap(temp); // lưu bằng bitmap để tránh lỗi GDI+
                 img.Save(shortImgPath);
                 return shortImgPath;
             }
@@ -38,10 +37,13 @@ namespace Gym.BLL
         {
             try
             {
-                Bitmap temp = new Bitmap(imgPath);
-                Bitmap img = (Bitmap)temp.Clone();
-                temp.Dispose();
-                return img;
+                Image image = null;
+                using (FileStream fs = new FileStream(imgPath, FileMode.Open))
+                {
+                    image = Image.FromStream(fs);
+                    fs.Close();
+                }
+                return image;
             }
             catch (System.ArgumentException ex)
             {
@@ -49,7 +51,7 @@ namespace Gym.BLL
             }
             catch (Exception ex)
             {
-                throw ex;
+                return null;
             }
         }
         // Xóa ảnh

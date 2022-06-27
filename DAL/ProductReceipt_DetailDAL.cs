@@ -53,8 +53,8 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "insert into ProductReceipt_Detail(receiptID, productID, amount, unitPrice, unitTotal)" +
-                        $"values '{Item._receiptID}', '{Item._productID}', '{Item._amount}', '{Item._unitPrice}', '{Item._unitTotal}')";
+                string st = "insert into ProductReceipt_Detail(receiptID, productID, amount, unitPrice, unitTotal) " +
+                        $"values ('{Item._receiptID}', '{Item._productID}', '{Item._amount}', '{Item._unitPrice}', '{Item._unitTotal}')";
                 comm.CommandText = st;
                 comm.Connection = conn;
 

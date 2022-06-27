@@ -36,8 +36,8 @@ namespace Gym
                     customer._birthday.ToString("dd-MM-yyyy"),
                     customer._phoneNumber,                   
                     
-                    customer._idNumber,
-                    customer._address
+                    customer._address,
+                    customer._idNumber
 
 
                 );
@@ -171,6 +171,27 @@ namespace Gym
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CustomerDGV.Rows.Count == 0)
+                    throw new Exception("Bạn chưa chọn dữ liệu");
+                string customerID = CustomerDGV.CurrentRow.Cells[0].Value.ToString();
+                Customer customer = customers.Find(x => x._customerID == customerID);
+                FormCourseSale formCourseSale = new FormCourseSale(customer);
+                formCourseSale.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Bạn chưa chọn dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -4,37 +4,43 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gym
+namespace Gym.GUI
 {
     public partial class FormProductSale : Form
     {
+        int selectedIndex = 0;
         List<Product> products = new List<Product>();
-        List<int> addedIndexs = new List<int>(); // addedIndexs[2] = 3: sp thứ 2 trong list là sp thứ 3 trong combobox
+        List<ProductReceipt_Detail> items = new List<ProductReceipt_Detail>();
         public FormProductSale()
         {
             InitializeComponent();
         }
-        private void productSale_Load(object sender, EventArgs e)
+        // lấy vị trí sản phẩm trong list theo id
+        private int GetCBIndex(String productID)
         {
-            _publishDate.Value = DateTime.Today;
-            SqlConnection conn = new SqlConnection(Program.cnstr);
-            try
+            int cbIndex = -1;
+            for(int i = 0; i < products.Count; i++)
             {
-                _saleID.Text = ProductReceiptBLL.GenerateID();
-                _cashier.Text = Program.userName;
-                products = ProductBLL.
+                if (products[i]._productID == productID)
+                {
+                    cbIndex = i;
+                    break;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            return cbIndex;
+        }
+        // cập nhật combobox, textbox
+        private void InputUpdate()
+        {
+            int cbIndex = GetCBIndex(productList.CurrentRow.Cells[0].Value.ToString());
+            productCb.SelectedIndex = cbIndex;
+            amountInput.Text = productList.CurrentRow.Cells[2].Value.ToString();
         }
         private void TotalSum()
         {
@@ -45,145 +51,157 @@ namespace Gym
             }
             _total.Text = sum.ToString();
         }
+        private void ProductList_Load()
+        {
+            productList.Rows.Clear();
+            foreach(ProductReceipt_Detail item in items)
+            {
+                int cbIndex = GetCBIndex(item._productID);
+                productList.Rows.Add(
+                    item._productID,
+                    products[cbIndex]._productName,
+                    item._amount,
+                    products[cbIndex]._price,
+                    item._unitTotal
+                );
+            }
+            if (productList.Rows.Count == 0)
+                return;
+            productList.Rows[selectedIndex].Cells[0].Selected = true;
+            InputUpdate();
+            TotalSum();
+        }
         private void addBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                int CbIndex = productCb.SelectedIndex;
-                if(CbIndex == -1) // chưa chọn sản phẩm
-                {
-                    throw new Exception("Bạn chưa chọn sản phẩm");
-                }
-                int amount = Convert.ToInt32(amountInput.Text);
-                if(amount < 1)
-                {
-                    throw new FormatException();
-                }
-                int total = amount * prices[CbIndex];
-                int addedIndex = addedIndexs.IndexOf(CbIndex);
-                if(addedIndex != -1) // kiểm tra xem sản phẩm đã được thêm chưa
-                {
-                    DialogResult dlr = MessageBox.Show("Sản phẩm đã tồn tại, thêm số lượng ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlr == DialogResult.Yes)
-                    {
-                        int oldAmount = Convert.ToInt32(productList.Rows[addedIndex].Cells[2].Value);
-                        int newAmount = oldAmount + Convert.ToInt32(amountInput.Text);
-                        total = newAmount * prices[CbIndex];
-                        productList.Rows[addedIndex].Cells[2].Value = newAmount; // cộng thêm số lượng
-                        productList.Rows[addedIndex].Cells[4].Value = total;
-                    }
-                }
-                else // nếu không thì thêm mới sản phẩm
-                {
-                    DialogResult dlr = MessageBox.Show("Bạn có muốn thêm sản phẩm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlr == DialogResult.Yes)
-                    {
-                        productList.Rows.Add(
-                            //productIDs[CbIndex],
-                            //productNames[CbIndex],
-                            amount.ToString(),
-                            prices[CbIndex],
-                            total
-                        );
-                        addedIndexs.Add(CbIndex);
-                    }
-                }
-                TotalSum();
-            }
-            catch(FormatException)
-            {
-                MessageBox.Show("Định dạng số lượng phải là số nguyên dương", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    
-            }
-        }
-
-        private void productList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            productCb.Text = productList.CurrentRow.Cells[1].Value.ToString();
-            amountInput.Text = productList.CurrentRow.Cells[2].Value.ToString();
-            
-        }
-
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int index = productList.SelectedRows[0].Index; // số chỉ của datagridview
-                int CbIndex = productCb.SelectedIndex; // số chỉ ComboBox
-                if (CbIndex == -1) // chưa chọn sản phẩm
+                int index = productCb.SelectedIndex;
+                if(index == -1) // chưa chọn sản phẩm
                 {
                     throw new Exception("Bạn chưa chọn sản phẩm");
                 }
                 int amount = Convert.ToInt32(amountInput.Text);
                 if (amount < 1)
                 {
-                    throw new FormatException();
+                    throw new FormatException(); ;
                 }
-                int total = amount * prices[CbIndex];
-                DialogResult dlr = MessageBox.Show("Bạn có muốn chỉnh sửa mục đã chọn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dlr == DialogResult.Yes)
+                ProductReceipt_Detail temp = new ProductReceipt_Detail(
+                    _saleID.Text,
+                    products[index]._productID,
+                    amount,
+                    products[index]._price,
+                    products[index]._price * amount
+                );
+                bool hasItem = false; // chưa được thêm
+                for(int i = 0; i < items.Count; i++) // kiểm tra trùng sản phẩm, nếu đúng thì cộng dồn vào
                 {
-                    productList.Rows[index].SetValues(
-                            //productIDs[CbIndex],
-                            //productNames[CbIndex],
-                            amount.ToString(),
-                            prices[CbIndex],
-                            total
-                        );
-                    addedIndexs[index] = CbIndex;
-
-                    // kiểm tra xem sản phẩm đã tồn tại hay chưa
-                    int firstAddedIndex = addedIndexs.IndexOf(CbIndex);
-                    int lastAddedIndex = addedIndexs.LastIndexOf(CbIndex);
-                    int replaceIndex = -1; // vị trí cập nhật dữ liệu
-                    if (firstAddedIndex != -1 && firstAddedIndex != index) // tìm thấy addedIndex, 
+                    if (items[i]._productID == temp._productID)
                     {
-                        replaceIndex = firstAddedIndex;
+                        DialogResult dlr = MessageBox.Show("Sản phẩm đã tồn tại, thêm số lượng ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlr == DialogResult.Yes)
+                        {
+                            hasItem = true;
+                            items[i]._amount += temp._amount;
+                            items[i]._unitTotal += temp._unitTotal;
+                            selectedIndex = i;
+                            break;
+                        }
+                        else
+                            return;
                     }
-                    else if (lastAddedIndex != -1 && lastAddedIndex != index)
-                    {
-                        replaceIndex = lastAddedIndex;
-                    }
-                    else
-                    {
-                        TotalSum();
-                        return;
-                    }
-                    int oldAmount = Convert.ToInt32(productList.Rows[replaceIndex].Cells[2].Value);
-                    int newAmount = oldAmount + Convert.ToInt32(amountInput.Text);
-                    total = newAmount * prices[CbIndex];
-                    productList.Rows[replaceIndex].Cells[2].Value = newAmount; // cộng thêm số lượng
-                    productList.Rows[replaceIndex].Cells[4].Value = total;
-                    productList.Rows.RemoveAt(index);
-                    addedIndexs.RemoveAt(index);
-                    TotalSum();
                 }
+                if (!hasItem)
+                {
+                    items.Add(temp);
+                    selectedIndex = productList.Rows.Count;
+                   
+                }
+                ProductList_Load();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (FormatException)
             {
-                MessageBox.Show("Bạn chưa chọn dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Định dạng số lượng phải là số nguyên dương", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString().ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(productList.Rows.Count == 0)
+                {
+                    throw new Exception("Bạn chưa chọn sản phẩm");
+                }
+                selectedIndex = productList.CurrentRow.Index;
+                int index = productCb.SelectedIndex;
+                if (index == -1) // chưa chọn sản phẩm
+                {
+                    throw new Exception("Bạn chưa chọn sản phẩm");
+                }
+                int amount = Convert.ToInt32(amountInput.Text);
+                if (amount < 1)
+                {
+                    throw new FormatException(); ;
+                }
+                ProductReceipt_Detail temp = new ProductReceipt_Detail(
+                    _saleID.Text,
+                    products[index]._productID,
+                    amount,
+                    products[index]._price,
+                    products[index]._price * amount
+                );
+                ProductReceipt_Detail oldItem = items[selectedIndex];
+                items[selectedIndex] = temp;
+                // gộp 2 item trùng lặp
+                List<ProductReceipt_Detail> duplicateItems = items.FindAll(x => x._productID == temp._productID); 
+                if (duplicateItems.Count == 2)
+                {
+                    DialogResult dlr = MessageBox.Show("Sản phẩm đã tồn tại, thêm số lượng ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlr == DialogResult.Yes)
+                    {
+                        duplicateItems[0]._amount += duplicateItems[1]._amount;
+                        duplicateItems[0]._unitTotal += duplicateItems[1]._unitTotal;
+                        items.Remove(duplicateItems[1]);
+                        selectedIndex = items.IndexOf(duplicateItems[0]);
+                    }
+                    else
+                    {
+                        items[selectedIndex] = oldItem;
+                        return;
+                    }
+                }
+                ProductList_Load();
+
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Định dạng số lượng phải là số nguyên dương", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                int index = productList.SelectedRows[0].Index; // số chỉ của datagridview
+                selectedIndex = productList.CurrentRow.Index; // số chỉ của datagridview
                 DialogResult dlr = MessageBox.Show("Bạn có muốn xóa mục đã chọn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
                 {
-                    productList.Rows.RemoveAt(index);
-                    addedIndexs.RemoveAt(index);
-                    TotalSum();
+                    items.RemoveAt(selectedIndex);
+                    if (selectedIndex != 0)
+                    {
+                        selectedIndex--;
+                    }
+                    ProductList_Load();
                 }
             }
             catch (ArgumentOutOfRangeException)
@@ -205,41 +223,17 @@ namespace Gym
                 DialogResult dlr = MessageBox.Show("Xác nhận thanh toán ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
                 {
-                    SqlConnection conn = new SqlConnection(Program.cnstr);
-
-                    conn.Open();
-                    string receiptID = _saleID.Text;
-                    string employeeID = Program.userID;
-                    string publishDate = _publishDate.Value.ToString("yyyyMMdd");
-                    int total = Convert.ToInt32(_total.Text);
-                    SqlCommand cmd = new SqlCommand("insert into ProductReceipt (receiptID, employeeID, publishDate, total)" +
-                        $"values ('{receiptID}', '{employeeID}', '{publishDate}', {total})", conn);
-                    cmd.ExecuteNonQuery();
-
-                    // build string Values
-                    string values = "";
-                    int i;
-                    for (i = 0; i < productList.Rows.Count; ++i)
+                    ProductReceipt productReceipt = new ProductReceipt(
+                        _saleID.Text,
+                        Program.userID,
+                        DateTime.Today,
+                        Convert.ToInt32(_total.Text)
+                    );
+                    ProductReceiptBLL.InsertProductReceipt(productReceipt);
+                    foreach(ProductReceipt_Detail item in items)
                     {
-                        int index = productList.Rows[i].Index; // số chỉ sản phẩm trong list
-                        int CbIndex = addedIndexs[index];
-                        //string productID = productIDs[CbIndex];
-                        int unitPrice = prices[CbIndex];
-                        int amount = Convert.ToInt32(productList.Rows[i].Cells[2].Value);
-                        int unitTotal = Convert.ToInt32(productList.Rows[i].Cells[4].Value);
-                        if (i != productList.Rows.Count - 1)
-                        {
-                            values += ", ";
-                        }
-                        else
-                        {
-                            values += "; ";
-                        }
+                        ProductReceipt_DetailBLL.InsertProductReceiptItem(item);
                     }
-                    cmd = new SqlCommand("insert into ProductReceipt_Detail (receiptID, productID, amount, unitPrice, unitTotal)" +
-                        $"values {values}", conn);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }
@@ -248,9 +242,33 @@ namespace Gym
                 MessageBox.Show(ex.Message.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
         }
 
+        private void FormProductSale_Load(object sender, EventArgs e)
+        {
+            _publishDate.Value = DateTime.Today;
+            try
+            {
+                _saleID.Text = ProductReceiptBLL.GenerateID();
+                _cashier.Text = Program.userName;
+                products = ProductBLL.GetAllProducts();
+                foreach(Product product in products)
+                {
+                    productCb.Items.Add(product._productName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void productList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (productList.Rows.Count == 0)
+                return;
+            InputUpdate();
+        }
         private void ChangeUpdate()
         {
             try

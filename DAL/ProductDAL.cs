@@ -151,5 +151,27 @@ namespace Gym.DAL
             }
             return result;
         }
+        public static string GetProductName(String productID)
+        {
+            string productName = "";
+            SqlConnection conn = new SqlConnection(Program.cnstr);
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand($"select productName from Product where productID = '{productID}'", conn);
+
+                SqlDataReader data = cmd.ExecuteReader();
+                if (data.Read())
+                {
+                    productName = data.GetString(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return productName;
+        }
     }
 }

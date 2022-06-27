@@ -31,7 +31,7 @@ namespace Gym
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("select a.publishDate, b.fullName, a.total " +
                     "from ProductReceipt a, Employee b " +
-                    "where a.employeeID = b.employeeID", conn);
+                    $"where a.employeeID = b.employeeID and a.receiptID = '{_receiptID.Text}'", conn);
                 SqlDataReader rd = cmd.ExecuteReader();
 
                 if (rd.Read())

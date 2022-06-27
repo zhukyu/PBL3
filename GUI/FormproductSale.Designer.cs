@@ -1,4 +1,4 @@
-﻿namespace Gym
+﻿namespace Gym.GUI
 {
     partial class FormProductSale
     {
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formNameLable = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._cashier = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
@@ -38,20 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.productCb = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this._publishDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this._saleID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.formName = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.acceptBtn = new System.Windows.Forms.Button();
-            this.productList = new System.Windows.Forms.DataGridView();
-            this._productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._unitTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this._change = new System.Windows.Forms.TextBox();
             this._received = new System.Windows.Forms.TextBox();
@@ -59,37 +47,25 @@
             this.label5 = new System.Windows.Forms.Label();
             this._total = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
+            this.acceptBtn = new System.Windows.Forms.Button();
+            this._publishDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this._saleID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.formName = new System.Windows.Forms.Label();
+            this.productList = new System.Windows.Forms.DataGridView();
+            this._productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._unitTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.formNameLable = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
+            this.formNameLable.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // formNameLable
-            // 
-            this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.formNameLable.Controls.Add(this._cashier);
-            this.formNameLable.Controls.Add(this.label8);
-            this.formNameLable.Controls.Add(this.addBtn);
-            this.formNameLable.Controls.Add(this.editBtn);
-            this.formNameLable.Controls.Add(this.deleteBtn);
-            this.formNameLable.Controls.Add(this.amountInput);
-            this.formNameLable.Controls.Add(this.label9);
-            this.formNameLable.Controls.Add(this.productCb);
-            this.formNameLable.Controls.Add(this.label6);
-            this.formNameLable.Controls.Add(this._publishDate);
-            this.formNameLable.Controls.Add(this.label4);
-            this.formNameLable.Controls.Add(this._saleID);
-            this.formNameLable.Controls.Add(this.label2);
-            this.formNameLable.Controls.Add(this.label1);
-            this.formNameLable.Controls.Add(this.formName);
-            this.formNameLable.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(0, 0);
-            this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
-            this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(1017, 304);
-            this.formNameLable.TabIndex = 37;
             // 
             // _cashier
             // 
@@ -171,6 +147,7 @@
             // 
             // productCb
             // 
+            this.productCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productCb.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productCb.FormattingEnabled = true;
             this.productCb.Location = new System.Drawing.Point(76, 229);
@@ -188,142 +165,6 @@
             this.label6.TabIndex = 57;
             this.label6.Text = "Tên sản phẩm";
             // 
-            // _publishDate
-            // 
-            this._publishDate.Enabled = false;
-            this._publishDate.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._publishDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this._publishDate.Location = new System.Drawing.Point(190, 107);
-            this._publishDate.Name = "_publishDate";
-            this._publishDate.Size = new System.Drawing.Size(193, 34);
-            this._publishDate.TabIndex = 51;
-            this._publishDate.Value = new System.DateTime(2022, 6, 1, 0, 46, 54, 0);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(24, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 37);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Ngày tạo";
-            // 
-            // _saleID
-            // 
-            this._saleID.BackColor = System.Drawing.Color.WhiteSmoke;
-            this._saleID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._saleID.Enabled = false;
-            this._saleID.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._saleID.Location = new System.Drawing.Point(190, 36);
-            this._saleID.Name = "_saleID";
-            this._saleID.Size = new System.Drawing.Size(193, 33);
-            this._saleID.TabIndex = 49;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(24, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mã đơn hàng";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(584, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 65);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bán sản phẩm";
-            // 
-            // formName
-            // 
-            this.formName.AutoSize = true;
-            this.formName.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.formName.Location = new System.Drawing.Point(59, 102);
-            this.formName.Name = "formName";
-            this.formName.Size = new System.Drawing.Size(0, 33);
-            this.formName.TabIndex = 1;
-            // 
-            // acceptBtn
-            // 
-            this.acceptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.acceptBtn.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.acceptBtn.ForeColor = System.Drawing.Color.White;
-            this.acceptBtn.Location = new System.Drawing.Point(839, 138);
-            this.acceptBtn.Name = "acceptBtn";
-            this.acceptBtn.Size = new System.Drawing.Size(150, 49);
-            this.acceptBtn.TabIndex = 68;
-            this.acceptBtn.Text = "Xác nhận";
-            this.acceptBtn.UseVisualStyleBackColor = false;
-            this.acceptBtn.Click += new System.EventHandler(this.acceptBtn_Click);
-            // 
-            // productList
-            // 
-            this.productList.AllowUserToAddRows = false;
-            this.productList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.productList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._productID,
-            this._productName,
-            this._amount,
-            this._price,
-            this._unitTotal});
-            this.productList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productList.Location = new System.Drawing.Point(0, 304);
-            this.productList.MultiSelect = false;
-            this.productList.Name = "productList";
-            this.productList.ReadOnly = true;
-            this.productList.RowHeadersWidth = 51;
-            this.productList.RowTemplate.Height = 29;
-            this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productList.Size = new System.Drawing.Size(1017, 658);
-            this.productList.TabIndex = 69;
-            this.productList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productList_CellClick);
-            // 
-            // _productID
-            // 
-            this._productID.HeaderText = "Mã SP";
-            this._productID.MinimumWidth = 6;
-            this._productID.Name = "_productID";
-            this._productID.ReadOnly = true;
-            this._productID.Width = 140;
-            // 
-            // _productName
-            // 
-            this._productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._productName.HeaderText = "Tên sản phẩm";
-            this._productName.MinimumWidth = 6;
-            this._productName.Name = "_productName";
-            this._productName.ReadOnly = true;
-            // 
-            // _amount
-            // 
-            this._amount.HeaderText = "Số lượng";
-            this._amount.MinimumWidth = 6;
-            this._amount.Name = "_amount";
-            this._amount.ReadOnly = true;
-            this._amount.Width = 130;
-            // 
-            // _price
-            // 
-            this._price.HeaderText = "Đơn giá";
-            this._price.MinimumWidth = 6;
-            this._price.Name = "_price";
-            this._price.ReadOnly = true;
-            this._price.Width = 161;
-            // 
-            // _unitTotal
-            // 
-            this._unitTotal.HeaderText = "Thành tiền";
-            this._unitTotal.MinimumWidth = 6;
-            this._unitTotal.Name = "_unitTotal";
-            this._unitTotal.ReadOnly = true;
-            this._unitTotal.Width = 161;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
@@ -338,7 +179,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 739);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1017, 223);
-            this.panel1.TabIndex = 70;
+            this.panel1.TabIndex = 73;
             // 
             // _change
             // 
@@ -409,7 +250,200 @@
             this.label3.TabIndex = 69;
             this.label3.Text = "Tổng tiền";
             // 
-            // ProductSale
+            // acceptBtn
+            // 
+            this.acceptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.acceptBtn.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.acceptBtn.ForeColor = System.Drawing.Color.White;
+            this.acceptBtn.Location = new System.Drawing.Point(839, 138);
+            this.acceptBtn.Name = "acceptBtn";
+            this.acceptBtn.Size = new System.Drawing.Size(150, 49);
+            this.acceptBtn.TabIndex = 68;
+            this.acceptBtn.Text = "Xác nhận";
+            this.acceptBtn.UseVisualStyleBackColor = false;
+            this.acceptBtn.Click += new System.EventHandler(this.acceptBtn_Click);
+            // 
+            // _publishDate
+            // 
+            this._publishDate.Enabled = false;
+            this._publishDate.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._publishDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._publishDate.Location = new System.Drawing.Point(190, 107);
+            this._publishDate.Name = "_publishDate";
+            this._publishDate.Size = new System.Drawing.Size(193, 34);
+            this._publishDate.TabIndex = 51;
+            this._publishDate.Value = new System.DateTime(2022, 6, 1, 0, 46, 54, 0);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(24, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(148, 37);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Ngày tạo";
+            // 
+            // _saleID
+            // 
+            this._saleID.BackColor = System.Drawing.Color.WhiteSmoke;
+            this._saleID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._saleID.Enabled = false;
+            this._saleID.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._saleID.Location = new System.Drawing.Point(190, 36);
+            this._saleID.Name = "_saleID";
+            this._saleID.Size = new System.Drawing.Size(193, 33);
+            this._saleID.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(24, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 37);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mã đơn hàng";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(584, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(367, 65);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Bán sản phẩm";
+            // 
+            // formName
+            // 
+            this.formName.AutoSize = true;
+            this.formName.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.formName.Location = new System.Drawing.Point(59, 102);
+            this.formName.Name = "formName";
+            this.formName.Size = new System.Drawing.Size(0, 33);
+            this.formName.TabIndex = 1;
+            // 
+            // productList
+            // 
+            this.productList.AllowUserToAddRows = false;
+            this.productList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.productList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._productID,
+            this._productName,
+            this._amount,
+            this._price,
+            this._unitTotal});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.productList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productList.EnableHeadersVisualStyles = false;
+            this.productList.Location = new System.Drawing.Point(0, 304);
+            this.productList.MultiSelect = false;
+            this.productList.Name = "productList";
+            this.productList.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.productList.RowHeadersWidth = 51;
+            this.productList.RowTemplate.Height = 29;
+            this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productList.Size = new System.Drawing.Size(1017, 658);
+            this.productList.TabIndex = 72;
+            this.productList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productList_CellClick);
+            // 
+            // _productID
+            // 
+            this._productID.HeaderText = "Mã SP";
+            this._productID.MinimumWidth = 6;
+            this._productID.Name = "_productID";
+            this._productID.ReadOnly = true;
+            this._productID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._productID.Width = 140;
+            // 
+            // _productName
+            // 
+            this._productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._productName.HeaderText = "Tên sản phẩm";
+            this._productName.MinimumWidth = 6;
+            this._productName.Name = "_productName";
+            this._productName.ReadOnly = true;
+            this._productName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // _amount
+            // 
+            this._amount.HeaderText = "Số lượng";
+            this._amount.MinimumWidth = 6;
+            this._amount.Name = "_amount";
+            this._amount.ReadOnly = true;
+            this._amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._amount.Width = 130;
+            // 
+            // _price
+            // 
+            this._price.HeaderText = "Đơn giá";
+            this._price.MinimumWidth = 6;
+            this._price.Name = "_price";
+            this._price.ReadOnly = true;
+            this._price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._price.Width = 161;
+            // 
+            // _unitTotal
+            // 
+            this._unitTotal.HeaderText = "Thành tiền";
+            this._unitTotal.MinimumWidth = 6;
+            this._unitTotal.Name = "_unitTotal";
+            this._unitTotal.ReadOnly = true;
+            this._unitTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._unitTotal.Width = 161;
+            // 
+            // formNameLable
+            // 
+            this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this._cashier);
+            this.formNameLable.Controls.Add(this.label8);
+            this.formNameLable.Controls.Add(this.addBtn);
+            this.formNameLable.Controls.Add(this.editBtn);
+            this.formNameLable.Controls.Add(this.deleteBtn);
+            this.formNameLable.Controls.Add(this.amountInput);
+            this.formNameLable.Controls.Add(this.label9);
+            this.formNameLable.Controls.Add(this.productCb);
+            this.formNameLable.Controls.Add(this.label6);
+            this.formNameLable.Controls.Add(this._publishDate);
+            this.formNameLable.Controls.Add(this.label4);
+            this.formNameLable.Controls.Add(this._saleID);
+            this.formNameLable.Controls.Add(this.label2);
+            this.formNameLable.Controls.Add(this.label1);
+            this.formNameLable.Controls.Add(this.formName);
+            this.formNameLable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formNameLable.ForeColor = System.Drawing.Color.White;
+            this.formNameLable.Location = new System.Drawing.Point(0, 0);
+            this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
+            this.formNameLable.Name = "formNameLable";
+            this.formNameLable.Size = new System.Drawing.Size(1017, 304);
+            this.formNameLable.TabIndex = 71;
+            // 
+            // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -417,51 +451,50 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.formNameLable);
-            this.Name = "ProductSale";
+            this.Name = "Test";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "productSale";
-            this.Load += new System.EventHandler(this.productSale_Load);
-            this.formNameLable.ResumeLayout(false);
-            this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
+            this.Text = "test";
+            this.Load += new System.EventHandler(this.FormProductSale_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
+            this.formNameLable.ResumeLayout(false);
+            this.formNameLable.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel formNameLable;
-        private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _saleID;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker _publishDate;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox productCb;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox _cashier;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.TextBox amountInput;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button acceptBtn;
-        private System.Windows.Forms.DataGridView productList;
+        private System.Windows.Forms.ComboBox productCb;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _productID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _productName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _unitTotal;
         private System.Windows.Forms.TextBox _change;
         private System.Windows.Forms.TextBox _received;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox _total;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _cashier;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button acceptBtn;
+        private System.Windows.Forms.DateTimePicker _publishDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox _saleID;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label formName;
+        private System.Windows.Forms.DataGridView productList;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel formNameLable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _unitTotal;
     }
 }

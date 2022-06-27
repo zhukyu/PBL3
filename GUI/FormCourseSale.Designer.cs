@@ -89,9 +89,11 @@
             // 
             // _customerID
             // 
+            this._customerID.BackColor = System.Drawing.Color.White;
             this._customerID.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._customerID.Location = new System.Drawing.Point(134, 148);
             this._customerID.Name = "_customerID";
+            this._customerID.ReadOnly = true;
             this._customerID.Size = new System.Drawing.Size(214, 38);
             this._customerID.TabIndex = 61;
             // 
@@ -140,9 +142,11 @@
             // 
             // _fullName
             // 
+            this._fullName.BackColor = System.Drawing.Color.White;
             this._fullName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._fullName.Location = new System.Drawing.Point(134, 207);
             this._fullName.Name = "_fullName";
+            this._fullName.ReadOnly = true;
             this._fullName.Size = new System.Drawing.Size(492, 38);
             this._fullName.TabIndex = 66;
             // 
@@ -159,9 +163,11 @@
             // 
             // _phoneNumber
             // 
+            this._phoneNumber.BackColor = System.Drawing.Color.White;
             this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._phoneNumber.Location = new System.Drawing.Point(423, 273);
             this._phoneNumber.Name = "_phoneNumber";
+            this._phoneNumber.ReadOnly = true;
             this._phoneNumber.Size = new System.Drawing.Size(203, 38);
             this._phoneNumber.TabIndex = 68;
             // 
@@ -178,9 +184,11 @@
             // 
             // _idNumber
             // 
+            this._idNumber.BackColor = System.Drawing.Color.White;
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._idNumber.Location = new System.Drawing.Point(134, 273);
             this._idNumber.Name = "_idNumber";
+            this._idNumber.ReadOnly = true;
             this._idNumber.Size = new System.Drawing.Size(214, 38);
             this._idNumber.TabIndex = 70;
             // 
@@ -315,6 +323,7 @@
             this.Controls.Add(this.courseCb);
             this.Controls.Add(this.label6);
             this.Name = "FormCourseSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "courseSale";
             this.Load += new System.EventHandler(this.courseSale_Load);
             this.formNameLable.ResumeLayout(false);

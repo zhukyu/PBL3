@@ -184,6 +184,7 @@
             // 
             // _customerID
             // 
+            this._customerID.Enabled = false;
             this._customerID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._customerID.Location = new System.Drawing.Point(243, 117);
             this._customerID.Name = "_customerID";
@@ -244,7 +245,8 @@
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.formNameLable);
             this.Name = "FormUpdateCustomer";
-            this.Text = "fixCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "y";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             this.ResumeLayout(false);

@@ -30,7 +30,7 @@
         {
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.productPicture = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.addPictureBox1 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -67,16 +67,16 @@
             this.formName.TabIndex = 1;
             this.formName.Text = "Thêm sản phẩm ";
             // 
-            // pictureBox1
+            // productPicture
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(213, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(221, 224);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
+            this.productPicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.productPicture.Location = new System.Drawing.Point(213, 83);
+            this.productPicture.Name = "productPicture";
+            this.productPicture.Size = new System.Drawing.Size(221, 224);
+            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.productPicture.TabIndex = 47;
+            this.productPicture.TabStop = false;
             // 
             // label3
             // 
@@ -180,7 +180,7 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // addProduct
+            // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,13 +195,14 @@
             this.Controls.Add(this._productName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._productID);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.productPicture);
             this.Controls.Add(this.formNameLable);
-            this.Name = "addProduct";
+            this.Name = "FormAddProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addProduct";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +222,7 @@
         public System.Windows.Forms.TextBox _amount;
         public System.Windows.Forms.TextBox _productName;
         public System.Windows.Forms.TextBox _productID;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox productPicture;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
     }

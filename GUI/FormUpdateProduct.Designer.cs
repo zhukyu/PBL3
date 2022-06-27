@@ -30,7 +30,7 @@
         {
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
+            this.fixbutton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this._price = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,11 +39,11 @@
             this._productName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this._productID = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.productPicture = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -68,18 +68,18 @@
             this.formName.TabIndex = 1;
             this.formName.Text = "Thay đổi thông tin sản phẩm";
             // 
-            // addButton
+            // fixbutton
             // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.addButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(203, 591);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(216, 46);
-            this.addButton.TabIndex = 70;
-            this.addButton.Text = "Lưu thay đổi";
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.fixbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.fixbutton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fixbutton.ForeColor = System.Drawing.Color.White;
+            this.fixbutton.Location = new System.Drawing.Point(203, 591);
+            this.fixbutton.Name = "fixbutton";
+            this.fixbutton.Size = new System.Drawing.Size(216, 46);
+            this.fixbutton.TabIndex = 70;
+            this.fixbutton.Text = "Lưu thay đổi";
+            this.fixbutton.UseVisualStyleBackColor = false;
+            this.fixbutton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // label3
             // 
@@ -129,7 +129,6 @@
             this.label2.Size = new System.Drawing.Size(111, 29);
             this.label2.TabIndex = 64;
             this.label2.Text = "Tên SP :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // _productName
             // 
@@ -152,22 +151,23 @@
             // 
             // _productID
             // 
+            this._productID.Enabled = false;
             this._productID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._productID.Location = new System.Drawing.Point(309, 363);
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(153, 36);
             this._productID.TabIndex = 61;
             // 
-            // pictureBox1
+            // productPicture
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(212, 69);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(206, 225);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 60;
-            this.pictureBox1.TabStop = false;
+            this.productPicture.BackColor = System.Drawing.Color.White;
+            this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.productPicture.Location = new System.Drawing.Point(212, 69);
+            this.productPicture.Name = "productPicture";
+            this.productPicture.Size = new System.Drawing.Size(206, 225);
+            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.productPicture.TabIndex = 60;
+            this.productPicture.TabStop = false;
             // 
             // button1
             // 
@@ -195,7 +195,7 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // updateProduct
+            // FormUpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -203,7 +203,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.formNameLable);
-            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.fixbutton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._price);
             this.Controls.Add(this.label4);
@@ -212,13 +212,13 @@
             this.Controls.Add(this._productName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._productID);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "updateProduct";
+            this.Controls.Add(this.productPicture);
+            this.Name = "FormUpdateProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fixProduct";
-            this.Load += new System.EventHandler(this.updateProduct_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +228,7 @@
 
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.Label formName;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button fixbutton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -237,7 +237,7 @@
         public System.Windows.Forms.TextBox _amount;
         public System.Windows.Forms.TextBox _productName;
         public System.Windows.Forms.TextBox _productID;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox productPicture;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
         private System.Windows.Forms.Button button1;

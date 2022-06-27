@@ -9,56 +9,47 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-
+using Gym.BLL;
+using Gym.DTO;
 namespace Gym
 {
     public partial class FormAddProduct : Form
     {
+        string fileName = "";
         public FormAddProduct()
         {
             InitializeComponent();
         }
 
-
-        SqlConnection conn = null;
-        string fileName = "";
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
                 try
-
                 {
-                    if (conn == null)
-                    {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
-
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "Insert into product(productID,productName,amount,price,anh)" + "values (N'" + _productID.Text + "',N'" + _productName.Text + "','" + _amount.Text + "','" + _price.Text + "','"  + fileName +  "')";
-                    comm.CommandText = st;
-                    comm.Connection = conn;
-
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
+                    Product product = new Product(
+                            _productID.Text,
+                            _productName.Text,
+                            int.Parse(_amount.Text),
+                           int.Parse(_price.Text),
+                            
+                            fileName
+                        );
+                    bool result = ProductBLL.AddProduct(product);
+                    if (result)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("loi");
+                        MessageBox.Show("Không thể thêm");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("Lỗi: " + ex.ToString());
                 }
             }
         }
@@ -78,13 +69,8 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-                    fileName = Convert.ToBase64String(converImgToByte());
-                    pictureBox1.ImageLocation = openFile.FileName;
-                    pictureBox1.Load();
+                    productPicture.Image = ImageHandle.GetImage(fileName);
                 }
-               
-
-
             }
             catch (Exception ex)
             {
@@ -92,15 +78,7 @@ namespace Gym
             }
         }
 
-        private byte[] converImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
-        }
+       
 
 
     }

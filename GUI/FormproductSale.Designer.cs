@@ -1,4 +1,4 @@
-﻿namespace Gym.GUI
+﻿namespace Gym
 {
     partial class FormProductSale
     {
@@ -60,7 +60,6 @@
             this._amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._unitTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
@@ -443,7 +442,7 @@
             this.formNameLable.Size = new System.Drawing.Size(1017, 304);
             this.formNameLable.TabIndex = 71;
             // 
-            // Test
+            // FormProductSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -451,7 +450,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.formNameLable);
-            this.Name = "Test";
+            this.Name = "FormProductSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "test";
             this.Load += new System.EventHandler(this.FormProductSale_Load);
@@ -489,7 +488,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.DataGridView productList;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel formNameLable;
         private System.Windows.Forms.DataGridViewTextBoxColumn _productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn _productName;

@@ -9,16 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Gym.DTO;
+using Gym.BLL;
 
 namespace Gym
 {
     public partial class FormUpdateProduct : Form
     {
+        string fileName = null;
         public FormUpdateProduct()
         {
             InitializeComponent();
         }
-        SqlConnection conn = null;
+        
+        public FormUpdateProduct(Product product)
+        {
+            InitializeComponent();
+            
+            _productID.Text = product._productID;
+            _productName.Text = product._productName;
+            _amount.Text = product._amount+"";
+            _price.Text = product._price+"";
+            productPicture.ImageLocation = product._image;
+        }
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -26,57 +39,37 @@ namespace Gym
             {
                 try
                 {
-
-
-                    string maSp = _productID.Text;
+                    Product product = new Product(
+                            _productID.Text,
+                            _productName.Text,
+                            int.Parse(_amount.Text),
+                            int.Parse(_price.Text),                      
+                            fileName
+                        );
+                    bool result = ProductBLL.UpdateProduct(product);
+                    if (result)
                     {
-                        if (conn == null)
-                        {
-                            conn = new SqlConnection(Program.cnstr);
-                        }
-                        if (conn.State == ConnectionState.Closed)
-                        {
-                            conn.Open();
-                        }
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        SqlCommand comm = new SqlCommand();
-                        comm.CommandType = CommandType.Text;
-                        string st = "update product set  productName=N'" + _productName.Text + "',amount=N'" + _amount.Text + "',price='" + _price.Text + "',anh=N'" + fileName + "' " + "where productID=@maSp";
-                        comm.CommandText = st;
-                        comm.CommandText = st;
-                        comm.Connection = conn;
 
-                        SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                        para.Value = maSp;
-                        comm.Parameters.Add(para);
-                        int ret = comm.ExecuteNonQuery();
-                        if (ret > 0)
-                        {
-                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("lỗi");
-                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("lỗi");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("lỗi:" + ex.ToString());
                 }
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        string fileName = "null.png";
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = null;
-            fileName = "";
+            productPicture.Image = Properties.Resources.person_128px1;
+            fileName = null;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,54 +83,20 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-                    fileName = Convert.ToBase64String(converImgToByte());
-                    pictureBox1.ImageLocation = openFile.FileName;
-                    pictureBox1.Load();
+                    productPicture.Image = ImageHandle.GetImage(fileName);
                 }
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
-        private byte[] converImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
-        }
-
-        private void updateProduct_Load(object sender, EventArgs e)
-        {
-            if (conn == null)
-            {
-                conn = new SqlConnection(Program.cnstr);
-            }
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            SqlCommand comm = new SqlCommand();
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select *from product";
-            comm.Connection = conn;
 
 
-            SqlDataReader rar = comm.ExecuteReader();
-
-            while (rar.Read())
-            {
-                fileName = rar.GetString(4);
 
 
-            }
-            rar.Close();
-        }
+
+
 
         //OpenFileDialog _openFileDialog = new OpenFileDialog();
         //        private void addPictureBox1_Click(object sender, EventArgs e)

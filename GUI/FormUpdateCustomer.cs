@@ -47,9 +47,11 @@ namespace Gym
                             gioitinh.Text,
                             _birtday.Value,
                             _phoneNumber.Text,
-                            _idNumber.Text,
-                            _address.Text
-                           
+                            
+                            _address.Text,
+                            _idNumber.Text
+
+
                         );
                     bool result = CustomerBLL.UpdateCustomer(customer);
                     if (result)

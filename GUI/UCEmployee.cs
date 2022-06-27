@@ -17,10 +17,8 @@ namespace Gym
     public partial class UCEmployee : UserControl
     {
         List<Employee> employees;
-        SqlConnection conn = null;
+        int selectedIndex = 0;
 
-        string maSp=null;
-        
         public UCEmployee()
         {
             InitializeComponent();
@@ -44,7 +42,8 @@ namespace Gym
                     employee._role
                 );
             }
-            EmployeeInfo(employees[0]);
+            EmployeeDGV.Rows[selectedIndex].Cells[0].Selected = true;
+            EmployeeInfo(employees[selectedIndex]);
         }
         private void UCEmployee_Load(object sender, EventArgs e)
         {
@@ -82,6 +81,7 @@ namespace Gym
                 Employee employee = employees.Find(x => x._employeeID == employeeID);
                 FormUpdateEmployee updateEmployee = new FormUpdateEmployee(employee);
                 updateEmployee.ShowDialog();
+                selectedIndex = EmployeeDGV.CurrentRow.Index;
                 UCEmployee_Load(sender, e);
             }
             catch (ArgumentOutOfRangeException)
@@ -92,6 +92,7 @@ namespace Gym
             {
                 MessageBox.Show(ex.Message.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -107,6 +108,7 @@ namespace Gym
                     if (result)
                     {
                         MessageBox.Show("Đã xóa thành công");
+                        selectedIndex = 0;
                         UCEmployee_Load(sender, e);
                     }
                     else
@@ -114,7 +116,7 @@ namespace Gym
                         MessageBox.Show("Đã xóa thất bại");
 
                     }
-                    UCEmployee_Load(sender, e);
+                    
                 }
                 catch (ArgumentOutOfRangeException)
                 {
@@ -138,13 +140,11 @@ namespace Gym
             _idNumber.Text = employee._idNumber;
             _role.Text = employee._role;
             _address.Text = employee._address;
-            Image temp = ImageHandle.GetImage(employee._image);
+            Image img = ImageHandle.GetImage(employee._image);
             
-            if (temp != null)
+            if (img != null)
             {
-                Image img = (Image)temp.Clone();
                 employeePicture.Image = img;
-                temp.Dispose();
             }
             else
                 employeePicture.Image = Properties.Resources.person_128px1;

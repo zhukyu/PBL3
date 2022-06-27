@@ -16,7 +16,8 @@ namespace Gym
 {
     public partial class FormUpdateEmployee : Form
     {
-        string fileName = "";
+        string fileName = null;
+
         public FormUpdateEmployee()
         {
             InitializeComponent();
@@ -69,7 +70,7 @@ namespace Gym
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("lỗi:" + ex.ToString());
                 }
             }
         }
@@ -78,18 +79,9 @@ namespace Gym
         {
 
             employeePicture.Image = Properties.Resources.person_128px1;
-            fileName = "";
+            fileName = null;
         }
-       
-        private byte[] converImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
-        }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -101,9 +93,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-
-                    employeePicture.ImageLocation = openFile.FileName;
-                    employeePicture.Load();
+                    employeePicture.Image = ImageHandle.GetImage(fileName);
                 }
             }
             catch (Exception ex)

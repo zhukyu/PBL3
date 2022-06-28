@@ -41,7 +41,7 @@ namespace Gym
 
                     SqlCommand comm = new SqlCommand();
                     comm.CommandType = CommandType.Text;
-                    string st = "Insert into Course(courseID,courseName,duration,price)" + "values (N'" + _courseID.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "','" + _price.Text + "')";
+                    string st = "Insert into Course(courseID,courseName,duration,price)" + "values (N'" + _courseID.Text + "',N'" + cbNamekh.Text + "',N'" + comboBox2.Text + "','" + _price.Text + "')";
                     comm.CommandText = st;
                     comm.Connection = conn;
 
@@ -62,5 +62,7 @@ namespace Gym
                 }
             }
         }
+
+        
     }
 }

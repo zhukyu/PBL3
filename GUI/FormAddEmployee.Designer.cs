@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this._address = new System.Windows.Forms.TextBox();
@@ -49,8 +50,20 @@
             this._gender = new System.Windows.Forms.ComboBox();
             this._role = new System.Windows.Forms.ComboBox();
             this._birthday = new System.Windows.Forms.DateTimePicker();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPhone = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorChucvu = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroradress = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -82,6 +95,7 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(215, 43);
             this._address.TabIndex = 52;
+            this._address.Validating += new System.ComponentModel.CancelEventHandler(this._address_Validating);
             // 
             // label5
             // 
@@ -134,6 +148,7 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(215, 43);
             this._idNumber.TabIndex = 46;
+            this._idNumber.Validating += new System.ComponentModel.CancelEventHandler(this._idNumber_Validating);
             // 
             // _phoneNumber
             // 
@@ -142,6 +157,7 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(215, 43);
             this._phoneNumber.TabIndex = 45;
+            this._phoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this._phoneNumber_Validating);
             // 
             // label4
             // 
@@ -194,6 +210,7 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(215, 43);
             this._fullName.TabIndex = 38;
+            this._fullName.Validating += new System.ComponentModel.CancelEventHandler(this._fullName_Validating);
             // 
             // _employeeID
             // 
@@ -202,6 +219,7 @@
             this._employeeID.Name = "_employeeID";
             this._employeeID.Size = new System.Drawing.Size(215, 43);
             this._employeeID.TabIndex = 37;
+            this._employeeID.Validating += new System.ComponentModel.CancelEventHandler(this._employeeID_Validating);
             // 
             // addButton
             // 
@@ -265,6 +283,7 @@
             this._role.Name = "_role";
             this._role.Size = new System.Drawing.Size(215, 36);
             this._role.TabIndex = 58;
+            this._role.Validating += new System.ComponentModel.CancelEventHandler(this._role_Validating);
             // 
             // _birthday
             // 
@@ -274,6 +293,30 @@
             this._birthday.Name = "_birthday";
             this._birthday.Size = new System.Drawing.Size(215, 38);
             this._birthday.TabIndex = 59;
+            // 
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorPhone
+            // 
+            this.errorPhone.ContainerControl = this;
+            // 
+            // errorCMND
+            // 
+            this.errorCMND.ContainerControl = this;
+            // 
+            // errorChucvu
+            // 
+            this.errorChucvu.ContainerControl = this;
+            // 
+            // erroradress
+            // 
+            this.erroradress.ContainerControl = this;
             // 
             // FormAddEmployee
             // 
@@ -305,6 +348,12 @@
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +384,11 @@
         private System.Windows.Forms.DateTimePicker _birthday;
         private System.Drawing.Bitmap bmp = null;
         public string filePath = null;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorPhone;
+        private System.Windows.Forms.ErrorProvider errorCMND;
+        private System.Windows.Forms.ErrorProvider errorChucvu;
+        private System.Windows.Forms.ErrorProvider erroradress;
     }
 }

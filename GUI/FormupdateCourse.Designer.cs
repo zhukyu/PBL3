@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this._courseID = new System.Windows.Forms.TextBox();
             this.editButton = new System.Windows.Forms.Button();
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorTime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorprice = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -167,6 +174,18 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorTime
+            // 
+            this.errorTime.ContainerControl = this;
+            // 
+            // errorprice
+            // 
+            this.errorprice.ContainerControl = this;
+            // 
             // FormUpdateCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -186,6 +205,9 @@
             this.Text = "fixCourse";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +226,8 @@
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.TextBox _price;
         public System.Windows.Forms.TextBox _courseID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorTime;
+        private System.Windows.Forms.ErrorProvider errorprice;
     }
 }

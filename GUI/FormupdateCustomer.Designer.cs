@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fixButton = new System.Windows.Forms.Button();
             this.gioitinh = new System.Windows.Forms.ComboBox();
             this._address = new System.Windows.Forms.TextBox();
@@ -45,7 +46,17 @@
             this.formName = new System.Windows.Forms.Label();
             this.formNameLable = new System.Windows.Forms.Panel();
             this._birtday = new System.Windows.Forms.DateTimePicker();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPhone = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroradress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).BeginInit();
             this.SuspendLayout();
             // 
             // fixButton
@@ -80,6 +91,7 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(289, 43);
             this._address.TabIndex = 73;
+            this._address.Validating += new System.ComponentModel.CancelEventHandler(this._address_Validating);
             // 
             // label5
             // 
@@ -121,6 +133,7 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(289, 43);
             this._idNumber.TabIndex = 69;
+            this._idNumber.Validating += new System.ComponentModel.CancelEventHandler(this._idNumber_Validating);
             // 
             // _phoneNumber
             // 
@@ -129,6 +142,7 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(289, 43);
             this._phoneNumber.TabIndex = 68;
+            this._phoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this._phoneNumber_Validating);
             // 
             // label4
             // 
@@ -181,6 +195,7 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(289, 43);
             this._fullName.TabIndex = 62;
+            this._fullName.Validating += new System.ComponentModel.CancelEventHandler(this._fullName_Validating);
             // 
             // _customerID
             // 
@@ -223,6 +238,26 @@
             this._birtday.TabIndex = 76;
             this._birtday.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorPhone
+            // 
+            this.errorPhone.ContainerControl = this;
+            // 
+            // erroradress
+            // 
+            this.erroradress.ContainerControl = this;
+            // 
+            // errorCMND
+            // 
+            this.errorCMND.ContainerControl = this;
+            // 
             // FormUpdateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -249,6 +284,11 @@
             this.Text = "y";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +313,10 @@
         public System.Windows.Forms.TextBox _phoneNumber;
         public System.Windows.Forms.TextBox _fullName;
         public System.Windows.Forms.DateTimePicker _birtday;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorPhone;
+        private System.Windows.Forms.ErrorProvider erroradress;
+        private System.Windows.Forms.ErrorProvider errorCMND;
     }
 }

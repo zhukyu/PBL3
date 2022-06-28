@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.productPicture = new System.Windows.Forms.PictureBox();
@@ -41,8 +42,16 @@
             this._productID = new System.Windows.Forms.TextBox();
             this.addPictureBox1 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorprice = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -96,6 +105,7 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(155, 36);
             this._price.TabIndex = 54;
+            this._price.Validating += new System.ComponentModel.CancelEventHandler(this._price_Validating);
             // 
             // label4
             // 
@@ -115,6 +125,7 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(155, 36);
             this._amount.TabIndex = 52;
+            this._amount.Validating += new System.ComponentModel.CancelEventHandler(this._amount_Validating);
             // 
             // label2
             // 
@@ -134,6 +145,7 @@
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(155, 36);
             this._productName.TabIndex = 50;
+            this._productName.Validating += new System.ComponentModel.CancelEventHandler(this._productName_Validating);
             // 
             // label6
             // 
@@ -153,6 +165,7 @@
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(155, 36);
             this._productID.TabIndex = 48;
+            this._productID.Validating += new System.ComponentModel.CancelEventHandler(this._productID_Validating);
             // 
             // addPictureBox1
             // 
@@ -180,6 +193,22 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorSL
+            // 
+            this.errorSL.ContainerControl = this;
+            // 
+            // errorprice
+            // 
+            this.errorprice.ContainerControl = this;
+            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -203,6 +232,10 @@
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +258,9 @@
         public System.Windows.Forms.PictureBox productPicture;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorSL;
+        private System.Windows.Forms.ErrorProvider errorprice;
     }
 }

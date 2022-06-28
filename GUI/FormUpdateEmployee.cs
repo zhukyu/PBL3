@@ -35,42 +35,45 @@ namespace Gym
             _role.Text = employee._role;
             employeePicture.ImageLocation = employee._image;
         }
-        
+
 
         private void fixButton_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                try
+                DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
                 {
-                    Employee employee = new Employee(
-                            _employeeID.Text,
-                            _fullName.Text,
-                            _gender.Text,
-                            _birthday.Value,
-                            _phoneNumber.Text,
-                            _idNumber.Text,
-                            _address.Text,
-                            _role.Text,
-                            fileName
-                        );
-                    bool result = EmployeeBLL.UpdateEmployee(employee);
-                    if (result)
+                    try
                     {
-                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
+                        Employee employee = new Employee(
+                                _employeeID.Text,
+                                _fullName.Text,
+                                _gender.Text,
+                                _birthday.Value,
+                                _phoneNumber.Text,
+                                _idNumber.Text,
+                                _address.Text,
+                                _role.Text,
+                                fileName
+                            );
+                        bool result = EmployeeBLL.UpdateEmployee(employee);
+                        if (result)
+                        {
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close();
+
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("lỗi");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("lỗi");
+                        MessageBox.Show("lỗi:" + ex.ToString());
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("lỗi:" + ex.ToString());
                 }
             }
         }
@@ -105,6 +108,116 @@ namespace Gym
         private void updateEmployee_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void _fullName_Validating(object sender, CancelEventArgs e)
+        {
+            if (_fullName.Text == "")
+            {
+                e.Cancel = true;
+                _fullName.Focus();
+
+                errorName.SetError(_fullName, "vui lòng nhập Tên Nhân viên!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorName.SetError(_fullName, null);
+            }
+        }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+        private void _phoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (_phoneNumber.Text == "")
+            {
+                e.Cancel = true;
+                _phoneNumber.Focus();
+
+                errorPhone.SetError(_phoneNumber, "vui lòng nhập SDT Nhân viên!");
+
+            }
+            else if (!IsNumber(_phoneNumber.Text))
+            {
+                e.Cancel = true;
+                _phoneNumber.Focus();
+
+                errorPhone.SetError(_phoneNumber, "Vui lòng nhập kí tự số!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorPhone.SetError(_phoneNumber, null);
+            }
+        }
+
+        private void _idNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (_idNumber.Text == "")
+            {
+                e.Cancel = true;
+                _idNumber.Focus();
+
+                errorCMND.SetError(_idNumber, "Vui lòng nhập CMND Nhân viên!");
+
+            }
+            else if (!IsNumber(_idNumber.Text))
+            {
+                e.Cancel = true;
+                _idNumber.Focus();
+
+                errorCMND.SetError(_idNumber, "Vui lòng nhập kí tự số!");
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorCMND.SetError(_idNumber, null);
+            }
+        }
+
+        private void _role_Validating(object sender, CancelEventArgs e)
+        {
+            if (_role.Text == "")
+            {
+                e.Cancel = true;
+                _role.Focus();
+
+                errorChucvu.SetError(_role, "Vui lòng nhập Chức vụ!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorChucvu.SetError(_role, null);
+            }
+        }
+
+        private void _address_Validating(object sender, CancelEventArgs e)
+        {
+            if (_address.Text == "")
+            {
+                e.Cancel = true;
+                _address.Focus();
+
+                erroradress.SetError(_address, "Vui lòng nhập Địa chỉ Nhân viên!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                erroradress.SetError(_address, null);
+            }
         }
     }
 

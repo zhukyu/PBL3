@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,9 +38,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this._courseID = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbNamekh = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorTime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorprice = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -138,19 +147,19 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // comboBox1
+            // cbNamekh
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbNamekh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbNamekh.FormattingEnabled = true;
+            this.cbNamekh.Items.AddRange(new object[] {
             "Tập tự do",
             "Cardio",
             "Yoga",
             "Gym"});
-            this.comboBox1.Location = new System.Drawing.Point(231, 212);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 39);
-            this.comboBox1.TabIndex = 63;
+            this.cbNamekh.Location = new System.Drawing.Point(231, 212);
+            this.cbNamekh.Name = "cbNamekh";
+            this.cbNamekh.Size = new System.Drawing.Size(245, 39);
+            this.cbNamekh.TabIndex = 63;
             // 
             // comboBox2
             // 
@@ -166,13 +175,29 @@
             this.comboBox2.Size = new System.Drawing.Size(245, 39);
             this.comboBox2.TabIndex = 64;
             // 
-            // addCourse
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorTime
+            // 
+            this.errorTime.ContainerControl = this;
+            // 
+            // errorprice
+            // 
+            this.errorprice.ContainerControl = this;
+            // 
+            // FormAddCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 633);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbNamekh);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._price);
@@ -181,10 +206,14 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._courseID);
             this.Controls.Add(this.formNameLable);
-            this.Name = "addCourse";
+            this.Name = "FormAddCourse";
             this.Text = "addCourse";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +230,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox _courseID;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbNamekh;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorTime;
+        private System.Windows.Forms.ErrorProvider errorprice;
     }
 }

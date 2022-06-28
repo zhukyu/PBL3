@@ -49,10 +49,14 @@
             this.errorPhone = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroradress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -84,6 +88,7 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(291, 43);
             this._address.TabIndex = 50;
+            this._address.Validating += new System.ComponentModel.CancelEventHandler(this._address_Validating);
             // 
             // label5
             // 
@@ -125,6 +130,7 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(291, 43);
             this._idNumber.TabIndex = 46;
+            this._idNumber.Validating += new System.ComponentModel.CancelEventHandler(this._idNumber_Validating);
             // 
             // _phoneNumber
             // 
@@ -243,6 +249,14 @@
             // 
             this.errorName.ContainerControl = this;
             // 
+            // erroradress
+            // 
+            this.erroradress.ContainerControl = this;
+            // 
+            // errorCMND
+            // 
+            this.errorCMND.ContainerControl = this;
+            // 
             // FormAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -273,6 +287,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +317,7 @@
         private System.Windows.Forms.ErrorProvider errorPhone;
         private System.Windows.Forms.ErrorProvider errorID;
         private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider erroradress;
+        private System.Windows.Forms.ErrorProvider errorCMND;
     }
 }

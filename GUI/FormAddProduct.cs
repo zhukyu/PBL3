@@ -171,6 +171,11 @@ namespace Gym
                 errorprice.SetError(_price, null);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.fixbutton = new System.Windows.Forms.Button();
@@ -42,8 +43,14 @@
             this.productPicture = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorprice = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -99,6 +106,7 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(153, 36);
             this._price.TabIndex = 67;
+            this._price.Validating += new System.ComponentModel.CancelEventHandler(this._price_Validating);
             // 
             // label4
             // 
@@ -118,6 +126,7 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(153, 36);
             this._amount.TabIndex = 65;
+            this._amount.Validating += new System.ComponentModel.CancelEventHandler(this._amount_Validating);
             // 
             // label2
             // 
@@ -137,6 +146,7 @@
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(153, 36);
             this._productName.TabIndex = 63;
+            this._productName.Validating += new System.ComponentModel.CancelEventHandler(this._productName_Validating);
             // 
             // label6
             // 
@@ -195,6 +205,18 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorSL
+            // 
+            this.errorSL.ContainerControl = this;
+            // 
+            // errorprice
+            // 
+            this.errorprice.ContainerControl = this;
+            // 
             // FormUpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -219,6 +241,9 @@
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +267,8 @@
         private string filePath = null;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorSL;
+        private System.Windows.Forms.ErrorProvider errorprice;
     }
 }

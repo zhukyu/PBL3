@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();

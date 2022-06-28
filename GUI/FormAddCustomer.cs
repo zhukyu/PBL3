@@ -24,38 +24,151 @@ namespace Gym
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                try
+                DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
                 {
-                    Customer customer = new Customer(
-                            _customerID.Text,
-                            _fullName.Text,
-                            _gender.Text,
-                            _birthday.Value,
-                            _phoneNumber.Text,
-                            
-                            _address.Text,
-                            _idNumber.Text
+                    try
+                    {
+                        Customer customer = new Customer(
+                                _customerID.Text,
+                                _fullName.Text,
+                                _gender.Text,
+                                _birthday.Value,
+                                _phoneNumber.Text,
+
+                                _address.Text,
+                                _idNumber.Text
 
 
-                        );
-                    bool result = CustomerBLL.AddCustomer(customer);
-                    if (result)
-                    {
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                            );
+                        bool result = CustomerBLL.AddCustomer(customer);
+                        if (result)
+                        {
+                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể thêm");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Không thể thêm");
+                        errorID.SetError(_customerID, "Mã khách hàng đã tồn tại"); //MessageBox.Show("Lỗi: " + ex.ToString());
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.ToString());
-                }
+            }
+        }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+        private void _phoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (_phoneNumber.Text == "")
+            {
+                e.Cancel = true;
+                _phoneNumber.Focus();
+
+                errorPhone.SetError(_phoneNumber, "vui lòng nhập SDT khách hàng!");
+
+            }
+             else if (!IsNumber(_phoneNumber.Text))
+            {
+                e.Cancel = true;
+                _phoneNumber.Focus();
+                
+                errorPhone.SetError(_phoneNumber, "Vui lòng nhập kí tự số!");
+               
+            }
+            else
+            {
+                e.Cancel = false;
+                errorPhone.SetError(_phoneNumber, null);
+            }
+        }
+
+        private void _customerID_Validating(object sender, CancelEventArgs e)
+        {
+            if (_customerID.Text=="")
+            {
+                e.Cancel = true;
+                _customerID.Focus();
+
+                errorID.SetError(_customerID, "vui lòng nhập Mã khách hàng!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorID.SetError(_customerID, null);
+            }
+        }
+
+        private void _fullName_Validating(object sender, CancelEventArgs e)
+        {
+            if (_fullName.Text == "")
+            {
+                e.Cancel = true;
+                _fullName.Focus();
+
+                errorName.SetError(_fullName, "vui lòng nhập Tên khách hàng!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorName.SetError(_fullName, null);
+            }
+        }
+
+        private void _address_Validating(object sender, CancelEventArgs e)
+        {
+            if (_address.Text == "")
+            {
+                e.Cancel = true;
+                _address.Focus();
+
+                erroradress.SetError(_address, "vui lòng nhập Địa chỉ khách hàng!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                erroradress.SetError(_address, null);
+            }
+        }
+
+        private void _idNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (_idNumber.Text == "")
+            {
+                e.Cancel = true;
+                _idNumber.Focus();
+
+                errorCMND.SetError(_idNumber, "vui lòng CMND khách hàng!");
+
+            }
+             else if (!IsNumber(_idNumber.Text))
+            {
+                e.Cancel = true;
+                _idNumber.Focus();
+
+                errorCMND.SetError(_idNumber, "Vui lòng nhập kí tự số!");
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorCMND.SetError(_idNumber, null);
             }
         }
     }

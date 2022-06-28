@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
             this._role = new System.Windows.Forms.ComboBox();
@@ -50,8 +51,18 @@
             this._birthday = new System.Windows.Forms.DateTimePicker();
             this.deleteImgBtn = new System.Windows.Forms.Button();
             this.replaceImgBtn = new System.Windows.Forms.Button();
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPhone = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorChucvu = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroradress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -87,6 +98,7 @@
             this._role.Name = "_role";
             this._role.Size = new System.Drawing.Size(215, 39);
             this._role.TabIndex = 74;
+            this._role.Validating += new System.ComponentModel.CancelEventHandler(this._role_Validating);
             // 
             // _gender
             // 
@@ -107,6 +119,7 @@
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(215, 43);
             this._address.TabIndex = 72;
+            this._address.Validating += new System.ComponentModel.CancelEventHandler(this._address_Validating);
             // 
             // label5
             // 
@@ -159,6 +172,7 @@
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(215, 43);
             this._idNumber.TabIndex = 67;
+            this._idNumber.Validating += new System.ComponentModel.CancelEventHandler(this._idNumber_Validating);
             // 
             // _phoneNumber
             // 
@@ -167,6 +181,7 @@
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(215, 43);
             this._phoneNumber.TabIndex = 66;
+            this._phoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this._phoneNumber_Validating);
             // 
             // label4
             // 
@@ -219,6 +234,7 @@
             this._fullName.Name = "_fullName";
             this._fullName.Size = new System.Drawing.Size(215, 43);
             this._fullName.TabIndex = 60;
+            this._fullName.Validating += new System.ComponentModel.CancelEventHandler(this._fullName_Validating);
             // 
             // _employeeID
             // 
@@ -288,6 +304,26 @@
             this.replaceImgBtn.UseVisualStyleBackColor = false;
             this.replaceImgBtn.Click += new System.EventHandler(this.button2_Click);
             // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorPhone
+            // 
+            this.errorPhone.ContainerControl = this;
+            // 
+            // errorChucvu
+            // 
+            this.errorChucvu.ContainerControl = this;
+            // 
+            // erroradress
+            // 
+            this.erroradress.ContainerControl = this;
+            // 
+            // errorCMND
+            // 
+            this.errorCMND.ContainerControl = this;
+            // 
             // FormUpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -321,6 +357,11 @@
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroradress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,5 +393,10 @@
         private string filePath = null;
         private System.Windows.Forms.Button deleteImgBtn;
         private System.Windows.Forms.Button replaceImgBtn;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorPhone;
+        private System.Windows.Forms.ErrorProvider errorChucvu;
+        private System.Windows.Forms.ErrorProvider erroradress;
+        private System.Windows.Forms.ErrorProvider errorCMND;
     }
 }

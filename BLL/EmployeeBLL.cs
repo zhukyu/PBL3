@@ -37,5 +37,9 @@ namespace Gym.BLL
         {
             return EmployeeDAL.SearchEmployee(str);
         }
+        public static string GetEmployeeName(string ID)
+        {
+            return EmployeeDAL.GetStaffName(ID);
+        }
     }
 }

@@ -90,6 +90,7 @@
             this.productPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.productPicture.BackColor = System.Drawing.Color.White;
             this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.productPicture.Image = global::Gym.Properties.Resources.icons8_product_60px;
             this.productPicture.Location = new System.Drawing.Point(18, 19);
             this.productPicture.Name = "productPicture";
             this.productPicture.Size = new System.Drawing.Size(217, 217);
@@ -113,11 +114,12 @@
             // 
             this._price.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._price.BackColor = System.Drawing.Color.White;
+            this._price.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._price.Enabled = false;
             this._price.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._price.Location = new System.Drawing.Point(192, 137);
             this._price.Name = "_price";
-            this._price.Size = new System.Drawing.Size(245, 44);
+            this._price.Size = new System.Drawing.Size(245, 37);
             this._price.TabIndex = 44;
             // 
             // label4
@@ -136,11 +138,12 @@
             // 
             this._amount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._amount.BackColor = System.Drawing.Color.White;
+            this._amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._amount.Enabled = false;
             this._amount.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._amount.Location = new System.Drawing.Point(234, 137);
             this._amount.Name = "_amount";
-            this._amount.Size = new System.Drawing.Size(245, 44);
+            this._amount.Size = new System.Drawing.Size(245, 37);
             this._amount.TabIndex = 42;
             // 
             // label2
@@ -159,11 +162,12 @@
             // 
             this._productName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._productName.BackColor = System.Drawing.Color.White;
+            this._productName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._productName.Enabled = false;
             this._productName.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._productName.Location = new System.Drawing.Point(192, 54);
             this._productName.Name = "_productName";
-            this._productName.Size = new System.Drawing.Size(245, 44);
+            this._productName.Size = new System.Drawing.Size(245, 37);
             this._productName.TabIndex = 40;
             // 
             // label6
@@ -182,12 +186,12 @@
             // 
             this._productID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._productID.BackColor = System.Drawing.Color.White;
-            this._productID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._productID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._productID.Enabled = false;
             this._productID.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._productID.Location = new System.Drawing.Point(234, 54);
             this._productID.Name = "_productID";
-            this._productID.Size = new System.Drawing.Size(245, 44);
+            this._productID.Size = new System.Drawing.Size(245, 37);
             this._productID.TabIndex = 37;
             // 
             // panel1
@@ -494,6 +498,7 @@
             this.ProductDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductDGV.EnableHeadersVisualStyles = false;
             this.ProductDGV.Location = new System.Drawing.Point(0, 59);
+            this.ProductDGV.MultiSelect = false;
             this.ProductDGV.Name = "ProductDGV";
             this.ProductDGV.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

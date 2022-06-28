@@ -56,7 +56,7 @@ namespace Gym
                 productPicture.Image = img;
             }
             else
-                productPicture.Image = Properties.Resources.person_128px1;
+                productPicture.Image = Properties.Resources.icons8_product_60px;
 
         }
         private void addButton_Click(object sender, EventArgs e)

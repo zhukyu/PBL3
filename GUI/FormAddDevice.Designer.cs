@@ -39,14 +39,14 @@
             this._deviceID = new System.Windows.Forms.TextBox();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
             this.addPictureBox1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.devicePicture = new System.Windows.Forms.PictureBox();
+            this._employeeID = new System.Windows.Forms.TextBox();
+            this._importDate = new System.Windows.Forms.DateTimePicker();
+            this._status = new System.Windows.Forms.ComboBox();
             this.formNameLable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.devicePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -161,19 +161,6 @@
             this.formName.TabIndex = 1;
             this.formName.Text = "Thêm thiết bị";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.Items.AddRange(new object[] {
-            "Tốt",
-            "Bình thường",
-            "Hỏng"});
-            this.comboBox1.Location = new System.Drawing.Point(482, 102);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 45);
-            this.comboBox1.TabIndex = 48;
-            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -200,46 +187,61 @@
             this.addPictureBox1.UseVisualStyleBackColor = false;
             this.addPictureBox1.Click += new System.EventHandler(this.addPictureBox1_Click);
             // 
-            // pictureBox1
+            // devicePicture
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(97, 309);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 291);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 57;
-            this.pictureBox1.TabStop = false;
+            this.devicePicture.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.devicePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.devicePicture.Location = new System.Drawing.Point(97, 309);
+            this.devicePicture.Name = "devicePicture";
+            this.devicePicture.Size = new System.Drawing.Size(228, 291);
+            this.devicePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.devicePicture.TabIndex = 57;
+            this.devicePicture.TabStop = false;
             // 
-            // dateTimePicker1
+            // _employeeID
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(482, 246);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(202, 43);
-            this.dateTimePicker1.TabIndex = 59;
+            this._employeeID.BackColor = System.Drawing.Color.White;
+            this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._employeeID.Location = new System.Drawing.Point(493, 173);
+            this._employeeID.Name = "_employeeID";
+            this._employeeID.ReadOnly = true;
+            this._employeeID.Size = new System.Drawing.Size(203, 43);
+            this._employeeID.TabIndex = 82;
             // 
-            // comboBox2
+            // _importDate
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(482, 173);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 45);
-            this.comboBox2.TabIndex = 60;
+            this._importDate.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._importDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._importDate.Location = new System.Drawing.Point(493, 246);
+            this._importDate.Name = "_importDate";
+            this._importDate.Size = new System.Drawing.Size(203, 43);
+            this._importDate.TabIndex = 81;
             // 
-            // addDevice
+            // _status
+            // 
+            this._status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._status.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._status.FormattingEnabled = true;
+            this._status.Items.AddRange(new object[] {
+            "Tốt",
+            "Bình thường",
+            "Hỏng"});
+            this._status.Location = new System.Drawing.Point(493, 102);
+            this._status.Name = "_status";
+            this._status.Size = new System.Drawing.Size(203, 45);
+            this._status.TabIndex = 80;
+            // 
+            // FormAddDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._employeeID);
+            this.Controls.Add(this._importDate);
+            this.Controls.Add(this._status);
             this.Controls.Add(this.addPictureBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.devicePicture);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.formNameLable);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -250,12 +252,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this._deviceName);
             this.Controls.Add(this._deviceID);
-            this.Name = "addDevice";
+            this.Name = "FormAddDevice";
             this.Text = "addDevice";
             this.Load += new System.EventHandler(this.addDevice_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.devicePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,11 +277,11 @@
         private System.Windows.Forms.Label formName;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addPictureBox1;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox devicePicture;
         private System.Drawing.Bitmap bmp = null;
         private string filePath = null;
-        private System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.TextBox _employeeID;
+        public System.Windows.Forms.DateTimePicker _importDate;
+        public System.Windows.Forms.ComboBox _status;
     }
 }

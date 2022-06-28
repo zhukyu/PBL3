@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Gym.DTO;
+using Gym.BLL;
 
 namespace Gym
 {
@@ -23,42 +25,32 @@ namespace Gym
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = null;
-            DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dlr = MessageBox.Show("Bạn có muốn thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
+
                 try
-
                 {
-                    if (conn == null)
+                    Course course = new Course(
+                        _courseID.Text,
+                        _courseName.Text,
+                        _duration.Text,
+                        Convert.ToInt32(_price.Text)
+                    );
+                    bool result = CourseBLL.AddCourse(course);
+                    if (result)
                     {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
-
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "Insert into Course(courseID,courseName,duration,price)" + "values (N'" + _courseID.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "','" + _price.Text + "')";
-                    comm.CommandText = st;
-                    comm.Connection = conn;
-
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
-                    {
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm thất bại");
+                        MessageBox.Show("lỗi");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("lỗi: " + ex.Message);
                 }
             }
         }

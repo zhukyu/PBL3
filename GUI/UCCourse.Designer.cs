@@ -50,16 +50,10 @@
             this.addButton = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.button2 = new System.Windows.Forms.Button();
             this.botPanel = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.courseList = new System.Windows.Forms.Panel();
-            this.memberTable = new System.Windows.Forms.DataGridView();
+            this.CourseDGV = new System.Windows.Forms.DataGridView();
             this.courseIDClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseNameClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +66,7 @@
             this.botPanel.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.courseList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memberTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CourseDGV)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +104,7 @@
             // 
             this._price.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._price.BackColor = System.Drawing.Color.White;
+            this._price.Enabled = false;
             this._price.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._price.Location = new System.Drawing.Point(923, 139);
             this._price.Name = "_price";
@@ -192,9 +187,9 @@
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(23, 237);
+            this.deleteButton.Location = new System.Drawing.Point(92, 276);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(167, 49);
+            this.deleteButton.Size = new System.Drawing.Size(234, 49);
             this.deleteButton.TabIndex = 63;
             this.deleteButton.Text = "Xóa";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -231,9 +226,9 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editButton.Location = new System.Drawing.Point(224, 126);
+            this.editButton.Location = new System.Drawing.Point(92, 196);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(167, 49);
+            this.editButton.Size = new System.Drawing.Size(234, 49);
             this.editButton.TabIndex = 62;
             this.editButton.Text = "Sửa ";
             this.editButton.UseVisualStyleBackColor = false;
@@ -270,9 +265,9 @@
             this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(23, 126);
+            this.addButton.Location = new System.Drawing.Point(92, 117);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(167, 49);
+            this.addButton.Size = new System.Drawing.Size(234, 49);
             this.addButton.TabIndex = 61;
             this.addButton.Text = "Thêm";
             this.addButton.UseVisualStyleBackColor = false;
@@ -289,9 +284,6 @@
             this.search.TabIndex = 57;
             this.search.Text = "ID,TÊN";
             this.search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
-            this.search.Enter += new System.EventHandler(this.search_Enter);
-            this.search.Leave += new System.EventHandler(this.search_Leave);
             // 
             // searchButton
             // 
@@ -304,67 +296,6 @@
             this.searchButton.TabIndex = 58;
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(45, 91);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(26, 34);
-            this.listView1.TabIndex = 65;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Name = "columnHeader1";
-            this.columnHeader1.Text = "Mã khóa học";
-            this.columnHeader1.Width = 150;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "Tên Khóa học";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 200;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Name = "columnHeader3";
-            this.columnHeader3.Text = "Thời gian";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 200;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Name = "columnHeader4";
-            this.columnHeader4.Text = "Đơn giá";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 200;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(224, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 49);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "  Đặt lại";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // botPanel
             // 
@@ -383,7 +314,6 @@
             this.controlPanel.Controls.Add(this.search);
             this.controlPanel.Controls.Add(this.addButton);
             this.controlPanel.Controls.Add(this.editButton);
-            this.controlPanel.Controls.Add(this.button2);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Location = new System.Drawing.Point(901, 0);
             this.controlPanel.Name = "controlPanel";
@@ -392,7 +322,7 @@
             // 
             // courseList
             // 
-            this.courseList.Controls.Add(this.memberTable);
+            this.courseList.Controls.Add(this.CourseDGV);
             this.courseList.Controls.Add(this.formNameLable);
             this.courseList.Controls.Add(this.controlPanel);
             this.courseList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -401,12 +331,13 @@
             this.courseList.Size = new System.Drawing.Size(1320, 352);
             this.courseList.TabIndex = 0;
             // 
-            // memberTable
+            // CourseDGV
             // 
-            this.memberTable.AllowUserToAddRows = false;
-            this.memberTable.AllowUserToDeleteRows = false;
-            this.memberTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.memberTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.CourseDGV.AllowUserToAddRows = false;
+            this.CourseDGV.AllowUserToDeleteRows = false;
+            this.CourseDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.CourseDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.CourseDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -414,9 +345,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.memberTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.memberTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.memberTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.CourseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CourseDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.courseIDClmn,
             this.courseNameClmn,
             this.durationClmn,
@@ -428,12 +359,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.memberTable.DefaultCellStyle = dataGridViewCellStyle2;
-            this.memberTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memberTable.EnableHeadersVisualStyles = false;
-            this.memberTable.Location = new System.Drawing.Point(0, 59);
-            this.memberTable.Name = "memberTable";
-            this.memberTable.ReadOnly = true;
+            this.CourseDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CourseDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CourseDGV.EnableHeadersVisualStyles = false;
+            this.CourseDGV.Location = new System.Drawing.Point(0, 59);
+            this.CourseDGV.MultiSelect = false;
+            this.CourseDGV.Name = "CourseDGV";
+            this.CourseDGV.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -441,12 +373,13 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.memberTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.memberTable.RowHeadersWidth = 51;
-            this.memberTable.RowTemplate.Height = 29;
-            this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberTable.Size = new System.Drawing.Size(901, 293);
-            this.memberTable.TabIndex = 61;
+            this.CourseDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.CourseDGV.RowHeadersWidth = 51;
+            this.CourseDGV.RowTemplate.Height = 29;
+            this.CourseDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CourseDGV.Size = new System.Drawing.Size(901, 293);
+            this.CourseDGV.TabIndex = 61;
+            this.CourseDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CourseDGV_CellClick);
             // 
             // courseIDClmn
             // 
@@ -505,10 +438,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.listView1);
             this.Name = "UCCourse";
             this.Size = new System.Drawing.Size(1326, 651);
-            this.Load += new System.EventHandler(this.Course_Load);
+            this.Load += new System.EventHandler(this.UCCourse_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -517,7 +449,7 @@
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
             this.courseList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memberTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CourseDGV)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -543,18 +475,12 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel botPanel;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Panel courseList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.DataGridView memberTable;
+        private System.Windows.Forms.DataGridView CourseDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseIDClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn durationClmn;

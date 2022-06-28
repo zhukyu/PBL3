@@ -15,7 +15,7 @@ namespace Gym.BLL
         {
             try
             {
-                if (fullImgPath == null)
+                if (fullImgPath == null || fullImgPath == "")
                     return null;
                 Image temp = GetImage(fullImgPath);
                 string shortImgPath = "Images\\" + ID + ".jpg"; // lưu ảnh định dạng ID.jpg

@@ -38,8 +38,8 @@
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.searchTB = new System.Windows.Forms.TextBox();
+            this._importDate = new System.Windows.Forms.DateTimePicker();
             this.devicePicture = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,13 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this._deviceName = new System.Windows.Forms.TextBox();
             this._deviceID = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,7 +60,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.memberTable = new System.Windows.Forms.DataGridView();
+            this.DeviceDGV = new System.Windows.Forms.DataGridView();
             this.deviceIDClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deviceNameClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountClmn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +78,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memberTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeviceDGV)).BeginInit();
             this.controlPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -168,39 +161,38 @@
             this.button1.Size = new System.Drawing.Size(59, 47);
             this.button1.TabIndex = 45;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // textBox2
+            // searchTB
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(44, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 38);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.Text = "ID,TÊN,NVQL";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
-            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
+            this.searchTB.BackColor = System.Drawing.Color.White;
+            this.searchTB.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.searchTB.ForeColor = System.Drawing.Color.Gray;
+            this.searchTB.Location = new System.Drawing.Point(44, 21);
+            this.searchTB.Name = "searchTB";
+            this.searchTB.Size = new System.Drawing.Size(231, 38);
+            this.searchTB.TabIndex = 43;
+            this.searchTB.Text = "ID,TÊN,NVQL";
+            this.searchTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dateTimePicker1
+            // _importDate
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(180, 105);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(256, 38);
-            this.dateTimePicker1.TabIndex = 38;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
+            this._importDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._importDate.Enabled = false;
+            this._importDate.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._importDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._importDate.Location = new System.Drawing.Point(180, 105);
+            this._importDate.Name = "_importDate";
+            this._importDate.Size = new System.Drawing.Size(256, 38);
+            this._importDate.TabIndex = 38;
+            this._importDate.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
             // devicePicture
             // 
             this.devicePicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.devicePicture.BackColor = System.Drawing.Color.White;
             this.devicePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.devicePicture.Image = global::Gym.Properties.Resources.icons8_barbell_60px;
             this.devicePicture.Location = new System.Drawing.Point(27, 11);
             this.devicePicture.Name = "devicePicture";
             this.devicePicture.Size = new System.Drawing.Size(230, 239);
@@ -335,66 +327,6 @@
             this._deviceID.Size = new System.Drawing.Size(255, 43);
             this._deviceID.TabIndex = 21;
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader5});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(74, 71);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(42, 49);
-            this.listView1.TabIndex = 51;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Name = "columnHeader1";
-            this.columnHeader1.Text = "Mã thiết bị";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "Tên thiết bị";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 200;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Name = "columnHeader3";
-            this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 100;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Name = "columnHeader4";
-            this.columnHeader4.Text = "Tình trạng";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 150;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Name = "columnHeader6";
-            this.columnHeader6.Text = "Ngày nhập";
-            this.columnHeader6.Width = 120;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Name = "columnHeader5";
-            this.columnHeader5.Text = "Nhân viên QL";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 200;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
@@ -445,7 +377,7 @@
             // 
             this.panel5.Controls.Add(this._employeeID);
             this.panel5.Controls.Add(this._status);
-            this.panel5.Controls.Add(this.dateTimePicker1);
+            this.panel5.Controls.Add(this._importDate);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label6);
@@ -482,7 +414,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.memberTable);
+            this.panel8.Controls.Add(this.DeviceDGV);
             this.panel8.Controls.Add(this.panel1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -490,12 +422,12 @@
             this.panel8.Size = new System.Drawing.Size(966, 323);
             this.panel8.TabIndex = 2;
             // 
-            // memberTable
+            // DeviceDGV
             // 
-            this.memberTable.AllowUserToAddRows = false;
-            this.memberTable.AllowUserToDeleteRows = false;
-            this.memberTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.memberTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.DeviceDGV.AllowUserToAddRows = false;
+            this.DeviceDGV.AllowUserToDeleteRows = false;
+            this.DeviceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DeviceDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -503,9 +435,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.memberTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.memberTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.memberTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DeviceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DeviceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DeviceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.deviceIDClmn,
             this.deviceNameClmn,
             this.amountClmn,
@@ -518,12 +450,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.memberTable.DefaultCellStyle = dataGridViewCellStyle2;
-            this.memberTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memberTable.EnableHeadersVisualStyles = false;
-            this.memberTable.Location = new System.Drawing.Point(0, 59);
-            this.memberTable.Name = "memberTable";
-            this.memberTable.ReadOnly = true;
+            this.DeviceDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DeviceDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeviceDGV.EnableHeadersVisualStyles = false;
+            this.DeviceDGV.Location = new System.Drawing.Point(0, 59);
+            this.DeviceDGV.MultiSelect = false;
+            this.DeviceDGV.Name = "DeviceDGV";
+            this.DeviceDGV.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -531,12 +464,13 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(124)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.memberTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.memberTable.RowHeadersWidth = 51;
-            this.memberTable.RowTemplate.Height = 29;
-            this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberTable.Size = new System.Drawing.Size(966, 264);
-            this.memberTable.TabIndex = 50;
+            this.DeviceDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DeviceDGV.RowHeadersWidth = 51;
+            this.DeviceDGV.RowTemplate.Height = 29;
+            this.DeviceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DeviceDGV.Size = new System.Drawing.Size(966, 264);
+            this.DeviceDGV.TabIndex = 50;
+            this.DeviceDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeviceDGV_CellClick);
             // 
             // deviceIDClmn
             // 
@@ -576,7 +510,7 @@
             // controlPanel
             // 
             this.controlPanel.Controls.Add(this.deleteButton);
-            this.controlPanel.Controls.Add(this.textBox2);
+            this.controlPanel.Controls.Add(this.searchTB);
             this.controlPanel.Controls.Add(this.editButton);
             this.controlPanel.Controls.Add(this.addButton);
             this.controlPanel.Controls.Add(this.button1);
@@ -618,10 +552,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.listView1);
             this.Name = "UCDevice";
             this.Size = new System.Drawing.Size(1335, 658);
-            this.Load += new System.EventHandler(this.Device_Load);
+            this.Load += new System.EventHandler(this.UCDevice_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devicePicture)).EndInit();
@@ -635,7 +568,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memberTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeviceDGV)).EndInit();
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -652,7 +585,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox searchTB;
         private System.Windows.Forms.PictureBox devicePicture;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -664,14 +597,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _deviceName;
         private System.Windows.Forms.TextBox _deviceID;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.DateTimePicker _importDate;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox _status;
@@ -684,7 +610,7 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView memberTable;
+        private System.Windows.Forms.DataGridView DeviceDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn deviceIDClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deviceNameClmn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountClmn;

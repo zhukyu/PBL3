@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
     public partial class FormAddDevice : Form
     {
+        string fileName = null;
         public FormAddDevice()
         {
             InitializeComponent();
         }
-
-        SqlConnection conn = null;
-        string fileName = "";
+        
         private void addButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn Thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -29,23 +30,17 @@ namespace Gym
                 try
 
                 {
-                    if (conn == null)
-                    {
-                        conn = new SqlConnection(Program.cnstr);
-                    }
-                    if (conn.State == ConnectionState.Closed)
-                    {
-                        conn.Open();
-                    }
-
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandType = CommandType.Text;
-                    string st = "Insert into Device(deviceID,deviceName,amount,status,importDate,image,nv)" + "values (N'" + _deviceID.Text + "',N'" + _deviceName.Text + "','" + _amount.Text + "',N'" + comboBox1.Text + "','" + dateTimePicker1.Value.ToString("yyyyMMdd") + "','"   + fileName  + "',N'" + comboBox2.Text + "')";
-                    comm.CommandText = st;
-                    comm.Connection = conn;
-
-                    int ret = comm.ExecuteNonQuery();
-                    if (ret > 0)
+                    Device device = new Device(
+                        _deviceID.Text,
+                        _deviceName.Text,
+                        Convert.ToInt32(_amount.Text),
+                        _status.Text,
+                        _importDate.Value,
+                        fileName,
+                        Program.userID
+                    );
+                    bool result = DeviceBLL.AddDevice(device);
+                    if(result)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
@@ -62,7 +57,6 @@ namespace Gym
             }
 
         }
-        OpenFileDialog _openFileDialog = new OpenFileDialog();
         private void addPictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -75,11 +69,9 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-                    fileName = Convert.ToBase64String(converImgToByte());
-                    pictureBox1.ImageLocation = openFile.FileName;
-                    pictureBox1.Load();
+                    devicePicture.Image = ImageHandle.GetImage(fileName);
                 }
-               
+
 
             }
             catch (Exception ex)
@@ -90,37 +82,7 @@ namespace Gym
 
         private void addDevice_Load(object sender, EventArgs e)
         {
-            if (conn == null)
-            {
-                conn = new SqlConnection(Program.cnstr);
-            }
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            SqlCommand comm = new SqlCommand();
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select fullName from Employee";
-            comm.Connection = conn;
-
-
-            SqlDataAdapter da = new SqlDataAdapter("select fullName from Employee", conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            comboBox2.DataSource = dt;
-            comboBox2.DisplayMember = "fullname";
-        }
-
-        
-
-        private byte[] converImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
+            _employeeID.Text = Program.userName;
         }
     }
 }

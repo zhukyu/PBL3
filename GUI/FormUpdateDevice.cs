@@ -9,19 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Gym.DTO;
+using Gym.BLL;
 
 namespace Gym
 {
     public partial class FormUpdateDevice : Form
     {
+        string fileName = null;
         public FormUpdateDevice()
         {
             InitializeComponent();
         }
-
-
-        SqlConnection conn = null;
-        string fileName = "";
+        public FormUpdateDevice(Device device)
+        {
+            InitializeComponent();
+            _deviceID.Text = device._deviceID;
+            _deviceName.Text = device._deviceName;
+            _amount.Text = device._amount.ToString();
+            _status.Text = device._status;
+            _importDate.Value = device._importDate;
+            _employeeID.Text = device._employeeID;
+            fileName = device._image;
+        }
         private void editButton_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Bạn có chắc chắn thay đổi dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -30,89 +40,50 @@ namespace Gym
 
                 try
                 {
-
-
-                    string maSp = _deviceID.Text;
+                    Device device = new Device(
+                        _deviceID.Text,
+                        _deviceName.Text,
+                        Convert.ToInt32(_amount.Text),
+                        _status.Text,
+                        _importDate.Value,
+                        fileName,
+                        Program.userID
+                    );
+                    bool result = DeviceBLL.UpdateDevice(device);
+                    if (result)
                     {
-                        if (conn == null)
-                        {
-                            conn = new SqlConnection(Program.cnstr);
-                        }
-                        if (conn.State == ConnectionState.Closed)
-                        {
-                            conn.Open();
-                        }
-
-                        SqlCommand comm = new SqlCommand();
-                        comm.CommandType = CommandType.Text;
-                        string st = "update Device set deviceName=N'" + _deviceID.Text + "',amount=N'" + _amount.Text + "',status=N'" + comboBox1.Text + "',importDate='" + dateTimePicker1.Text + "',nv=N'" + comboBox2.Text + "' ,anh=N'" + fileName + "'" + "where deviceID=@maSp";
-                        comm.CommandText = st;
-                        comm.CommandText = st;
-                        comm.Connection = conn;
-
-                        SqlParameter para = new SqlParameter("@maSp", SqlDbType.NVarChar);
-                        para.Value = maSp;
-                        comm.Parameters.Add(para);
-                        int ret = comm.ExecuteNonQuery();
-                        if (ret > 0)
-                        {
-                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("lỗi");
-                        }
+                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("lỗi");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("lỗi:" + ex.Message);
+                    MessageBox.Show("lỗi: " + ex.Message);
                 }
             }
         }
 
         private void updateDevice_Load(object sender, EventArgs e)
         {
-            if (conn == null)
+            _employeeID.Text = Program.userName;
+            if (fileName == null)
             {
-                conn = new SqlConnection(Program.cnstr);
+                devicePicture.Image = Properties.Resources.icons8_barbell_60px;
             }
-            if (conn.State == ConnectionState.Closed)
+            else
             {
-                conn.Open();
+                devicePicture.Image = ImageHandle.GetImage(fileName);
             }
-            SqlCommand comm = new SqlCommand();
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select *from  Device";
-            comm.Connection = conn;
-
-
-            SqlDataReader rar = comm.ExecuteReader();
-
-            while (rar.Read())
-            {
-                fileName = rar.GetString(5);
-
-
-            }
-            rar.Close();
-
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = null;
-            fileName = "";
-        }
-        private byte[] converImgToByte()
-        {
-            FileStream fs;
-            fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
+            devicePicture.Image = Properties.Resources.icons8_barbell_60px;
+            fileName = null;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -125,9 +96,7 @@ namespace Gym
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFile.FileName;
-                    fileName = Convert.ToBase64String(converImgToByte());
-                    pictureBox1.ImageLocation = openFile.FileName;
-                    pictureBox1.Load();
+                    devicePicture.Image = ImageHandle.GetImage(fileName);
                 }
 
 

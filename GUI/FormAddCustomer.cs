@@ -58,5 +58,64 @@ namespace Gym
                 }
             }
         }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+        private void _phoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (!IsNumber(_phoneNumber.Text))
+            {
+                e.Cancel = true;
+                _phoneNumber.Focus();
+                
+                errorPhone.SetError(_phoneNumber, "Vui lòng nhập kí tự số!");
+               
+            }
+            else
+            {
+                e.Cancel = false;
+                errorPhone.SetError(_phoneNumber, null);
+            }
+        }
+
+        private void _customerID_Validating(object sender, CancelEventArgs e)
+        {
+            if (_customerID.Text=="")
+            {
+                e.Cancel = true;
+                _customerID.Focus();
+
+                errorID.SetError(_customerID, "vui lòng nhập Mã khách hàng!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorID.SetError(_customerID, null);
+            }
+        }
+
+        private void _fullName_Validating(object sender, CancelEventArgs e)
+        {
+            if (_fullName.Text == "")
+            {
+                e.Cancel = true;
+                _fullName.Focus();
+
+                errorName.SetError(_fullName, "vui lòng nhập Tên khách hàng!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorName.SetError(_fullName, null);
+            }
+        }
     }
 }

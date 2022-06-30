@@ -208,7 +208,7 @@ namespace Gym.DAL
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand($"select * from Employee where employeeID = '{employeeID}'", conn);
+                SqlCommand cmd = new SqlCommand($"select fullName from Employee where employeeID = '{employeeID}'", conn);
 
                 SqlDataReader data = cmd.ExecuteReader();
                 if (data.Read())

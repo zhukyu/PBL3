@@ -14,6 +14,10 @@ namespace Gym.BLL
         {
             return CourseReceiptDAL.GetAllCourseReceipts();
         }
+        public static List<CourseReceipt> GetCourseReceiptsByDate(DateTime beginDate, DateTime endDate)
+        {
+            return CourseReceiptDAL.GetCourseReceiptsByDate(beginDate, endDate);
+        }
         public static bool InsertCourseReceipt(CourseReceipt courseReceipt)
         {
             return CourseReceiptDAL.InsertCourseReceipt(courseReceipt);

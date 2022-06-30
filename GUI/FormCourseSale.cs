@@ -79,7 +79,7 @@ namespace Gym
                         customer._customerID,
                         courses[courseIndex]._courseID,
                         teachers[teacherIndex]._employeeID,
-                        _cashier.Text,
+                        Program.userID,
                         DateTime.Today,
                         DateTime.Today.AddMonths(duration),
                         Convert.ToInt32(_price.Text)

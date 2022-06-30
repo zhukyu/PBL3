@@ -34,7 +34,7 @@ namespace Gym
                     device._deviceName,
                     device._amount,
                     device._status,
-                    device._importDate
+                    device._importDate.ToString("dd/MM/yyyy")
                 );
             }
             DeviceDGV.Rows[selectedIndex].Cells[0].Selected = true;

@@ -8,77 +8,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
     public partial class FormCourseReceipt : Form
     {
+        CourseReceipt receipt;
         public FormCourseReceipt()
         {
             InitializeComponent();
         }
 
-        public FormCourseReceipt(string str)
+        public FormCourseReceipt(CourseReceipt receipt)
         {
             InitializeComponent();
-            this._receiptID.Text = str;
+            this.receipt = receipt;
         }
 
         private void CourseReceipt_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("select a.registerDate, b.fullName, c.fullName, c.idNumber, c.phoneNumber, c.address, a.courseID, a.price, a.teacherID " +
-                    "from CourseReceipt a, Employee b, Customer c " +
-                    $"where a.receiptID = '{_receiptID.Text}' and a.employeeID = b.employeeID and a.customerID = c.customerID", conn);
-                SqlDataReader rd = cmd.ExecuteReader();
+                string cashier = EmployeeBLL.GetEmployeeName(receipt._employeeID);
+                _receiptID.Text = receipt._receiptID;   
+                _publishDate.Text = receipt._registerDate.ToString("dd/MM/yyyy");
+                _cashier.Text = cashier;
+                Customer customer = CustomerBLL.SearchCustomer(receipt._customerID)[0];
+                _customerName.Text = customer._fullName;
+                _idNumber.Text = customer._idNumber;
+                _phoneNumber.Text = customer._phoneNumber;
+                _address.Text = customer._address;
 
-                if (rd.Read())
-                {
-                    _publishDate.Text = rd.GetDateTime(0).ToString("dd-MM-yyyy");
-                    _cashier.Text = rd.GetString(1);
-                    _customerName.Text = rd.GetString(2);
-                    _idNumber.Text = rd.GetString(3);
-                    _phoneNumber.Text = rd.GetString(4);
-                    _address.Text = rd.GetString(5);
-
-                    string courseID = rd.GetString(6);
-                    string total = rd.GetInt32(7).ToString();
-                    string teacherID = rd.GetString(8);
-
-                    rd.Close();
-                    cmd = new SqlCommand("select courseName, duration from Course " +
-                        $"where courseID = '{courseID}'", conn);
-                    rd = cmd.ExecuteReader();
-                    if(rd.Read())
-                    {
-                        string courseName = rd.GetString(0);
-                        string duration = rd.GetString(1);
-                        courseList.Rows.Add(
-                            courseName,
-                            duration
-                            );
-                        if(teacherID != null)
-                        {
-                            courseList.Rows[0].Cells[2].Value = true;
-                        }
-                        courseList.Rows[0].Cells[3].Value = total;
-                    }
-                    rd.Close();
-                    courseList.ClearSelection();
-                    _total.Text = total;
-
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Course course = CourseBLL.SearchCourse(receipt._courseID)[0];
+                courseList.Rows.Add(
+                    course._courseName,
+                    course._duration,
+                    receipt._teacherID != "" ? true : false,
+                    receipt._price
+                );
+                _total.Text = receipt._price.ToString();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

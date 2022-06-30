@@ -134,6 +134,7 @@
             this.memberTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memberTable.EnableHeadersVisualStyles = false;
             this.memberTable.Location = new System.Drawing.Point(2, 61);
+            this.memberTable.MultiSelect = false;
             this.memberTable.Name = "memberTable";
             this.memberTable.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

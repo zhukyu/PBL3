@@ -35,5 +35,9 @@ namespace Gym.BLL
         {
             return ProductDAL.SearchProduct(str);
         }
+        public static string GetProductName(string ID)
+        {
+            return ProductDAL.GetProductName(ID);
+        }
     }
 }

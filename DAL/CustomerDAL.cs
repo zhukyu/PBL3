@@ -240,5 +240,27 @@ namespace Gym.DAL
             }
             return result;
         }
+        public static string GetCustomerName(string customerID)
+        {
+            string customerName = "";
+            SqlConnection conn = new SqlConnection(Program.cnstr);
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand($"select fullName from Customer where customerID = '{customerID}'", conn);
+
+                SqlDataReader data = cmd.ExecuteReader();
+                if (data.Read())
+                {
+                    customerName = data.GetString(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return customerName;
+        }
     }
 }

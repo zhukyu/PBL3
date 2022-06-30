@@ -56,12 +56,9 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                //cmd.CommandText = "select * " +
-                //    "from ProductReceipt a, Employee b where a.employeeID = b.employeeID " +
-                //    $"and a.publishDate >= '{beginDate}' and a.publishDate <= '{endDate}'";
                 cmd.CommandText = "select * " +
-                    "from ProductReceipt where " +
-                    $"a.publishDate >= '{beginDate}' and a.publishDate <= '{endDate}'";
+                    "from CourseReceipt where " +
+                    $"registerDate >= '{beginDate.ToString("yyyyMMdd")}' and registerDate <= '{endDate.ToString("yyyyMMdd")}'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())

@@ -30,5 +30,6 @@ namespace Gym.BLL
         {
             return CourseDAL.SearchCourse(str);
         }
+
     }
 }

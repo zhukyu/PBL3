@@ -8,19 +8,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
     public partial class UCRevenue : UserControl
     {
+        int productPrft = 0;
+        int coursePrft = 0;
+        List<CourseReceipt> courseReceipts = new List<CourseReceipt>();
+        List<ProductReceipt> productReceipts = new List<ProductReceipt>();
+        private void DGV_Load()
+        {
+            foreach(CourseReceipt receipt in courseReceipts)
+            {
+                string customerName = CustomerBLL.GetCustomerName(receipt._customerID);
+                string cashierName = EmployeeBLL.GetEmployeeName(receipt._employeeID);
+                courseList.Rows.Add(
+                        receipt._receiptID,
+                        customerName,
+                        cashierName,
+                        receipt._registerDate.ToString("dd/MM/yyyy"),
+                        receipt._price.ToString()
+                    );
+                coursePrft += receipt._price;
+            }
+            foreach(ProductReceipt receipt in productReceipts)
+            {
+                string cashierName = EmployeeBLL.GetEmployeeName(receipt._employeeID);
+                productList.Rows.Add(
+                    receipt._receiptID,
+                    cashierName,
+                    receipt._publishDate.ToString("dd/MM/yyyy"),
+                    receipt._total
+                );
+                productPrft += receipt._total;
+            }
+        }
         public UCRevenue()
         {
             InitializeComponent();
-        }
-
-        private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void Revenue_Load(object sender, EventArgs e)
@@ -30,83 +58,47 @@ namespace Gym
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            int productPrft = 0;
-            int coursePrft = 0;
+            
             productList.Rows.Clear();
             courseList.Rows.Clear();
-            SqlConnection conn = new SqlConnection(Program.cnstr);
-            string _beginDate = beginDate.Value.ToString("yyyyMMdd");
-            string _endDate = endDate.Value.ToString("yyyyMMdd");
+            DateTime _beginDate = beginDate.Value;
+            DateTime _endDate = endDate.Value;
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("select a.receiptID, b.fullName, a.publishDate, a.total " +
-                    "from ProductReceipt a, Employee b where a.employeeID = b.employeeID " +
-                    $"and a.publishDate >= '{_beginDate}' and a.publishDate <= '{_endDate}'", conn);
-
-                SqlDataReader rd = cmd.ExecuteReader();
-                while (rd.Read())
-                {
-                    productPrft += rd.GetInt32(3);
-                    productList.Rows.Add(
-                        rd.GetString(0),
-                        rd.GetString(1),
-                        rd.GetDateTime(2).ToString("dd-MM-yyyy"),
-                        rd.GetInt32(3).ToString()
-                    );
-                }
-                rd.Close();
-
-                cmd = new SqlCommand("select a.receiptID, c.fullName, b.fullName, a.registerDate, a.price " +
-                    "from CourseReceipt a, Employee b, Customer c where a.employeeID = b.employeeID and a.customerID = c.customerID " +
-                    $"and a.registerDate >= '{_beginDate}' and a.registerDate <= '{_endDate}'", conn);
-                rd = cmd.ExecuteReader();
-                while (rd.Read())
-                {
-                    coursePrft += rd.GetInt32(4);
-                    courseList.Rows.Add(
-                        rd.GetString(0),
-                        rd.GetString(1),
-                        rd.GetString(2),
-                        rd.GetDateTime(3).ToString("dd-MM-yyyy"),
-                        rd.GetInt32(4).ToString()
-                    );
-                }
-                rd.Close();
+                courseReceipts = CourseReceiptBLL.GetCourseReceiptsByDate(_beginDate, _endDate);
+                productReceipts = ProductReceiptBLL.GetProductReceiptsByDate(_beginDate, _endDate);
+                DGV_Load();
                 int profit = coursePrft + productPrft;
                 _profit.Text = profit.ToString();
-                _productPrft.Text = productPrft.ToString();
                 _coursePrft.Text = coursePrft.ToString();
-                productList.ClearSelection();
-                courseList.ClearSelection();
+                _productPrft.Text = productPrft.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
-            conn.Close();
         }
 
         private void productList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (productList.Rows.Count == 0)
+                return;
             string receiptID = productList.CurrentRow.Cells[0].Value.ToString();
-            FormProductReceipt rcpt = new FormProductReceipt(receiptID);
+            ProductReceipt receipt = productReceipts.Find(x => x._receiptID == receiptID); ;
+            FormProductReceipt rcpt = new FormProductReceipt(receipt);
 
             rcpt.ShowDialog();
         }
 
         private void courseList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (courseList.Rows.Count == 0)
+                return;
             string receiptID = courseList.CurrentRow.Cells[0].Value.ToString();
-            FormCourseReceipt rcpt = new FormCourseReceipt(receiptID);
-            
+            CourseReceipt receipt = courseReceipts.Find(x => x._receiptID == receiptID);
+            FormCourseReceipt rcpt = new FormCourseReceipt(receipt);
+
             rcpt.ShowDialog();
         }
-
-        private void courseList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
     }
 }

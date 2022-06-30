@@ -14,14 +14,14 @@ namespace Gym.DTO
         internal DateTime _birthday { get; set; }
         internal string _phoneNumber { get; set; }
         
-        internal string _address { get; set; }
         internal string _idNumber { get; set; }
+        internal string _address { get; set; }
 
         public Customer()
         {
 
         }
-        public Customer(string customerID, string fullName, string gender, DateTime birthday, string phoneNumber, string address, string idNumber)
+        public Customer(string customerID, string fullName, string gender, DateTime birthday, string phoneNumber, string idNumber, string address)
         {
             _customerID = customerID;
             _fullName = fullName;

@@ -294,7 +294,6 @@
             this.courseList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseList.Size = new System.Drawing.Size(859, 203);
             this.courseList.TabIndex = 61;
-            this.courseList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseList_CellContentClick);
             this.courseList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseList_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn1

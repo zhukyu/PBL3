@@ -280,9 +280,9 @@
             this.search.ForeColor = System.Drawing.Color.Gray;
             this.search.Location = new System.Drawing.Point(23, 37);
             this.search.Name = "search";
+            this.search.PlaceholderText = "ID,TÊN";
             this.search.Size = new System.Drawing.Size(270, 43);
             this.search.TabIndex = 57;
-            this.search.Text = "ID,TÊN";
             this.search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // searchButton

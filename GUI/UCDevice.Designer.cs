@@ -170,9 +170,9 @@
             this.searchTB.ForeColor = System.Drawing.Color.Gray;
             this.searchTB.Location = new System.Drawing.Point(44, 21);
             this.searchTB.Name = "searchTB";
+            this.searchTB.PlaceholderText = "ID,TÊN,NVQL";
             this.searchTB.Size = new System.Drawing.Size(231, 38);
             this.searchTB.TabIndex = 43;
-            this.searchTB.Text = "ID,TÊN,NVQL";
             this.searchTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // _importDate

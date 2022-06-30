@@ -20,7 +20,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"select * from Product where receiptID = '{receiptID}'";
+                cmd.CommandText = $"select * from ProductReceipt_Detail where receiptID = '{receiptID}'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())

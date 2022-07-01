@@ -54,7 +54,7 @@ namespace Gym
                     }
                     catch (Exception)
                     {
-                        errorID.SetError(_deviceID, "Mã khách hàng đã tồn tại");//MessageBox.Show("lỗi:" + ex.Message);
+                       MessageBox.Show("lỗi:" + ex.Message);
                     }
                 }
 
@@ -86,6 +86,9 @@ namespace Gym
         private void addDevice_Load(object sender, EventArgs e)
         {
             _employeeID.Text = Program.userName;
+
+            _deviceID.Text = DeviceBLL.GenerateID();
+            _deviceID.ReadOnly = true;
         }
 
         private void _deviceID_Validating(object sender, CancelEventArgs e)

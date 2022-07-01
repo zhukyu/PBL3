@@ -229,6 +229,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddCourse";
             this.Text = "addCourse";
+            this.Load += new System.EventHandler(this.FormAddCourse_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();

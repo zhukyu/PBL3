@@ -51,7 +51,7 @@ namespace Gym
                     }
                     catch (Exception)
                     {
-                        errorID.SetError(_productID, "Mã Sản phẩm đã tồn tại");//MessageBox.Show("Lỗi: " + ex.ToString());
+                       MessageBox.Show("Lỗi: " + ex.ToString());
                     }
                 }
             }
@@ -175,6 +175,13 @@ namespace Gym
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddProduct_Load(object sender, EventArgs e)
+        {
+
+            _productID.Text = ProductBLL.GenerateID();
+            _productID.ReadOnly = true;
         }
     }
 

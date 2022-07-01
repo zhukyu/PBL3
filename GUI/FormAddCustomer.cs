@@ -37,9 +37,9 @@ namespace Gym
                                 _gender.Text,
                                 _birthday.Value,
                                 _phoneNumber.Text,
-
-                                _address.Text,
-                                _idNumber.Text
+                                _idNumber.Text,
+                                _address.Text
+                                
 
 
                             );
@@ -56,7 +56,7 @@ namespace Gym
                     }
                     catch (Exception)
                     {
-                        errorID.SetError(_customerID, "Mã khách hàng đã tồn tại"); //MessageBox.Show("Lỗi: " + ex.ToString());
+                        MessageBox.Show("Lỗi: " + ex.ToString());
                     }
                 }
             }
@@ -175,6 +175,13 @@ namespace Gym
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddCustomer_Load(object sender, EventArgs e)
+        {
+
+            _customerID.Text = CustomerBLL.GenerateID();
+            _customerID.ReadOnly = true;
         }
     }
 }

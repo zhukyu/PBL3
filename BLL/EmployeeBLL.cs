@@ -47,7 +47,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count = 0;
             StringBuilder ID = new StringBuilder("EM0000");
             string lastID = EmployeeDAL.GetLastID();
             if (lastID != null)

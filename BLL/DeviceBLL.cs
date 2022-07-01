@@ -35,7 +35,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count = 0;
             StringBuilder ID = new StringBuilder("DV0000");
             string lastID = DeviceDAL.GetLastID();
             if (lastID != null)

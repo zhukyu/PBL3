@@ -36,7 +36,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count = 0;
             StringBuilder ID = new StringBuilder("CO0000");
             string lastID = CourseDAL.GetLastID();
             if (lastID != null)

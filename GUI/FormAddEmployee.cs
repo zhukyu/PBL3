@@ -55,7 +55,7 @@ namespace Gym
                     }
                     catch (Exception ex)
                     {
-                        errorID.SetError(_employeeID, "Mã Nhân viên đã tồn tại"); // MessageBox.Show("Lỗi: " + ex.ToString());
+                         MessageBox.Show("Lỗi: " + ex.ToString());
                     }
                 }
             }
@@ -213,6 +213,13 @@ namespace Gym
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddEmployee_Load(object sender, EventArgs e)
+        {
+
+            _employeeID.Text = EmployeeBLL.GenerateID();
+            _employeeID.ReadOnly = true;
         }
     }
     

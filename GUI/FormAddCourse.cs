@@ -21,7 +21,7 @@ namespace Gym
             InitializeComponent();
         }
 
-
+        
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -51,7 +51,7 @@ namespace Gym
                     }
                     catch (Exception ex)
                     {
-                        errorID.SetError(_courseID, "Mã Khóa học đã tồn tại");//MessageBox.Show("lỗi: " + ex.Message);
+                       MessageBox.Show("lỗi: " + ex.Message);
                     }
                 }
             }
@@ -144,6 +144,15 @@ namespace Gym
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddCourse_Load(object sender, EventArgs e)
+        {
+       
+            _courseID.Text = CourseBLL.GenerateID();
+            _courseID.ReadOnly = true;
+
+
         }
     }
 }

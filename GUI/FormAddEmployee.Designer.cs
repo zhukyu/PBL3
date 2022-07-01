@@ -365,6 +365,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddEmployee";
             this.Text = "addEmployee";
+            this.Load += new System.EventHandler(this.FormAddEmployee_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).EndInit();

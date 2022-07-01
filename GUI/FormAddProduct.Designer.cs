@@ -249,6 +249,7 @@
             this.Name = "FormAddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addProduct";
+            this.Load += new System.EventHandler(this.FormAddProduct_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();

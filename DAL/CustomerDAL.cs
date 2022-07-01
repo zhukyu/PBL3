@@ -306,7 +306,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT TOP 1 customerID FROM Customer ORDER BY receiptID DESC";
+                cmd.CommandText = "SELECT TOP 1 customerID FROM Customer ORDER BY customerID DESC";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())

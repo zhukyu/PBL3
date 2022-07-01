@@ -45,7 +45,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count =0;
             StringBuilder ID = new StringBuilder("PD0000");
             string lastID = ProductDAL.GetLastID();
             if (lastID != null)

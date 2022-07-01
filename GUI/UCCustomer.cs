@@ -97,9 +97,9 @@ namespace Gym
             _gender.Text = customer._gender;
             _birthday.Text = customer._birthday.ToString("dd-MM-yyyy");
             _phoneNumber.Text = customer._phoneNumber;
-            
-            _address.Text = customer._address;
             _idNumber.Text = customer._idNumber;
+            _address.Text = customer._address;
+            
 
         }
         private void editCustomer_FormClosing(object? sender, FormClosingEventArgs e)

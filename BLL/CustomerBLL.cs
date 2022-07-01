@@ -44,9 +44,9 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count =0;
             StringBuilder ID = new StringBuilder("CU0000");
-            string lastID = ProductReceiptDAL.GetLastID();
+            string lastID = CustomerDAL.GetLastID();
             if (lastID != null)
                 count = Convert.ToInt32(lastID.Substring(2)); //lấy số thứ tự
             count++;

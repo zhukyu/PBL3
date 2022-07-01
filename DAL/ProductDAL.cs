@@ -215,7 +215,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT TOP 1 productID FROM Product ORDER BY receiptID DESC";
+                cmd.CommandText = "SELECT TOP 1 productID FROM Product ORDER BY productID DESC";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())

@@ -35,11 +35,8 @@ namespace Gym
                     customer._gender,
                     customer._birthday.ToString("dd-MM-yyyy"),
                     customer._phoneNumber,                   
-                    
-                    customer._address,
-                    customer._idNumber
-
-
+                    customer._idNumber,
+                    customer._address
                 );
             }
             CustomerDGV.Rows[selectedIndex].Cells[0].Selected = true;

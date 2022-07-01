@@ -34,6 +34,10 @@ namespace Gym.BLL
         {
             return CustomerDAL.SearchCustomer(str);
         }
+        public static Customer GetCustomer(string ID)
+        {
+            return CustomerDAL.GetCustomer(ID);
+        }
         public static String GetCustomerName(string ID)
         {
             return CustomerDAL.GetCustomerName(ID);

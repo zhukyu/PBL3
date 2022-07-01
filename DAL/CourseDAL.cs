@@ -20,7 +20,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Course";
+                cmd.CommandText = "select * from Course where delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -52,7 +52,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Course where courseName LIKE N'%" + str + "%' OR courseID = '" + str + "' "; ;
+                cmd.CommandText = "select * from Course where (courseName LIKE N'%" + str + "%' OR courseID = '" + str + "') and delete_at is NULL "; ;
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())
@@ -129,11 +129,12 @@ namespace Gym.DAL
             bool result = false;
             try
             {
+                string delete_at = DateTime.Now.ToString("yyyyMMdd");
                 SqlConnection conn = new SqlConnection(Program.cnstr);
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "delete from Course where courseID = '" + ID + "'";
+                string st = "update Course set delete_at = '" + delete_at + "' where courseID = '" + ID + "'";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -146,6 +147,37 @@ namespace Gym.DAL
                 throw ex;
             }
             return result;
+        }
+        public static Course GetCourse(string courseID)
+        {
+            Course course = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Course where courseID = '" + courseID + "'";
+                cmd.Connection = conn;
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    course = new Course
+                    (
+                        rd.GetString(0),
+                        rd.GetString(1),
+                        rd.GetString(2),
+                        rd.GetInt32(3)
+                    );
+                }
+                rd.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return course;
         }
     }
 }

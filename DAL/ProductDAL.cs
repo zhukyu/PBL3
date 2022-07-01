@@ -20,7 +20,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Product";
+                cmd.CommandText = "select * from Product where delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -53,7 +53,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Product where productName LIKE N'%" + str + "%' OR productID = '" + str + "' "; ;
+                cmd.CommandText = "select * from Product where (productName LIKE N'%" + str + "%' OR productID = '" + str + "') and delete_at is NULL "; ;
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())
@@ -133,11 +133,12 @@ namespace Gym.DAL
             bool result = false;
             try
             {
+                string delete_at = DateTime.Now.ToString("yyyyMMdd");
                 SqlConnection conn = new SqlConnection(Program.cnstr);
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "delete from Product where productID = '" + ID + "'";
+                string st = "update Product set delete_at = '" + delete_at + "' where productID = '" + ID + "'";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -150,6 +151,38 @@ namespace Gym.DAL
                 throw ex;
             }
             return result;
+        }
+        public static Product GetProduct(String productID)
+        {
+            Product product = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = $"select * from Product where productID = '{productID}'"; 
+                cmd.Connection = conn;
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    product = new Product
+                    (
+                        rd.GetString(0),
+                        rd.GetString(1),
+                        rd.GetInt32(2),
+                        rd.GetInt32(3),
+                        rd.GetString(4)
+                    );
+                }
+                rd.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return product;
         }
         public static string GetProductName(String productID)
         {

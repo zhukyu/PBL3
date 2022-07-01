@@ -30,6 +30,9 @@ namespace Gym.BLL
         {
             return CourseDAL.SearchCourse(str);
         }
-
+        public static Course GetCourse(string ID)
+        {
+            return CourseDAL.GetCourse(ID);
+        }
     }
 }

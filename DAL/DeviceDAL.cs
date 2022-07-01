@@ -20,7 +20,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Device";
+                cmd.CommandText = "select * from Device where delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -55,8 +55,8 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select *from Device where deviceID= '" + str + "' " +
-                    "or deviceName like '%" + str + "%' or employeeID ='%" + str + "%'";
+                cmd.CommandText = "select *from Device where (deviceID= '" + str + "' " +
+                    "or deviceName like '%" + str + "%' or employeeID ='" + str + "') and delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -138,11 +138,12 @@ namespace Gym.DAL
             bool result = false;
             try
             {
+                string delete_at = DateTime.Now.ToString("yyyyMMdd");
                 SqlConnection conn = new SqlConnection(Program.cnstr);
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "delete from Device where deviceID = '" + ID + "'";
+                string st = "update Device set delete_at = '" + delete_at + "' where deviceID = '" + ID + "'";
                 comm.CommandText = st;
                 comm.Connection = conn;
 

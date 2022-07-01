@@ -20,7 +20,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Employee";
+                cmd.CommandText = "select * from Employee where delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -57,7 +57,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Employee where role = N'Huấn luyện viên'";
+                cmd.CommandText = "select * from Employee where role = N'Huấn luyện viên' and delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -94,9 +94,9 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select *from Employee where EmployeeID   = '" + str + "' " +
+                cmd.CommandText = "select *from Employee where (EmployeeID   = '" + str + "' " +
                     "OR fullname = N'" + str + "' OR idNumber = '" + str + "' " +
-                    "OR fullName LIKE N'%" + str + "%'";
+                    "OR fullName LIKE N'%" + str + "%') and delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -182,11 +182,12 @@ namespace Gym.DAL
                 bool result = false;
             try
             {
+                string delete_at = DateTime.Now.ToString("yyyyMMdd");
                 SqlConnection conn = new SqlConnection(Program.cnstr);
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
-                string st = "delete from Employee where employeeID = '" + ID + "'";
+                string st = $"update Employee set delete_at = '{delete_at}' where employeeID = '{ID}'";
                 comm.CommandText = st;
                 comm.Connection = conn;
 
@@ -199,6 +200,42 @@ namespace Gym.DAL
                 throw ex;
             }
             return result;
+        }
+        public static Employee GetEmployee(string employeeID)
+        {
+            Employee employee = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = $"select * from Employee where employeeID = '{employeeID}'";
+                cmd.Connection = conn;
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    employee = new Employee
+                    (
+                        rd.GetString(0),
+                        rd.GetString(1),
+                        rd.GetString(2),
+                        rd.GetDateTime(3),
+                        rd.GetString(4),
+                        rd.GetString(5),
+                        rd.GetString(6),
+                        rd.GetString(7),
+                        rd.GetString(8)
+                    );
+                }
+                rd.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return employee;
         }
         public static string GetStaffName(string employeeID)
         {

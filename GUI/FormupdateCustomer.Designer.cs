@@ -202,10 +202,11 @@
             // 
             // _customerID
             // 
-            this._customerID.Enabled = false;
+            this._customerID.BackColor = System.Drawing.Color.White;
             this._customerID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._customerID.Location = new System.Drawing.Point(243, 117);
             this._customerID.Name = "_customerID";
+            this._customerID.ReadOnly = true;
             this._customerID.Size = new System.Drawing.Size(289, 43);
             this._customerID.TabIndex = 61;
             // 

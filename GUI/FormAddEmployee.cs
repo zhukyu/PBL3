@@ -53,7 +53,7 @@ namespace Gym
                             MessageBox.Show("Không thể thêm");
                         }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                          MessageBox.Show("Lỗi: " + ex.ToString());
                     }

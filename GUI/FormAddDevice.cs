@@ -52,7 +52,7 @@ namespace Gym
                             MessageBox.Show("loi");
                         }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                        MessageBox.Show("lỗi:" + ex.Message);
                     }

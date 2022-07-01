@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRevenue));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +46,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.controlField = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.searchTB = new System.Windows.Forms.TextBox();
+            this.SearchRCBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.CashierCB = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.courseField = new System.Windows.Forms.Panel();
             this.courseList = new System.Windows.Forms.DataGridView();
@@ -61,6 +65,7 @@
             this.publishDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listField = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartField = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,7 +78,6 @@
             this._profit = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.controlField.SuspendLayout();
@@ -85,12 +89,12 @@
             this.productField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
             this.listField.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.chartField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -98,7 +102,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(17, 40);
+            this.label7.Location = new System.Drawing.Point(32, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 27);
             this.label7.TabIndex = 34;
@@ -107,7 +111,7 @@
             // beginDate
             // 
             this.beginDate.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.beginDate.Location = new System.Drawing.Point(136, 40);
+            this.beginDate.Location = new System.Drawing.Point(161, 13);
             this.beginDate.Name = "beginDate";
             this.beginDate.Size = new System.Drawing.Size(244, 27);
             this.beginDate.TabIndex = 36;
@@ -115,7 +119,7 @@
             // endDate
             // 
             this.endDate.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.endDate.Location = new System.Drawing.Point(216, 40);
+            this.endDate.Location = new System.Drawing.Point(161, 63);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(244, 27);
             this.endDate.TabIndex = 38;
@@ -125,7 +129,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(87, 39);
+            this.label1.Location = new System.Drawing.Point(32, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 27);
             this.label1.TabIndex = 37;
@@ -133,10 +137,11 @@
             // 
             // searchButton
             // 
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.searchButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Location = new System.Drawing.Point(88, 29);
+            this.searchButton.Location = new System.Drawing.Point(383, 24);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(142, 49);
             this.searchButton.TabIndex = 55;
@@ -206,26 +211,69 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.searchButton);
+            this.panel5.Controls.Add(this.searchTB);
+            this.panel5.Controls.Add(this.SearchRCBtn);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(1026, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(313, 100);
             this.panel5.TabIndex = 58;
             // 
+            // searchTB
+            // 
+            this.searchTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchTB.BackColor = System.Drawing.Color.White;
+            this.searchTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchTB.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.searchTB.ForeColor = System.Drawing.Color.Gray;
+            this.searchTB.Location = new System.Drawing.Point(33, 30);
+            this.searchTB.Name = "searchTB";
+            this.searchTB.PlaceholderText = "Mã HĐ";
+            this.searchTB.Size = new System.Drawing.Size(204, 38);
+            this.searchTB.TabIndex = 31;
+            this.searchTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // SearchRCBtn
+            // 
+            this.SearchRCBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SearchRCBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.SearchRCBtn.Image = ((System.Drawing.Image)(resources.GetObject("SearchRCBtn.Image")));
+            this.SearchRCBtn.Location = new System.Drawing.Point(243, 30);
+            this.SearchRCBtn.Name = "SearchRCBtn";
+            this.SearchRCBtn.Size = new System.Drawing.Size(52, 38);
+            this.SearchRCBtn.TabIndex = 32;
+            this.SearchRCBtn.UseVisualStyleBackColor = false;
+            this.SearchRCBtn.Click += new System.EventHandler(this.SearchRCBtn_Click);
+            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.endDate);
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.CashierCB);
+            this.panel4.Controls.Add(this.searchButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(470, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(869, 100);
             this.panel4.TabIndex = 57;
             // 
+            // CashierCB
+            // 
+            this.CashierCB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CashierCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CashierCB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CashierCB.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.CashierCB.FormattingEnabled = true;
+            this.CashierCB.Items.AddRange(new object[] {
+            "Nhân viên thu ngân"});
+            this.CashierCB.Location = new System.Drawing.Point(57, 32);
+            this.CashierCB.Name = "CashierCB";
+            this.CashierCB.Size = new System.Drawing.Size(286, 32);
+            this.CashierCB.TabIndex = 64;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.endDate);
             this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.beginDate);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -439,6 +487,21 @@
             this.listField.Size = new System.Drawing.Size(869, 558);
             this.listField.TabIndex = 61;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.6F));
+            this.tableLayoutPanel1.Controls.Add(this.productField, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.courseField, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.78049F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.21951F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(869, 558);
+            this.tableLayoutPanel1.TabIndex = 78;
+            // 
             // chartField
             // 
             this.chartField.Controls.Add(this.pictureBox3);
@@ -588,21 +651,6 @@
             this.label3.Text = "Tổng quan";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.6F));
-            this.tableLayoutPanel1.Controls.Add(this.productField, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.courseField, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.78049F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.21951F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(869, 558);
-            this.tableLayoutPanel1.TabIndex = 78;
-            // 
             // UCRevenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -617,8 +665,8 @@
             this.panel1.ResumeLayout(false);
             this.controlField.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.courseField.ResumeLayout(false);
@@ -626,13 +674,13 @@
             this.productField.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             this.listField.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.chartField.ResumeLayout(false);
             this.chartField.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -679,5 +727,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox searchTB;
+        private System.Windows.Forms.Button SearchRCBtn;
+        private System.Windows.Forms.ComboBox CashierCB;
     }
 }

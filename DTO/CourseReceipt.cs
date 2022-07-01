@@ -11,7 +11,7 @@ namespace Gym.DTO
         internal string _receiptID { get; set; }
         internal string _customerID { get; set; }
         internal string _courseID { get; set; }
-        internal string _teacherID { get; set; }
+        internal string? _teacherID { get; set; }
         internal string _employeeID { get; set; }
         internal DateTime _registerDate { get; set; }
         internal DateTime _expiredDate { get; set; }

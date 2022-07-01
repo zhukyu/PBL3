@@ -14,9 +14,13 @@ namespace Gym.BLL
         {
             return ProductReceiptDAL.GetAllProductReceipts();
         }
-        public static List<ProductReceipt> GetProductReceiptsByDate(DateTime beginDate, DateTime endDate)
+        public static List<ProductReceipt> GetProductReceiptsByDate(DateTime beginDate, DateTime endDate, string employeeID)
         {
-            return ProductReceiptDAL.GetProductReceiptsByDate(beginDate, endDate);
+            return ProductReceiptDAL.GetProductReceiptsByDate(beginDate, endDate, employeeID);
+        }
+        public static ProductReceipt SearchProductReceipt(string ID)
+        {
+            return ProductReceiptDAL.SearchProductReceipt(ID);
         }
         public static bool InsertProductReceipt(ProductReceipt ProductReceipt)
         {

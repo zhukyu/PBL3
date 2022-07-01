@@ -19,9 +19,12 @@ namespace Gym
         int coursePrft = 0;
         List<CourseReceipt> courseReceipts = new List<CourseReceipt>();
         List<ProductReceipt> productReceipts = new List<ProductReceipt>();
+        List<Employee> employees = new List<Employee>();
         private void DGV_Load()
         {
-            foreach(CourseReceipt receipt in courseReceipts)
+            productPrft = 0;
+            coursePrft = 0;
+            foreach (CourseReceipt receipt in courseReceipts)
             {
                 string customerName = CustomerBLL.GetCustomerName(receipt._customerID);
                 string cashierName = EmployeeBLL.GetEmployeeName(receipt._employeeID);
@@ -53,7 +56,12 @@ namespace Gym
 
         private void Revenue_Load(object sender, EventArgs e)
         {
-            
+            employees = EmployeeBLL.GetAllEmployees();
+            foreach(Employee employee in employees)
+            {
+                CashierCB.Items.Add(employee._fullName);
+            }
+            CashierCB.SelectedIndex = 0;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -63,10 +71,15 @@ namespace Gym
             courseList.Rows.Clear();
             DateTime _beginDate = beginDate.Value;
             DateTime _endDate = endDate.Value;
+            string employeeID = "";
+            if(CashierCB.SelectedIndex > 0)
+            {
+                employeeID = employees[CashierCB.SelectedIndex - 1]._employeeID;
+            }
             try
             {
-                courseReceipts = CourseReceiptBLL.GetCourseReceiptsByDate(_beginDate, _endDate);
-                productReceipts = ProductReceiptBLL.GetProductReceiptsByDate(_beginDate, _endDate);
+                courseReceipts = CourseReceiptBLL.GetCourseReceiptsByDate(_beginDate, _endDate, employeeID);
+                productReceipts = ProductReceiptBLL.GetProductReceiptsByDate(_beginDate, _endDate, employeeID);
                 DGV_Load();
                 int profit = coursePrft + productPrft;
                 _profit.Text = profit.ToString();
@@ -85,9 +98,9 @@ namespace Gym
                 return;
             string receiptID = productList.CurrentRow.Cells[0].Value.ToString();
             ProductReceipt receipt = productReceipts.Find(x => x._receiptID == receiptID); ;
-            FormProductReceipt rcpt = new FormProductReceipt(receipt);
+            FormProductReceipt formRcpt = new FormProductReceipt(receipt);
 
-            rcpt.ShowDialog();
+            formRcpt.ShowDialog();
         }
 
         private void courseList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -96,9 +109,39 @@ namespace Gym
                 return;
             string receiptID = courseList.CurrentRow.Cells[0].Value.ToString();
             CourseReceipt receipt = courseReceipts.Find(x => x._receiptID == receiptID);
-            FormCourseReceipt rcpt = new FormCourseReceipt(receipt);
+            FormCourseReceipt formRcpt = new FormCourseReceipt(receipt);
 
-            rcpt.ShowDialog();
+            formRcpt.ShowDialog();
+        }
+
+        private void SearchRCBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string receiptID = searchTB.Text;
+                string temp = receiptID.Substring(0, 2);
+                if (temp == "CR")
+                {
+                    CourseReceipt receipt = CourseReceiptBLL.SearchCourseReceipt(receiptID);
+                    if(receipt == null)
+                        throw new Exception("Không tìm thấy hóa đơn");
+                    FormCourseReceipt formRcpt = new FormCourseReceipt(receipt);
+                    formRcpt.ShowDialog();
+                }
+                else if (temp == "PR")
+                {
+                    ProductReceipt receipt = ProductReceiptBLL.SearchProductReceipt(receiptID);
+                    if (receipt == null)
+                        throw new Exception("Không tìm thấy hóa đơn");
+                    FormProductReceipt formRcpt = new FormProductReceipt(receipt);
+                    formRcpt.ShowDialog();
+                }
+                else throw new Exception("Không tìm thấy hóa đơn");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

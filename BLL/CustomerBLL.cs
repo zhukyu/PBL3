@@ -44,7 +44,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count =0;
+            int count = 0;
             StringBuilder ID = new StringBuilder("CU0000");
             string lastID = CustomerDAL.GetLastID();
             if (lastID != null)

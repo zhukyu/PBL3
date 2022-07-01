@@ -187,9 +187,11 @@
             // 
             // _courseID
             // 
+            this._courseID.BackColor = System.Drawing.Color.White;
             this._courseID.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._courseID.Location = new System.Drawing.Point(263, 141);
             this._courseID.Name = "_courseID";
+            this._courseID.ReadOnly = true;
             this._courseID.Size = new System.Drawing.Size(245, 40);
             this._courseID.TabIndex = 70;
             this._courseID.Validating += new System.ComponentModel.CancelEventHandler(this._courseID_Validating);

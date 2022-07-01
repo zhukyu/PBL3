@@ -45,7 +45,7 @@ namespace Gym
                 courseList.Rows.Add(
                     course._courseName,
                     course._duration,
-                    receipt._teacherID != "" ? true : false,
+                    receipt._teacherID != null ? true : false,
                     receipt._price
                 );
                 _total.Text = receipt._price.ToString();

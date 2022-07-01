@@ -43,7 +43,7 @@ namespace Gym.DAL
             }
             return productReceipts;
         }
-        public static List<ProductReceipt> GetProductReceiptsByDate(DateTime beginDate, DateTime endDate)
+        public static List<ProductReceipt> GetProductReceiptsByDate(DateTime beginDate, DateTime endDate, string employeeID)
         {
             List<ProductReceipt> productReceipts = new List<ProductReceipt>();
             try
@@ -53,7 +53,8 @@ namespace Gym.DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select * from ProductReceipt where " +
-                    $"publishDate >= '{beginDate.ToString("yyyyMMdd")}' and publishDate <= '{endDate.ToString("yyyyMMdd")}'";
+                    $"publishDate >= '{beginDate.ToString("yyyyMMdd")}' and publishDate <= '{endDate.ToString("yyyyMMdd")}' " +
+                    $"and employeeID like '%{employeeID}%'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -111,7 +112,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"select * from ProductReceipt where receiptID = {ID}";
+                cmd.CommandText = $"select * from ProductReceipt where receiptID = '{ID}'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())

@@ -232,9 +232,11 @@
             // 
             // _employeeID
             // 
+            this._employeeID.BackColor = System.Drawing.Color.White;
             this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._employeeID.Location = new System.Drawing.Point(166, 130);
             this._employeeID.Name = "_employeeID";
+            this._employeeID.ReadOnly = true;
             this._employeeID.Size = new System.Drawing.Size(215, 43);
             this._employeeID.TabIndex = 37;
             this._employeeID.Validating += new System.ComponentModel.CancelEventHandler(this._employeeID_Validating);

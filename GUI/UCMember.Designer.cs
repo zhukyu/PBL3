@@ -66,7 +66,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.memberList = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.FilterPanel = new System.Windows.Forms.Panel();
+            this.DirectionCB = new System.Windows.Forms.ComboBox();
+            this.SortByCB = new System.Windows.Forms.ComboBox();
+            this.TeacherNameCB = new System.Windows.Forms.ComboBox();
+            this.FilterButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.memberTable)).BeginInit();
             this.formNameLable.SuspendLayout();
@@ -76,6 +80,7 @@
             this.panel3.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.memberList.SuspendLayout();
+            this.FilterPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +112,7 @@
             this.memberTable.AllowUserToDeleteRows = false;
             this.memberTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.memberTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.memberTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -149,7 +155,7 @@
             this.memberTable.RowHeadersWidth = 51;
             this.memberTable.RowTemplate.Height = 29;
             this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberTable.Size = new System.Drawing.Size(923, 536);
+            this.memberTable.Size = new System.Drawing.Size(921, 534);
             this.memberTable.TabIndex = 27;
             this.memberTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberTable_CellClick);
             // 
@@ -211,7 +217,7 @@
             this.formName.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.formName.Location = new System.Drawing.Point(0, 0);
             this.formName.Name = "formName";
-            this.formName.Size = new System.Drawing.Size(923, 59);
+            this.formName.Size = new System.Drawing.Size(921, 59);
             this.formName.TabIndex = 1;
             this.formName.Text = "Danh sách hội viên";
             this.formName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -226,7 +232,7 @@
             this.formNameLable.Location = new System.Drawing.Point(2, 2);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(923, 59);
+            this.formNameLable.Size = new System.Drawing.Size(921, 59);
             this.formNameLable.TabIndex = 34;
             // 
             // detailPanel
@@ -513,8 +519,9 @@
             // 
             // memberList
             // 
+            this.memberList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.memberList.Controls.Add(this.memberTable);
-            this.memberList.Controls.Add(this.panel2);
+            this.memberList.Controls.Add(this.FilterPanel);
             this.memberList.Controls.Add(this.formNameLable);
             this.memberList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memberList.Location = new System.Drawing.Point(0, 0);
@@ -523,17 +530,84 @@
             this.memberList.Size = new System.Drawing.Size(927, 658);
             this.memberList.TabIndex = 2;
             // 
-            // panel2
+            // FilterPanel
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(2, 61);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(923, 59);
-            this.panel2.TabIndex = 35;
+            this.FilterPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.FilterPanel.Controls.Add(this.DirectionCB);
+            this.FilterPanel.Controls.Add(this.SortByCB);
+            this.FilterPanel.Controls.Add(this.TeacherNameCB);
+            this.FilterPanel.Controls.Add(this.FilterButton);
+            this.FilterPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FilterPanel.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FilterPanel.ForeColor = System.Drawing.Color.White;
+            this.FilterPanel.Location = new System.Drawing.Point(2, 61);
+            this.FilterPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.FilterPanel.Name = "FilterPanel";
+            this.FilterPanel.Size = new System.Drawing.Size(921, 59);
+            this.FilterPanel.TabIndex = 35;
+            // 
+            // DirectionCB
+            // 
+            this.DirectionCB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DirectionCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DirectionCB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DirectionCB.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.DirectionCB.FormattingEnabled = true;
+            this.DirectionCB.Items.AddRange(new object[] {
+            "A - Z",
+            "Z - A"});
+            this.DirectionCB.Location = new System.Drawing.Point(648, 12);
+            this.DirectionCB.Name = "DirectionCB";
+            this.DirectionCB.Size = new System.Drawing.Size(152, 32);
+            this.DirectionCB.Sorted = true;
+            this.DirectionCB.TabIndex = 65;
+            // 
+            // SortByCB
+            // 
+            this.SortByCB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SortByCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortByCB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SortByCB.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.SortByCB.FormattingEnabled = true;
+            this.SortByCB.Items.AddRange(new object[] {
+            "Họ tên",
+            "Mã Học viên",
+            "Tên khóa học"});
+            this.SortByCB.Location = new System.Drawing.Point(337, 12);
+            this.SortByCB.Name = "SortByCB";
+            this.SortByCB.Size = new System.Drawing.Size(282, 32);
+            this.SortByCB.TabIndex = 64;
+            // 
+            // TeacherNameCB
+            // 
+            this.TeacherNameCB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TeacherNameCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TeacherNameCB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TeacherNameCB.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.TeacherNameCB.FormattingEnabled = true;
+            this.TeacherNameCB.Items.AddRange(new object[] {
+            "Huấn luyện viên",
+            "Tự tập"});
+            this.TeacherNameCB.Location = new System.Drawing.Point(21, 12);
+            this.TeacherNameCB.Name = "TeacherNameCB";
+            this.TeacherNameCB.Size = new System.Drawing.Size(286, 32);
+            this.TeacherNameCB.TabIndex = 63;
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.FilterButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FilterButton.ForeColor = System.Drawing.Color.White;
+            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FilterButton.Location = new System.Drawing.Point(818, 7);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(88, 41);
+            this.FilterButton.TabIndex = 62;
+            this.FilterButton.Text = "Lọc";
+            this.FilterButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.FilterButton.UseVisualStyleBackColor = false;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -572,6 +646,7 @@
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.memberList.ResumeLayout(false);
+            this.FilterPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -613,6 +688,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel FilterPanel;
+        private System.Windows.Forms.ComboBox TeacherNameCB;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.ComboBox SortByCB;
+        private System.Windows.Forms.ComboBox DirectionCB;
     }
 }

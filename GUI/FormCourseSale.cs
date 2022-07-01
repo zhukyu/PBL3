@@ -73,7 +73,7 @@ namespace Gym
             {
                 try
                 {
-                    string teacherID = "";
+                    string teacherID = null;
                     if (teacherIndex != -1)
                     {
                         teacherID = teachers[teacherIndex]._employeeID;

@@ -179,10 +179,11 @@
             // 
             // _productID
             // 
-            this._productID.Enabled = false;
+            this._productID.BackColor = System.Drawing.Color.White;
             this._productID.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._productID.Location = new System.Drawing.Point(309, 363);
             this._productID.Name = "_productID";
+            this._productID.ReadOnly = true;
             this._productID.Size = new System.Drawing.Size(153, 36);
             this._productID.TabIndex = 61;
             // 

@@ -60,6 +60,11 @@ namespace Gym.DAL
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
+                    string teacherID = null;
+                    if(!rd.IsDBNull(10))
+                    {
+                        teacherID = rd.GetString(10);
+                    }
                     Member member = new Member
                     (
                         rd.GetString(0),
@@ -72,8 +77,7 @@ namespace Gym.DAL
                         rd.GetString(7),
                         rd.GetDateTime(8),
                         rd.GetDateTime(9),
-                        rd.GetString(10)
-
+                        teacherID
                     );
                     members.Add(member);
                 }
@@ -101,6 +105,11 @@ namespace Gym.DAL
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
+                    string teacherID = null;
+                    if (!rd.IsDBNull(10))
+                    {
+                        teacherID = rd.GetString(10);
+                    }
                     Member member = new Member
                     (
                         rd.GetString(0),
@@ -113,8 +122,7 @@ namespace Gym.DAL
                         rd.GetString(7),
                         rd.GetDateTime(8),
                         rd.GetDateTime(9),
-                        rd.GetString(10)
-
+                        teacherID
                     );
                     members.Add(member);
                 }

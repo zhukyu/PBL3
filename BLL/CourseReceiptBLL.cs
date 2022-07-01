@@ -14,9 +14,13 @@ namespace Gym.BLL
         {
             return CourseReceiptDAL.GetAllCourseReceipts();
         }
-        public static List<CourseReceipt> GetCourseReceiptsByDate(DateTime beginDate, DateTime endDate)
+        public static List<CourseReceipt> GetCourseReceiptsByDate(DateTime beginDate, DateTime endDate, string employeeID)
         {
-            return CourseReceiptDAL.GetCourseReceiptsByDate(beginDate, endDate);
+            return CourseReceiptDAL.GetCourseReceiptsByDate(beginDate, endDate, employeeID);
+        }
+        public static CourseReceipt SearchCourseReceipt(String ID)
+        {
+            return CourseReceiptDAL.SearchCourseReceipt(ID);
         }
         public static bool InsertCourseReceipt(CourseReceipt courseReceipt)
         {
@@ -24,7 +28,7 @@ namespace Gym.BLL
         }
         public static string GenerateID()
         {
-            int count = 1;
+            int count = 0;
             StringBuilder ID = new StringBuilder("CR0000");
             string lastID = CourseReceiptDAL.GetLastID();
             if(lastID != null)

@@ -213,9 +213,11 @@
             // 
             // _deviceID
             // 
+            this._deviceID.BackColor = System.Drawing.Color.White;
             this._deviceID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._deviceID.Location = new System.Drawing.Point(136, 110);
             this._deviceID.Name = "_deviceID";
+            this._deviceID.ReadOnly = true;
             this._deviceID.Size = new System.Drawing.Size(203, 43);
             this._deviceID.TabIndex = 59;
             // 

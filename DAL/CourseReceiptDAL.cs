@@ -47,7 +47,7 @@ namespace Gym.DAL
             }
             return courseReceipts;
         }
-        public static List<CourseReceipt> GetCourseReceiptsByDate(DateTime beginDate, DateTime endDate)
+        public static List<CourseReceipt> GetCourseReceiptsByDate(DateTime beginDate, DateTime endDate, string employeeID)
         {
             List<CourseReceipt> courseReceipts = new List<CourseReceipt>();
             try
@@ -58,17 +58,23 @@ namespace Gym.DAL
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select * " +
                     "from CourseReceipt where " +
-                    $"registerDate >= '{beginDate.ToString("yyyyMMdd")}' and registerDate <= '{endDate.ToString("yyyyMMdd")}'";
+                    $"registerDate >= '{beginDate.ToString("yyyyMMdd")}' and registerDate <= '{endDate.ToString("yyyyMMdd")}' " +
+                    $"and employeeID like '%{employeeID}%'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
+                    string teacherID = null;
+                    if (!rd.IsDBNull(3))
+                    {
+                        teacherID = rd.GetString(3);
+                    }
                     CourseReceipt courseReceipt = new CourseReceipt
                     (
                         rd.GetString(0),
                         rd.GetString(1),
                         rd.GetString(2),
-                        rd.GetString(3),
+                        teacherID,
                         rd.GetString(4),
                         rd.GetDateTime(5),
                         rd.GetDateTime(6),
@@ -94,8 +100,13 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand comm = new SqlCommand();
                 comm.CommandType = CommandType.Text;
+                string teacherID = "NULL";
+                if(courseReceipts._teacherID != null)
+                {
+                    teacherID = $"'{courseReceipts._teacherID}'";
+                }
                 string st = "insert into CourseReceipt (receiptID ,customerID, courseID, teacherID, employeeID, registerDate, expiredDate, price) " +
-                        $"values ('{courseReceipts._receiptID}', '{courseReceipts._customerID}', '{courseReceipts._courseID}', '{courseReceipts._teacherID}'," +
+                        $"values ('{courseReceipts._receiptID}', '{courseReceipts._customerID}', '{courseReceipts._courseID}', {teacherID}," +
                         $"'{courseReceipts._employeeID}', '{courseReceipts._registerDate.ToString("yyyyMMdd")}', '{courseReceipts._expiredDate.ToString("yyyyMMdd")}', {courseReceipts._price})";
                 comm.CommandText = st;
                 comm.Connection = conn;
@@ -120,7 +131,7 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"select * from CourseReceipt where receiptID = {ID}";
+                cmd.CommandText = $"select * from CourseReceipt where receiptID = '{ID}'";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())

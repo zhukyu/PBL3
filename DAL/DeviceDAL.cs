@@ -157,5 +157,28 @@ namespace Gym.DAL
             }
             return result;
         }
+        public static string GetLastID()
+        {
+            string lastID = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection(Program.cnstr);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT TOP 1 deviceID FROM Device ORDER BY receiptID DESC";
+                cmd.Connection = conn;
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    lastID = rd.GetString(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lastID;
+        }
     }
 }

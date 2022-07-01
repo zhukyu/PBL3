@@ -13,6 +13,19 @@ namespace Gym
 {
     public partial class FormHome : Form
     {
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        // thu nhỏ khi click vào icon
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS;
+                return cp;
+            }
+        }
         public FormHome()
         {
             InitializeComponent();

@@ -30,7 +30,6 @@ namespace Gym
                 DialogResult dlr = MessageBox.Show("Bạn có muốn thêm dữ liệu ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
                 {
-
                     try
                     {
                         Course course = new Course(

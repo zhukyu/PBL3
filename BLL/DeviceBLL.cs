@@ -33,5 +33,19 @@ namespace Gym.BLL
         {
             return DeviceDAL.SearchDevice(str);
         }
+        public static string GenerateID()
+        {
+            int count = 1;
+            StringBuilder ID = new StringBuilder("DV0000");
+            string lastID = DeviceDAL.GetLastID();
+            if (lastID != null)
+                count = Convert.ToInt32(lastID.Substring(2)); //lấy số thứ tự
+            count++;
+            string countStr = count.ToString();
+            ID.Remove(ID.Length - countStr.Length, countStr.Length); // CR000 - 12 = CR0
+            ID.Append(countStr); // CR0 + 12 = CR012
+
+            return ID.ToString();
+        }
     }
 }

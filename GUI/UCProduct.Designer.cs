@@ -271,7 +271,7 @@
             this.searchsp.BackColor = System.Drawing.Color.White;
             this.searchsp.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.searchsp.ForeColor = System.Drawing.Color.Gray;
-            this.searchsp.Location = new System.Drawing.Point(46, 34);
+            this.searchsp.Location = new System.Drawing.Point(46, 29);
             this.searchsp.Name = "searchsp";
             this.searchsp.PlaceholderText = "ID,TÊN";
             this.searchsp.Size = new System.Drawing.Size(255, 43);

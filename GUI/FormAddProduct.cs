@@ -49,7 +49,7 @@ namespace Gym
                             MessageBox.Show("Không thể thêm");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         errorID.SetError(_productID, "Mã Sản phẩm đã tồn tại");//MessageBox.Show("Lỗi: " + ex.ToString());
                     }

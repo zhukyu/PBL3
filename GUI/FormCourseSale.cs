@@ -16,8 +16,8 @@ namespace Gym
     public partial class FormCourseSale : Form
     {
         Customer customer;
-        int teacherIndex = 0;
-        int courseIndex = 0;
+        int teacherIndex = -1;
+        int courseIndex = -1;
         // lưu giá trị của vị trí index trong combobox
         List<Employee> teachers = new List<Employee>();
         List<Course> courses = new List<Course>();
@@ -60,7 +60,7 @@ namespace Gym
         private void courseCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             courseIndex = courseCb.SelectedIndex;
-            this._duration.Text = courses[courseIndex]._duration.ToString() + " Tháng";
+            this._duration.Text = courses[courseIndex]._duration.ToString();
             this._price.Text = courses[courseIndex]._price.ToString();
         }
 
@@ -73,12 +73,17 @@ namespace Gym
             {
                 try
                 {
+                    string teacherID = "";
+                    if (teacherIndex != -1)
+                    {
+                        teacherID = teachers[teacherIndex]._employeeID;
+                    }
                     int duration = Convert.ToInt32(courses[courseIndex]._duration.Split(" ")[0]); // lấy ra số tháng
                     CourseReceipt courseReceipt = new CourseReceipt(
                         CourseReceiptBLL.GenerateID(),
                         customer._customerID,
                         courses[courseIndex]._courseID,
-                        teachers[teacherIndex]._employeeID,
+                        teacherID,
                         Program.userID,
                         DateTime.Today,
                         DateTime.Today.AddMonths(duration),
@@ -95,6 +100,10 @@ namespace Gym
                     {
                         MessageBox.Show("Không thể thêm");
                     }
+                }
+                catch(ArgumentException)
+                {
+                    MessageBox.Show("Bạn chưa chọn khóa học", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {

@@ -54,7 +54,7 @@ namespace Gym
                             MessageBox.Show("Không thể thêm");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         errorID.SetError(_customerID, "Mã khách hàng đã tồn tại"); //MessageBox.Show("Lỗi: " + ex.ToString());
                     }

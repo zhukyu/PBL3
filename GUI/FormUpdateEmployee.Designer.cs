@@ -107,6 +107,8 @@
             // 
             // _role
             // 
+            this._role.BackColor = System.Drawing.Color.White;
+            this._role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._role.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._role.FormattingEnabled = true;
             this._role.Items.AddRange(new object[] {
@@ -120,6 +122,8 @@
             // 
             // _gender
             // 
+            this._gender.BackColor = System.Drawing.Color.White;
+            this._gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._gender.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._gender.FormattingEnabled = true;
             this._gender.Items.AddRange(new object[] {
@@ -266,10 +270,11 @@
             // 
             this.employeePicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
             this.employeePicture.Location = new System.Drawing.Point(483, 121);
             this.employeePicture.Name = "employeePicture";
             this.employeePicture.Size = new System.Drawing.Size(228, 291);
-            this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.employeePicture.TabIndex = 75;
             this.employeePicture.TabStop = false;
             // 

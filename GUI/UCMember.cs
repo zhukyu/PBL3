@@ -31,8 +31,8 @@ namespace Gym
                     member._idNumber,
                     member._phoneNumber,
                     member._courseName,
-                    member._registerDate.ToString("dd-MM-yyyy"),
-                    member._expiredDate.ToString("dd-MM-yyyy")
+                    member._registerDate.ToString("dd/MM/yyyy"),
+                    member._expiredDate.ToString("dd/MM/yyyy")
                 );
             }
             //hiển thị member info
@@ -59,7 +59,7 @@ namespace Gym
             _customerID.Text = member._customerID;
             _fullName.Text = member._fullName;
             _gender.Text = member._gender;
-            _birthday.Text = member._birthday.ToString("dd-MM-yyyy");
+            _birthday.Text = member._birthday.ToString("dd/MM/yyyy");
             _phoneNumber.Text = member._phoneNumber;
             _idNumber.Text = member._idNumber;
             _address.Text = member._address;

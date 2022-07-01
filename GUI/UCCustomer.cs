@@ -92,6 +92,17 @@ namespace Gym
        
         private void CustomerInfo(Customer customer)
         {
+            if(customer == null)
+            {
+                _customerID.Text = "";
+                _fullName.Text = "";
+                _gender.Text = "";
+                _birthday.Text = "";
+                _phoneNumber.Text = "";
+                _address.Text = "";
+                _idNumber.Text = "";
+                return;
+            }
             _customerID.Text = customer._customerID;
             _fullName.Text = customer._fullName;
             _gender.Text = customer._gender;
@@ -152,7 +163,10 @@ namespace Gym
         private void CustomerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (CustomerDGV.Rows.Count == 0)
+            {
+                CustomerInfo(null);
                 return;
+            }
             string customerID = CustomerDGV.CurrentRow.Cells[0].Value.ToString();
             Customer customer = customers.Find(x => x._customerID == customerID);
             CustomerInfo(customer);

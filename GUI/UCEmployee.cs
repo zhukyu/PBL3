@@ -28,14 +28,17 @@ namespace Gym
         {
             EmployeeDGV.Rows.Clear();
             if (employees.Count == 0)
+            {
+                EmployeeInfo(null);
                 return;
+            }      
             foreach (Employee employee in employees)
             {
                 EmployeeDGV.Rows.Add(
                     employee._employeeID,
                     employee._fullName,
                     employee._gender,
-                    employee._birthday.ToString("dd-MM-yyyy"),
+                    employee._birthday.ToString("dd/MM/yyyy"),
                     employee._phoneNumber,
                     employee._idNumber,
                     employee._address,
@@ -128,10 +131,21 @@ namespace Gym
                 }
             }
         }
-
-        
         private void EmployeeInfo(Employee employee)
         {
+            if(employee == null)
+            {
+                _employeeID.Text = "";
+                _fullName.Text = "";
+                _gender.Text = "";
+                dateTimePicker1.Text = "";
+                _phoneNumber.Text = "";
+                _idNumber.Text = "";
+                _role.Text = "";
+                _address.Text = "";
+                employeePicture.Image = Properties.Resources.person_128px1;
+                return;
+            }
             _employeeID.Text = employee._employeeID;
             _fullName.Text = employee._fullName;
             _gender.Text = employee._gender;

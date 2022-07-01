@@ -81,9 +81,18 @@ namespace Gym
                     throw new Exception("Bạn chưa chọn sản phẩm");
                 }
                 int amount = Convert.ToInt32(amountInput.Text);
+                // xử lý số lượng sản phẩm
                 if (amount < 1)
                 {
                     throw new FormatException(); ;
+                }
+                if (products[index]._amount < amount)
+                {
+                    throw new Exception("Không có đủ sản phẩm");
+                }
+                else
+                {
+                    products[index]._amount -= amount;
                 }
                 ProductReceipt_Detail temp = new ProductReceipt_Detail(
                     _saleID.Text,
@@ -124,7 +133,7 @@ namespace Gym
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString().ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
 
@@ -213,7 +222,15 @@ namespace Gym
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        private bool ProductUpdate()
+        {
+            bool result = false;
+            foreach(Product product in products)
+            {
+                result = ProductBLL.UpdateProduct(product);
+            }
+            return result;
+        }
         private void acceptBtn_Click(object sender, EventArgs e)
         {
             try
@@ -229,12 +246,17 @@ namespace Gym
                         DateTime.Today,
                         Convert.ToInt32(_total.Text)
                     );
-                    ProductReceiptBLL.InsertProductReceipt(productReceipt);
+                    bool result = ProductReceiptBLL.InsertProductReceipt(productReceipt);
                     foreach(ProductReceipt_Detail item in items)
                     {
-                        ProductReceipt_DetailBLL.InsertProductReceiptItem(item);
+                        result = ProductReceipt_DetailBLL.InsertProductReceiptItem(item);
                     }
-                    this.Close();
+                    ProductUpdate(); // cập nhật số lượng sản phẩm
+                    if (result)
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)

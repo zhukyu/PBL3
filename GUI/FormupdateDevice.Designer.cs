@@ -103,10 +103,11 @@
             // 
             this.devicePicture.BackColor = System.Drawing.Color.White;
             this.devicePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.devicePicture.Location = new System.Drawing.Point(111, 317);
+            this.devicePicture.Image = global::Gym.Properties.Resources.icons8_barbell_60px;
+            this.devicePicture.Location = new System.Drawing.Point(111, 325);
             this.devicePicture.Name = "devicePicture";
-            this.devicePicture.Size = new System.Drawing.Size(228, 291);
-            this.devicePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.devicePicture.Size = new System.Drawing.Size(228, 219);
+            this.devicePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.devicePicture.TabIndex = 72;
             this.devicePicture.TabStop = false;
             // 
@@ -223,7 +224,7 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.editButton.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(435, 460);
+            this.editButton.Location = new System.Drawing.Point(437, 395);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(231, 49);
             this.editButton.TabIndex = 75;
@@ -245,7 +246,7 @@
             this.DeleteImgBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.DeleteImgBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.DeleteImgBtn.ForeColor = System.Drawing.Color.White;
-            this.DeleteImgBtn.Location = new System.Drawing.Point(115, 614);
+            this.DeleteImgBtn.Location = new System.Drawing.Point(120, 559);
             this.DeleteImgBtn.Name = "DeleteImgBtn";
             this.DeleteImgBtn.Size = new System.Drawing.Size(92, 38);
             this.DeleteImgBtn.TabIndex = 78;
@@ -258,7 +259,7 @@
             this.AddImgBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.AddImgBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddImgBtn.ForeColor = System.Drawing.Color.White;
-            this.AddImgBtn.Location = new System.Drawing.Point(231, 614);
+            this.AddImgBtn.Location = new System.Drawing.Point(236, 559);
             this.AddImgBtn.Name = "AddImgBtn";
             this.AddImgBtn.Size = new System.Drawing.Size(97, 38);
             this.AddImgBtn.TabIndex = 78;
@@ -297,7 +298,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 681);
+            this.ClientSize = new System.Drawing.Size(730, 632);
             this.ControlBox = false;
             this.Controls.Add(this._employeeID);
             this.Controls.Add(this.AddImgBtn);

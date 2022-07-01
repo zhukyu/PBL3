@@ -223,6 +223,8 @@
             // 
             // _gender
             // 
+            this._gender.BackColor = System.Drawing.Color.White;
+            this._gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._gender.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._gender.FormattingEnabled = true;
             this._gender.Items.AddRange(new object[] {

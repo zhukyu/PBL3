@@ -98,10 +98,11 @@
             // 
             this.productPicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.productPicture.Image = global::Gym.Properties.Resources.icons8_product_60px;
             this.productPicture.Location = new System.Drawing.Point(213, 83);
             this.productPicture.Name = "productPicture";
             this.productPicture.Size = new System.Drawing.Size(221, 224);
-            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.productPicture.TabIndex = 47;
             this.productPicture.TabStop = false;
             // 

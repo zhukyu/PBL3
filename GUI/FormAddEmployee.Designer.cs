@@ -256,10 +256,11 @@
             // 
             this.employeePicture.BackColor = System.Drawing.Color.White;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
             this.employeePicture.Location = new System.Drawing.Point(470, 112);
             this.employeePicture.Name = "employeePicture";
             this.employeePicture.Size = new System.Drawing.Size(228, 291);
-            this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.employeePicture.TabIndex = 54;
             this.employeePicture.TabStop = false;
             // 

@@ -26,7 +26,10 @@ namespace Gym
         {
             CourseDGV.Rows.Clear();
             if (courses.Count == 0)
+            {
+                CourseInfo(null);
                 return;
+            }
             foreach (Course course in courses)
             {
                 CourseDGV.Rows.Add(
@@ -41,6 +44,14 @@ namespace Gym
         }
         private void CourseInfo(Course course)
         {
+            if(course == null)
+            {
+                _courseID.Text = "";
+                _courseName.Text = "";
+                _duration.Text = "";
+                _price.Text = "";
+                return;
+            }
             _courseID.Text = course._courseID;
             _courseName.Text = course._courseName;
             _duration.Text = course._duration;

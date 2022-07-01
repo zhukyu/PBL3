@@ -49,7 +49,7 @@ namespace Gym
                             MessageBox.Show("lỗi");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         errorID.SetError(_courseID, "Mã Khóa học đã tồn tại");//MessageBox.Show("lỗi: " + ex.Message);
                     }

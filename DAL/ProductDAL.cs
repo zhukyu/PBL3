@@ -56,7 +56,7 @@ namespace Gym.DAL
                 cmd.CommandText = "select * from Product where (productName LIKE N'%" + str + "%' OR productID = '" + str + "') and delete_at is NULL "; ;
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();
-                if (rd.Read())
+                while (rd.Read())
                 {
                     Product product = new Product
                     (

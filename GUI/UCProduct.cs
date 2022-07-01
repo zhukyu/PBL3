@@ -27,7 +27,10 @@ namespace Gym
         {
             ProductDGV.Rows.Clear();
             if (products.Count == 0)
+            {
+                ProductInfo(null);
                 return;
+            }    
             foreach (Product product in products)
             {
                 ProductDGV.Rows.Add(
@@ -42,12 +45,19 @@ namespace Gym
         }
         private void ProductInfo(Product product)
         {
+            if(product == null)
+            {
+                _productID.Text = "";
+                _productName.Text = "";
+                _amount.Text = "";
+                _price.Text = "";
+                productPicture.Image = Properties.Resources.icons8_product_60px;
+                return;
+            }
             _productID.Text = product._productID;
             _productName.Text = product._productName;
             _amount.Text = product._amount + "";
             _price.Text = product._price + "";
-
-
 
             Image img = ImageHandle.GetImage(product._image);
 
@@ -76,8 +86,6 @@ namespace Gym
 
         private void editButton_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (ProductDGV.Rows.Count == 0)
@@ -179,6 +187,8 @@ namespace Gym
         {
             FormProductSale formProductSale = new FormProductSale();
             formProductSale.ShowDialog();
+            products = ProductBLL.GetAllProducts();
+            DGV_Load();
         }
     }
 }

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Gym.DAL;
-using Gym.DTO;
 
 namespace Gym.BLL
 {

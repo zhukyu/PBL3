@@ -52,7 +52,7 @@ namespace Gym
                             MessageBox.Show("loi");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         errorID.SetError(_deviceID, "Mã khách hàng đã tồn tại");//MessageBox.Show("lỗi:" + ex.Message);
                     }

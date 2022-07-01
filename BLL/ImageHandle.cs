@@ -23,7 +23,7 @@ namespace Gym.BLL
                 img.Save(shortImgPath);
                 return shortImgPath;
             }
-            catch (System.ArgumentException ex)
+            catch (System.ArgumentException)
             {
                 return null;
             }
@@ -45,11 +45,11 @@ namespace Gym.BLL
                 }
                 return image;
             }
-            catch (System.ArgumentException ex)
+            catch (System.ArgumentException)
             {
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

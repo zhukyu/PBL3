@@ -66,6 +66,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.memberList = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.memberTable)).BeginInit();
             this.formNameLable.SuspendLayout();
@@ -133,7 +134,7 @@
             this.memberTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.memberTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memberTable.EnableHeadersVisualStyles = false;
-            this.memberTable.Location = new System.Drawing.Point(2, 61);
+            this.memberTable.Location = new System.Drawing.Point(2, 120);
             this.memberTable.MultiSelect = false;
             this.memberTable.Name = "memberTable";
             this.memberTable.ReadOnly = true;
@@ -148,7 +149,7 @@
             this.memberTable.RowHeadersWidth = 51;
             this.memberTable.RowTemplate.Height = 29;
             this.memberTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberTable.Size = new System.Drawing.Size(923, 595);
+            this.memberTable.Size = new System.Drawing.Size(923, 536);
             this.memberTable.TabIndex = 27;
             this.memberTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberTable_CellClick);
             // 
@@ -513,6 +514,7 @@
             // memberList
             // 
             this.memberList.Controls.Add(this.memberTable);
+            this.memberList.Controls.Add(this.panel2);
             this.memberList.Controls.Add(this.formNameLable);
             this.memberList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memberList.Location = new System.Drawing.Point(0, 0);
@@ -520,6 +522,18 @@
             this.memberList.Padding = new System.Windows.Forms.Padding(2);
             this.memberList.Size = new System.Drawing.Size(927, 658);
             this.memberList.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(2, 61);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(923, 59);
+            this.panel2.TabIndex = 35;
             // 
             // tableLayoutPanel1
             // 
@@ -599,5 +613,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

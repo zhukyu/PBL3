@@ -123,7 +123,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.44884F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.55116F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 430F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.employeePicture, 0, 0);
@@ -149,9 +149,9 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this._idNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(648, 3);
+            this.panel1.Location = new System.Drawing.Point(647, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 303);
+            this.panel1.Size = new System.Drawing.Size(426, 303);
             this.panel1.TabIndex = 52;
             // 
             // _address
@@ -160,7 +160,7 @@
             this._address.BackColor = System.Drawing.Color.White;
             this._address.Enabled = false;
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._address.Location = new System.Drawing.Point(157, 162);
+            this._address.Location = new System.Drawing.Point(158, 162);
             this._address.Name = "_address";
             this._address.Size = new System.Drawing.Size(249, 43);
             this._address.TabIndex = 36;
@@ -171,7 +171,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(31, 175);
+            this.label5.Location = new System.Drawing.Point(32, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 24);
             this.label5.TabIndex = 35;
@@ -183,7 +183,7 @@
             this._phoneNumber.BackColor = System.Drawing.Color.White;
             this._phoneNumber.Enabled = false;
             this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._phoneNumber.Location = new System.Drawing.Point(157, 33);
+            this._phoneNumber.Location = new System.Drawing.Point(158, 33);
             this._phoneNumber.Name = "_phoneNumber";
             this._phoneNumber.Size = new System.Drawing.Size(249, 43);
             this._phoneNumber.TabIndex = 29;
@@ -194,7 +194,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(31, 38);
+            this.label8.Location = new System.Drawing.Point(32, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 24);
             this.label8.TabIndex = 31;
@@ -206,7 +206,7 @@
             this._role.BackColor = System.Drawing.Color.White;
             this._role.Enabled = false;
             this._role.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._role.Location = new System.Drawing.Point(157, 229);
+            this._role.Location = new System.Drawing.Point(158, 229);
             this._role.Name = "_role";
             this._role.Size = new System.Drawing.Size(249, 43);
             this._role.TabIndex = 34;
@@ -217,7 +217,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(31, 239);
+            this.label6.Location = new System.Drawing.Point(32, 239);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 24);
             this.label6.TabIndex = 33;
@@ -229,7 +229,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(31, 108);
+            this.label7.Location = new System.Drawing.Point(32, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 24);
             this.label7.TabIndex = 32;
@@ -241,7 +241,7 @@
             this._idNumber.BackColor = System.Drawing.Color.White;
             this._idNumber.Enabled = false;
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._idNumber.Location = new System.Drawing.Point(157, 95);
+            this._idNumber.Location = new System.Drawing.Point(158, 95);
             this._idNumber.Name = "_idNumber";
             this._idNumber.Size = new System.Drawing.Size(249, 43);
             this._idNumber.TabIndex = 30;
@@ -257,7 +257,7 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(251, 3);
+            this.panel4.Location = new System.Drawing.Point(250, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(391, 303);
             this.panel4.TabIndex = 53;
@@ -364,7 +364,7 @@
             this.employeePicture.BackColor = System.Drawing.Color.White;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
-            this.employeePicture.Location = new System.Drawing.Point(9, 7);
+            this.employeePicture.Location = new System.Drawing.Point(8, 7);
             this.employeePicture.Name = "employeePicture";
             this.employeePicture.Size = new System.Drawing.Size(230, 294);
             this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -694,7 +694,6 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.PictureBox employeePicture;
         private System.Windows.Forms.Panel productList;
         private System.Windows.Forms.DataGridView EmployeeDGV;

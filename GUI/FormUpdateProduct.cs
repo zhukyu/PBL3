@@ -25,12 +25,12 @@ namespace Gym
         public FormUpdateProduct(Product product)
         {
             InitializeComponent();
-            
+            fileName = product._image;
             _productID.Text = product._productID;
             _productName.Text = product._productName;
             _amount.Text = product._amount+"";
             _price.Text = product._price+"";
-            productPicture.ImageLocation = product._image;
+            productPicture.Image = ImageHandle.GetImage(fileName);
         }
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace Gym
 
         private void button1_Click(object sender, EventArgs e)
         {
-            productPicture.Image = Properties.Resources.person_128px1;
+            productPicture.Image = Properties.Resources.icons8_product_60px;
             fileName = null;
         }
 

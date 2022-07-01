@@ -26,7 +26,10 @@ namespace Gym
         {
             DeviceDGV.Rows.Clear();
             if (devices.Count == 0)
+            {
+                DeviceInfo(null);
                 return;
+            }
             foreach (Device device in devices)
             {
                 DeviceDGV.Rows.Add(
@@ -42,11 +45,22 @@ namespace Gym
         }
         private void DeviceInfo(Device device)
         {
+            if (device == null)
+            {
+                _deviceID.Text = "";
+                _deviceName.Text = "";
+                _amount.Text = "";
+                _status.Text = "";
+                _importDate.Text = "";
+                _employeeID.Text = "";
+                devicePicture.Image = Properties.Resources.icons8_barbell_60px;
+                return;
+            }
             _deviceID.Text = device._deviceID;
             _deviceName.Text = device._deviceName;
             _amount.Text = device._amount.ToString();
             _status.Text = device._status;
-            _importDate.Text = device._importDate.ToString("dd-MM-yyyy");
+            _importDate.Text = device._importDate.ToString("dd/MM/yyyy");
             _employeeID.Text = EmployeeBLL.GetEmployeeName(device._employeeID);
 
 

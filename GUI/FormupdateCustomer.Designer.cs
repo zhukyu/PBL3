@@ -75,6 +75,8 @@
             // 
             // gioitinh
             // 
+            this.gioitinh.BackColor = System.Drawing.Color.White;
+            this.gioitinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gioitinh.FormattingEnabled = true;
             this.gioitinh.Items.AddRange(new object[] {

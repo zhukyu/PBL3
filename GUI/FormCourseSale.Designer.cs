@@ -33,6 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this._customerID = new System.Windows.Forms.TextBox();
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._cashier = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +110,22 @@
             this.formNameLable.Name = "formNameLable";
             this.formNameLable.Size = new System.Drawing.Size(683, 80);
             this.formNameLable.TabIndex = 65;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(586, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -230,9 +246,11 @@
             // 
             // _duration
             // 
+            this._duration.BackColor = System.Drawing.Color.White;
             this._duration.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._duration.Location = new System.Drawing.Point(134, 527);
             this._duration.Name = "_duration";
+            this._duration.ReadOnly = true;
             this._duration.Size = new System.Drawing.Size(214, 38);
             this._duration.TabIndex = 78;
             // 
@@ -249,9 +267,11 @@
             // 
             // _price
             // 
+            this._price.BackColor = System.Drawing.Color.White;
             this._price.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._price.Location = new System.Drawing.Point(423, 527);
             this._price.Name = "_price";
+            this._price.ReadOnly = true;
             this._price.Size = new System.Drawing.Size(203, 38);
             this._price.TabIndex = 76;
             // 
@@ -290,28 +310,13 @@
             // 
             // _cashier
             // 
-            this._cashier.Enabled = false;
+            this._cashier.BackColor = System.Drawing.Color.White;
             this._cashier.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._cashier.Location = new System.Drawing.Point(167, 611);
             this._cashier.Name = "_cashier";
+            this._cashier.ReadOnly = true;
             this._cashier.Size = new System.Drawing.Size(214, 38);
             this._cashier.TabIndex = 82;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(586, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 48);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCourseSale
             // 

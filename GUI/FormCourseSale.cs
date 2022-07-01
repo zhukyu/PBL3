@@ -117,5 +117,10 @@ namespace Gym
                 this._price.Text = courses[courseIndex]._price.ToString();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

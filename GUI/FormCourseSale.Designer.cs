@@ -51,6 +51,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._cashier = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +101,7 @@
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
@@ -295,11 +297,28 @@
             this._cashier.Size = new System.Drawing.Size(214, 38);
             this._cashier.TabIndex = 82;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(586, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormCourseSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 680);
+            this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this._cashier);
             this.Controls.Add(this.teacherCb);
@@ -322,6 +341,7 @@
             this.Controls.Add(this._customerID);
             this.Controls.Add(this.courseCb);
             this.Controls.Add(this.label6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCourseSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "courseSale";
@@ -357,5 +377,6 @@
         public System.Windows.Forms.TextBox _idNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox _cashier;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -55,6 +55,7 @@
             this.courseTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this._total = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseList)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Dock = System.Windows.Forms.DockStyle.Top;
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -350,11 +352,28 @@
             this._total.Size = new System.Drawing.Size(246, 29);
             this._total.TabIndex = 61;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(672, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormCourseReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 708);
+            this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this._total);
             this.Controls.Add(this.courseList);
@@ -373,6 +392,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._receiptID);
             this.Controls.Add(this.formNameLable);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FormCourseReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -411,5 +431,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _duration;
         private System.Windows.Forms.DataGridViewCheckBoxColumn hasPT;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseTotal;
+        private System.Windows.Forms.Button button1;
     }
 }

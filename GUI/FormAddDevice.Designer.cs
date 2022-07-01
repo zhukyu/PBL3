@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this._deviceName = new System.Windows.Forms.TextBox();
             this._deviceID = new System.Windows.Forms.TextBox();
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.addPictureBox1 = new System.Windows.Forms.Button();
@@ -45,8 +47,18 @@
             this._employeeID = new System.Windows.Forms.TextBox();
             this._importDate = new System.Windows.Forms.DateTimePicker();
             this._status = new System.Windows.Forms.ComboBox();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_status = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorQL = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devicePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorQL)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -89,6 +101,7 @@
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(203, 43);
             this._amount.TabIndex = 40;
+            this._amount.Validating += new System.ComponentModel.CancelEventHandler(this._amount_Validating);
             // 
             // label3
             // 
@@ -130,6 +143,7 @@
             this._deviceName.Name = "_deviceName";
             this._deviceName.Size = new System.Drawing.Size(203, 43);
             this._deviceName.TabIndex = 36;
+            this._deviceName.Validating += new System.ComponentModel.CancelEventHandler(this._deviceName_Validating);
             // 
             // _deviceID
             // 
@@ -138,18 +152,36 @@
             this._deviceID.Name = "_deviceID";
             this._deviceID.Size = new System.Drawing.Size(203, 43);
             this._deviceID.TabIndex = 35;
+            this._deviceID.Validating += new System.ComponentModel.CancelEventHandler(this._deviceID_Validating);
             // 
             // formNameLable
             // 
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(2, -1);
+            this.formNameLable.Location = new System.Drawing.Point(-6, -1);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(731, 73);
+            this.formNameLable.Size = new System.Drawing.Size(739, 73);
             this.formNameLable.TabIndex = 47;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(669, -1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -207,6 +239,7 @@
             this._employeeID.ReadOnly = true;
             this._employeeID.Size = new System.Drawing.Size(203, 43);
             this._employeeID.TabIndex = 82;
+            this._employeeID.Validating += new System.ComponentModel.CancelEventHandler(this._employeeID_Validating);
             // 
             // _importDate
             // 
@@ -230,12 +263,34 @@
             this._status.Name = "_status";
             this._status.Size = new System.Drawing.Size(203, 45);
             this._status.TabIndex = 80;
+            this._status.Validating += new System.ComponentModel.CancelEventHandler(this._status_Validating);
+            // 
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorSL
+            // 
+            this.errorSL.ContainerControl = this;
+            // 
+            // error_status
+            // 
+            this.error_status.ContainerControl = this;
+            // 
+            // errorQL
+            // 
+            this.errorQL.ContainerControl = this;
             // 
             // FormAddDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 671);
+            this.ControlBox = false;
             this.Controls.Add(this._employeeID);
             this.Controls.Add(this._importDate);
             this.Controls.Add(this._status);
@@ -252,12 +307,18 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this._deviceName);
             this.Controls.Add(this._deviceID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddDevice";
             this.Text = "addDevice";
             this.Load += new System.EventHandler(this.addDevice_Load);
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devicePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorQL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +344,11 @@
         public System.Windows.Forms.TextBox _employeeID;
         public System.Windows.Forms.DateTimePicker _importDate;
         public System.Windows.Forms.ComboBox _status;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorSL;
+        private System.Windows.Forms.ErrorProvider error_status;
+        private System.Windows.Forms.ErrorProvider errorQL;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.formNameLable = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this._courseName = new System.Windows.Forms.TextBox();
@@ -40,21 +41,46 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._courseID = new System.Windows.Forms.TextBox();
+            this.errorID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorTime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorprice = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
             // 
             this.formNameLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formNameLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.formNameLable.Controls.Add(this.button1);
             this.formNameLable.Controls.Add(this.formName);
             this.formNameLable.Font = new System.Drawing.Font("Tahoma", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.formNameLable.ForeColor = System.Drawing.Color.White;
-            this.formNameLable.Location = new System.Drawing.Point(1, -2);
+            this.formNameLable.Location = new System.Drawing.Point(-2, -2);
             this.formNameLable.Margin = new System.Windows.Forms.Padding(0);
             this.formNameLable.Name = "formNameLable";
-            this.formNameLable.Size = new System.Drawing.Size(570, 70);
+            this.formNameLable.Size = new System.Drawing.Size(575, 70);
             this.formNameLable.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(513, -1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formName
             // 
@@ -87,6 +113,7 @@
             this._courseName.Name = "_courseName";
             this._courseName.Size = new System.Drawing.Size(245, 40);
             this._courseName.TabIndex = 77;
+            this._courseName.Validating += new System.ComponentModel.CancelEventHandler(this._courseName_Validating);
             // 
             // _duration
             // 
@@ -103,6 +130,7 @@
             this._duration.Name = "_duration";
             this._duration.Size = new System.Drawing.Size(245, 39);
             this._duration.TabIndex = 76;
+            this._duration.Validating += new System.ComponentModel.CancelEventHandler(this._duration_Validating);
             // 
             // label3
             // 
@@ -122,6 +150,7 @@
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(245, 40);
             this._price.TabIndex = 74;
+            this._price.Validating += new System.ComponentModel.CancelEventHandler(this._price_Validating);
             // 
             // label4
             // 
@@ -163,12 +192,30 @@
             this._courseID.Name = "_courseID";
             this._courseID.Size = new System.Drawing.Size(245, 40);
             this._courseID.TabIndex = 70;
+            this._courseID.Validating += new System.ComponentModel.CancelEventHandler(this._courseID_Validating);
+            // 
+            // errorID
+            // 
+            this.errorID.ContainerControl = this;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            // 
+            // errorTime
+            // 
+            this.errorTime.ContainerControl = this;
+            // 
+            // errorprice
+            // 
+            this.errorprice.ContainerControl = this;
             // 
             // FormAddCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 633);
+            this.ControlBox = false;
             this.Controls.Add(this._courseName);
             this.Controls.Add(this._duration);
             this.Controls.Add(this.label3);
@@ -179,10 +226,15 @@
             this.Controls.Add(this._courseID);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.formNameLable);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddCourse";
             this.Text = "addCourse";
             this.formNameLable.ResumeLayout(false);
             this.formNameLable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +253,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox _courseID;
+        private System.Windows.Forms.ErrorProvider errorID;
+        private System.Windows.Forms.ErrorProvider errorName;
+        private System.Windows.Forms.ErrorProvider errorTime;
+        private System.Windows.Forms.ErrorProvider errorprice;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -57,19 +57,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="errorPhone.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="errorID.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>150, 17</value>
-  </metadata>
-  <metadata name="errorName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>255, 17</value>
-  </metadata>
-  <metadata name="erroradress.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>386, 17</value>
-  </metadata>
-  <metadata name="errorCMND.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>519, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAO1JREFUSEvtld0KgkAQRn0vg8CeKIh65KKH0ObE2QvJtl3d7vxgGGbm+7lQsdux
+        GuM4XqKOjquAHh/HT8Sxj3pEnVxVAZ363tUyIEisCoKvLh+QAFFBURA8+WUBCQgUZoO4y6sLSECowWIQ
+        e+/rAhIw0GgWxOx+W0ACRhq+g+jObQISpmk6hOkz6kpn9tQWYX4L84nuqi3CeIi6R53tg6c2CMPZM6A7
+        F31HP4GRhrOHzOx+WxAGGi2+Rey9rwtCqEH2NeUury4IgcKi7wCe/LIgiAqKAhLgq8sHQZBYFZCATv33
+        oDj+/8+4I4+uewHlGGoJ5zimEAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

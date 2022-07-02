@@ -57,16 +57,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="_productName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wAAADsABataJCQAAAO1JREFUSEvtld0KgkAQRn0vg8CeKIh65KKH0ObE2QvJtl3d7vxgGGbm+7lQsdux
+        GuM4XqKOjquAHh/HT8Sxj3pEnVxVAZ363tUyIEisCoKvLh+QAFFBURA8+WUBCQgUZoO4y6sLSECowWIQ
+        e+/rAhIw0GgWxOx+W0ACRhq+g+jObQISpmk6hOkz6kpn9tQWYX4L84nuqi3CeIi6R53tg6c2CMPZM6A7
+        F31HP4GRhrOHzOx+WxAGGi2+Rey9rwtCqEH2NeUury4IgcKi7wCe/LIgiAqKAhLgq8sHQZBYFZCATv33
+        oDj+/8+4I4+uewHlGGoJ5zimEAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="_productName.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
-  <metadata name="_amount.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="_amount.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
-  <metadata name="_unitPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="_unitPrice.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
-  <metadata name="_unitTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="_unitTotal.UserAddedColumn" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
 </root>

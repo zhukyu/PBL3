@@ -59,6 +59,7 @@
             this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
             this._password = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.errorMK = new System.Windows.Forms.ErrorProvider(this.components);
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroradress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMK)).BeginInit();
             this.SuspendLayout();
             // 
             // formNameLable
@@ -274,7 +276,6 @@
             // 
             this.employeePicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
             this.employeePicture.Location = new System.Drawing.Point(483, 121);
             this.employeePicture.Name = "employeePicture";
             this.employeePicture.Size = new System.Drawing.Size(228, 291);
@@ -358,6 +359,7 @@
             this._password.Name = "_password";
             this._password.Size = new System.Drawing.Size(258, 43);
             this._password.TabIndex = 82;
+            this._password.Validating += new System.ComponentModel.CancelEventHandler(this._password_Validating);
             // 
             // label9
             // 
@@ -369,6 +371,10 @@
             this.label9.Size = new System.Drawing.Size(117, 24);
             this.label9.TabIndex = 81;
             this.label9.Text = "Mật khẩu :";
+            // 
+            // errorMK
+            // 
+            this.errorMK.ContainerControl = this;
             // 
             // FormUpdateEmployee
             // 
@@ -412,6 +418,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorChucvu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroradress)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCMND)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +458,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox _password;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorMK;
     }
 }

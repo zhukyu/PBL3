@@ -238,6 +238,23 @@ namespace Gym
         {
             this.Close();
         }
+
+        private void _password_Validating(object sender, CancelEventArgs e)
+        {
+            if (_password.Text == "")
+            {
+                e.Cancel = true;
+                _password.Focus();
+
+                errorMK.SetError(_password, "Vui lòng nhập Password!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorMK.SetError(_password, null);
+            }
+        }
     }
 
 }

@@ -40,6 +40,12 @@ namespace Gym
                 employeePicture.ImageLocation = employee._image;
             Account temp = AccountBLL.GetAccount(_employeeID.Text);
             _password.Text = temp._password;
+            if(employee._role == "Quản trị viên")
+            {
+                _role.DropDownStyle = ComboBoxStyle.DropDown;
+                _role.Text = "Quản trị viên";
+                _role.Enabled = false;
+            }
         }
 
 

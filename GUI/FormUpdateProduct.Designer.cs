@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateProduct));
             this.formNameLable = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
@@ -75,11 +76,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(582, 0);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(589, -2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(63, 48);
             this.button3.TabIndex = 5;
-            this.button3.Text = "X";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -191,7 +192,6 @@
             // 
             this.productPicture.BackColor = System.Drawing.Color.White;
             this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.productPicture.Image = global::Gym.Properties.Resources.icons8_product_60px;
             this.productPicture.Location = new System.Drawing.Point(212, 93);
             this.productPicture.Name = "productPicture";
             this.productPicture.Size = new System.Drawing.Size(206, 201);

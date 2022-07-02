@@ -72,20 +72,20 @@ namespace Gym
             this.pContainer = new System.Windows.Forms.Panel();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.UserNameLB = new System.Windows.Forms.Label();
             this.MinimizeBtn = new System.Windows.Forms.Button();
             this.MaximizeBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.formNameLable.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -313,6 +313,15 @@ namespace Gym
             this.panel3.Size = new System.Drawing.Size(390, 125);
             this.panel3.TabIndex = 2;
             // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.UserNameLB);
+            this.panel4.Location = new System.Drawing.Point(15, 63);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(363, 45);
+            this.panel4.TabIndex = 2;
+            // 
             // UserNameLB
             // 
             this.UserNameLB.Dock = System.Windows.Forms.DockStyle.Right;
@@ -354,7 +363,7 @@ namespace Gym
             this.MaximizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaximizeBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MaximizeBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MaximizeBtn.Image = global::Gym.Properties.Resources.icons8_maximize_button_48__1_;
+            this.MaximizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MaximizeBtn.Image")));
             this.MaximizeBtn.Location = new System.Drawing.Point(298, 0);
             this.MaximizeBtn.Name = "MaximizeBtn";
             this.MaximizeBtn.Size = new System.Drawing.Size(43, 39);
@@ -400,15 +409,6 @@ namespace Gym
             this.panel2.Size = new System.Drawing.Size(1335, 783);
             this.panel2.TabIndex = 0;
             // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.UserNameLB);
-            this.panel4.Location = new System.Drawing.Point(15, 63);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(363, 45);
-            this.panel4.TabIndex = 2;
-            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -428,8 +428,8 @@ namespace Gym
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.formNameLable.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

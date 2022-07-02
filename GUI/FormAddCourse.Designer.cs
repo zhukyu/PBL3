@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddCourse));
             this.formNameLable = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.formName = new System.Windows.Forms.Label();
@@ -74,11 +75,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(513, -1);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(516, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 48);
+            this.button1.Size = new System.Drawing.Size(59, 50);
             this.button1.TabIndex = 2;
-            this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

@@ -33,7 +33,7 @@ namespace Gym
 
         private void courseSale_Load(object sender, EventArgs e)
         {
-            _cashier.Text = Program.userName;
+            _cashier.Text = FormHome.userName;
             _customerID.Text = customer._customerID;
             _fullName.Text = customer._fullName;
             _idNumber.Text = customer._idNumber;
@@ -84,7 +84,7 @@ namespace Gym
                         customer._customerID,
                         courses[courseIndex]._courseID,
                         teacherID,
-                        Program.userID,
+                        FormHome.userID,
                         DateTime.Today,
                         DateTime.Today.AddMonths(duration),
                         Convert.ToInt32(_price.Text)

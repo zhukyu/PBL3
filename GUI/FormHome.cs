@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Drawing;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
     public partial class FormHome : Form
     {
+        internal static string userName = "";
+        internal static string userID = "";
+        internal static string role = "";
+
         const int WS_MINIMIZEBOX = 0x20000;
         const int CS_DBLCLKS = 0x8;
         // thu nhỏ khi click vào icon
@@ -26,9 +32,21 @@ namespace Gym
                 return cp;
             }
         }
-        public FormHome()
+        public FormHome(Account account)
         {
             InitializeComponent();
+            userID = account._userID;
+            Employee temp = EmployeeBLL.GetEmployee(userID);
+            userName = temp._fullName;
+            role = temp._role;
+            UserNameLB.Text = $"Chào mừng, {userName}";
+
+            // giấu chức năng
+            if(role != "Quản trị viên")
+            {
+                employeeButton.Hide();
+                revenueButton.Hide();
+            }
 
             // change color
             this.memberButton.BackColor = Color.FromArgb(142, 124, 195);
@@ -46,7 +64,11 @@ namespace Gym
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            DialogResult dlr = MessageBox.Show("Bạn có muốn đăng xuất ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -216,7 +238,11 @@ namespace Gym
 
         private void CloseBtn_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dlr = MessageBox.Show("Bạn có muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)

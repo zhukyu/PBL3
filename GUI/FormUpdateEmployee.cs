@@ -25,6 +25,7 @@ namespace Gym
         public FormUpdateEmployee(Employee employee)
         {
             InitializeComponent();
+            fileName = employee._image;
             _employeeID.Text = employee._employeeID;
             _fullName.Text = employee._fullName;
             _gender.Text = employee._gender;
@@ -33,7 +34,12 @@ namespace Gym
             _idNumber.Text = employee._idNumber;
             _address.Text = employee._address;
             _role.Text = employee._role;
-            employeePicture.ImageLocation = employee._image;
+            if(fileName == null)
+                employeePicture.Image = Properties.Resources.person_128px1;
+            else
+                employeePicture.ImageLocation = employee._image;
+            Account temp = AccountBLL.GetAccount(_employeeID.Text);
+            _password.Text = temp._password;
         }
 
 
@@ -58,6 +64,8 @@ namespace Gym
                                 fileName
                             );
                         bool result = EmployeeBLL.UpdateEmployee(employee);
+                        Account account = new Account(_employeeID.Text, _password.Text);
+                        result = AccountBLL.UpdateAccount(account);
                         if (result)
                         {
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

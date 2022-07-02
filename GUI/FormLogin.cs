@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Gym.BLL;
+using Gym.DTO;
 
 namespace Gym
 {
     public partial class FormLogin : Form
     {
+        
         public FormLogin()
         {
             InitializeComponent();
@@ -21,65 +24,38 @@ namespace Gym
         
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(Program.cnstr);
             try
             {
-                conn.Open();
-                
-                SqlCommand cmd = new SqlCommand("select * from Account where userID = @_username and password = @_password ", conn);
-                SqlParameter param1 = new SqlParameter();
-                param1.ParameterName = "@_username";
-                param1.Value = username.Text;
-                SqlParameter param2 = new SqlParameter();
-                param2.ParameterName = "@_password";
-                param2.Value = password.Text;
-                cmd.Parameters.Add(param1);
-                cmd.Parameters.Add(param2);
-
-                SqlDataReader data = cmd.ExecuteReader();
-
                 if (username.Text == "")
                 {
-                    MessageBox.Show("Bạn chưa nhập tên tài khoản");
+                    MessageBox.Show("Bạn chưa nhập tên tài khoản", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (password.Text == "")
                 {
-                    MessageBox.Show("Bạn chưa nhập mật khẩu");
+                    MessageBox.Show("Bạn chưa nhập mật khẩu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 if (username.Text != "" && password.Text != "")
-                    if (data.Read() == true)
+                {
+                    Account account = new Account(username.Text, password.Text);
+                    bool result = AccountBLL.Login(account);
+                    if(result)
                     {
-                        data.Close();
-                        Program.userID = username.Text;
-                        cmd = new SqlCommand($"Select fullname from Employee where employeeID = '{username.Text}'", conn);
-                        SqlDataReader rd = cmd.ExecuteReader();
-                        if(rd.Read() == true)
-                        {
-                            Program.userName = rd.GetString(0);
-                        }
-                        var homeForm = new FormHome();
+                        FormHome formHome = new FormHome(account);
                         this.Hide();
-                        homeForm.ShowDialog();
+                        formHome.ShowDialog();
                         this.Close();
-
                     }
-
                     else
                     {
-                        MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                        MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            finally
-            {
-                conn.Close();
-            }
-
-
         }
 
         private void password_KeyDown(object sender, KeyEventArgs e)

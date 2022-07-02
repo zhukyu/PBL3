@@ -72,6 +72,7 @@ namespace Gym
             this.pContainer = new System.Windows.Forms.Panel();
             this.formNameLable = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.UserNameLB = new System.Windows.Forms.Label();
             this.MinimizeBtn = new System.Windows.Forms.Button();
             this.MaximizeBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
@@ -300,35 +301,49 @@ namespace Gym
             // 
             // panel3
             // 
-            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.UserNameLB);
             this.panel3.Controls.Add(this.MinimizeBtn);
             this.panel3.Controls.Add(this.MaximizeBtn);
             this.panel3.Controls.Add(this.CloseBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1151, 0);
+            this.panel3.Location = new System.Drawing.Point(981, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(184, 125);
+            this.panel3.Size = new System.Drawing.Size(354, 125);
             this.panel3.TabIndex = 2;
+            // 
+            // UserNameLB
+            // 
+            this.UserNameLB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UserNameLB.AutoSize = true;
+            this.UserNameLB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.UserNameLB.Location = new System.Drawing.Point(60, 74);
+            this.UserNameLB.Name = "UserNameLB";
+            this.UserNameLB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.UserNameLB.Size = new System.Drawing.Size(262, 24);
+            this.UserNameLB.TabIndex = 1;
+            this.UserNameLB.Text = "Chào mừng, Phạm Tiến Hữu";
             // 
             // MinimizeBtn
             // 
+            this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MinimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.MinimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.MinimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.MinimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MinimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.MinimizeBtn.Location = new System.Drawing.Point(3, 2);
+            this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
+            this.MinimizeBtn.Location = new System.Drawing.Point(213, 0);
             this.MinimizeBtn.Name = "MinimizeBtn";
-            this.MinimizeBtn.Size = new System.Drawing.Size(54, 46);
+            this.MinimizeBtn.Size = new System.Drawing.Size(43, 39);
             this.MinimizeBtn.TabIndex = 0;
-            this.MinimizeBtn.Text = "_";
             this.MinimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.MinimizeBtn.UseVisualStyleBackColor = true;
             this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // MaximizeBtn
             // 
+            this.MaximizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaximizeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MaximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.MaximizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
@@ -338,26 +353,27 @@ namespace Gym
             this.MaximizeBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MaximizeBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.MaximizeBtn.Image = global::Gym.Properties.Resources.icons8_maximize_button_48__1_;
-            this.MaximizeBtn.Location = new System.Drawing.Point(61, 0);
+            this.MaximizeBtn.Location = new System.Drawing.Point(262, 0);
             this.MaximizeBtn.Name = "MaximizeBtn";
-            this.MaximizeBtn.Size = new System.Drawing.Size(57, 47);
+            this.MaximizeBtn.Size = new System.Drawing.Size(43, 39);
             this.MaximizeBtn.TabIndex = 0;
             this.MaximizeBtn.UseVisualStyleBackColor = false;
             this.MaximizeBtn.Click += new System.EventHandler(this.MaximizeBtn_Click);
             // 
             // CloseBtn
             // 
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.Location = new System.Drawing.Point(124, 0);
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(311, 0);
             this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(57, 48);
+            this.CloseBtn.Size = new System.Drawing.Size(43, 39);
             this.CloseBtn.TabIndex = 0;
-            this.CloseBtn.Text = "x";
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click_1);
             // 
@@ -400,8 +416,8 @@ namespace Gym
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.formNameLable.ResumeLayout(false);
-            this.formNameLable.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -427,5 +443,6 @@ namespace Gym
         private System.Windows.Forms.Button MinimizeBtn;
         private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label UserNameLB;
     }
 }

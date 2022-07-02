@@ -57,6 +57,8 @@
             this.errorChucvu = new System.Windows.Forms.ErrorProvider(this.components);
             this.erroradress = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorCMND = new System.Windows.Forms.ErrorProvider(this.components);
+            this._password = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.formNameLable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
@@ -116,7 +118,7 @@
             "Huấn luyện viên"});
             this._role.Location = new System.Drawing.Point(180, 455);
             this._role.Name = "_role";
-            this._role.Size = new System.Drawing.Size(215, 39);
+            this._role.Size = new System.Drawing.Size(258, 39);
             this._role.TabIndex = 74;
             this._role.Validating += new System.ComponentModel.CancelEventHandler(this._role_Validating);
             // 
@@ -131,7 +133,7 @@
             "Nữ"});
             this._gender.Location = new System.Drawing.Point(180, 231);
             this._gender.Name = "_gender";
-            this._gender.Size = new System.Drawing.Size(215, 39);
+            this._gender.Size = new System.Drawing.Size(258, 39);
             this._gender.TabIndex = 73;
             // 
             // _address
@@ -139,7 +141,7 @@
             this._address.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._address.Location = new System.Drawing.Point(180, 506);
             this._address.Name = "_address";
-            this._address.Size = new System.Drawing.Size(215, 43);
+            this._address.Size = new System.Drawing.Size(258, 43);
             this._address.TabIndex = 72;
             this._address.Validating += new System.ComponentModel.CancelEventHandler(this._address_Validating);
             // 
@@ -192,7 +194,7 @@
             this._idNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._idNumber.Location = new System.Drawing.Point(180, 394);
             this._idNumber.Name = "_idNumber";
-            this._idNumber.Size = new System.Drawing.Size(215, 43);
+            this._idNumber.Size = new System.Drawing.Size(258, 43);
             this._idNumber.TabIndex = 67;
             this._idNumber.Validating += new System.ComponentModel.CancelEventHandler(this._idNumber_Validating);
             // 
@@ -201,7 +203,7 @@
             this._phoneNumber.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._phoneNumber.Location = new System.Drawing.Point(180, 341);
             this._phoneNumber.Name = "_phoneNumber";
-            this._phoneNumber.Size = new System.Drawing.Size(215, 43);
+            this._phoneNumber.Size = new System.Drawing.Size(258, 43);
             this._phoneNumber.TabIndex = 66;
             this._phoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this._phoneNumber_Validating);
             // 
@@ -254,7 +256,7 @@
             this._fullName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._fullName.Location = new System.Drawing.Point(180, 175);
             this._fullName.Name = "_fullName";
-            this._fullName.Size = new System.Drawing.Size(215, 43);
+            this._fullName.Size = new System.Drawing.Size(258, 43);
             this._fullName.TabIndex = 60;
             this._fullName.Validating += new System.ComponentModel.CancelEventHandler(this._fullName_Validating);
             // 
@@ -262,10 +264,10 @@
             // 
             this._employeeID.BackColor = System.Drawing.Color.White;
             this._employeeID.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._employeeID.Location = new System.Drawing.Point(180, 122);
+            this._employeeID.Location = new System.Drawing.Point(180, 119);
             this._employeeID.Name = "_employeeID";
             this._employeeID.ReadOnly = true;
-            this._employeeID.Size = new System.Drawing.Size(215, 43);
+            this._employeeID.Size = new System.Drawing.Size(258, 43);
             this._employeeID.TabIndex = 59;
             // 
             // employeePicture
@@ -299,7 +301,7 @@
             this._birthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this._birthday.Location = new System.Drawing.Point(180, 284);
             this._birthday.Name = "_birthday";
-            this._birthday.Size = new System.Drawing.Size(215, 38);
+            this._birthday.Size = new System.Drawing.Size(258, 38);
             this._birthday.TabIndex = 79;
             this._birthday.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             // 
@@ -349,12 +351,33 @@
             // 
             this.errorCMND.ContainerControl = this;
             // 
+            // _password
+            // 
+            this._password.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._password.Location = new System.Drawing.Point(180, 567);
+            this._password.Name = "_password";
+            this._password.Size = new System.Drawing.Size(258, 43);
+            this._password.TabIndex = 82;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(45, 580);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 24);
+            this.label9.TabIndex = 81;
+            this.label9.Text = "Mật khẩu :";
+            // 
             // FormUpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 622);
+            this.ClientSize = new System.Drawing.Size(793, 647);
             this.ControlBox = false;
+            this.Controls.Add(this._password);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.replaceImgBtn);
             this.Controls.Add(this.deleteImgBtn);
             this.Controls.Add(this._birthday);
@@ -426,5 +449,7 @@
         private System.Windows.Forms.ErrorProvider erroradress;
         private System.Windows.Forms.ErrorProvider errorCMND;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox _password;
+        private System.Windows.Forms.Label label9;
     }
 }

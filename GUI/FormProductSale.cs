@@ -242,7 +242,7 @@ namespace Gym
                 {
                     ProductReceipt productReceipt = new ProductReceipt(
                         _saleID.Text,
-                        Program.userID,
+                        FormHome.userID,
                         DateTime.Today,
                         Convert.ToInt32(_total.Text)
                     );
@@ -272,7 +272,7 @@ namespace Gym
             try
             {
                 _saleID.Text = ProductReceiptBLL.GenerateID();
-                _cashier.Text = Program.userName;
+                _cashier.Text = FormHome.userName;
                 products = ProductBLL.GetAllProducts();
                 foreach(Product product in products)
                 {

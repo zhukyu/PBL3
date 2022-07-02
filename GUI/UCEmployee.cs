@@ -104,6 +104,10 @@ namespace Gym
             {
                 try
                 {
+                    if (FormHome.role == "Quản trị viên")
+                    {
+                        throw new Exception("Không thể xóa quản trị viên");
+                    }
                     if (EmployeeDGV.Rows.Count == 0)
                         throw new Exception("Bạn chưa chọn dữ liệu");
                     string employeeID = EmployeeDGV.CurrentRow.Cells[0].Value.ToString();

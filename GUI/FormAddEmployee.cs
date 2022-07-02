@@ -43,6 +43,8 @@ namespace Gym
                                 fileName
                             );
                         bool result = EmployeeBLL.AddEmployee(employee);
+                        Account account = new Account(_employeeID.Text, _password.Text);
+                        result = AccountBLL.CreateAccount(account);
                         if (result)
                         {
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

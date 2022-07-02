@@ -49,7 +49,7 @@ namespace Gym
                             _status.Text,
                             _importDate.Value,
                             fileName,
-                            Program.userID
+                            FormHome.userID
                         );
                         bool result = DeviceBLL.UpdateDevice(device);
                         if (result)
@@ -72,7 +72,7 @@ namespace Gym
 
         private void updateDevice_Load(object sender, EventArgs e)
         {
-            _employeeID.Text = Program.userName;
+            _employeeID.Text = FormHome.userName;
             if (fileName == null)
             {
                 devicePicture.Image = Properties.Resources.icons8_barbell_60px;

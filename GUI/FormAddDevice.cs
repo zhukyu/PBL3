@@ -39,7 +39,7 @@ namespace Gym
                             _status.Text,
                             _importDate.Value,
                             fileName,
-                            Program.userID
+                            FormHome.userID
                         );
                         bool result = DeviceBLL.AddDevice(device);
                         if (result)
@@ -85,7 +85,7 @@ namespace Gym
 
         private void addDevice_Load(object sender, EventArgs e)
         {
-            _employeeID.Text = Program.userName;
+            _employeeID.Text = FormHome.userName;
 
             _deviceID.Text = DeviceBLL.GenerateID();
             _deviceID.ReadOnly = true;

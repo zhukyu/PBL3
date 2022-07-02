@@ -13,8 +13,6 @@ namespace Gym
         
         internal static string cnstr = @"Data Source=ZHUKYU;Initial Catalog=GymDatabase;Integrated Security=True";
         internal static OpenFileDialog _openFileDialog = new OpenFileDialog();
-        internal static string userID = "";
-        internal static string userName = "";
         public static Image ByteToImg(string byteString)
         {
             byte[] imgBytes = Convert.FromBase64String(byteString);

@@ -118,11 +118,11 @@ namespace Gym
                 int result = mb1._customerID.CompareTo(mb2._customerID);
                 if (direction == 0) // tăng dần
                 {
-                    return result <= 0;
+                    return result < 0;
                 }
                 else // giảm dần
                 {
-                    return result >= 0;
+                    return result > 0;
                 }
             }
             // Họ tên
@@ -131,11 +131,11 @@ namespace Gym
                 int result = mb1._fullName.CompareTo(mb2._fullName);
                 if (direction == 0) // tăng dần
                 {
-                    return result <= 0;
+                    return result < 0;
                 }
                 else // giảm dần
                 {
-                    return result >= 0;
+                    return result > 0;
                 }
             }
             
@@ -145,11 +145,11 @@ namespace Gym
                 int result = mb1._courseName.CompareTo(mb2._courseName);
                 if (direction == 0) // tăng dần
                 {
-                    return result <= 0;
+                    return result < 0;
                 }
                 else // giảm dần
                 {
-                    return result >= 0;
+                    return result > 0;
                 }
             }
         }

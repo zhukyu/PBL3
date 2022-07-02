@@ -22,6 +22,10 @@ namespace Gym.BLL
         {
             return AccountDAL.UpdateAccount(account);
         }
+        public static bool DeleteAccount(string userID)
+        {
+            return AccountDAL.DeleteAccount(userID);
+        }
         public static Account GetAccount(string userID)
         {
             return AccountDAL.GetAccount(userID);

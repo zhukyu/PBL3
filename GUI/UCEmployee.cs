@@ -104,6 +104,7 @@ namespace Gym
                         throw new Exception("Không thể xóa quản trị viên");
                     }
                     bool result = EmployeeBLL.DeleteEmployee(employeeID);
+                    result = AccountBLL.DeleteAccount(employeeID);
                     if (result)
                     {
                         MessageBox.Show("Đã xóa thành công");

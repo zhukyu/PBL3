@@ -78,10 +78,26 @@ namespace Gym.DAL
             }
             return result;
         }
-        //public static bool DeleteAccount(string userID)
-        //{
+        public static bool DeleteAccount(string userID)
+        {
+            bool result = false;
+            SqlConnection conn = new SqlConnection(Program.cnstr);
+            try
+            {
+                conn.Open();
 
-        //}
+                SqlCommand cmd = new SqlCommand($"delete from Account where userID = '{userID}'", conn);
+
+                int ret = cmd.ExecuteNonQuery();
+                if (ret == 1)
+                    result = true;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         public static Account GetAccount(string userID)
         {
             Account account = null;

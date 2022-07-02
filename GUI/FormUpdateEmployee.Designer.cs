@@ -277,6 +277,7 @@
             // 
             this.employeePicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
             this.employeePicture.Location = new System.Drawing.Point(483, 121);
             this.employeePicture.Name = "employeePicture";
             this.employeePicture.Size = new System.Drawing.Size(228, 291);

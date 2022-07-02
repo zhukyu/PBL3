@@ -61,18 +61,9 @@ namespace Gym
         {
             FormAddEmployee frm = new FormAddEmployee();
             frm.StartPosition = FormStartPosition.CenterScreen;
-
-            frm.FormClosing += new FormClosingEventHandler(this.addEmployee_FormClosing);
             frm.ShowDialog();
             UCEmployee_Load(sender, e);
         }
-
-        private void addEmployee_FormClosing(object? sender, FormClosingEventArgs e)
-        {
-            
-           
-        }
-
 
         private void editButton_Click(object sender, EventArgs e)
         {
@@ -104,13 +95,14 @@ namespace Gym
             {
                 try
                 {
-                    if (FormHome.role == "Quản trị viên")
-                    {
-                        throw new Exception("Không thể xóa quản trị viên");
-                    }
                     if (EmployeeDGV.Rows.Count == 0)
                         throw new Exception("Bạn chưa chọn dữ liệu");
                     string employeeID = EmployeeDGV.CurrentRow.Cells[0].Value.ToString();
+                    string role = EmployeeDGV.CurrentRow.Cells[7].Value.ToString();
+                    if (role == "Quản trị viên")
+                    {
+                        throw new Exception("Không thể xóa quản trị viên");
+                    }
                     bool result = EmployeeBLL.DeleteEmployee(employeeID);
                     if (result)
                     {
@@ -131,7 +123,7 @@ namespace Gym
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

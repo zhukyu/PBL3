@@ -78,6 +78,10 @@ namespace Gym.DAL
             }
             return result;
         }
+        //public static bool DeleteAccount(string userID)
+        //{
+
+        //}
         public static Account GetAccount(string userID)
         {
             Account account = null;

@@ -112,21 +112,8 @@ namespace Gym
         // trả về true nếu a <= b với direction = 0
         private bool Compare(Member mb1, Member mb2, int sortBy, int direction)
         {
-            // Họ tên
-            if(sortBy == 0)
-            {
-                int result = mb1._fullName.CompareTo(mb2._fullName);
-                if (direction == 0) // tăng dần
-                {
-                    return result <= 0;
-                }
-                else // giảm dần
-                {
-                    return result >= 0;
-                }
-            }
             // Mã học viên
-            else if(sortBy == 1)
+            if (sortBy == 0)
             {
                 int result = mb1._customerID.CompareTo(mb2._customerID);
                 if (direction == 0) // tăng dần
@@ -138,6 +125,20 @@ namespace Gym
                     return result >= 0;
                 }
             }
+            // Họ tên
+            else if (sortBy == 1)
+            {
+                int result = mb1._fullName.CompareTo(mb2._fullName);
+                if (direction == 0) // tăng dần
+                {
+                    return result <= 0;
+                }
+                else // giảm dần
+                {
+                    return result >= 0;
+                }
+            }
+            
             // Tên khóa học
             else
             {

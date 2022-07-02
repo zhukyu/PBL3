@@ -84,7 +84,7 @@ namespace Gym
                 // xử lý số lượng sản phẩm
                 if (amount < 1)
                 {
-                    throw new FormatException(); ;
+                    throw new FormatException();
                 }
                 if (products[index]._amount < amount)
                 {

@@ -39,7 +39,7 @@ namespace Gym
             Employee temp = EmployeeBLL.GetEmployee(userID);
             userName = temp._fullName;
             role = temp._role;
-            UserNameLB.Text = $"Chào mừng, {userName}";
+            UserNameLB.Text = $"Xin chào, {userName}";
 
             // giấu chức năng
             if(role != "Quản trị viên")

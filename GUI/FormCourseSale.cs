@@ -114,6 +114,12 @@ namespace Gym
 
         private void teacherCb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(courseCb.SelectedIndex == -1)
+            {
+                teacherCb.SelectedIndex = -1;
+                
+                return;
+            }
             teacherIndex = teacherCb.SelectedIndex;
             if (teacherCb.SelectedIndex != -1)
             {

@@ -570,8 +570,8 @@
             this.SortByCB.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.SortByCB.FormattingEnabled = true;
             this.SortByCB.Items.AddRange(new object[] {
-            "Họ tên",
             "Mã Học viên",
+            "Họ tên",
             "Tên khóa học"});
             this.SortByCB.Location = new System.Drawing.Point(337, 12);
             this.SortByCB.Name = "SortByCB";

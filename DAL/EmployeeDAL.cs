@@ -94,8 +94,8 @@ namespace Gym.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select *from Employee where (EmployeeID   = '" + str + "' " +
-                    "OR fullname = N'" + str + "' OR idNumber = '" + str + "' " +
+                cmd.CommandText = "select *from Employee where (EmployeeID = '" + str + "' " +
+                    "OR idNumber = '" + str + "' " +
                     "OR fullName LIKE N'%" + str + "%') and delete_at is NULL";
                 cmd.Connection = conn;
                 SqlDataReader rd = cmd.ExecuteReader();

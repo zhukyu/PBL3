@@ -571,7 +571,7 @@
             this.SortByCB.FormattingEnabled = true;
             this.SortByCB.Items.AddRange(new object[] {
             "Mã Học viên",
-            "Họ tên",
+            "Tên học viên",
             "Tên khóa học"});
             this.SortByCB.Location = new System.Drawing.Point(337, 12);
             this.SortByCB.Name = "SortByCB";

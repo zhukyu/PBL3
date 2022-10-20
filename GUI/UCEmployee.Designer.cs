@@ -123,7 +123,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.44884F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.55116F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 432F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.employeePicture, 0, 0);
@@ -149,9 +149,9 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this._idNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(647, 3);
+            this.panel1.Location = new System.Drawing.Point(646, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(426, 303);
+            this.panel1.Size = new System.Drawing.Size(427, 303);
             this.panel1.TabIndex = 52;
             // 
             // _address
@@ -259,7 +259,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(250, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(391, 303);
+            this.panel4.Size = new System.Drawing.Size(390, 303);
             this.panel4.TabIndex = 53;
             // 
             // dateTimePicker1
@@ -364,9 +364,9 @@
             this.employeePicture.BackColor = System.Drawing.Color.White;
             this.employeePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.employeePicture.Image = global::Gym.Properties.Resources.person_128px1;
-            this.employeePicture.Location = new System.Drawing.Point(8, 7);
+            this.employeePicture.Location = new System.Drawing.Point(8, 28);
             this.employeePicture.Name = "employeePicture";
-            this.employeePicture.Size = new System.Drawing.Size(230, 294);
+            this.employeePicture.Size = new System.Drawing.Size(230, 252);
             this.employeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.employeePicture.TabIndex = 51;
             this.employeePicture.TabStop = false;

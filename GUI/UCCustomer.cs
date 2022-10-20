@@ -33,7 +33,7 @@ namespace Gym
                     customer._customerID,
                     customer._fullName,
                     customer._gender,
-                    customer._birthday.ToString("dd-MM-yyyy"),
+                    customer._birthday.ToString("dd/MM/yyyy"),
                     customer._phoneNumber,                   
                     customer._idNumber,
                     customer._address
@@ -106,7 +106,7 @@ namespace Gym
             _customerID.Text = customer._customerID;
             _fullName.Text = customer._fullName;
             _gender.Text = customer._gender;
-            _birthday.Text = customer._birthday.ToString("dd-MM-yyyy");
+            _birthday.Text = customer._birthday.ToString("dd/MM/yyyy");
             _phoneNumber.Text = customer._phoneNumber;
             _idNumber.Text = customer._idNumber;
             _address.Text = customer._address;

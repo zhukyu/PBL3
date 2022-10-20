@@ -125,10 +125,12 @@ namespace Gym
                     return result > 0;
                 }
             }
-            // Họ tên
+            // Tên
             else if (sortBy == 1)
             {
-                int result = mb1._fullName.CompareTo(mb2._fullName);
+                string name1 = mb1._fullName.Split(" ").Last();
+                string name2 = mb2._fullName.Split(" ").Last();
+                int result = name1.CompareTo(name2);
                 if (direction == 0) // tăng dần
                 {
                     return result < 0;

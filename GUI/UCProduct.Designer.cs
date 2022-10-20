@@ -103,7 +103,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(42, 145);
+            this.label3.Location = new System.Drawing.Point(47, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 29);
             this.label3.TabIndex = 45;
@@ -115,7 +115,7 @@
             this._price.BackColor = System.Drawing.Color.White;
             this._price.Enabled = false;
             this._price.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._price.Location = new System.Drawing.Point(192, 137);
+            this._price.Location = new System.Drawing.Point(197, 155);
             this._price.Name = "_price";
             this._price.Size = new System.Drawing.Size(245, 44);
             this._price.TabIndex = 44;
@@ -126,7 +126,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(77, 144);
+            this.label4.Location = new System.Drawing.Point(67, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 29);
             this.label4.TabIndex = 43;
@@ -138,7 +138,7 @@
             this._amount.BackColor = System.Drawing.Color.White;
             this._amount.Enabled = false;
             this._amount.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._amount.Location = new System.Drawing.Point(234, 137);
+            this._amount.Location = new System.Drawing.Point(224, 155);
             this._amount.Name = "_amount";
             this._amount.Size = new System.Drawing.Size(245, 44);
             this._amount.TabIndex = 42;
@@ -149,7 +149,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(42, 60);
+            this.label2.Location = new System.Drawing.Point(47, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 29);
             this.label2.TabIndex = 41;
@@ -161,7 +161,7 @@
             this._productName.BackColor = System.Drawing.Color.White;
             this._productName.Enabled = false;
             this._productName.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productName.Location = new System.Drawing.Point(192, 54);
+            this._productName.Location = new System.Drawing.Point(197, 72);
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(245, 44);
             this._productName.TabIndex = 40;
@@ -172,7 +172,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(77, 60);
+            this.label6.Location = new System.Drawing.Point(67, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 29);
             this.label6.TabIndex = 39;
@@ -184,7 +184,7 @@
             this._productID.BackColor = System.Drawing.Color.White;
             this._productID.Enabled = false;
             this._productID.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._productID.Location = new System.Drawing.Point(234, 54);
+            this._productID.Location = new System.Drawing.Point(224, 72);
             this._productID.Name = "_productID";
             this._productID.Size = new System.Drawing.Size(245, 44);
             this._productID.TabIndex = 37;
